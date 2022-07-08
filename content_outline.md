@@ -1,0 +1,42 @@
+# Content outline
+
+- Intro
+- Theoretical background
+    - Quantum gas microscopy
+        - History
+        - Laser cooling
+        - BEC
+        - Fermionic gases
+        - Analog mode
+            - Hubbard model
+            - Phase diagrams
+            - Material sciences / applications
+        - Digital mode
+            - Motivation for quantum computers
+            - Basic principles
+            - Applications
+    - MOT
+        - Goal
+        - History
+        - Working principles
+            - Absorption and emission
+                - Atomic phyics basics
+                - Zeeman shift
+            - Recoil
+            - Magnetic field geometry
+            - Quantitative estimations (loading rate, duration, cutoff speed)
+- FermiQP
+    - Goals
+        - Quantum gas microscope
+        - Technical features
+            - Compactness
+            - Cycle time
+            - Precision (magnetic fields etc)
+    - Chamber
+        - Parts
+        - Cycle overview (Oven, 2D MOT, push beam, 3D MOT, )
+    - Laser setups
+        - 2D MOT
+        - 3D MOT
+        - Locking (short)
+        - Dipole trap (short)
