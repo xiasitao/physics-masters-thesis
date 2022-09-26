@@ -10,14 +10,14 @@
 - Laser cooling
 - BEC
 - Fermionic gases
-- Analog mode
+- Analog mode [state of the art, refert to FermiQP]
     - Material sciences / applications
     - Hubbard model
     - Phase diagrams
     - Parameter tuning
         - Feshbach resonances
         - Lattice depth
-- Digital mode
+- Digital mode [focus, papers zu collisional gates, double well experiments, Porto (USA), Immanuel&Trozski, Simon Foelling (PhD), Gitter-Atom-Bewegung]
     - Motivation for quantum computers
     - Basic principles
         - Qubits
@@ -25,7 +25,7 @@
         - Two-qubit operations
     - Applications
 
-## Magneto-optical traps
+## Magneto-optical traps [formulas, motivations, maybe calculations (speeds, capture velocities)]
 - Goal
 - History
 - Working principles
@@ -35,6 +35,7 @@
     - Recoil
     - Magnetic field geometry
     - Quantitative estimations (loading rate, duration, cutoff speed)
+- Gray molasses cooling (citations, orders of magnitudes)
 
 ## Experimental setup of the FermiQP demonstrator
 - Goals
@@ -73,8 +74,9 @@
 - 3D MOT
     - MOT laser system
     - 3D MOT beams
+        - maybe RFA discussion
     - magnetic gradients
-- Gray molasses cooling
+- Gray molasses cooling (maybe just mention)
 - Feshbach field
     - requirements
         - field
@@ -84,6 +86,7 @@
     - simulation
         - Magpylib
         - 
+    - maybe compensation fields (agree with Janet)
 
 ## Conclusion and outlook
 - Next steps for the 3D MOT
@@ -93,5 +96,7 @@
     - Characterisation
     - 
 - Next steps for the FermiQP demonstrator
+    - Maybe loading directly into lattice from MOT
+    - Fast evaporation in dipole trap
     - Implementing other cooling methods
     - Implementing lattices
