@@ -10,14 +10,22 @@
 - Laser cooling
 - BEC
 - Fermionic gases
-- Analog mode [state of the art, refert to FermiQP]
+
+- Analog mode
+
+    TH: state of the art, refert to FermiQP
     - Material sciences / applications
     - Hubbard model
     - Phase diagrams
     - Parameter tuning
         - Feshbach resonances
         - Lattice depth
-- Digital mode [focus, papers zu collisional gates, double well experiments, Porto (USA), Immanuel&Trozski, Simon Foelling (PhD), Gitter-Atom-Bewegung]
+
+
+- Digital mode
+    
+    TH: focus, papers zu collisional gates, double well experiments, Porto (USA), Immanuel&Trozski, Simon Foelling (PhD), Gitter-Atom-Bewegung
+
     - Motivation for quantum computers
     - Basic principles
         - Qubits
@@ -25,7 +33,11 @@
         - Two-qubit operations
     - Applications
 
-## Magneto-optical traps [formulas, motivations, maybe calculations (speeds, capture velocities)]
+
+## Magneto-optical traps
+
+TH: formulas, motivations, maybe calculations (speeds, capture velocities)
+
 - Goal
 - History
 - Working principles
@@ -37,7 +49,9 @@
     - Quantitative estimations (loading rate, duration, cutoff speed)
 - Gray molasses cooling (citations, orders of magnitudes)
 
+
 ## Experimental setup of the FermiQP demonstrator
+
 - Goals
     - Quantum gas microscope
         - Analogue mode
@@ -59,7 +73,7 @@
         - Cooler and repumper transition
         - smeared-out 3P_3/2 state
 - Vacuum chamber
-- Cycle overview
+- Cycle overview [short, just ]
     - oven
     - 2D MOT
     - push beam
@@ -88,7 +102,9 @@
         - 
     - maybe compensation fields (agree with Janet)
 
+
 ## Conclusion and outlook
+
 - Next steps for the 3D MOT
     - optimization
     - alignment

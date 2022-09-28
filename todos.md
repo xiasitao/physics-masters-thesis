@@ -1,0 +1,3 @@
+- polarisation
+- MOT calculations (capture velocities depending on fields etc.)
+- laser setup power measurements
