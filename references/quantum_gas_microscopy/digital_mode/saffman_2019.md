@@ -1,0 +1,4 @@
+- error rates 10e-3 are way too big for reliable computation with depths of 1e10
+- error correction on logical qubits (expensive), might require 1e3ish physical qubits for a logical one
+- neutral atom setups promising as they have highest number of qubits
+    - long coherence times of hyperfine qubit states
