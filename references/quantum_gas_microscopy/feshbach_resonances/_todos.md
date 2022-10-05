@@ -1,0 +1,1 @@
+- find easy quotable source for FR

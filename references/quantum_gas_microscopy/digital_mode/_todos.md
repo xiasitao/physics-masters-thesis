@@ -1,0 +1,3 @@
+- read Negretti 2011
+- identify main papers for collisional gates
+    - find newer papers citing these
