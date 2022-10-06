@@ -7,7 +7,7 @@
 
 - First Lithium experiments (Schreck 2001, Truscott 2001)
 - Advances in QGM, advances with Lithium
-- technicl state of the art
+- technical state of the art
 
 ## Analog mode
 - short overview over goals
