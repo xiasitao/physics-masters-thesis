@@ -44,3 +44,15 @@
     - BEC with strong interactions with bound pairs (hardcore bosons), critical temperature decreasing as $t^2/|U|$, tunneling is dominated by second order tunneling, repulsive nn interaction
 - repulsive: $U > 0$
     - Mott insulator ($U \gg t$): half filling (every site occupied once)
+
+
+# Feshbach Resonances
+to read
+
+
+# Preparing the Quantum Gas in the Optical Lattice
+to read
+
+
+# Time of Flight Expansion Imaging
+to read

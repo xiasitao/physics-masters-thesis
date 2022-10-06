@@ -1,1 +1,2 @@
 - find easy quotable source for FR
+- read Esslinger paragraph
