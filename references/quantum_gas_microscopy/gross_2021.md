@@ -29,3 +29,16 @@
 - microscope can also be used for spin rotation (hyperfine states)
 - local focus can kick atoms out
 - caveat: drift between lattice and addressing if lattice is not projected in via the objective
+
+# Future directions
+- recent developments
+    - novel lattice geometries (refs 87, 88)
+    - angle-resolved photo emission spectroscopy (ARPES)
+    - bilayer systems -> high temperature superconductors
+- prospects
+    - combination with optical tweezers for atom-by-atom system assembly (arrangement in desired pattern). Have been used but tweezer depth inhomogeneity prevent controlling disorder, prevented usage with more than a few sites. Potential solution: fixing tweezer-aligned systems with optical lattices -> faster cycle times, deterministic initialization of low-entropy states
+- so far not accessed microscopic observables:
+    - inter-site coherences -> superlattices
+    - d-wave correlations
+    - measures of superfluidity
+    ### after citation 105
