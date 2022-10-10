@@ -1,0 +1,60 @@
+\documentclass[
+	twoside=false,
+	paper=a4,
+	fontsize=11pt,
+	parskip=half,
+	ngerman,
+	bibliography=totoc
+]{scrbook}
+
+% === Text layout ===
+\usepackage{ebgaramond}
+
+%\usepackage[osf, sc]{mathpazo}
+%\linespread{1.03}
+
+\usepackage[T1]{fontenc}
+\usepackage{eurosym}
+\newcommand{\red}[1]{\colorbox{red}{\textcolor{white}{\textbf{#1}}}}
+
+% === Math stuff ===
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{braket}
+\usepackage{siunitx}
+\usepackage{physics}
+
+% === Tables ===
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{ltablex}
+\usepackage{multirow}
+\usepackage{longtable}
+
+% === Quotes  ===
+\usepackage{csquotes}
+
+% === Graphics ===
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{float}
+
+% === Citations ===
+\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{../FermiQP.bib}
+
+% ===========================================================================
+\usepackage[
+	pdftitle={TODO title},
+	pdfsubject={TODO subject},
+	pdfauthor={Tobias Maximilian Philipp Schattauer},
+	pdfkeywords={TODO, keywords}
+	]{hyperref}
+
+\title{TODO title}
+\subtitle{TODO subtitle}
+\author{Tobias Maximilian Philipp Schattauer}
+\date{TODO date}
+% ===========================================================================
