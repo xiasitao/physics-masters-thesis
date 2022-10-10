@@ -41,4 +41,11 @@
     - inter-site coherences -> superlattices
     - d-wave correlations
     - measures of superfluidity
-    ### after citation 105
+- beyond Hubbard systems
+    - Ising systems with Rydberg excitations
+    - Rydberg molecules
+    - collective atom-light interactions
+- beyond alkali
+    - highly magnetic atoms (e.g. erbium) -> long-range interactions
+- imaging revolutions
+    - superresolution techniques using nonlinear optical response of atoms
