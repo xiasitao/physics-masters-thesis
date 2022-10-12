@@ -13,7 +13,7 @@
 - Scattering
 - Photon Recoil, Spontaneous emission and Doppler limit
 
-### MOT implementation
+### MOT theory
 - geometry
 - magnetic gradients
 - capture velocities
