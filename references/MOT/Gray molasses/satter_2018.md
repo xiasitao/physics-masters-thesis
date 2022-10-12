@@ -1,0 +1,1 @@
+- Different combining approach switching between D1 and D2
