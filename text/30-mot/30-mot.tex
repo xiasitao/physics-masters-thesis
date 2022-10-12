@@ -1,15 +1,16 @@
 \chapter{The 3-dimensional Magneto-optical Trap}
+\epigraph{When is Your First MOT Due?}{protyre.co.uk}
 
 
 \section{Laser Cooling with Magneto-optical Traps}
-[[History (Haensch, Earnshaw), examples, Nobel prize 1997.]]
+[[History (Haensch, Earnshaw), examples, Nobel Prize 1997.]]
 
-Laser light excerting a force onto an atom is the underlying mechanism of laser cooling. There are different implementations of laser cooling, each one making use of a different way light can interact with atoms: Doppler-cooling techniques on the one hand, as e.g. used in magneto-optical traps, are limited by the spontaneous decay of excited states regarding the achievable temperature. Sub-Doppler-cooling techniques, on the other hand, circumvent this limit using a variety atom-light interactions, such as the optical dipole trap, Raman sideband cooling or Sisyphus cooling \cite{foot_atomic_2005}.
+Laser light exerting a force onto an atom is the underlying mechanism of laser cooling. There are different implementations of laser cooling, each one making use of a different way light can interact with atoms: Doppler-cooling techniques on the one hand, as e.g. used in magneto-optical traps, are limited by the spontaneous decay of excited states regarding the achievable temperature. Sub-Doppler-cooling techniques, on the other hand, circumvent this limit using a variety atom-light interactions, such as the optical dipole trap, Raman sideband cooling or Sisyphus cooling \cite{foot_atomic_2005}.
 
 The rest of this section is covering the theory of magneto-optical traps and the implementation of the 3-dimensional magneto-optical trap of the FermiQP demonstrator experiment. The explanations closely follow the respective chapters in \cite{foot_atomic_2005} and \cite{metcalf_laser_2003}.
 
 \subsection*{Light scattering on atoms}
-Electro-magnetical waves carry momentum $\vec p = \hbar k$, which is directed into their propagation direction and depends on their wavelength $\lambda = \frac{2\pi}{k}$. When laser light scatters on atoms, a momentum transfer between the photons of the laser and the atoms takes place. The total transfer can be broken down into two parts: the absorption of laser photons where the atoms acquire momentum $\hbar \vec k$ per photon, and the spontaneous emission of photons where the atoms lose $\hbar \vec k_\text{emitted}$ per photon:
+Electromagnetic waves carry momentum $\vec p = \hbar k$, which is directed into their propagation direction and depends on their wavelength $\lambda = \frac{2\pi}{k}$. When laser light scatters on atoms, a momentum transfer between the photons of the laser and the atoms takes place. The total transfer can be broken down into two parts: the absorption of laser photons where the atoms acquire momentum $\hbar \vec k$ per photon, and the spontaneous emission of photons where the atoms lose $\hbar \vec k_\text{emitted}$ per photon:
 \begin{align}
     \vec p_\text{after} &= \vec p_\text{before} + \hbar \vec k + \hbar \vec k_\text{emitted}
 \end{align}
@@ -17,7 +18,7 @@ The latter, however, averages to zero over many scattering events as photons are
 \begin{align}
     \Braket{\vec p_\text{after} - \vec p_\text{before}} = \Braket{\hbar \vec k} + \underbrace{\Braket{\hbar \vec k_\text{emitted}}}_{=0}
 \end{align}
-As visualised in figure \ref{fig:light_scattering_moment_transfer}, the atoms are decelerated opposite the direction of laser propagation, corresponding to cooling of the atoms.
+As visualized in figure \ref{fig:light_scattering_moment_transfer}, the atoms are decelerated opposite the direction of laser propagation, corresponding to cooling of the atoms.
 
 \begin{figure}    
     \centering
