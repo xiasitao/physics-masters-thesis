@@ -22,7 +22,7 @@ As visualized in figure~\ref{fig:light_scattering_moment_transfer}, the atoms ar
 
 \begin{figure}    
     \centering
-    \caption{Schematic of momentum transfer from the laser opposite the atom movement direction. The momentum gain through the atom decaying averages to zero.}\label{fig:light_scattering_moment_transfer}
+    \caption{Schematic of momentum transfer from the laser against the atom movement direction. The momentum gain through the atom decaying averages to zero.}\label{fig:light_scattering_moment_transfer}
 \end{figure}
 
 The rate at which this happens is determined by the fraction $\rho_{ee}$ of atoms in the excited state when light of wavelength $\omega_\text{laser}$ and intensity $I$ is shone in:
@@ -50,7 +50,7 @@ with the angle $\theta$ between the atoms' velocity and the propagation directio
     \caption{Scattering force as a function of velocity for different values of the laser detuning $\delta_\text{laser}$.}\label{fig:scattering_force_vs_velocity}
 \end{figure}
 
-Figure~\ref{fig:scattering_force_vs_velocity} shows how the scattering force depends on the velocity of the atoms. The force is maximal for velocities where Doppler shift $\vec k \vec v$ cancels out the laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving opposite the laser propagation direction. These atoms sense the light scattering force against their direction of movement; atoms moving in the other direction do not sense the scattering force (see figure~\ref{fig:scattering_force_detuning}).
+Figure~\ref{fig:scattering_force_vs_velocity} shows how the scattering force depends on the velocity of the atoms. The force is maximal for velocities where Doppler shift $\vec k \vec v$ cancels out the laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement; atoms moving in the other direction do not sense the scattering force (see figure~\ref{fig:scattering_force_detuning}).
 
 \begin{figure}
     \caption{For red detuning, atoms moving against the direction of laser propagation sense the light scattering; atoms moving in the other direction do not.}\label{fig:scattering_force_detuning}
@@ -129,7 +129,7 @@ The magneto-optical trap can be characterized by, among others, the following qu
 
 \paragraph{Relevant transitions in alkali atoms}
 \sloppy For cooling alkali atoms in a magneto-optical trap, transitions between electronic levels $J_\text{g}$ and $J_\text{g} + 1$ are used. The cooling transition can be implemented between hyperfine states $\Ket{J = J_\text{g}, F = I + J_\text{g}}$, the highest $F$ in the $J_\text{g}$ manifold, and $\Ket{J = J_\text{g} + 1, F= I + J_\text{g} + 1}$. This ensures that all decays bring the atom down into the original $\Ket{J = J_\text{g}, F = I + J_\text{g}}$ state due to the selection rule $\Delta F \in \{-1, 0, 1\}$.
-If, however, due to a non-zero matrix element for this transition, the atom is excited into the $\Ket{J = J_\text{e}, F = F_\text{g}}$ state, it can also fall back into the $\Ket{J = J_\text{e}, F = I + J_\text{g} - 1}$ state. In this case, it would be lost for the cooling process as this state is not addressed by the cooling transition. To combat this, a repumper laser beam is shone in in addition to the cooler beam. This beam addresses the transition $\Ket{J = J_\text{g}, F = I + J_\text{g} - 1} \rightarrow \Ket{J = J_\text{g} + 1, F = I + J_\text{g}}$ from where they can decay back into the ground state of cool the cooling transition which brings them these back into the cooling cycle~\cite{metcalf_laser_1999}.
+If, however, the atom is excited into the $\Ket{J = J_\text{e}, F = F_\text{g}}$ state due to a non-zero matrix element for this transition, it can also fall back into the $\Ket{J = J_\text{e}, F = I + J_\text{g} - 1}$ state. In this case, it would not be subject to cooling anymore as this state is dark to the cooling transition. To combat this, a repumper laser beam is shone in in addition to the cooler beam. This beam addresses the transition $\Ket{J = J_\text{g}, F = I + J_\text{g} - 1} \rightarrow \Ket{J = J_\text{g} + 1, F = I + J_\text{g}}$ from where they can decay back into the ground state of the cooling transition which brings them back into the cooling cycle~\cite{metcalf_laser_1999}.
 
 These cooling and repumping cascades are summarized in equations~\eqref{eq:cooler_cascade} an~\eqref{eq:repumper_cascade}:
 \begin{align}
