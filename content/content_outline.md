@@ -44,6 +44,7 @@
 
 ## 3D Magneto-Optical Trap
 ### Theory
+- History
 - Atomic physics
 - Scattering of light
 - Doppler and sub-doppler cooling
@@ -52,6 +53,8 @@
 
 ### Laser system
 - Requirements to the laser system
+- Lasers used
+- Locking
 - Laser setup
 
 ### MOT optics
