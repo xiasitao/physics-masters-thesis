@@ -18,16 +18,16 @@
 - magnetic gradients
 - capture velocities
 
-### Grey molasses cooling
-- theory
-- laser requirements
-
 ### Magneto-optical traps with Lithium
 - peculiarities
     - unresolved manifold
 - Tiecke
 - Lithium
 - some other experiments and their data
+
+### Grey molasses cooling
+- theory
+- laser requirements
 
 ## 3D MOT for FermiQP
 ### 3D MOT geometry
