@@ -1,0 +1,13 @@
+detuning
+Zeeman
+detunings
+repumper
+repumping
+Repumping
+Feshbach
+FermiQP
+detuned
+ntxletters
+sidebands
+hyperfine
+repumped

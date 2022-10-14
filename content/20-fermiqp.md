@@ -1,0 +1,3 @@
+- Lithium
+    - advantages: light weight (why?), tunability of two-body interacitons (e.g. Grier 2013)
+    - disadvantages: 

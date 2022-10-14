@@ -60,7 +60,7 @@ Figure~\ref{fig:scattering_force_vs_velocity} shows how the scattering force dep
 \begin{align}
     k_B T_D = \frac{\hbar \Gamma}{2}
 \end{align}
-Laser cooling techniques using spontaneous emission of photons, by principle, cannot provide cooling below this limit (neglecting any coincidental sub-Doppler cooling effects)~\cite{foot_atomic_2005}.[Put Lithium number here, 140muK] 
+Laser cooling techniques using spontaneous emission of photons, by principle, cannot provide cooling below this limit (neglecting any coincidental sub-Doppler cooling effects)~\cite{foot_atomic_2005}.
 
 
 \subsection*{Magneto-optical Traps}
@@ -109,7 +109,7 @@ In order to create a confining trap, laser beams and magnetic gradients are cali
 Note that the helicity of the polarization is given with respect to the (arbitrary, but fixed) quantization axis of the atoms. As the laser beams in each pair counter-propagate, one of them points to in and one against the quantization axis. The circular polarization with respect to their respective propagation direction is hence the same for both laser beams in a pair (both $\sigma^+$ or both $\sigma^-$, depending on the gradient field).
 
 
-Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized (here again for one dimension)~\cite{foot_atomic_2005}:
+Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized [[under which condition?]] (here again for one dimension)~\cite{foot_atomic_2005}:
 \begin{equation}
     \begin{split}
         F_\text{MOT} &= F_{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(r) - kv \cos \theta) + F_{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(r) + kv \cos \theta)\\
@@ -149,8 +149,8 @@ If, however, the atom is excited into the $\Ket{J = J_\text{e}, F = F_\text{g}}$
 
 These cooling and repumping cascades are summarized in equations~\eqref{eq:cooler_cascade} an~\eqref{eq:repumper_cascade}:
 \begin{align}
-    \label{eq:cooler_cascade}\text{cooler: } & \Ket{J_\text{g},I + J_\text{g}} \underset{\text{cooler}}{\longrightarrow} \Ket{J_\text{g} + 1, I + J_\text{g} + 1} \rightsquigarrow  \Ket{J_\text{g}, I + J_\text{g}}\\
-    \label{eq:repumper_cascade}\text{repumper: } & \Ket{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow \Ket{J_\text{g}, I + J_\text{g} - 1}  \underset{\text{repumper}}{\longrightarrow} \Ket{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow  \Ket{J_\text{g}, I + J_\text{g}}
+    \label{eq:cooler_cascade}\text{cooler:}~~~~~ & \Ket{J_\text{g},I + J_\text{g}} \underset{\text{cooler}}{\longrightarrow} \Ket{J_\text{g} + 1, I + J_\text{g} + 1} \rightsquigarrow  \Ket{J_\text{g}, I + J_\text{g}}\\
+    \label{eq:repumper_cascade}\text{repumper:}~~~~~ & \Ket{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow \Ket{J_\text{g}, I + J_\text{g} - 1}  \underset{\text{repumper}}{\longrightarrow} \Ket{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow  \Ket{J_\text{g}, I + J_\text{g}}
 \end{align}
 
 \begin{figure}
@@ -160,31 +160,48 @@ These cooling and repumping cascades are summarized in equations~\eqref{eq:coole
 
 
 \section{Magneto-optical Traps with Lithium}
-\subsection*{Cooling and Repumping}
-For the magneto-optical traps in the FermiQP demonstrator, the D$_2$ line, i.e.~between the $^2S_{1/2}$ and $^2P_{3/2}$ manifolds, is used for cooling and repumping. In fermionic lithium ($^6$Li with nuclear spin $I = 1$), the hyperfine levels $F \in \left\{\frac{5}{2}, \frac{3}{2}, \frac{1}{2}\right\}$ of the excited state cannot be resolved because the D$_2$ line is broader than the splitting between these hyperfine states. This implies that it cannot be controlled which hyperfine state the cooler excites the atoms into. A large fraction of them will hence drop into the $\Ket{J=1/2, F=1/2}$ state and need to be repumped. For this reason, the cooler and repumper have equal importance in a Lithium magneto-optical trap.
+3-dimensional magneto-optical traps for lithium usually operate on the D$_2$ line, i.e.~between the $^2S_{1/2}$ and $^2P_{3/2}$ manifolds, as in the implementation in the FermiQP demonstrator. Since the first implementation with lithium in the early 1990s \cite{kawanaka_decay_1993}, they have become a standard part of ultracold lithium experiments, namely for experiments with fermionic~\cite{duarte_all-optical_2011,omran_microscopic_2015} and bosonic~\cite{kawanaka_decay_1993,schunemann_magneto-optic_1998} lithium as well as for isotope mixtures \cite{mewes_simultaneous_1999, hilker_laser_2012,kerkmann_novel_2019} and species mixtures \cite{ladouceur_compact_2009,tiecke_high-flux_2009,chen_lithium-cesium_2021}.
+
+For D$_2$ line traps for fermionic lithium, the energy splitting between the two ground state hyperfine manifolds $\Ket{J=1/2, F=1/2}$ and $\Ket{J=1/2, F=3/2}$ is \SI{228}{\mega\hertz}, which sets the difference in frequency for the cooler and repumper laser beams. It is important to note that the hyperfine levels $F = \frac{5}{2}$, $\frac{3}{2}$, and $\frac{1}{2}$ of the excited state cannot be resolved because the D$_2$ line is broader than the splitting between these hyperfine states. This implies that it cannot be controlled which hyperfine state the cooler excites the atoms into. A large fraction of them will hence drop into the $\Ket{J=1/2, F=1/2}$ state and need to be repumped. For this reason, the cooler and repumper have equal importance in a Lithium magneto-optical trap. Another implication is that coincidental sub-Doppler cooling, as observed in magneto-optical traps for other atomic species, cannot be expected to support the cooling process~\cite{grier_lambda-enhanced_2013}.
+
+Typical parameter ranges for 3-dimensional traps with lithium from earlier experiments are~\cite{
+    tiecke_high-flux_2009,
+    kawanaka_decay_1993,
+    schunemann_magneto-optic_1998,
+    mewes_simultaneous_1999,
+    hilker_laser_2012,
+    kerkmann_novel_2019,
+    ladouceur_compact_2009,
+    chen_lithium-cesium_2021,    
+    burchianti_efficient_2014,
+    li_enhanced_2015,
+}:
+\begin{itemize}
+    \item laser intensities: from a few up to more than ten saturation intensities, with a little less power on the repumper
+    \item beam diameter: \SI{5}{\milli\meter} to \SI{15}{\milli\meter}
+    \item detuning: up to $-10 \Gamma$, with the repumper often being less detuned than the cooler
+    \item magnetic gradients: \SI{10}{\gauss\per\centi\meter} to \SI{50}{\gauss\per\centi\meter}
+    \item achieved temperature: on the order of \SI{1e-3}{\kelvin} to \SI{3e-4}{\kelvin}
+    \item atom number: around \SI{1e7}{} to \SI{1e8}{}
+\end{itemize}
+
+Lower temperatures than in magneto-optical traps operating on the D$_2$ line have been reached by using a UV transition~\cite{duarte_all-optical_2011,omran_microscopic_2015} which, however, requires expensive laser sources optical components~\cite{burchianti_efficient_2014}. More efficient loading rates have been achieved in a magneto-optical traps by adding sidebands onto the cooling light in order to address more velocity classes~\cite{li_enhanced_2015}.
+
 
 \begin{figure}
     \caption{Level diagram of fermionic lithium $^6$Li}\label{fig:lithium_level_diagram}
 \end{figure}
 
-The energy splitting between the two ground state hyperfine manifolds $\Ket{J=1/2, F=1/2}$ and $\Ket{J=1/2, F=3/2}$ is \SI{228}{\mega\hertz}, which sets the difference in frequency for the cooler and repumper laser beams.
-
-\subsection*{3D Implementations for Lithium}
-3-dimensional magneto-optical traps have been used for fermionic~\cite{duarte_all-optical_2011,omran_microscopic_2015} and bosonic~\cite{kawanaka_decay_1993,schunemann_magneto-optic_1998} lithium as well as for isotope mixtures \cite{mewes_simultaneous_1999, hilker_laser_2012,kerkmann_novel_2019} and species mixtures \cite{ladouceur_compact_2009,tiecke_high-flux_2009,chen_lithium-cesium_2021} since the early 1990s and are now a standard part of ultracold lithium gas experiments.
-
-Typical parameter ranges from other experiments for 3-dimensional traps for lithium are~\cite{chen_lithium-cesium_2021,hilker_laser_2012,kawanaka_decay_1993,kerkmann_novel_2019,ladouceur_compact_2009,li_enhanced_2015,mewes_simultaneous_1999,schunemann_magneto-optic_1998,tiecke_high-flux_2009}:
-\begin{itemize}
-    \item laser intensities: from a few up to more than ten saturation intensities, with a little less power on the repumper
-    \item beam diameter: \SI{0.5}{\centi\meter} to \SI{1.5}{\centi\meter}
-    \item detuning: up to $-10 \Gamma$, with the repumper often being less detuned than the cooler
-    \item magnetic gradients: \SI{10}{\gauss\per\centi\meter} to \SI{50}{\gauss\per\centi\meter}
-    \item achieved temperature: \SI{1000}{\micro\kelvin} to \SI{300}{\micro\kelvin}
-    \item atom number: around \SI{1e7}{} to \SI{1e8}{}
-\end{itemize}
-
-Lower temperatures in magneto-optical traps than on the D$_2$ line have been reached by using a UV transition~\cite{duarte_all-optical_2011,omran_microscopic_2015}. More efficient loading rates have been achieved in a magneto-optical trap by adding sidebands onto the cooling light in order to address more velocity classes~\cite{li_enhanced_2015}.
-
 \section{Gray Molasses Cooling}
+The subsequent step in the cooling cycle in the FermiQP demonstrator, after the 3-dimensional magneto-optical trap, will be gray molasses cooling~\cite{grynberg_proposal_1994,weidemuller_novel_1994}. This sub-Doppler cooling technique operates on the D$_1$ line of lithium, i.e. the $^2S_{1/2} \rightarrow {^2P_{1/2}}$ transition~\cite{burchianti_efficient_2014}.
 
-\printbibliography
+[[Theory short]]
 
+\citeauthor{burchianti_efficient_2014} implemented gray molasses for fermionic lithium. Their parameters were taken as a reference starting point for configuring the gray molasses of the FermiQP demonstrator setup~\cite{burchianti_efficient_2014}:
+\begin{itemize}
+    \item laser intensities: $s_{0, \text{cooler}} = 2.7$, $\frac{I_\text{repumper}}{I_\text{cooler}} \approx 0.2$
+    \item detunings: $\delta_\text{cooler} = +5.4 \Gamma$, varying $\delta_\text{repumper}$ between $\delta_\text{cooler} -2 \Gamma$ and  $\delta_\text{cooler}+ 3\Gamma$
+\end{itemize}
+with $I_s = \SI{7.59}{\milli\watt\per\square\centi\meter}$ and $\Gamma = \SI{5.8724}{\mega\hertz}$ for the D$_1$ line~\cite{gehm_properties_2003}.
+
+\section{The 3-dimensional Magneto-optical Trap of the FermiQP Demonstrator}

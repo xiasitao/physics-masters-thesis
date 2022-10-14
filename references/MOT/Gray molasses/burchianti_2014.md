@@ -1,0 +1,12 @@
+# II Exp setup and results
+- 3D MOT with 2e9 atoms
+    - 1.5cm beam radius
+    - cooler 7 I_S, repumper 7 / 3 * 2 I_s
+    - detuning: cooler -9, repumper -7
+    - large number of atoms, but high temperature (2.5 mK)
+    - compressing: 500 muK
+- Gray molasses
+    - no magnetic field
+    - D1, blue detuned
+    - same polarisation 
+    - I_repumper = 0.2 I_cooling

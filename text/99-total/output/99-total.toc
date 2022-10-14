@@ -1,2 +1,10 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \contentsline {chapter}{\numberline {1}FermiQP: a Fermionic Quantum Processor}{4}{chapter.1}%
+\contentsline {chapter}{\numberline {2}The 3-dimensional Magneto-optical Trap}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Laser Cooling with Magneto-optical Traps}{7}{section.2.1}%
+\contentsline {paragraph}{\nonumberline Optical molasses}{9}{section*.10}%
+\contentsline {paragraph}{\nonumberline Spatial confinement}{10}{section*.12}%
+\contentsline {paragraph}{\nonumberline Characteristic quantities}{11}{section*.15}%
+\contentsline {paragraph}{\nonumberline Relevant transitions in alkali atoms}{12}{section*.16}%
+\contentsline {section}{\numberline {2.2}Magneto-optical Traps with Lithium}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Gray Molasses Cooling}{13}{section.2.3}%

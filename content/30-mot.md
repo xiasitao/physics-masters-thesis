@@ -5,8 +5,7 @@
 - Laser cooling (Haensch, Phillips & Metcals)
 - Optical Earnshaw theorem
 - Internal degrees of freedom
-- First implementation
-- First Lithium implementation (Tiecke)
+- First implementation, first lithium implementations (1993)
 
 ### Atom-Light Interaction
 - Two-level system
@@ -27,7 +26,9 @@
 
 ### Grey molasses cooling
 - theory
-- laser requirements
+    - spatially varying polarization
+    - light states experience spatially varying energy shift
+- laser requirements (Burchianti)
 
 ## 3D MOT for FermiQP
 ### 3D MOT geometry

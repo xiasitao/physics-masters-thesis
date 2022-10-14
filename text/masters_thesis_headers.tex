@@ -47,7 +47,14 @@
 \usepackage{braket}
 \usepackage{siunitx}
 \DeclareSIUnit\gauss{G}
+\sisetup{
+  per-mode=fraction,
+  fraction-function=\tfrac
+}
 \usepackage{physics}
+% Preventin italic variables in ket to interfere with the Ket
+\let\oldKet\Ket
+\renewcommand{\Ket}[1]{\oldKet{~#1}}
 
 % === Tables ===
 \usepackage{booktabs}
@@ -67,7 +74,7 @@
 % \usepackage{float}
 
 % === Citations ===
-\usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
+\usepackage[style=numeric-comp,backend=biber,sorting=none]{biblatex}
 \addbibresource{../FermiQP.bib}
 
 % ===========================================================================
