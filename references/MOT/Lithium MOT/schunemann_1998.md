@@ -1,0 +1,7 @@
+- Li 7 atoms
+- Zeeman slower and 3D MOT
+- gradient: 14 G/cm
+- beam diameter: 1.3 cm
+- cooling laser: 7mW/cm^2, repumper: 4mW/cm^2
+- detunings of trap frequencies: $-6 .. -1 \Gamma$
+- about 35m/s final atomic velocity for loading

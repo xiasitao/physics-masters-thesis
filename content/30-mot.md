@@ -16,12 +16,12 @@
 ### MOT theory
 - geometry
 - magnetic gradients
-- capture velocities
+- capture velocities: Tiecke (HO model, referencing Metcalf v.d. Straaten)
 
 ### Magneto-optical traps with Lithium
 - peculiarities
     - unresolved manifold
-- Tiecke
+- Kawanaka 1993, Schunemann 1998, Tiecke 2009
 - Lithium
 - some other experiments and their data
 
@@ -40,13 +40,14 @@
     - cooler & repumper
     - powers
 - laser setup
+    - possibility to add EOM in order to address more velocity classes
 - outcoupler optics
-    - polarisation requirements
-    - mirror and glass cell surface characterisation
-    - polarisation fixations
+    - polarization requirements
+    - mirror and glass cell surface characterization
+    - polarization fixations
     
 ### Magnetic gradients
-- short characterisation of the simulation results
+- short characterization of the simulation results
 
 ### Parameter estimations
 - size

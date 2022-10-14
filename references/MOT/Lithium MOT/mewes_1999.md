@@ -1,0 +1,2 @@
+- two isotope trap
+- temperature: 300 muK
