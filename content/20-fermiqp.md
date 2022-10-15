@@ -1,3 +1,3 @@
 - Lithium
     - advantages: light weight (why?), tunability of two-body interacitons (e.g. Grier 2013)
-    - disadvantages: 
+    - disadvantages: no coincidental sub-Doppler cooling in MOT configuration due to unresolved hyperfine states

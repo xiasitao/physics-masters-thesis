@@ -11,3 +11,7 @@ ntxletters
 sidebands
 hyperfine
 repumped
+superpositions
+eigenstates
+Schattauer
+polarizations

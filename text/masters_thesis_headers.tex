@@ -6,6 +6,9 @@
 	ngerman
 ]{scrbook}
 
+% === Page  ===
+\usepackage[paper=a4paper,]{geometry}
+
 % === Fonts  ===
 \usepackage{noto}
 \usepackage{ebgaramond}
@@ -35,6 +38,7 @@
 
 %\usepackage[osf, sc]{mathpazo}
 %\linespread{1.03}
+\usepackage{setspace}
 
 \usepackage[T1]{fontenc}
 \usepackage{eurosym}
@@ -52,9 +56,8 @@
   fraction-function=\tfrac
 }
 \usepackage{physics}
-% Preventin italic variables in ket to interfere with the Ket
-\let\oldKet\Ket
-\renewcommand{\Ket}[1]{\oldKet{~#1}}
+% Preventing italic variables in ket to interfere with the Ket
+\newcommand{\KetSpaced}[1]{\Ket{~#1}}
 
 % === Tables ===
 \usepackage{booktabs}
@@ -84,8 +87,8 @@
 	pdfkeywords={Magneto-optical trap, Feshbach coils, Quantum gas microscope, Master's thesis, FermiQP}
 	]{hyperref}
 
-\title{TODO title}
-\subtitle{TODO subtitle}
+\title{Designing a 3D Magneto-optical Trap and Feshbach Fields for a Fermion Quantum Processor}
+\newcommand{\titleDE}{Entwicklung einer 3D-magneto-optischen Falle und von Feshbach-Feldern für einen fermionischen Quantenprozessor}
 \author{Tobias Maximilian Philipp Schattauer}
 \date{TODO date}
 % ===========================================================================

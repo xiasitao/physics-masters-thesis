@@ -1,0 +1,17 @@
+# Abstract
+- below recoil limit
+- velocity-induced change from non-coupling to coupling (shifted) state
+- Velocity-selective coherent-population trapping (VSCPT)
+    - dark states decoupled from light field for small velocities, populated by spontaneous decay
+    - dark state stay time $\propto 1/p^2$
+    - other portion populated non-dark states and may be kicked out of cooling region
+- 1D scheme
+    -two counter-propagating waves with linear polarizations
+    - Lambda transition (J = 1 to J = 1)
+        - 2 ground states with $m = -1, m = +1$, excited $m = 0$
+        - ground states basis transformed to coupling state $C$ and dark state $NC$
+        - interaction Hamiltonian only couples to $C$ state with energy $E_c$ (light shift, propertional to light intensity)
+        - atoms at rest are pumped into dark state, atoms moving are pumped into coupling state (non-adiabatic passage)
+        - population transfer is inversely propertional to light shift $E_C$
+        - transfer into coupling state happens in the valleys of the light shift
+        - blue detuning: atoms climb potential hill by moving in the spatially-varying light field before falling back into ground state, then losing kinetic energy
