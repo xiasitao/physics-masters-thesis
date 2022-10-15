@@ -43,9 +43,10 @@
 - laser setup
     - possibility to add EOM in order to address more velocity classes
 - outcoupler optics
+    - change of optical power (polarisation and absorption) -> focussing of beam (Gaussian beam simulation)
     - polarization requirements
     - mirror and glass cell surface characterization
-    - polarization fixations
+    - polarization fixations (matrix sqrt using scipy)
     
 ### Magnetic gradients
 - short characterization of the simulation results

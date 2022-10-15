@@ -1,3 +1,5 @@
+\renewcommand{\imagepath}{../30-mot/img}
+
 \chapter{The 3-dimensional Magneto-optical Trap}
 \epigraph{When is Your First MOT Due?}{protyre.co.uk}
 
@@ -148,7 +150,7 @@ The magneto-optical trap can be benchmarked by, among others, the following quan
 
 If, however, the atom is excited into the $\KetSpaced{J = J_\text{e}, F = F_\text{g}}$ state due to a non-zero matrix element for this transition, it can also fall back into the $\KetSpaced{J = J_\text{e}, F = I + J_\text{g} - 1}$ state. In this case, it would not be subject to cooling anymore as this state is dark to the cooling transition. To combat this, a repumper laser beam is shone in in addition to the cooler beam. This beam addresses the transition $\KetSpaced{J = J_\text{g}, F = I + J_\text{g} - 1} \rightarrow \KetSpaced{J = J_\text{g} + 1, F = I + J_\text{g}}$ from where they can decay back into the ground state of the cooling transition which brings them back into the cooling cycle~\cite{metcalf_laser_1999}.
 
-These cooling and repumping cascades are summarized in equations~\eqref{eq:cooler_cascade} an~\eqref{eq:repumper_cascade}:
+These cooling and repumping cascades are summarized in equations~\eqref{eq:cooler_cascade} and~\eqref{eq:repumper_cascade}:
 \begin{align}
     \label{eq:cooler_cascade}\text{cooler:}~~~~~ & \KetSpaced{J_\text{g},I + J_\text{g}} \underset{\text{cooler}}{\longrightarrow} \KetSpaced{J_\text{g} + 1, I + J_\text{g} + 1} \rightsquigarrow  \KetSpaced{J_\text{g}, I + J_\text{g}}\\
     \label{eq:repumper_cascade}\text{repumper:}~~~~~ & \KetSpaced{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow \KetSpaced{J_\text{g}, I + J_\text{g} - 1}  \underset{\text{repumper}}{\longrightarrow} \KetSpaced{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow  \KetSpaced{J_\text{g}, I + J_\text{g}}
@@ -190,7 +192,7 @@ Lower temperatures than in magneto-optical traps operating on the D$_2$ line hav
 
 
 \begin{figure}
-    \caption{Level diagram of fermionic lithium $^6$Li}\label{fig:lithium_level_diagram}
+    \caption{Level diagram of fermionic lithium ($^6$Li)}\label{fig:lithium_level_diagram}
 \end{figure}
 
 \section{Gray Molasses Cooling}
@@ -198,29 +200,60 @@ The subsequent step in the cooling cycle in the FermiQP demonstrator, after the 
 
 Gray molasses is based on atoms moving in a polarization-gradient field where they move up a potential hill until they decay into a lower energy state, similar to Sisyphus cooling~\cite{foot_atomic_2005}. Gray molasses operates on $\Delta J = 0$ transitions, as is the case for the D$_1$ line. This transition functions as a $\Lambda$ system with the two ground states being the states $\Ket{\text{ground}, m}$ and $\Ket{\text{ground}, m + 2}$ and the excited state being $\Ket{\text{excited}, m + 1}$~\cite{weidemuller_novel_1994}, as illustrated in figure~\ref{fig:gray_molasses_level_diagram}. Coupling between these states is polarization-dependent due to dipole selection rules.
 \begin{figure}
+    \centering
+    \includegraphics{\imagepath/gray_molasses_level_diagram/gray_molasses_level_diagram.pdf}
     \caption{Level diagram of the D$_1$ line of lithium. The $\Lambda$-system used in gray molasses cooling consists of two manifolds with equal $J$, made up of two magnetic sublevels in the ground state and one in the excited state.}\label{fig:gray_molasses_level_diagram}
 \end{figure}
 
 The counter-propagating gray molasses beams have circular polarization. At every point the superposition of the polarizations yields an effective polarization that is sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect of each other, that means that the atoms see alternating circular, elliptical, linear, elliptical, etc. polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as shown in figure~\ref{fig:gray_molasses_polarization_gradient}.
 
 \begin{figure}
-    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts depending on their position. At positions with low light shift, they transition from the dark state $\Ket{D}$ to the coupling state $\Ket{C}$ and move further losing kinetic energy in the polarization gradient field until they decay back.}\label{fig:gray_molasses_polarization_gradient}
+    \centering
+    \includegraphics{\imagepath/gray_molasses_polarization_gradient/gray_molasses_polarization_gradient.pdf}
+    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts depending on their position. At positions with low light shift, they transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further losing kinetic energy in the polarization gradient field until they decay back.}\label{fig:gray_molasses_polarization_gradient}
 \end{figure}
 
-In the gray molasses' light field, the $\Lambda$-system is dressed with two orthogonal, hence not mutually coupling, eigenstates $\Ket{C}$ and $\Ket{D}$, being superpositions of the two ground states. One of them, $\Ket{C}$, couples to the light field via the excited state and experiences an energy shift $E_C \propto \frac{\Omega_\text{eff}^2}{\delta}$. The other, $\Ket{D}$, is a dark state~\cite{weidemuller_novel_1994,gerken_gray_2016}.
+In the gray molasses' light field, the $\Lambda$-system is dressed with two orthogonal, hence not mutually coupling, eigenstates $\Ket{\text{C}}$ and $\Ket{\text{D}}$, being superpositions of the two ground states. One of them, $\Ket{\text{C}}$, couples to the light field via the excited state and experiences an energy shift $E_C \propto \frac{\Omega_\text{eff}^2}{\delta}$. The other, $\Ket{\text{D}}$, is a dark state~\cite{weidemuller_novel_1994,gerken_gray_2016}.
 
 The absence of coupling between these two states only persists as long as the atoms' kinetic energy is not considered. For atoms with momentum $p$, there is a non-zero transition probability $P \propto \left|\frac{p}{E_C} \right|^2$~\cite{weidemuller_novel_1994}. This means that faster atoms are more prone to transition from the dark state to the coupling state, and that this transition is most likely in areas with low light intensity.
 
-The cooling effect in this scheme can now be understood as follows: Atoms move along the gray molasses light field with a finite velocity $v$. At points with low light intensity, due to the polarization gradient, they are likely to transition from the dark state $\Ket{D}$ to the coupling state $\Ket{C}$. Moving further in the polarization-gradient field, their light shift energy $E_C$ increases, at the cost of their kinetic energy. When they spontaneously decay back into the dark state $\Ket{D}$ they lose an amount of energy on the order of the light shift $E_C$. This is illustrated in figure~\ref{fig:gray_molasses_polarization_gradient}. The gray molasses light needs to be blue detuned, $\delta > 0$, because then the light shift is positive, and the atoms lose energy falling back into the dark state $\Ket{D}$. With this scheme,  temperatures even below the recoil limit $T_\text{recoil}$ can be reached~\cite{weidemuller_novel_1994,gerken_gray_2016}.
+The cooling effect in this scheme can now be understood as follows: Atoms move along the gray molasses light field with a finite velocity $v$. At points with low light intensity, due to the polarization gradient, they are likely to transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$. Moving further in the polarization-gradient field, their light shift energy $E_C$ increases, at the cost of their kinetic energy. When they spontaneously decay back into the dark state $\Ket{\text{D}}$ they lose an amount of energy on the order of the light shift $E_C$. This is illustrated in figure~\ref{fig:gray_molasses_polarization_gradient}. The gray molasses light needs to be blue detuned, $\delta > 0$, because then the light shift is positive, and the atoms lose energy falling back into the dark state $\Ket{\text{D}}$. With this scheme,  temperatures even below the recoil limit $T_\text{recoil}$ can be reached~\cite{weidemuller_novel_1994,gerken_gray_2016}.
 
 
-\paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  enables reusing optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2S_{1/2}, F = 3/2} \rightarrow \Ket{^2P_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2S_{1/2}, F = 1/2} \rightarrow \Ket{^2P_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine level is larger than its line width.
+\paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  enables reusing optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2S_{1/2}, F = 3/2} \rightarrow \Ket{^2P_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2S_{1/2}, F = 1/2} \rightarrow \Ket{^2P_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine level is larger than its line width~\cite{gerken_gray_2016}.
 
 \citeauthor{burchianti_efficient_2014} implemented gray molasses for fermionic lithium in 2014. Their parameters were taken as a reference starting point for configuring the gray molasses of the FermiQP demonstrator setup~\cite{burchianti_efficient_2014}:
 \begin{itemize}
     \item laser intensities: $s_{0, \text{cooler}} = 2.7$, $\frac{I_\text{repumper}}{I_\text{cooler}} \approx 0.2$
-    \item detunings: $\delta_\text{cooler} = +5.4 \Gamma$, varying $\delta_\text{repumper}$ between $\delta_\text{cooler} -2 \Gamma$ and  $\delta_\text{cooler}+ 3\Gamma$
+    \item detunings: $\delta_\text{cooler} = +5.4 \Gamma$, varying $\delta_\text{repumper}$ between $(\delta_\text{cooler} -2 \Gamma)$ and  $(\delta_\text{cooler}+ 3\Gamma)$
 \end{itemize}
 with $I_s = \SI{7.59}{\milli\watt\per\square\centi\meter}$ and $\Gamma = \SI{5.8724}{\mega\hertz}$ for the D$_1$ line~\cite{gehm_properties_2003}.
 
+
 \section{The 3-dimensional Magneto-optical Trap of the FermiQP Demonstrator}
+In this section, the geometry, the laser setup, the optics and the magnetic gradients for the 3-dimensional magneto-optical trap in the FermiQP demonstrator will be discussed. Due to massive supply chain problems and delivery time extensions by part vendors, only the laser setup [[and optics]] could be built during the writing of the thesis. For the other aspects of the trap, details of planning and simulations are presented.
+
+\subsection*{Geometry}
+The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell that is part of this ultra-high vacuum region. The space around the glass cell is tightly packed with the microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure \ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction, as shown in figure [[reference to chapter 2]].
+
+The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot easily be aligned with the Cartesian coordinate axes since no beams can be shot along the $z$ axis which is blocked by the objectives. Also, no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible.
+
+Instead, two beams are shone in in the $xz$ plane at an angle with respect to the atomic beam. The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in in along the $y$ axis, i.e. from left to right (see figure \ref{fig:glass_cell_sides_mot_beams_1}). 
+
+\begin{figure}
+    \centering
+    \includegraphics{\imagepath/glass_cell_vicinity/glass_cell_vicinity.pdf}
+    \caption{Position of the glass cell between the microscope objectives and the Feshbach coils. The tightly packed vicinity of the glass cell determines the geometry of the magneto-optical trap.}\label{fig:glass_cell_vicinity}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[scale=0.5]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_0.pdf}
+        \caption{View perpendicular to the atomic beam [[add objective]]}\label{fig:glass_cell_sides_mot_beams_0}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[scale=0.5]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_1.pdf}
+        \caption{View against the atomic beam [[add objective]]}\label{fig:glass_cell_sides_mot_beams_1}
+    \end{subfigure}
+    \caption{Schematic side views of the glass cell: The two magneto-optical trap beams on the axis of the atomic beam come in under shallow angles of \SI{30}{\degree}.}\label{fig:glass_cell_sides_mot_beams}
+\end{figure}
