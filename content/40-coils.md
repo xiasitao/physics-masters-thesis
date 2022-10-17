@@ -12,8 +12,7 @@
     - objectives between coils
     - why coils left and right
         - Feshbach doesn't matter
-        - having strong axis of coils on $x$ axis would be favorable
-        - Raman sideband cooling (pi needs to be perpendicular, sigma needs to be parallel to field. Coil axis may not be parallel to objectives in order to be able to shine in sigma light)
+        - Raman transition: we want to shine in pi light through objective for UV Raman transitions. For this, the quantization axis must be set in the $xy$ plane.
 - Curvature
 - Temperature stability requirements
     - turbulent flow for only one section
