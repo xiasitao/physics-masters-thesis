@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gaussianBeam>
+<gaussianBeam version="1.1">
+    <bench id="0">
+        <wavelength>6.71e-07</wavelength>
+        <leftBoundary>-0.02</leftBoundary>
+        <rightBoundary>0.88</rightBoundary>
+        <targetBeam id="0">
+            <position>0.6</position>
+            <waist>0.00015</waist>
+            <positionTolerance>0.1</positionTolerance>
+            <waistTolerance>0.05</waistTolerance>
+            <minOverlap>0.98</minOverlap>
+            <overlapCriterion>0</overlapCriterion>
+        </targetBeam>
+        <beamFit id="0">
+            <name>Fit0</name>
+            <dataType>1</dataType>
+            <color>0</color>
+            <data id="0">
+                <position>0</position>
+                <value>0</value>
+            </data>
+            <data id="1">
+                <position>0</position>
+                <value>0</value>
+            </data>
+            <data id="2">
+                <position>0</position>
+                <value>0</value>
+            </data>
+        </beamFit>
+        <opticsList>
+            <inputBeam id="2">
+                <waist>0.0005</waist>
+                <index>1</index>
+                <M2>1</M2>
+                <position>-0.0274</position>
+                <name>w0</name>
+                <absoluteLock>1</absoluteLock>
+            </inputBeam>
+            <lens id="4">
+                <focal>0.075</focal>
+                <position>-0.0274</position>
+                <name>telescope convex</name>
+                <absoluteLock>0</absoluteLock>
+            </lens>
+            <lens id="3">
+                <focal>-0.05</focal>
+                <position>0</position>
+                <name>telescope concave</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>4</relativeLockParent>
+            </lens>
+            <genericABCD id="5">
+                <width>0.001</width>
+                <A>1</A>
+                <B>0</B>
+                <C>0</C>
+                <D>1</D>
+                <position>0.125</position>
+                <name>first AOM</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>3</relativeLockParent>
+            </genericABCD>
+            <lens id="12">
+                <focal>0.5</focal>
+                <position>0.475</position>
+                <name>AOM refocus</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>5</relativeLockParent>
+            </lens>
+            <genericABCD id="9">
+                <width>0.001</width>
+                <A>1</A>
+                <B>0</B>
+                <C>0</C>
+                <D>1</D>
+                <position>0.48</position>
+                <name>first PBS after first AOM</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>5</relativeLockParent>
+            </genericABCD>
+            <genericABCD id="10">
+                <width>0.001</width>
+                <A>1</A>
+                <B>0</B>
+                <C>0</C>
+                <D>1</D>
+                <position>0.5675</position>
+                <name>second PBS after first AOM</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>9</relativeLockParent>
+            </genericABCD>
+            <genericABCD id="13">
+                <width>0.001</width>
+                <A>1</A>
+                <B>0</B>
+                <C>0</C>
+                <D>1</D>
+                <position>0.6825</position>
+                <name>push beam AOM</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>9</relativeLockParent>
+            </genericABCD>
+            <genericABCD id="11">
+                <width>0.001</width>
+                <A>1</A>
+                <B>0</B>
+                <C>0</C>
+                <D>1</D>
+                <position>0.7275</position>
+                <name>second AOMs</name>
+                <absoluteLock>0</absoluteLock>
+                <relativeLockParent>10</relativeLockParent>
+            </genericABCD>
+        </opticsList>
+    </bench>
+    <view id="0" bench="0">
+        <horizontalRange>0.9</horizontalRange>
+        <verticalRange>0.00195</verticalRange>
+        <origin>-0.019863</origin>
+        <showTargetBeam id="0">0</showTargetBeam>
+    </view>
+</gaussianBeam>
