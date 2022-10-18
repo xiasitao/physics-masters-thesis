@@ -41,12 +41,37 @@
     - cooler & repumper
     - powers
 - laser setup
-    - possibility to add EOM in order to address more velocity classes
+    - lasers
+        - RFAs (specs and problems, ref to Janet's thesis)
+        - seeds
+        - locking scheme (cavity, offset locks to freely shift MOT board)
+    - outline of complete setup
+        - D2 and D1 light
+        - 2D MOT and 3D MOT
+        - generation of cooler and repumper
+        - possibility to add EOM in order to address more velocity classes
+    - 2D MOT setup ("first part of setup")
+        - isolator (model, specs, characterisation)
+        - telescope and focusing (lenses, factor of resizing, beam profile)
+        - AOM (shift, aperture, driver to be replaced with centrally steered VCO)
+        - free space for EOM
+        - to lock
+        - to push beam
+        - cooler and repumper
+            - AOMs (shift, aperture, driver to be replaced with centrally steered VCO)
+            - overlapping (graph from beam profiler?)
+            - coupling into fibers
+        - relative powers
+
 - outcoupler optics
-    - change of optical power (polarisation and absorption) -> focussing of beam (Gaussian beam simulation)
+    - overview drawing of the MOT beams (inventor)
+    - planning schematics
+    - change of optical power (polarization and absorption) -> focussing of beam (Gaussian beam simulation)
     - polarization requirements
     - mirror and glass cell surface characterization
-    - polarization fixations (matrix sqrt using scipy)
+    - polarization fixations
+        - first pass through glass cell: fixing such that right / left after single pass through glass window, note down polarizations at other positions
+        - second pass: send light in through cube and lambda/4 to get right/left polarization, pass it through a mock setup of the system and note down the necessary wave plate settings to get 
     
 ### Magnetic gradients
 - short characterization of the simulation results

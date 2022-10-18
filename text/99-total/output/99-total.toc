@@ -2,11 +2,12 @@
 \contentsline {chapter}{\numberline {1}FermiQP: a Fermionic Quantum Processor}{7}{chapter.1}%
 \contentsline {chapter}{\numberline {2}The 3-dimensional Magneto-optical Trap}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Laser Cooling with Magneto-optical Traps}{8}{section.2.1}%
-\contentsline {paragraph}{\nonumberline Optical molasses}{10}{section*.9}%
+\contentsline {paragraph}{\nonumberline Optical molasses}{11}{section*.9}%
 \contentsline {paragraph}{\nonumberline Spatial confinement}{11}{section*.11}%
-\contentsline {paragraph}{\nonumberline Characteristic quantities}{12}{section*.14}%
-\contentsline {paragraph}{\nonumberline Relevant transitions in alkali atoms}{13}{section*.15}%
-\contentsline {section}{\numberline {2.2}Magneto-optical Traps with Lithium}{14}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Gray Molasses Cooling}{15}{section.2.3}%
+\contentsline {paragraph}{\nonumberline Characteristic quantities}{13}{section*.14}%
+\contentsline {paragraph}{\nonumberline Relevant transitions in alkali atoms}{14}{section*.15}%
+\contentsline {section}{\numberline {2.2}Magneto-optical Traps with Lithium}{15}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Gray Molasses Cooling}{16}{section.2.3}%
 \contentsline {paragraph}{\nonumberline Gray Molasses with Lithium}{17}{section*.20}%
-\contentsline {section}{\numberline {2.4}The 3-dimensional Magneto-optical Trap of the FermiQP Demonstrator}{17}{section.2.4}%
+\contentsline {section}{\numberline {2.4}The 3-dimensional Magneto-optical Trap of the FermiQP Demonstrator}{18}{section.2.4}%
+\contentsline {paragraph}{\nonumberline Laser sources}{20}{section*.25}%

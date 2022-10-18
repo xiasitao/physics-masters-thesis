@@ -241,17 +241,17 @@ with $I_s = \SI{7.59}{\milli\watt\per\square\centi\meter}$ and $\Gamma = \SI{5.8
 In this section, the geometry, the laser setup, the optics and the magnetic gradients for the 3-dimensional magneto-optical trap in the FermiQP demonstrator will be discussed. Due to massive supply chain problems and delivery time extensions by part vendors, only the laser setup [[and optics]] could be built during the writing of the thesis. For the other aspects of the trap, details of planning and simulations are presented.
 
 \subsection*{Geometry}
-The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell that is part of this ultra-high vacuum region. The space around the glass cell is tightly packed with the microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction, as shown in figure [[reference to chapter 2]].
-
-The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot easily be aligned with the Cartesian coordinate axes since no beams can be shot along the $z$ axis which is blocked by the objectives. Also, no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible.
-
-Instead, two beams are shone in in the $xz$ plane at an angle with respect to the atomic beam. The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}). 
+The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap. It is guided through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell. The space around the glass cell is tightly packed with the two microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction.
 
 \begin{figure}
     \centering
     \includegraphics{\imagepath/glass_cell_vicinity/glass_cell_vicinity.pdf}
     \caption{Position of the glass cell between the microscope objectives and the Feshbach coils. The tightly packed vicinity of the glass cell determines the geometry of the magneto-optical trap.}\label{fig:glass_cell_vicinity}
 \end{figure}
+
+The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot match with the Cartesian coordinate axes: no beams can be shot along the $z$ axis which is blocked by the objectives, and no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible on the other side of the glass cell.
+
+Instead, two beams are shone in in the $xz$ plane at an angle with respect to the atomic beam. The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}).
 
 \begin{figure}
     \centering
@@ -266,4 +266,31 @@ Instead, two beams are shone in in the $xz$ plane at an angle with respect to th
         \caption{View against the atomic beam [[add objective]]}\label{fig:glass_cell_sides_mot_beams_1}
     \end{subfigure}
     \caption{Schematic side views of the glass cell: The two magneto-optical trap beams on the axis of the atomic beam come in under shallow angles of \SI{30}{\degree}.}\label{fig:glass_cell_sides_mot_beams}
+\end{figure}
+
+
+\subsection*{Cooling Laser Setup}
+The cooling laser beams for the 2-dimensional and the 3-dimensional magneto-optical traps as well as for the gray molasses are jointly produced on an optics board from where they are transferred to the experiment chamber via optical fibers.
+
+The laser beams originate from two laser sources, one for D$_2$ light for the magneto-optical traps and one for D$_1$ light for the gray molasses. All beams produced by the setup consist of cooler and repumper light, which is separated by \SI{228}{\mega\hertz}, the hyperfine splitting of the $^2S_{1/2}$ ground state. For the 2-dimensional magneto-optical trap, the frequencies of the cooler and repumper light as well as their powers are fixed, for the 3-dimensional trap and the gray molasses light they need to be variable in order to compress and optimize the traps dynamically. The light for the 3-dimensional trap and the gray molasses cooling should be prepared on the same optical path, which is useful as both cooling schemes are carried out at the same position in the experiment chamber. All beams need to have high enough powers such that several saturation intensities on the respective trap cross sections (\SI{30}{\milli\meter} for the 2-dimensional trap and \SI{7}{\milli\meter} for the 3-dimensional trap and the gray molasses cooling).
+
+\paragraph{Laser sources} The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is jointly produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB [[model name]], "Socrates" and "Plato") with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two XYZ lasers (Toptica [[model name]], "Zeno" and "Heraklitus"), delivering around \SI{20}{\milli\watt} of power. These seeds are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily within a range of a few \si{\mega\hertz} [[TODO verify]]. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
+
+\begin{figure}
+    \caption{Schematic of the cooling laser setup: Two Raman fiber amplifiers provide light for the optics setups that prepare the light used in the magneto-optical traps and the gray molasses. The amplifiers are offset-locked via their seeds to a global reference lasers which, in turn, is locked to a reference cavity.}\label{fig:laser_interplay_schematic}
+\end{figure}
+
+
+The main advantage of using the Raman fiber amplifiers is that they produce enough optical power to simultaneously supply all three aforementioned traps with light. An alternative would be separate laser sources, each of which would need to be frequency-locked and monitored independently. During the writing of the thesis, the Raman fiber amplifiers showed signs of substantial degradation as their output power decreased by over \SI{20}{\percent} in only a few weeks of intermittent operation. The details and the severity of this degradation are presented in~\cite{qesja_design_2022}. As the experimenters of FermiQP, as well as the manufacturers, could not come up with a quick and reliable solution to this problem, it stays uncertain whether the Raman fiber amplifiers can be used long-term for the laser cooling within the FermiQP demonstrator. An alternative approach would be amplification of the seed light using tapered amplifier chips.
+
+
+\paragraph{Outline of the Laser Setup}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{\imagepath/laser_setup_schematic/laser_setup_schematic.pdf}
+    \caption{Schematic of the laser setup for preparing the cooling light for the magneto-optical traps and the gray molasses: D$_2$ light is split into two branches for the 2-dimensional (to the right) and the 3-dimensional magneto-optical (to the bottom) traps at the first PBS (A).
+    For the light for the 2-dimensional trap, a small amount of power is taken out for the push beam (B) before it is split into cooler and repumper (C) light for the two outputs. This part of the laser setup was constructed within the scope of this thesis.
+    The light for the 3-dimensional trap and the D$_1$ light for the gray molasses are spatially overlapped (D), split into cooler and repumper (E), and then distributed into three outputs (F).
+    (SP and DP boxes stand for single pass and double pass acousto-optical modulators respectively.) [[TODO update image: remove unnecessary details, remove powers, add 2D-MOT board boundary, adapt font, adapt colors, add letter markers]]}\label{fig:laser_setup_schematic}
 \end{figure}
