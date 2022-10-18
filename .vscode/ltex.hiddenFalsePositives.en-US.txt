@@ -6,3 +6,8 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QSchematic side views of the glass cell: The two magneto-optical trap beams on the axis of the atomic beam come in under shallow angles of 30 .\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QInstead, two beams are shone in in the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q planeat an angle with respect to the atomic beam.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QInstead, two beams are shone in in the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q plane at an angle with respect to the atomic beam.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe cooler beam is frequency shifted by about +162 , the repumper by about 390 .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe remaining light is sent through a modulator-shutter combination for programmatic beam blocking as explained above, here with a modulator frequency of -198 .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe D\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q light is also offset by 78 , a part of it split off for offset locking, and fed through an identical programmatic beam blockade.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe cooler beam is frequency shifted by about +162 , the repumper by about 390 , with the double-passes allowing for an adjustment range of several tens of .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe D\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q light is also offset by [retain-explicit-plus]+78 , a part of it split off for offset locking, and fed through an identical programmatic beam blockade.\\E$"}

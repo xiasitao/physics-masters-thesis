@@ -10,4 +10,6 @@
 \contentsline {section}{\numberline {2.3}Gray Molasses Cooling}{16}{section.2.3}%
 \contentsline {paragraph}{\nonumberline Gray Molasses with Lithium}{17}{section*.20}%
 \contentsline {section}{\numberline {2.4}The 3-dimensional Magneto-optical Trap of the FermiQP Demonstrator}{18}{section.2.4}%
-\contentsline {paragraph}{\nonumberline Laser sources}{20}{section*.25}%
+\contentsline {paragraph}{\nonumberline Laser sources}{19}{section*.25}%
+\contentsline {paragraph}{\nonumberline Outline of the Laser Setup}{20}{section*.27}%
+\contentsline {paragraph}{\nonumberline Implementation of the Laser Setup for the 2-dimensional Magneto-optical Trap}{22}{section*.29}%
