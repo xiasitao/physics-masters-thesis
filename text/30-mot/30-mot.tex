@@ -3,6 +3,7 @@
 \chapter{The 3-dimensional Magneto-optical Trap}
 \epigraph{When is Your First MOT Due?}{protyre.co.uk}
 
+[[TODO: make spectroscopic notation non-italic]]
 
 \section{Laser Cooling with Magneto-optical Traps}
 [[History (Haensch, Earnshaw), examples, Nobel Prize 1997.]]
@@ -78,7 +79,7 @@ Magneto-optical traps use light scattering on atoms in order to cool and spatial
         &\approx - 2 \pdv{F}{\omega} k v \cos \theta \equiv -\alpha v \cos \theta
     \end{split}
 \end{equation}
-with damping $\alpha = 2k \pdv{F}{\omega}$\footnote{For $s_0 \ll 1$, the damping coefficient can be approximated as $\alpha  = 4 \hbar k^2 s_0 \frac{-2d/\Gamma}{{\left(1+{{(2\delta/\Gamma)}}^2\right)}^2}$~\cite{foot_atomic_2005}.}~\cite{foot_atomic_2005}. The velocity-dependence of the optical molasses deceleration force is depicted in figure~\ref{fig:optical_molasses_force}.
+with damping $\alpha = 2k \pdv{F}{\omega}$\footnote{For $s_0 \ll 1$, the damping coefficient can be approximated as $\alpha  = 4 \hbar k^2 s_0 \frac{-2\delta/\Gamma}{{\left(1+{{(2\delta/\Gamma)}}^2\right)}^2}$~\cite{foot_atomic_2005}.}~\cite{foot_atomic_2005}. The velocity-dependence of the optical molasses deceleration force is depicted in figure~\ref{fig:optical_molasses_force}.
 
 \begin{figure}
     \caption{Scattering force in optical molasses as a function of velocity. Due to the Doppler shift, only fast atoms (close to resonance) sense the scattering force. Here, the detuning was set to $\delta = -\Gamma/2$.}\label{fig:optical_molasses_force}
@@ -92,7 +93,7 @@ with the Landé factor $g$, the Bohr magneton $\mu_B$, the magnetic field $B$ an
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
       \omega_\text{transition}(r) &= \omega_\text{transition} + \frac{\Delta E(r)}{\hbar} \\  
-      &= \omega_\text{transition} + \frac{g \mu_B}{\hbar} \dv{B}{r} \equiv \omega_\text{transition} + \beta r
+      &= \omega_\text{transition} + \frac{g \mu_B}{\hbar} \dv{B}{r} r \equiv \omega_\text{transition} + \beta r
     \end{split}
 \end{equation}
 Hence also the detuning between the laser light and the driven transition becomes position-dependent which allows for spatially varying scattering forces.
@@ -320,11 +321,11 @@ In order to prevent any inadvertent reflections travelling back into the amplifi
 
 After the optical isolator, a quarter-wave plate is used to eliminate any elliptical polarization components from the beam caused by hitting mirrors with light that has polarization other than $\Ket{\text{H}}$ and $\Ket{\text{V}}$.
 
-The D$_2$ light is split (marking A) into the paths for the different magneto-optical traps with a half-wave plate and a polarizing beam splitter from CeNing optics ([[part number]]) with specified transmission extinction ratio error of $\frac{1}{1000}$. All other polarizing beam splitters in the same setup are of the same model and specifications. The splitting ratio between the beams was not yet fixed during the course of this thesis.
+The D$_2$ light is split (marking A) into the paths for the different magneto-optical traps with a half-wave plate and a polarizing beam splitter from CeNing optics ([[part number]]) with a specified transmission extinction ratio error of $\frac{1}{1000}$. All other polarizing beam splitters in the same setup are of the same model and specifications. The splitting ratio between the beams was not yet fixed during the course of this thesis.
 
 The light transmitted on this beam splitter is again split and coupled into optical fibers leading to the offset lock and to the other optics board hosting the rest of the setup (for details see~\cite{qesja_design_2022}). The light reflected off on the beam splitter is used for the push beam and the 2-dimensional magneto-optical trap.
 
-As the acousto-optical modulators used in the setup require way smaller beam diameters than the \SI{1000}{\micro\meter} beam output by the Raman fiber amplifier, a telescope for decreasing the beam diameter was placed after the aforementioned beam splitter cube. The telescope consists of a convex lens ($f = \SI{75}{\milli\meter}$) focusing the beam and a concave lens ($f = \SI{-50}{\milli\meter}$) after about \SI{30}{\milli\meter}. This reduces the beam diameter to about \SI{650}{\micro\meter} immediately after the second lens, the beam waist is now about $2w_0 = \SI{600}{\micro\meter}$ located about \SI{175}{\milli\meter} away from the telescope. Lowering the beam diameter is a trade-off between a slimmer beam waist $w_0$ making the beam fitting better into the acousto-optical modulators' apertures and a larger beam divergence $\theta = \frac{\lambda}{\pi w_0}$ that would lead to even larger beam diameters after some propagation distance. The scaled-down beam reaches a diameter of about \SI{700}{\micro\meter} after about \SI{475}{\milli\meter} after the telescope. In order to scale it down for the rest of the beam path on the board, a convex lens($f = \SI{500}{\milli\meter}$) was placed in the beam path. In this way, the beam diameter is kept under \SI{700}{\micro\meter} on the remaining beam path with the waist (diameter $2w_0 \approx \SI{650}{\micro\meter}$) at a total distance of \SI{720}{\milli\meter} from the telescope.  These parameters were estimated based on a simulation in the software GaussianBeam\footnote{\url{https://sourceforge.net/projects/gaussianbeam/}}, shown in figure~\ref{fig:beam_diameter_evolution}.
+As the acousto-optical modulators used in the setup require way smaller beam diameters than the \SI{1000}{\micro\meter} beam output by the Raman fiber amplifier, a telescope for decreasing the beam diameter was placed after the aforementioned beam splitter cube. The telescope consists of a convex lens ($f = \SI{75}{\milli\meter}$) focusing the beam and a concave lens ($f = \SI{-50}{\milli\meter}$) after about \SI{30}{\milli\meter}. This reduces the beam diameter to about \SI{650}{\micro\meter} immediately after the second lens, the beam waist is now about $2w_0 = \SI{600}{\micro\meter}$ located about \SI{175}{\milli\meter} away from the telescope. Lowering the beam diameter is a trade-off between a slimmer beam waist $w_0$ making the beam fitting better into the acousto-optical modulators' apertures and a larger beam divergence $\theta = \frac{\lambda}{\pi w_0}$ that would lead to even larger beam diameters after some propagation distance. The scaled-down beam reaches a diameter of about \SI{700}{\micro\meter} after about \SI{475}{\milli\meter} after the telescope. In order to scale it down for the rest of the beam path on the board, a convex lens ($f = \SI{500}{\milli\meter}$) was placed in the beam path. In this way, the beam diameter is kept under \SI{700}{\micro\meter} on the remaining beam path with the waist (diameter $2w_0 \approx \SI{650}{\micro\meter}$) at a total distance of \SI{720}{\milli\meter} from the telescope.  These parameters were estimated based on a simulation in the software GaussianBeam\footnote{\url{https://sourceforge.net/projects/gaussianbeam/}}, shown in figure~\ref{fig:beam_diameter_evolution}.
 
 \begin{figure}
     \caption{Evolution of the beam shape from the telescope along the beam path}
