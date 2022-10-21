@@ -279,7 +279,7 @@ The cooling laser beams for the 2-dimensional and the 3-dimensional magneto-opti
 The laser beams originate from two laser sources, one for D$_2$ light for the magneto-optical traps and one for D$_1$ light for the gray molasses. All beams produced by the setup consist of cooler and repumper light, which is separated by \SI{228}{\mega\hertz}, the hyperfine splitting of the $^2S_{1/2}$ ground state. For the 2-dimensional magneto-optical trap, the frequencies of the cooler and repumper light as well as their powers are fixed, for the 3-dimensional trap and the gray molasses light they need to be variable in order to compress and optimize the traps dynamically. The light for the 3-dimensional trap and the gray molasses cooling should be prepared on the same optical path, which is useful as both cooling schemes are carried out at the same position in the experiment chamber. All beams need to have sufficient power levels such that several saturation intensities on the respective trap cross-sections (\SI{30}{\milli\meter} for the 2-dimensional trap and \SI{7}{\milli\meter} for the 3-dimensional trap and the gray molasses cooling).
 
 \paragraph{Laser sources}
-The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is jointly produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB [[model name]], "Socrates" and "Plato") with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two XYZ lasers (Toptica [[model name]], "Zeno" and "Heraklitus"), delivering around \SI{20}{\milli\watt} of power. These seeds are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily within a range of a few hundred \si{\mega\hertz} [[TODO verify]]. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
+The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is jointly produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB VRFA-P-1500-671-SF-PLUS, "Socrates" and "Plato") with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two single-mode diode lasers at \SI{1342}{\nano\meter} (Toptica MDL pro, "Heraklitus" seeding "Socrates", and "Zeno" seeding "Plato"), delivering around \SI{20}{\milli\watt} of power. Each fiber amplifier contains a frequency-doubling stage creating \SI{671}{\nano\meter} light from the amplified \SI{1342}{\nano\meter} light. The seed lasers are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily within a range of a few hundred \si{\mega\hertz} [[TODO verify]]. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
 
 \begin{figure}
     \caption{Schematic of the cooling laser setup: Two Raman fiber amplifiers provide light for the optics setups that prepare the light used in the magneto-optical traps and the gray molasses. The amplifiers are offset-locked via their seeds to a global reference lasers which, in turn, is locked to a reference cavity.}\label{fig:laser_interplay_schematic}
@@ -312,12 +312,12 @@ Within this thesis, the part of the laser setup providing the light for the 2-di
 
 \begin{figure}
     \centering
-    \caption{Photograph of the part of the optics setup providing light for the 2-dimensional magneto-optical trap. The beam path and reference points from figure~\ref{fig:laser_setup_schematic} have been added for orientation.}\label{fig:2d_mot_setup_photo}
+    \caption{Photograph of the part of the optics setup providing light for the 2-dimensional magneto-optical trap. The beam path and reference points from figure~\ref{fig:laser_setup_schematic} have been added for orientation. [[Add more reference points]]}\label{fig:2d_mot_setup_photo}
 \end{figure}
 
 The D$_2$ light is coming from the doubling stage of the Raman fiber amplifier "Plato" where the amplified \SI{1342}{\nano\meter} light is frequency-doubled to \SI{671}{\nano\meter} light. At this point, the laser beam has an $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}.
 
-In order to prevent any inadvertent reflections travelling back into the amplifier, a Newport optical isolator ([[part number]]) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and \SI{95}{\percent} transmission could be attested in agreement with the specifications.
+In order to prevent any inadvertent reflections travelling back into the amplifier, a Newport optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and \SI{95}{\percent} transmission could be attested in agreement with the specifications.
 
 After the optical isolator, a quarter-wave plate is used to eliminate any elliptical polarization components from the beam caused by hitting mirrors with light that has polarization other than $\Ket{\text{H}}$ and $\Ket{\text{V}}$.
 
@@ -331,3 +331,5 @@ As the acousto-optical modulators used in the setup require way smaller beam dia
     \caption{Evolution of the beam shape from the telescope along the beam path}
     \label{fig:beam_diameter_evolution}
 \end{figure}
+
+The slimmed-down light is then coupled through the first acousto-optical modulator.
