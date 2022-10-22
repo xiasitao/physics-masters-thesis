@@ -400,9 +400,34 @@ One trap beam will be shot in from the left or right side of glass cell and will
     \label{fig:mot_optics_schematic_from_above}
 \end{figure}
 
-\paragraph{Outcoupler Stages}
+\paragraph{Outcoupling Stages}
+The outcoupling stage consists of optical elements for collimating, polarization-cleaning, and polarization-preparing the light, mounted in an optical cage system. A schematic of the stage is shown in figure~\ref{fig:outcoupling_stage_schematic}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{\imagepath/outcoupling_stage_schematic/outcoupling_stage_schematic.pdf}
+    \caption{Schematic of the outcoupling stage in an optical cage system: The trapping light coming from an optical fiber is collimated with an achromatic lens such that the beam has a $\frac{1}{e^2}$ diameter of \SI{7}{\milli\meter}. The polarization is cleaned using a half-wave plate and a polarizations beam splitter. Using a beam sampler, a small amount of light is reflected out of the axis and shot onto a photodiode for power monitoring. The light is polarization-prepared on a quarter- and a half-wave plate.}
+    \label{fig:outcoupling_stage_schematic}
+\end{figure}
+
+The light leaving the optical fiber has a divergence angle of $\theta = \frac{\lambda}{\pi w} = \frac{\SI{671}{\nano\meter}}{\pi\SI{2.25}{\micro\meter}} = \SI{95}{\milli\radian}$ with the beam waist $w = \SI{2.25}{\micro\meter}$ at the fiber tip. In order to collimate it to a beam of $\frac{1}{e^2}$ diameter of \SI{7}{\milli\meter}, hence radius of $r_{1/e^2} = \SI{3.5}{\milli\meter}$, a lens of focal length $f = \frac{r_{1/e^2}}{\tan \theta} = \frac{\SI{3.5}{\milli\meter}}{\SI{95}{\milli\radian}} \approx \SI{35}{\milli\meter}$~\cite{noauthor_collimated_2021} is installed in the outcoupling stage such that the fiber tip is in the focal point.
+
+In order to clean the polarization that the light might have acquired while travelling in the fiber, is cleaned using a combination of a half-wave plate and a polarizing beam splitter.
+
+After that a beam sampler reflects out a small fraction of the light onto a photodiode for power monitoring. Note that the power is monitored after polarization cleaning in order to check the effective power that is available for trapping\footnote{The power is not monitored on the other beam splitter port as then one could not distinguish between polarization-induced and supply-induced power changes. It is also not checked by monitoring the transmitted power on one of the system's mirrors as the absolute power transmitted by these mirror would be too little.}.
+
+Finally, the polarization of the trapping beam can be set using a quarter- and a half-wave plate.
 
 \paragraph{Reflection Stages}
 
+
+\paragraph{Polarizations}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.77]{\imagepath/reflection_stage_schematic/reflection_stage_schematic.pdf}
+    \caption{Schematic of the reflection stage in an optical cage system: Incoming light is sent through a quarter- and a half-wave plate, reflected on a mirror, and leaves the stage propagating through the two wave plates again in reverse order.}
+    \label{fig:reflection_stage_schematic}
+\end{figure}
 
