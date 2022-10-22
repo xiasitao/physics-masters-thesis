@@ -11,3 +11,5 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe D\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q light is also offset by 78 , a part of it split off for offset locking, and fed through an identical programmatic beam blockade.\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe cooler beam is frequency shifted by about +162 , the repumper by about 390 , with the double-passes allowing for an adjustment range of several tens of .\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe D\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q light is also offset by [retain-explicit-plus]+78 , a part of it split off for offset locking, and fed through an identical programmatic beam blockade.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe telescope consists of a convex lens (\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q) focusing the beam and a concave lens (\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q) after about 30 .\\E$"}
+{"rule":"OBJECTIVE_CASE","sentence":"^\\QThe zeroth order of the outgoing beam is blocked at i.\\E$"}

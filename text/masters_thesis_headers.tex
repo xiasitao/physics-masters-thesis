@@ -34,6 +34,7 @@
   \re@DeclareMathSymbol{\sharp}{\mathord}{ntxletters}{"5D}
   \re@DeclareMathAccent{\vec}{\mathord}{ntxletters}{"7E}
 \makeatother
+\usepackage{todonotes}
 
 
 %\usepackage[osf, sc]{mathpazo}
@@ -49,7 +50,7 @@
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{braket}
-\usepackage{siunitx}
+\usepackage[retain-explicit-plus, separate-uncertainty=true]{siunitx}
 \DeclareSIUnit\gauss{G}
 \sisetup{
   per-mode=fraction,
@@ -58,6 +59,7 @@
 \usepackage{physics}
 % Preventing italic variables in ket to interfere with the Ket
 \newcommand{\KetSpaced}[1]{\Ket{~#1}}
+\newcommand{\KetText}[1]{\Ket{\text{#1}}}
 
 % === Tables ===
 \usepackage{booktabs}
