@@ -414,15 +414,12 @@ The light leaving the optical fiber has a divergence angle of $\theta = \frac{\l
 
 In order to clean the polarization that the light might have acquired while travelling in the fiber, is cleaned using a combination of a half-wave plate and a polarizing beam splitter.
 
-After that a beam sampler reflects out a small fraction of the light onto a photodiode for power monitoring. Note that the power is monitored after polarization cleaning in order to check the effective power that is available for trapping\footnote{The power is not monitored on the other beam splitter port as then one could not distinguish between polarization-induced and supply-induced power changes. It is also not checked by monitoring the transmitted power on one of the system's mirrors as the absolute power transmitted by these mirror would be too little.}.
+After that a beam sampler reflects out a small fraction of the light onto a photodiode for power monitoring. Note that the power is monitored after polarization cleaning in order to check the effective power that is available for trapping\footnote{The power is not monitored on the other beam splitter port as then one could not distinguish between polarization-induced and supply-induced power changes. It is also not checked by monitoring the transmitted power on one of the system's mirrors as the absolute power transmitted through these mirrors would be too little.}.
 
 Finally, the polarization of the trapping beam can be set using a quarter- and a half-wave plate.
 
 \paragraph{Reflection Stages}
-
-
-\paragraph{Polarizations}
-
+The reflection stages consist of a quarter- and a half-wave plate and a mirror mounted in a cage system, as depicted in figure~\ref{fig:reflection_stage_schematic}.
 
 \begin{figure}
     \centering
@@ -431,3 +428,52 @@ Finally, the polarization of the trapping beam can be set using a quarter- and a
     \label{fig:reflection_stage_schematic}
 \end{figure}
 
+\paragraph{Polarization}
+The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. In the following, the Jones vector notation for polarization in the $\{\KetText{H}, \KetText{V}\}$ basis is going to be used to denote circular and diagonal polarization:
+\begin{align}
+        \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right)  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
+        \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right)  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
+\end{align}
+
+For the trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will stay unchanged when transmitted through the glass.
+
+For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
+
+The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the polarization components are~\cite{demtroder_elektromagnetische_2013}
+\begin{align}
+    \begin{split}
+        t_{\KetText{H}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{\cos \theta + n \cos \theta_\text{glass}} =  \SI{0.916}{}\\
+        t_{\KetText{H}, \text{glass} \rightarrow \text{air}} &= \frac{2n \cos \theta_\text{glass}}{n \cos \theta_\text{galss} + \cos \theta} = \SI{0.999}{} \\
+        t_{\KetText{V}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{n \cos \theta + \cos \theta_\text{glass}} = \SI{0.916}{}\\ 
+        t_{\KetText{V}, \text{glass} \rightarrow \text{air}} &= \frac{2 n \cos \theta_\text{glass}}{\cos \theta_\text{glass} + \cos \theta} = \SI{0.999}{}\\ 
+    \end{split}
+\end{align}
+\begin{align}
+    \begin{split}
+        t_{\KetText{H}} = t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
+        t_{\KetText{V}} = t_{\KetText{V}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}} = \SI{0.998}{}
+    \end{split}
+\end{align}
+\todo{check}
+where the $\text{s}$ and $\text{p}$ components of the polarization have been identified with the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.
+In order to reach right or left circular polarizations within the glass cell, these polarization-dependent losses need to be pre-compensated and find the following polarizations required before glass cell:
+\begin{align}
+    \text{for right polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} - i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} - 0.644i \KetText{V} \\
+    \text{for left polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} + i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} + 0.644i \KetText{V}
+\end{align}
+
+In a mock setup a specimen fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam in order to verify these polarization presets. Using a polarization analyser, the polarization was set before the glass plate and measured after the glass plate. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned preset polarizations indeed lead to circular polarization in the glass cell.
+
+\begin{table}
+    \begin{tabularx}{\textwidth}{rcc}
+        \toprule
+        target polarization & set before glass plate & measured after glass plate \\
+        \midrule
+        $\KetText{R}$ & $(0.67, 0.01 + 0.75i)$ & $(0.71, 0.00 - 0.70i)$ \\
+        $\KetText{L}$ & $(0.63, 0.03 + 0.78i)$ & $(0.71, 0.00 + 0.70i)$ \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Experimental verification of the preset polarization for the first pass through the glass cell.}
+    \label{tab:polarization_first_pass}
+\end{table}
+\paragraph{Intensity}
