@@ -400,8 +400,8 @@ One trap beam will be shot in from the left or right side of glass cell and will
     \label{fig:mot_optics_schematic_from_above}
 \end{figure}
 
-\paragraph{Outcoupling Stages}
-The outcoupling stage consists of optical elements for collimating, polarization-cleaning, and polarization-preparing the light, mounted in an optical cage system. A schematic of the stage is shown in figure~\ref{fig:outcoupling_stage_schematic}
+\paragraph{Optics Stages}
+The outcoupling stages consist of optical elements for collimating, polarization-cleaning, and polarization-preparing the light, mounted in an optical cage system. A schematic of the stage is shown in figure~\ref{fig:outcoupling_stage_schematic}
 
 \begin{figure}
     \centering
@@ -418,7 +418,6 @@ After that a beam sampler reflects out a small fraction of the light onto a phot
 
 Finally, the polarization of the trapping beam can be set using a quarter- and a half-wave plate.
 
-\paragraph{Reflection Stages}
 The reflection stages consist of a quarter- and a half-wave plate and a mirror mounted in a cage system, as depicted in figure~\ref{fig:reflection_stage_schematic}.
 
 \begin{figure}
@@ -437,7 +436,7 @@ The trapping light needs to have circular polarization at the trap position in t
 
 For the trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will stay unchanged when transmitted through the glass.
 
-For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
+For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different values of the transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
 
 The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the polarization components are~\cite{demtroder_elektromagnetische_2013}
 \begin{align}
@@ -456,24 +455,39 @@ The glass cell is made of fused silica with a refractive index of $n = \SI{1.456
 \end{align}
 \todo{check}
 where the $\text{s}$ and $\text{p}$ components of the polarization have been identified with the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.
-In order to reach right or left circular polarizations within the glass cell, these polarization-dependent losses need to be pre-compensated and find the following polarizations required before glass cell:
+
+
+In order to reach circular polarization on the first pass through the glass cell, these polarization-dependent losses need to be pre-compensated when choosing the polarization before the glass cell surface:
 \begin{align}
+    \label{eq:predicted_polarization_first_pass_right}
     \text{for right polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} - i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} - 0.644i \KetText{V} \\
+    \label{eq:predicted_polarization_first_pass_left}
     \text{for left polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} + i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} + 0.644i \KetText{V}
 \end{align}
 
-In a mock setup a specimen fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam in order to verify these polarization presets. Using a polarization analyser, the polarization was set before the glass plate and measured after the glass plate. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned preset polarizations indeed lead to circular polarization in the glass cell.
+\begin{figure}
+    \centering
+    \includegraphics[]{\imagepath/first_pass_polarization_measurement_scheme/first_pass_polarization_measurement_scheme.pdf}
+    \caption{Schematic of the experimental setup for finding the right polarization of the trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) were set and verified using a polarization analyzer. Then a sample glass window was put in and circular polarization after the window was asserted.}
+    \label{fig:first_pass_polarization_measurement_scheme}
+\end{figure}
+
+For verifying these polarization presets in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. Using a pair of a quarter- and a half-wave plate, the polarization before the window could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned preset polarizations indeed lead to circular polarization in the glass cell.
 
 \begin{table}
-    \begin{tabularx}{\textwidth}{rcc}
+    \begin{tabularx}{\textwidth}{ccc}
         \toprule
         target polarization & set before glass plate & measured after glass plate \\
         \midrule
-        $\KetText{R}$ & $(0.67, 0.01 + 0.75i)$ & $(0.71, 0.00 - 0.70i)$ \\
-        $\KetText{L}$ & $(0.63, 0.03 + 0.78i)$ & $(0.71, 0.00 + 0.70i)$ \\
+        $\KetText{R}$ & $0.67 \KetText{H} + (0.01 + 0.75i) \KetText{V}$ & $0.71 \KetText{H} + (0.00 - 0.70i)\KetText{V}$ \\
+        $\KetText{L}$ & $0.63 \KetText{H} + (0.03 + 0.78i) \KetText{V}$ & $0.71 \KetText{H} + (0.00 + 0.70i) \KetText{V}$ \\
         \bottomrule
     \end{tabularx}
-    \caption{Experimental verification of the preset polarization for the first pass through the glass cell.}
+    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}.}
     \label{tab:polarization_first_pass}
 \end{table}
+
+In order
+
+
 \paragraph{Intensity}
