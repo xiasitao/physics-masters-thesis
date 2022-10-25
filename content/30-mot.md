@@ -71,7 +71,7 @@
     - mirror and glass cell surface characterization
     - polarization fixations
         - first pass through glass cell: fixing such that right / left after single pass through glass window, note down polarizations at other positions
-        - second pass: send light in through cube and lambda/4 to get right/left polarization, pass it through a mock setup of the system and note down the necessary wave plate settings to get 
+        - second pass: send light in through cube and lambda/4 to get right/left polarization, pass it through a mock setup of the system and note down the polarization after the waveplates as a reference
     
 ### Magnetic gradients
 - short characterization of the simulation results

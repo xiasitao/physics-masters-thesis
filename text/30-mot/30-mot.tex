@@ -457,7 +457,7 @@ The glass cell is made of fused silica with a refractive index of $n = \SI{1.456
 where the $\text{s}$ and $\text{p}$ components of the polarization have been identified with the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.
 
 
-In order to reach circular polarization on the first pass through the glass cell, these polarization-dependent losses need to be pre-compensated when choosing the polarization before the glass cell surface:
+In order to attain circular polarization on the first pass through the glass cell, these polarization-dependent losses need to be pre-compensated when choosing the polarization before the glass cell surface:
 \begin{align}
     \label{eq:predicted_polarization_first_pass_right}
     \text{for right polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} - i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} - 0.644i \KetText{V} \\
@@ -472,22 +472,22 @@ In order to reach circular polarization on the first pass through the glass cell
     \label{fig:first_pass_polarization_measurement_scheme}
 \end{figure}
 
-For verifying these polarization presets in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. Using a pair of a quarter- and a half-wave plate, the polarization before the window could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned preset polarizations indeed lead to circular polarization in the glass cell.
+For verifying these polarization presets in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. Using a pair of a quarter- and a half-wave plate, the polarization before the window could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned precompensated polarizations indeed lead to circular polarization in the glass cell.
 
 \begin{table}
     \begin{tabularx}{\textwidth}{ccc}
         \toprule
         target polarization & set before glass plate & measured after glass plate \\
         \midrule
-        $\KetText{R}$ & $0.67 \KetText{H} + (0.01 + 0.75i) \KetText{V}$ & $0.71 \KetText{H} + (0.00 - 0.70i)\KetText{V}$ \\
-        $\KetText{L}$ & $0.63 \KetText{H} + (0.03 + 0.78i) \KetText{V}$ & $0.71 \KetText{H} + (0.00 + 0.70i) \KetText{V}$ \\
+        $\KetText{R}$ & $0.78 \KetText{H} + (-0.02-0.63i) \KetText{V}$ & $0.70 \KetText{H} +(0.00-0.71i)\KetText{V}$ \\
+        $\KetText{L}$ & $0.75 \KetText{H} + (-0.01+0.67i)\KetText{V}$ & $0.70 \KetText{H} + (0.00+0.71i)\KetText{V}$ \\
         \bottomrule
     \end{tabularx}
-    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}.}
+    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm the proposed precompensation (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}). All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
     \label{tab:polarization_first_pass}
 \end{table}
 
-In order
+In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. 
 
 
 \paragraph{Intensity}

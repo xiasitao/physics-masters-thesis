@@ -13,6 +13,7 @@
 # Experiment setup
 
 - polarisation
-    - find out sqrt(WPs) such that we can fix the polarisation hitting the reflection mirror
+    - find waveplate settings for reaching left/right light "at atoms" using the cube method, note down
+    - remove mirror and measure the polarizations
 - finish coupling
 - laser setup power measurements
