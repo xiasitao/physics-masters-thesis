@@ -358,7 +358,7 @@ Within this thesis, the part of the laser setup providing the light for the 2-di
     
     \item[l] The light is split into a few \si{\milli\watt} for the push beam (m) and the rest for the 2-dimensional magneto-optical trap.
 
-    \item[m] Here the push beam light will be prepared using single pass acousto-optical modulator driven at \SI{+114}{\mega\hertz} which serves as a frequency shifter and as a shutter.
+    \item[m] Here the push beam light will be prepared using a single pass acousto-optical modulator driven at \SI{+114}{\mega\hertz} which serves as a frequency shifter and as a shutter.
     
     \item[n] At this point, space is left free for an electro-optical modulator that would add sidebands onto the light allowing for addressing more velocity classes in the trap and thus increasing its loading rate.
     
@@ -382,12 +382,11 @@ Table \ref{tab:power_cascade} outlines how much power is dissipated on the optic
         b && \\
         ... && \\
         \bottomrule
+        \caption{Power dissipation on the board creating the light for the 2-dimensional magneto-optical trap.    \todo[inline]{Fill in power levels}
+        }
+        \label{tab:power_cascade}
     \end{tabularx}
-    \caption{Power dissipation on the board creating the light for the 2-dimensional magneto-optical trap.
-    \todo[inline]{Fill in power levels}
-    }
-    \label{tab:power_cascade}
-\end{table}
+\end{table} 
 
 
 \subsection*{Optics around the Experiment Chamber}
@@ -484,9 +483,9 @@ For verifying these polarization presets in a mock setup, a sample fused silica 
         $\KetText{R}$ & $0.78 \KetText{H} + (-0.02-0.63i) \KetText{V}$ & $0.70 \KetText{H} +(0.00-0.71i)\KetText{V}$ \\
         $\KetText{L}$ & $0.75 \KetText{H} + (-0.01+0.67i)\KetText{V}$ & $0.70 \KetText{H} + (0.00+0.71i)\KetText{V}$ \\
         \bottomrule
+        \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm that the proposed precompensation (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) is a good estimate. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
+        \label{tab:polarization_first_pass}
     \end{tabularx}
-    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm that the proposed precompensation (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) is a good estimate. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
-    \label{tab:polarization_first_pass}
 \end{table}
 
 \pagebreak
@@ -530,10 +529,12 @@ with $\text{X}$ denoting the transmission through the glass plate, deflection on
         & pol2 \\
         & pol3 \\
         \bottomrule
+        \caption{Experimentally found ideal polarizations on the mirror of the reflection stages. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}) and the power on the second of the polarizing beam splitter is maximal.}
+        \label{tab:polarization_second_pass}
     \end{tabularx}
-    \caption{Experimentally found ideal polarizations on the mirror of the reflection stages. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}) and the power on the second of the polarizing beam splitter is maximal.}\label{tab:polarization_second_pass}
 \end{table}
 
-When building the trap, these polarization presets should be deemed a starting point in order to get a first signal. The loading rate must still be experimentally optimized by varying the polarization parameters.
+When building the trap, these polarization presets (tables~\ref{tab:polarization_first_pass} and ~\ref{tab:polarization_second_pass}) should be deemed an initialization point for getting a first signal. The trap then needs to be optimized by varying the polarization parameters and monitoring the loading rate with fluorescence imaging.
 
 \paragraph{Intensity}
+
