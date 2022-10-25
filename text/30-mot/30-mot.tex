@@ -470,7 +470,7 @@ In order to attain circular polarization on the first pass through the glass cel
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/first_pass_polarization_measurement_scheme/first_pass_polarization_measurement_scheme.pdf}
-    \caption{Schematic of the experimental setup for finding the right polarization of the trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) were set and verified using a polarization analyzer. Then a sample glass plate was put in and circular polarization after the plate was asserted.}
+    \caption{Schematic of the experimental setup for verifying the polarization of the incident trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) were set and verified using a polarization analyzer. Then a sample glass plate was put in and circular polarization after the plate (the ``trap'' position) was asserted.}
     \label{fig:first_pass_polarization_measurement_scheme}
 \end{figure}
 
@@ -509,6 +509,12 @@ In order to attain the same circular polarization on the second pass through the
 \end{align}
 with $\text{X}$ denoting the transmission through the glass plate, deflection on the mirror and through the wave plates on the reflection stage to be adjusted. The polarizations $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ identify the ideal wave plate configuration and are hence the parameter looked for in the mock setup. $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ can now be measured by replacing the mirror with the polarization analyzer, as outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. The identified ideal polarizations are listed in table~\ref{tab:polarization_second_pass}.
 
+\begin{figure}
+    \centering
+    \includegraphics[]{\imagepath/second_pass_waveplate_adjustment_scheme/second_pass_waveplate_adjustment_scheme.pdf}
+    \caption{Schematic of the experimental setup for finding the right configuration of the wave plates on the reflection stages: In a first step, the wave plate configuration on the "reflection stage" is optimized for circular polarization in the ``trap'' by maximizing the output power on port 2 of the beam splitter cube. Then the polarization in the reflection stage which identifies the optimal waveplate configuration is measured using a polarization analyzer.}\label{fig:second_pass_waveplate_adjustment_scheme}
+\end{figure}
+
 \begin{table}
     \begin{tabularx}{\textwidth}{cl}
         \toprule
@@ -525,13 +531,8 @@ with $\text{X}$ denoting the transmission through the glass plate, deflection on
         & pol3 \\
         \bottomrule
     \end{tabularx}
-    \caption{Experimentally found ideal polarizations on the mirror of the reflection stages. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}) and the power on the second of the polarizing beam splitter is maximal.}
-    \label{tab:polarization_second_pass}
+    \caption{Experimentally found ideal polarizations on the mirror of the reflection stages. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}) and the power on the second of the polarizing beam splitter is maximal.}\label{tab:polarization_second_pass}
 \end{table}
-
-\begin{figure}
-    \caption{Schematic of the experimental setup for finding the right configuration of the wave plates on the reflection stages:}\label{fig:second_pass_waveplate_adjustment_scheme}
-\end{figure}
 
 When building the trap, these polarization presets should be deemed a starting point in order to get a first signal. The loading rate must still be experimentally optimized by varying the polarization parameters.
 
