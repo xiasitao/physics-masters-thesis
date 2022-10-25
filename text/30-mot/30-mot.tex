@@ -428,7 +428,9 @@ The reflection stages consist of a quarter- and a half-wave plate and a mirror m
 \end{figure}
 
 \paragraph{Polarization}
-The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. In the following, the Jones vector notation for polarization in the $\{\KetText{H}, \KetText{V}\}$ basis is going to be used to denote circular and diagonal polarization:
+The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. Since the polarization cannot be measured within the glass cell at the time of operation, the approximate configuration of the optics for attaining the necessary polarization was estimated.
+
+In the following, the Jones vector notation for polarization in the $\{\KetText{H}, \KetText{V}\}$ basis is going to be used to denote circular and diagonal polarization:
 \begin{align}
         \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right)  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
         \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right)  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
@@ -468,11 +470,11 @@ In order to attain circular polarization on the first pass through the glass cel
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/first_pass_polarization_measurement_scheme/first_pass_polarization_measurement_scheme.pdf}
-    \caption{Schematic of the experimental setup for finding the right polarization of the trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) were set and verified using a polarization analyzer. Then a sample glass window was put in and circular polarization after the window was asserted.}
+    \caption{Schematic of the experimental setup for finding the right polarization of the trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) were set and verified using a polarization analyzer. Then a sample glass plate was put in and circular polarization after the plate was asserted.}
     \label{fig:first_pass_polarization_measurement_scheme}
 \end{figure}
 
-For verifying these polarization presets in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. Using a pair of a quarter- and a half-wave plate, the polarization before the window could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned precompensated polarizations indeed lead to circular polarization in the glass cell.
+For verifying these polarization presets in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. This glass plate acts as the surface which the light enters the glass cell through. Using a pair of a quarter- and a half-wave plate, the polarization before the plate could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned estimated polarizations  are a good estimate for producing circular polarization in the glass cell.
 
 \begin{table}
     \begin{tabularx}{\textwidth}{ccc}
@@ -483,11 +485,54 @@ For verifying these polarization presets in a mock setup, a sample fused silica 
         $\KetText{L}$ & $0.75 \KetText{H} + (-0.01+0.67i)\KetText{V}$ & $0.70 \KetText{H} + (0.00+0.71i)\KetText{V}$ \\
         \bottomrule
     \end{tabularx}
-    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm the proposed precompensation (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}). All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
+    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm that the proposed precompensation (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) is a good estimate. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
     \label{tab:polarization_first_pass}
 \end{table}
 
-In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. 
+\pagebreak
+\todo{check if pagebreak necessary}
+In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. Their required configuration is determined experimentally since the glass surfaces and mirrors in the beam path introduce many polarization changes that are hard to deduct from principle. Again, a mock setup with a sample glass plate with a shallow angle with respect to the beam is used. Light is transmitted through a polarizing beam splitter cube, circularly polarized using a quarter-wave plate, and then transmitted through the sample glass plate. This time, it acts as the surface which the light leaves the glass cell through. Afterwards the light is deflected through two waveplates onto a mirror which represents the reflection stage. The mirror is adjusted such that the beam passes back through the setup until it reaches the beam splitter cube again. This arrangement is outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. The ideal wave plate configuration on the reflection stage is now identified by monitoring the power reflected on the polarizing beam splitter depending on the wave plate configuration: For circular light on the backward pass after the glass plate (meaning at the trap position in the mock setup), all light is deflected on the beam splitter cube after passing back through the waveplate. This cascade of polarizations is outlined in~\eqref{eq:second_pass_waveplate_adjustment_cascade_r} and~\eqref{eq:second_pass_waveplate_adjustment_cascade_l}:
+\begin{align}
+    \label{eq:second_pass_waveplate_adjustment_cascade_r}
+    \text{port 1} \underset{\text{beam splitter}}{\longrightarrow} \KetText{H} \underset{\text{QWP}}{\longrightarrow} \KetText{R} \underset{\text{X}}{\longrightarrow} \Ket{\psi_\text{R}}
+    & ~~ \underset{\text{mirror}}{\longrightarrow} ~~
+    \Ket{\psi_\text{R}}  \underset{\text{X}}{\longrightarrow} \KetText{R} \underset{\text{QWP}}{\longrightarrow} \KetText{V} \underset{\text{beam splitter}}{\longrightarrow} \text{port 2}
+    \\
+    \label{eq:second_pass_waveplate_adjustment_cascade_l}
+    \underbrace{
+        \text{port 1} \underset{\text{beam splitter}}{\longrightarrow} \KetText{H} \underset{\text{QWP}}{\longrightarrow} \KetText{L} \underset{\text{X}}{\longrightarrow} \Ket{\psi_\text{L}}
+    }_{\text{forward pass}}
+    & ~~ \underset{\text{mirror}}{\longrightarrow} ~~ 
+    \underbrace{
+        \Ket{\psi_\text{L}}  \underset{\text{X}}{\longrightarrow} \KetText{L} \underset{\text{QWP}}{\longrightarrow} \KetText{V} \underset{\text{beam splitter}}{\longrightarrow} \text{port 2}
+     }_{\text{backward pass}}
+\end{align}
+with $\text{X}$ denoting the transmission through the glass plate, deflection on the mirror and through the wave plates on the reflection stage to be adjusted. The polarizations $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ identify the ideal wave plate configuration and are hence the parameter looked for in the mock setup. $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ can now be measured by replacing the mirror with the polarization analyzer, as outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. The identified ideal polarizations are listed in table~\ref{tab:polarization_second_pass}.
 
+\begin{table}
+    \begin{tabularx}{\textwidth}{cl}
+        \toprule
+        target polarization $P$ & polarization $\Ket{\psi_P}$ in reflection stage \\
+        \toprule
+        \multirow{4}{*}{$\KetText{R}$} & pol0 \\
+        & pol1 \\
+        & pol2 \\
+        & pol3 \\
+        \midrule
+        \multirow{4}{*}{$\KetText{L}$} & pol0 \\
+        & pol1 \\
+        & pol2 \\
+        & pol3 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Experimentally found ideal polarizations on the mirror of the reflection stages. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}) and the power on the second of the polarizing beam splitter is maximal.}
+    \label{tab:polarization_second_pass}
+\end{table}
+
+\begin{figure}
+    \caption{Schematic of the experimental setup for finding the right configuration of the wave plates on the reflection stages:}\label{fig:second_pass_waveplate_adjustment_scheme}
+\end{figure}
+
+When building the trap, these polarization presets should be deemed a starting point in order to get a first signal. The loading rate must still be experimentally optimized by varying the polarization parameters.
 
 \paragraph{Intensity}
