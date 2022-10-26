@@ -284,7 +284,7 @@ Instead, two beams are shone in in the $xz$ plane at an angle with respect to th
     }\label{fig:glass_cell_sides_mot_beams}
 \end{figure} 
 
-\subsection*{Cooling Laser Setup}
+\subsection*{Preparation of the Trap Laser Light}
 The cooling laser beams for the 2-dimensional and the 3-dimensional magneto-optical traps as well as for the gray molasses are jointly produced on an optics board from where they are transferred to the experiment chamber via optical fibers.
 
 The laser beams originate from two laser sources, one for D$_2$ light for the magneto-optical traps and one for D$_1$ light for the gray molasses. All beams produced by the setup consist of cooler and repumper light, which is separated by \SI{228}{\mega\hertz}, the hyperfine splitting of the $^2\text{S}_{1/2}$ ground state. For the 2-dimensional magneto-optical trap, the frequencies of the cooler and repumper light as well as their powers are fixed, for the 3-dimensional trap and the gray molasses light they need to be variable in order to compress and optimize the traps dynamically. The light for the 3-dimensional trap and the gray molasses cooling should be prepared on the same optical path, which is useful as both cooling schemes are carried out at the same position in the experiment chamber. All beams need to have sufficient power levels such that several saturation intensities on the respective trap cross-sections (\SI{30}{\milli\meter} for the 2-dimensional trap and \SI{7}{\milli\meter} for the 3-dimensional trap and the gray molasses cooling).
@@ -322,16 +322,28 @@ After that the light is split in a power ratio of approximately $1$:$1$ into coo
 From the branch of the D$_2$ light for the 3-dimensional trap, a small amount is branched off for offset-locking. The remaining light is sent through a modulator-shutter combination for programmatic beam blocking as explained above, here with a modulator frequency of \SI{-198}{\mega\hertz}. It is then spatially overlapped with the D$_1$ light. The D$_1$ light is also offset by \SI{+78}{\mega\hertz}, a part of it split off for offset locking, and fed through an identical programmatic beam blockade. The combined beam of D$_2$ and D$_1$ light is then also split into two paths for cooler and repumper in a ratio of approximately $1$:$1$. Here, however, the light is fed through acousto-optical modulator double-passes as described in~\cite{qesja_design_2022}. In these double-passes the light crosses the modulators twice in an arrangement of a quarter-wave plate, a mirror, and a polarizing beam splitter. As the net deflection is zero in this configuration, it allows a programmatic change of the frequency shift applied to each beam without the need to realign optical components. Together with the ability to damp the laser power by reducing the modulators' radio-frequency driving power, frequency and power of each beam can be independently steered for compressing the 3-dimensional magneto-optical trap and for switching the powers when applying the gray molasses. The cooler beam is frequency shifted by about \SI{+162}{\mega\hertz}, the repumper by about \SI{+390}{\mega\hertz}, with the double-passes allowing for an adjustment range of several tens of \si{\mega\hertz}. The total frequency shift considering the initial offset, the blockade modulators and modulator in the cooler (repumper) path amounts to $\SI{-78}{\mega\hertz} - \SI{198}{\mega\hertz} + \SI{390}{\mega\hertz} = \SI{+114}{\mega\hertz}$ ($\SI{-78}{\mega\hertz} - \SI{198}{\mega\hertz} + \SI{162}{\mega\hertz} = \SI{-114}{\mega\hertz}$) which is again the hyperfine splitting of the ground state manifold.
 
 \paragraph{Implementation of the Laser Setup for the 2-dimensional Magneto-optical Trap}
-Within this thesis, the part of the laser setup providing the light for the 2-dimensional magneto-optical trap, as highlighted in figure~\ref{fig:laser_setup_schematic}, was built. The implementation is described in greater detail in this paragraph, figure~\ref{fig:2d_mot_setup_photo} shows a photograph of this part of the setup. For each step, the corresponding marking from the figure is given for orientation.
+Within this thesis, the part of the laser setup providing the light for the 2-dimensional magneto-optical trap, as highlighted in figure~\ref{fig:laser_setup_schematic}, was built.
+Important optical components used and the implementation of the optics board is described in greater detail in this paragraph, figure~\ref{fig:2d_mot_setup_photo} shows a photograph of this part of the setup.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{\imagepath/2d_mot_setup_photo/2d_mot_setup_photo.pdf}
-    \caption{Photograph of the part of the optics setup providing light for the 2-dimensional magneto-optical trap. The beam path and reference points from figure~\ref{fig:laser_setup_schematic} have been added for orientation.}\label{fig:2d_mot_setup_photo}
+    \caption{Photograph of the part of the optics setup providing light for the 2-dimensional magneto-optical trap. The beam path and reference points have been added for orientation.}\label{fig:2d_mot_setup_photo}
 \end{figure}
 
+The following optical components were the main building blocks of this optics setup: \todo{formulate}
 \begin{itemize}
-    \item[a] The D$_2$ light is coming from the doubling stage of the Raman fiber amplifier "Plato" where the amplified \SI{1342}{\nano\meter} light is frequency-doubled to \SI{671}{\nano\meter} light. At this point, the laser beam has an $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}.
+    \item PBS
+    \item waveplate
+    \item AOM
+    \item telescope
+    \item incoupler
+    \item mirror
+\end{itemize}
+
+The light is prepared on the optics board in the following steps (letters reference points in figure~\ref{fig:2d_mot_setup_photo}):
+\begin{itemize}
+    \item[a] The D$_2$ light is coming from the doubling stage of the Raman fiber amplifier ``Plato'' where the amplified \SI{1342}{\nano\meter} light is frequency-doubled to \SI{671}{\nano\meter} light. At this point, the laser beam has a $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}.
 
     \item[b] In order to prevent any inadvertent reflections travelling back into the amplifier, a Newport optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and \SI{95}{\percent} transmission could be attested in agreement with the specifications.
 
@@ -417,17 +429,17 @@ After that a beam sampler reflects out a small fraction of the light onto a phot
 
 Finally, the polarization of the trapping beam can be set using a quarter- and a half-wave plate.
 
-The reflection stages consist of a quarter- and a half-wave plate and a mirror mounted in a cage system, as depicted in figure~\ref{fig:reflection_stage_schematic}.
+The reflection stages consist of an cascade of a quarter-, a half-, and another quarter-wave plate and a mirror mounted in a cage system, as depicted in figure~\ref{fig:reflection_stage_schematic}. This threefold wave plate combination is traversed by the light twice, forwards and backwards, and allows for arbitrary changes of polarization. Only using two wave plates in the reflection stage would not suffice as a combination of only one quarter- and one half-wave plate cannot map every polarization to any other arbitrary polarization.
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.77]{\imagepath/reflection_stage_schematic/reflection_stage_schematic.pdf}
-    \caption{Schematic of the reflection stage in an optical cage system: Incoming light is sent through a quarter- and a half-wave plate, reflected on a mirror, and leaves the stage propagating through the two wave plates again in reverse order.}
+    \caption{Schematic of the reflection stage in an optical cage system: Incoming light is sent through a quarter-, a half-, and anther quarter-wave plate, and then reflected on a mirror. It leaves the stage propagating through the three wave plates again in reverse order.}
     \label{fig:reflection_stage_schematic}
 \end{figure}
 
-\paragraph{Polarization}
-The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. Since the polarization cannot be measured within the glass cell at the time of operation, the approximate configuration of the optics for attaining the necessary polarization was estimated.
+\subsection*{Polarization}
+The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. Since the polarization cannot be measured within the glass cell at the time of operation, the approximate configuration of the optics for attaining the necessary polarization is estimated.
 
 In the following, the Jones vector notation for polarization in the $\{\KetText{H}, \KetText{V}\}$ basis is going to be used to denote circular and diagonal polarization:
 \begin{align}
@@ -437,7 +449,7 @@ In the following, the Jones vector notation for polarization in the $\{\KetText{
 
 For the trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will stay unchanged when transmitted through the glass.
 
-For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different values of the transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
+For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
 
 The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the polarization components are~\cite{demtroder_elektromagnetische_2013}
 \begin{align}
@@ -457,7 +469,7 @@ The glass cell is made of fused silica with a refractive index of $n = \SI{1.456
 \todo{check}
 where the $\text{s}$ and $\text{p}$ components of the polarization have been identified with the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.
 
-
+\paragraph{First pass}
 In order to attain circular polarization on the first pass through the glass cell, these polarization-dependent losses need to be pre-compensated when choosing the polarization before the glass cell surface:
 \begin{align}
     \label{eq:predicted_polarization_first_pass_right}
@@ -490,6 +502,7 @@ For verifying these polarization presets in a mock setup, a sample fused silica 
 
 \pagebreak
 \todo{check if pagebreak necessary}
+\paragraph{Second pass}\todo{Change for three WPs}\todo{add paragraph breaks}\todo{explain why we need three waveplates more in depth mentioning all important properties}
 In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. Their required configuration is determined experimentally since the glass surfaces and mirrors in the beam path introduce many polarization changes that are hard to deduct from principle. Again, a mock setup with a sample glass plate with a shallow angle with respect to the beam is used. Light is transmitted through a polarizing beam splitter cube, circularly polarized using a quarter-wave plate, and then transmitted through the sample glass plate. This time, it acts as the surface which the light leaves the glass cell through. Afterwards the light is deflected through two waveplates onto a mirror which represents the reflection stage. The mirror is adjusted such that the beam passes back through the setup until it reaches the beam splitter cube again. This arrangement is outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. The ideal wave plate configuration on the reflection stage is now identified by monitoring the power reflected on the polarizing beam splitter depending on the wave plate configuration: For circular light on the backward pass after the glass plate (meaning at the trap position in the mock setup), all light is deflected on the beam splitter cube after passing back through the waveplate. This cascade of polarizations is outlined in~\eqref{eq:second_pass_waveplate_adjustment_cascade_r} and~\eqref{eq:second_pass_waveplate_adjustment_cascade_l}:
 \begin{align}
     \label{eq:second_pass_waveplate_adjustment_cascade_r}
@@ -538,3 +551,6 @@ When building the trap, these polarization presets (tables~\ref{tab:polarization
 
 \paragraph{Intensity}
 
+\paragraph{Magnetic Gradient}
+
+\paragraph{Parameter Estimation}
