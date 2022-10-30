@@ -225,7 +225,7 @@ Gray molasses is based on atoms moving in a polarization-gradient field where th
     \caption{Level diagram of the D$_1$ line of lithium. The $\Lambda$-system used in gray molasses cooling consists of two manifolds with equal $J$, made up of two magnetic sublevels in the ground state and one in the excited state.}\label{fig:gray_molasses_level_diagram}
 \end{figure}
 
-The counter-propagating gray molasses beams have circular polarization. At every point the superposition of the polarizations yields an effective polarization that is sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect of each other, that means that the atoms see alternating circular, elliptical, linear, elliptical, etc. polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as shown in figure~\ref{fig:gray_molasses_polarization_gradient}.
+The counter-propagating gray molasses beams have circular polarization\todo{not necessarily}. At every point the superposition of the polarizations yields an effective polarization that is sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect of each other, that means that the atoms see alternating circular, elliptical, linear, elliptical, etc. polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as shown in figure~\ref{fig:gray_molasses_polarization_gradient}.
 
 \begin{figure}
     \centering
@@ -240,7 +240,7 @@ The absence of coupling between these two states only persists as long as the at
 The cooling effect in this scheme can now be understood as follows: Atoms move along the gray molasses light field with a finite velocity $v$. At points with low light intensity, due to the polarization gradient, they are likely to transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$. Moving further in the polarization-gradient field, their light shift energy $E_C$ increases, at the cost of their kinetic energy. When they spontaneously decay back into the dark state $\Ket{\text{D}}$ they lose an amount of energy on the order of the light shift $E_C$. This is illustrated in figure~\ref{fig:gray_molasses_polarization_gradient}. The gray molasses light needs to be blue detuned, $\delta > 0$, because then the light shift is positive, and the atoms lose energy falling back into the dark state $\Ket{\text{D}}$. With this scheme,  temperatures even below the recoil limit $T_\text{recoil}$ can be reached~\cite{weidemuller_novel_1994,gerken_gray_2016}.
 
 
-\paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  enables reusing optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 3/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2S_{1/2}, F = 1/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine level is larger than its line width~\cite{gerken_gray_2016}.
+\paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  enables reusing optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 3/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 1/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine level is larger than its line width~\cite{gerken_gray_2016}.
 
 \citeauthor{burchianti_efficient_2014} implemented gray molasses for fermionic lithium in 2014. Their parameters were taken as a reference starting point for configuring the gray molasses of the FermiQP demonstrator setup~\cite{burchianti_efficient_2014}:
 \begin{itemize}
@@ -252,7 +252,7 @@ with $I_s = \SI{7.59}{\milli\watt\per\square\centi\meter}$ and $\Gamma = \SI{5.8
 
 \section{The 3-dimensional Magneto-optical Trap of the FermiQP Demonstrator}
 \todo{Make clear what is done already and what is still outstanding.}
-In this section, the geometry, the laser setup, the optics and the magnetic gradients for the 3-dimensional magneto-optical trap in the FermiQP demonstrator will be discussed. Due to massive supply chain problems and delivery time extensions by part vendors, only the laser setup [[and optics]] could be built during the writing of the thesis. For the other aspects of the trap, details of planning and simulations are presented.
+In this section, the geometry, the laser setup, the optics and the magnetic gradients for the 3-dimensional magneto-optical trap in the FermiQP demonstrator will be discussed. Due to massive supply chain problems and delivery time extensions by part vendors, only the laser setup and the magnetic gradient coils could be assembled and characterized during the writing of the thesis. For the other aspects of the trap, details of planning and simulations are presented.
 
 \subsection*{Geometry}
 The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap. It is guided through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell. The space around the glass cell is tightly packed with the two microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction.
@@ -411,7 +411,7 @@ One trap beam will be shot in from the left or right side of glass cell and will
     \label{fig:mot_optics_schematic_from_above}
 \end{figure}
 
-\paragraph{Optics Stages}
+\paragraph{Outcoupling Stages}
 The outcoupling stages consist of optical elements for collimating, polarization-cleaning, and polarization-preparing the light, mounted in an optical cage system. A schematic of the stage is shown in figure~\ref{fig:outcoupling_stage_schematic}
 
 \begin{figure}
@@ -429,6 +429,7 @@ After that a beam sampler reflects out a small fraction of the light onto a phot
 
 Finally, the polarization of the trapping beam can be set using a quarter- and a half-wave plate.
 
+\paragraph{Reflection Stages}
 The reflection stages consist of an cascade of a quarter-, a half-, and another quarter-wave plate and a mirror mounted in a cage system, as depicted in figure~\ref{fig:reflection_stage_schematic}. This threefold wave plate combination is traversed by the light twice, forwards and backwards, and allows for arbitrary changes of polarization. Only using two wave plates in the reflection stage would not suffice as a combination of only one quarter- and one half-wave plate cannot map every polarization to any other arbitrary polarization.
 
 \begin{figure}
@@ -441,17 +442,18 @@ The reflection stages consist of an cascade of a quarter-, a half-, and another 
 \subsection*{Polarization}
 The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. Since the polarization cannot be measured within the glass cell at the time of operation, the approximate configuration of the optics for attaining the necessary polarization is estimated.
 
-In the following, the Jones vector notation for polarization in the $\{\KetText{H}, \KetText{V}\}$ basis is going to be used to denote circular and diagonal polarization:
+In the following, the Jones vector notation for polarization in the horizontal/vertical basis $\{\KetText{H}, \KetText{V}\}$ is going to be used to denote the circular polarization states $\KetText{R}$ and $\KetText{L}$ and the diagonal polarization states $\KetText{D}$ and $\KetText{A}$:
 \begin{align}
         \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right)  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
         \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right)  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
 \end{align}
+In the following, horizontal polarization $\KetText{H}$ is defined as parallel to the glass cell surface  where the beam enters the cell, vertical polarization $\KetText{V}$ is perpendicular to $\KetText{H}$ and encloses a \SI{30}{\degree} angle with the surface normal of the glass cell surface.
 
-For the trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will stay unchanged when transmitted through the glass.
+For the trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will not be affected when transmitted through the glass.
 
 For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
 
-The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the polarization components are~\cite{demtroder_elektromagnetische_2013}
+The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the two polarization components are~\cite{demtroder_elektromagnetische_2013}
 \begin{align}
     \begin{split}
         t_{\KetText{H}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{\cos \theta + n \cos \theta_\text{glass}} =  \SI{0.916}{}\\
@@ -460,66 +462,94 @@ The glass cell is made of fused silica with a refractive index of $n = \SI{1.456
         t_{\KetText{V}, \text{glass} \rightarrow \text{air}} &= \frac{2 n \cos \theta_\text{glass}}{\cos \theta_\text{glass} + \cos \theta} = \SI{0.999}{}\\ 
     \end{split}
 \end{align}
+where the $\text{s}$ and $\text{p}$ components of the polarization have been mapped to the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.\todo{Check values}
+
+The total transmission through the \SI{4}{\milli\meter}-thick wall of the glass is combined transmission into glass and back into air:
 \begin{align}
     \begin{split}
-        t_{\KetText{H}} = t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
-        t_{\KetText{V}} = t_{\KetText{V}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}} = \SI{0.998}{}
+        t_{\KetText{H}} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
+        t_{\KetText{V}} &= t_{\KetText{V}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}} = \SI{0.998}{}
     \end{split}
 \end{align}
-\todo{check}
-where the $\text{s}$ and $\text{p}$ components of the polarization have been identified with the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.
 
 \paragraph{First pass}
 In order to attain circular polarization on the first pass through the glass cell, these polarization-dependent losses need to be pre-compensated when choosing the polarization before the glass cell surface:
 \begin{align}
-    \label{eq:predicted_polarization_first_pass_right}
-    \text{for right polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} - i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} - 0.644i \KetText{V} \\
-    \label{eq:predicted_polarization_first_pass_left}
-    \text{for left polarization:} \hspace{1cm} & \frac{\KetText{H}}{t_{\KetText{H}}} + i \frac{\KetText{V}}{t_{\KetText{V}}} \propto 0.765 \KetText{H} + 0.644i \KetText{V}
+    \label{eq:predicted_polarizations_first_pass}
+    \Ket{\psi_{\text{before cell,} {\text{right} \atop \text{left}}}} 
+    = \frac{1}{\sqrt{t_{\KetText{H}}^2 + t_{\KetText{V}}^2}}
+        \left(\frac{\KetText{H}}{t_{\KetText{H}}} \mp i \frac{\KetText{V}}{t_{\KetText{V}}} \right)
+    = 0.765 \KetText{H} \mp 0.644i \KetText{V}
 \end{align}
 
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/first_pass_polarization_measurement_scheme/first_pass_polarization_measurement_scheme.pdf}
-    \caption{Schematic of the experimental setup for verifying the polarization of the incident trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) were set and verified using a polarization analyzer. Then a sample glass plate was put in and circular polarization after the plate (the ``trap'' position) was asserted.}
+    \caption{Schematic of the experimental setup for verifying the polarization of the incident trapping light for the first pass through the glass cell: At first, the predicted polarizations (equations~\eqref{eq:predicted_polarizations_first_pass}) were set and verified using a polarization analyzer. Then a sample glass plate was put in and circular polarization after the plate (the ``trap'' position) was asserted.}
     \label{fig:first_pass_polarization_measurement_scheme}
 \end{figure}
 
-For verifying these polarization presets in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. This glass plate acts as the surface which the light enters the glass cell through. Using a pair of a quarter- and a half-wave plate, the polarization before the plate could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned estimated polarizations  are a good estimate for producing circular polarization in the glass cell.
+For verifying these polarizations in a mock setup, a sample fused silica glass plate of thickness \SI{4.04}{\milli\meter} was placed at an angle of \SI{60}{\degree} with respect to a \SI{671}{\nano\meter} laser beam. This glass plate acts as the surface through which the light enters the glass cell. Using a quarter- and a half-wave plate, the polarization before the plate could be arbitrarily set by monitoring it on a polarization analyzer. Then the glass plate was put into the beam path and and circular polarization was asserted after the glass plate, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The results are displayed in table~\ref{tab:polarization_first_pass} and show that the aforementioned estimated polarizations  are a good estimate for producing circular polarization in the glass cell.
 
 \begin{table}
-    \begin{tabularx}{\textwidth}{ccc}
+    \centering
+
+    \begin{tabular}{ccc}
         \toprule
         target polarization & set before glass plate & measured after glass plate \\
         \midrule
         $\KetText{R}$ & $0.78 \KetText{H} + (-0.02-0.63i) \KetText{V}$ & $0.70 \KetText{H} +(0.00-0.71i)\KetText{V}$ \\
         $\KetText{L}$ & $0.75 \KetText{H} + (-0.01+0.67i)\KetText{V}$ & $0.70 \KetText{H} + (0.00+0.71i)\KetText{V}$ \\
         \bottomrule
-        \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm that the proposed precompensation (equations~\eqref{eq:predicted_polarization_first_pass_right} and~\eqref{eq:predicted_polarization_first_pass_left}) is a good estimate. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
+    \end{tabular}
+    \caption{Results of the experimental verification of the preset polarization for the first pass through the glass cell, as outlined in figure~\ref{fig:first_pass_polarization_measurement_scheme}. The measured polarizations after the glass plate confirm that the proposed precompensation~\eqref{eq:predicted_polarizations_first_pass} is a good estimate. All values are outputs of the polarzation analyzer, transformed from the azimuth-ellpticity basis to the Jones basis using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$.}
         \label{tab:polarization_first_pass}
-    \end{tabularx}
 \end{table}
 
-\pagebreak
-\todo{check if pagebreak necessary}
 \paragraph{Second pass}\todo{Change for three WPs}\todo{add paragraph breaks}\todo{explain why we need three waveplates more in depth mentioning all important properties}
-In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. Their required configuration is determined experimentally since the glass surfaces and mirrors in the beam path introduce many polarization changes that are hard to deduct from principle. Again, a mock setup with a sample glass plate with a shallow angle with respect to the beam is used. Light is transmitted through a polarizing beam splitter cube, circularly polarized using a quarter-wave plate, and then transmitted through the sample glass plate. This time, it acts as the surface which the light leaves the glass cell through. Afterwards the light is deflected through two waveplates onto a mirror which represents the reflection stage. The mirror is adjusted such that the beam passes back through the setup until it reaches the beam splitter cube again. This arrangement is outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. The ideal wave plate configuration on the reflection stage is now identified by monitoring the power reflected on the polarizing beam splitter depending on the wave plate configuration: For circular light on the backward pass after the glass plate (meaning at the trap position in the mock setup), all light is deflected on the beam splitter cube after passing back through the waveplate. This cascade of polarizations is outlined in~\eqref{eq:second_pass_waveplate_adjustment_cascade_r} and~\eqref{eq:second_pass_waveplate_adjustment_cascade_l}:
+In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. Their required configuration is determined experimentally since the glass surfaces and mirrors in the beam path introduce many polarization changes that are hard to deduct from principle. Again, a mock setup with a sample glass plate with a shallow angle with respect to the beam is used. This time, it acts as the surface which the light leaves the glass cell through.
+
+Light is transmitted through a polarizing beam splitter cube, then circularly polarized using a quarter-wave plate. This light mimics the trap light before leaving the glass cell on the first pass. It is then transmitted through the sample glass plate at the shallow angle of \SI{60}{\degree}, simulating the exit from the glass cell. Afterwards the light is deflected onto a mock reflection stage, made up of a quarter-, a half-, and another quarter-wave plate, and finally onto a mirror sending the light back through the setup such that it reaches the beam splitter cube again. This arrangement is outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}.
+
+The ideal wave plate configuration on the reflection stage is now identified by monitoring the power reflected on the polarizing beam splitter depending on the wave plate configuration: Light passing back through the setup with the same circular polarization as on the first pass will be completely transmitted back through the beam splitter cube after traversing the quarter-wave plate in reverse direction. This means that for the desired configuration, all light of the second pass will be transmitted on the beam splitter cube, and the deflected power on the cube is minimal.
+
+The complete evolution of polarization in the setup is for right polarization in the cell
 \begin{align}
     \label{eq:second_pass_waveplate_adjustment_cascade_r}
-    \text{port 1} \underset{\text{beam splitter}}{\longrightarrow} \KetText{H} \underset{\text{QWP}}{\longrightarrow} \KetText{R} \underset{\text{X}}{\longrightarrow} \Ket{\psi_\text{R}}
-    & ~~ \underset{\text{mirror}}{\longrightarrow} ~~
-    \Ket{\psi_\text{R}}  \underset{\text{X}}{\longrightarrow} \KetText{R} \underset{\text{QWP}}{\longrightarrow} \KetText{V} \underset{\text{beam splitter}}{\longrightarrow} \text{port 2}
-    \\
-    \label{eq:second_pass_waveplate_adjustment_cascade_l}
-    \underbrace{
-        \text{port 1} \underset{\text{beam splitter}}{\longrightarrow} \KetText{H} \underset{\text{QWP}}{\longrightarrow} \KetText{L} \underset{\text{X}}{\longrightarrow} \Ket{\psi_\text{L}}
-    }_{\text{forward pass}}
-    & ~~ \underset{\text{mirror}}{\longrightarrow} ~~ 
-    \underbrace{
-        \Ket{\psi_\text{L}}  \underset{\text{X}}{\longrightarrow} \KetText{L} \underset{\text{QWP}}{\longrightarrow} \KetText{V} \underset{\text{beam splitter}}{\longrightarrow} \text{port 2}
-     }_{\text{backward pass}}
+    \underset{\text{beam}\atop\text{splitter}}{\longrightarrow}
+    \KetText{H} 
+    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \KetText{R}
+    \underset{\text{mirror \&} \atop \text{wave plates}}{\longrightarrow}
+    \Ket{\psi_\text{R}}
+    \underset{\text{mirror}}{\longrightarrow}
+    M\Ket{\psi_\text{R}}
+    \underset{\text{wave plates \&} \atop \text{mirror}}{\longrightarrow}
+    \KetText{R}
+    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \KetText{H}
+    \underset{\text{beam splitter} \atop \text{port 1}}{\longrightarrow}
 \end{align}
-with $\text{X}$ denoting the transmission through the glass plate, deflection on the mirror and through the wave plates on the reflection stage to be adjusted. The polarizations $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ identify the ideal wave plate configuration and are hence the parameter looked for in the mock setup. $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ can now be measured by replacing the mirror with the polarization analyzer, as outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. The identified ideal polarizations are listed in table~\ref{tab:polarization_second_pass}.
+and for left polarization in the cell
+\begin{align}
+    \label{eq:second_pass_waveplate_adjustment_cascade_r}
+    \underset{\text{beam}\atop\text{splitter}}{\longrightarrow}
+    \KetText{H} 
+    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \KetText{L}
+    \underset{\text{mirror \&} \atop \text{wave plates}}{\longrightarrow}
+    \Ket{\psi_\text{L}}
+    \underset{\text{mirror}}{\longrightarrow}
+    M\Ket{\psi_\text{L}}
+    \underset{\text{wave plates \&} \atop \text{mirror}}{\longrightarrow}
+    \KetText{L}
+    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \KetText{H}
+    \underset{\text{beam splitter} \atop \text{port 1}}{\longrightarrow}
+\end{align}
+with the polarization flip $M = \left(\begin{smallmatrix}1&0\\0&-1\end{smallmatrix}\right)$ caused by a mirror. The polarizations $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ identify the ideal wave plate configuration and are hence the observed parameter looked for in the mock setup. $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ can be measured by replacing the mirror with the polarization analyzer after an optical wave plate configuration has been found, as outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}.
+
+The ideal polarizations were identified by finding the minima of light power on port 2 of the beam splitter ($< \SI{1}{\percent}$ of the power after the sample window), they are listed in table~\ref{tab:polarization_second_pass}.
 
 \begin{figure}
     \centering
@@ -528,29 +558,26 @@ with $\text{X}$ denoting the transmission through the glass plate, deflection on
 \end{figure}
 
 \begin{table}
-    \begin{tabularx}{\textwidth}{cl}
+    \centering
+    \begin{tabular}{cl}
         \toprule
         target polarization $P$ & polarization $\Ket{\psi_P}$ in reflection stage \\
-        \toprule
-        \multirow{4}{*}{$\KetText{R}$} & pol0 \\
-        & pol1 \\
-        & pol2 \\
-        & pol3 \\
         \midrule
-        \multirow{4}{*}{$\KetText{L}$} & pol0 \\
-        & pol1 \\
-        & pol2 \\
-        & pol3 \\
+        $\KetText{R}$ & $0.71 \KetText{H} + (0.70+0.09i) \KetText{V}$ \\
+        $\KetText{L}$ & $0.62\KetText{H} + (0.77+0.17i)\KetText{V}$ \\
         \bottomrule
-        \caption{Experimentally found ideal polarizations on the mirror of the reflection stages. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}) and the power on the second of the polarizing beam splitter is maximal.}
+    \end{tabular}
+    \caption{Experimentally found ideal polarizations after the first pass through the reflection stage. For these polarizations, the light is circularly polarized on the backward pass through the mock setup (see figure~\ref{fig:second_pass_waveplate_adjustment_scheme}).}
         \label{tab:polarization_second_pass}
-    \end{tabularx}
 \end{table}
 
-When building the trap, these polarization presets (tables~\ref{tab:polarization_first_pass} and ~\ref{tab:polarization_second_pass}) should be deemed an initialization point for getting a first signal. The trap then needs to be optimized by varying the polarization parameters and monitoring the loading rate with fluorescence imaging.
+When building the trap, the polarization presets for the first and the second pass through the glass cell (tables~\ref{tab:polarization_first_pass} and ~\ref{tab:polarization_second_pass}) should be deemed an initialization point for getting a first signal. The trap then needs to be optimized by varying the polarization configuration and monitoring its loading rate with fluorescence imaging.
 
 \paragraph{Intensity}
 
+
 \paragraph{Magnetic Gradient}
+blabla
 
 \paragraph{Parameter Estimation}
+blabla

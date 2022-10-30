@@ -13,3 +13,4 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe D\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q light is also offset by [retain-explicit-plus]+78 , a part of it split off for offset locking, and fed through an identical programmatic beam blockade.\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe telescope consists of a convex lens (\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q) focusing the beam and a concave lens (\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q) after about 30 .\\E$"}
 {"rule":"OBJECTIVE_CASE","sentence":"^\\QThe zeroth order of the outgoing beam is blocked at i.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QIt is then transmitted through the sample glass plate at the shallow angle of 60 , simulating the exit from the glass cell.\\E$"}
