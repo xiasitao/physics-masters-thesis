@@ -266,6 +266,7 @@ The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded fro
 The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot match with the Cartesian coordinate axes: no beams can be shot along the $z$ axis which is blocked by the objectives, and no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible on the other side of the glass cell.
 
 Instead, two beams are shone in in the $xz$ plane at an angle with respect to the atomic beam. The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}). The beams are reflected back on reflection stages behind the glass cell.
+\todo{name all beams consistently $y$ axis beam, (shallow) $xz$ axis beams}
 
 \begin{figure}
     \centering
@@ -404,7 +405,7 @@ Table \ref{tab:power_cascade} outlines how much power is dissipated on the optic
 \subsection*{Optics around the Experiment Chamber}
 The six cooling laser beams for the 3-dimensional magneto-optical trap are transferred from the optics board to the experiment chamber with optical fibers. 
 
-One trap beam will be shot in from the left or right side of glass cell and will be reflected back directly on a reflection stage at the other side of the glass cell. The two other beams are shot into the glass cell from the upper and lower front of the glass cell through the upper sides at an angle of \SI{60}{\degree} with respect to glass surface in order not to be blocked by the microscope objectives (as explained in the geometry section above, see figure~\ref{fig:glass_cell_sides_mot_beams}). For reflecting these beams back into the glass cell, they are first guided away from the experiment chamber onto stand-alone reflection stages as there wouldn't be enough space for these stages between the experiment chamber and the glass cell (see figure~\ref{fig:mot_optics_schematic_from_above}).
+One trap beam will be shot in along the $y$ axis,  thus from the left or right side of glass cell, and will be reflected back directly on a reflection stage at the other side of the glass cell. The two other beams, the $xz$ beams, are shot into the glass cell from the upper and lower front of the glass cell through the upper sides at an angle of \SI{60}{\degree} with respect to glass surface in order not to be blocked by the microscope objectives (as explained in the geometry section above, see figure~\ref{fig:glass_cell_sides_mot_beams}). For reflecting these beams back into the glass cell, they are first guided away from the experiment chamber onto stand-alone reflection stages as there wouldn't be enough space for these stages between the experiment chamber and the glass cell (see figure~\ref{fig:mot_optics_schematic_from_above}).
 
 \begin{figure}
     \caption{Schematic of the optics for the 3-dimensional magneto-optical trap from above}
@@ -447,24 +448,24 @@ In the following, the Jones vector notation for polarization in the horizontal/v
         \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right)  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
         \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right)  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
 \end{align}
-In the following, horizontal polarization $\KetText{H}$ is defined as parallel to the glass cell surface  where the beam enters the cell, vertical polarization $\KetText{V}$ is perpendicular to $\KetText{H}$ and encloses a \SI{30}{\degree} angle with the surface normal of the glass cell surface.
+Here, horizontal polarization $\KetText{H}$ is defined as parallel to the glass cell surface  where the beam enters the cell, vertical polarization $\KetText{V}$ is perpendicular to $\KetText{H}$ and encloses a \SI{30}{\degree} angle with the surface normal of the glass cell surface.
 
-For the trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will not be affected when transmitted through the glass.
+For the $y$ axis trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will not be affected when transmitted through the glass.
 
-For the other two beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the different transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components need to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
+For the other two $xz$ beams entering at shallow angles with $\theta = \SI{60}{\degree}$ between the surface normal and the beam, the difference in transmission coefficients for $\KetText{H}$ and $\KetText{V}$ polarization components needs to be considered and the wave plates on the outcoupling and the reflection stages must be set accordingly.
 
-The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the two polarization components are~\cite{demtroder_elektromagnetische_2013}
-\begin{align}
+The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, for the $xz$ beams the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the two polarization components are then~\cite{demtroder_elektromagnetische_2013}
+\begin{align}\label{eq:fresnel}
     \begin{split}
         t_{\KetText{H}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{\cos \theta + n \cos \theta_\text{glass}} =  \SI{0.916}{}\\
-        t_{\KetText{H}, \text{glass} \rightarrow \text{air}} &= \frac{2n \cos \theta_\text{glass}}{n \cos \theta_\text{galss} + \cos \theta} = \SI{0.999}{} \\
+        t_{\KetText{H}, \text{glass} \rightarrow \text{air}} &= \frac{2n \cos \theta_\text{glass}}{n \cos \theta_\text{glass} + \cos \theta} = \SI{0.999}{} \\
         t_{\KetText{V}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{n \cos \theta + \cos \theta_\text{glass}} = \SI{0.916}{}\\ 
         t_{\KetText{V}, \text{glass} \rightarrow \text{air}} &= \frac{2 n \cos \theta_\text{glass}}{\cos \theta_\text{glass} + \cos \theta} = \SI{0.999}{}\\ 
     \end{split}
 \end{align}
 where the $\text{s}$ and $\text{p}$ components of the polarization have been mapped to the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.\todo{Check values}
 
-The total transmission through the \SI{4}{\milli\meter}-thick wall of the glass is combined transmission into glass and back into air:
+The total transmission coefficient through the \SI{4}{\milli\meter}-thick wall of the glass is combined transmission into glass and back into air:
 \begin{align}
     \begin{split}
         t_{\KetText{H}} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
@@ -477,7 +478,7 @@ In order to attain circular polarization on the first pass through the glass cel
 \begin{align}
     \label{eq:predicted_polarizations_first_pass}
     \Ket{\psi_{\text{before cell,} {\text{right} \atop \text{left}}}} 
-    = \frac{1}{\sqrt{t_{\KetText{H}}^2 + t_{\KetText{V}}^2}}
+    = \frac{1}{\sqrt{\frac{1}{t_{\KetText{H}}^2} + \frac{1}{t_{\KetText{V}}^2}}}
         \left(\frac{\KetText{H}}{t_{\KetText{H}}} \mp i \frac{\KetText{V}}{t_{\KetText{V}}} \right)
     = 0.765 \KetText{H} \mp 0.644i \KetText{V}
 \end{align}
@@ -574,6 +575,32 @@ The ideal polarizations were identified by finding the minima of light power on 
 When building the trap, the polarization presets for the first and the second pass through the glass cell (tables~\ref{tab:polarization_first_pass} and ~\ref{tab:polarization_second_pass}) should be deemed an initialization point for getting a first signal. The trap then needs to be optimized by varying the polarization configuration and monitoring its loading rate with fluorescence imaging.
 
 \paragraph{Intensity}
+The intensity of the trapping light is reduced along the optical path by the reflections on the glass surfaces and scattering by the atoms in the trap. In the following, $T_{1 \rightarrow 2}(\theta_1, \theta_2) = \frac{n_2 \cos \theta_2 }{n_1 \cos \theta_2} t_{1\rightarrow 2}^2$ denotes the power transmitted on a surface from medium $1$ to medium $2$ with beam angle $\theta_i$ in medium $i$ and a transmission coefficient of $t$~\cite{demtroder_elektromagnetische_2013}.
+
+In the first pass, the intensity loss is due to reflections on the glass cell surface. For the $y$ axis beam that hits the glass cell perpendicular to its surface, the remaining relative intensity $\Delta I_{y, \text{first pass}}$ in the glass cell is, using the coefficients in~\ref{eq:fresnel}:
+\begin{align}
+    \Delta I_{y, \text{first pass}} = T_{y} = T_{\text{air} \rightarrow \text{glass}}(\SI{0}{\degree}) T_{\text{glass} \rightarrow \text{air}}(\SI{0}{\degree}) = \left(\frac{1}{n} t^2_{\text{air} \rightarrow \text{glass}}\right) \left(n t^2_{\text{glass} \rightarrow \text{air}}\right) = \SI{0.932}{}
+\end{align}
+For the $xz$ axis beams in polarization state $0.765 \KetText{H} \mp 0.644i \KetText{V}$ (cf. equation~\ref{eq:predicted_polarizations_first_pass}), the remaining relative intensity $\Delta I_{xz, \text{first pass}}$ in the first pass is
+\begin{align}
+    \begin{split}
+        \Delta I_{xz, \text{first pass}} = T_{xz} &= 0.765^2 T_{xz, \text{first pass}, \KetText{H}} + 0.644^2 T_{xz, \text{first pass}, \KetText{V}} \\
+        &=  0.765^2 \left(\frac{1}{n} t^2_{\KetText{H}, \text{air} \rightarrow \text{glass}}\right) \left(n t^2_{\KetText{H}, \text{glass} \rightarrow \text{air}}\right) + 0.644^2 \left(\frac{1}{n} t^2_{\KetText{V}, \text{air} \rightarrow \text{glass}}\right) \left(n t^2_{\KetText{V}, \text{glass} \rightarrow \text{air}}\right) \\
+        &= 0.765^2 \cdot (0.916^2 \cdot 0.999^2) + 0.644^2 \cdot (0.999^2 \cdot 0.916^2) = 0.837
+    \end{split}
+\end{align}
+
+In the second pass, the same relative losses from reflections on the glass cell surface will occur, as the polarizations before and in the cell as the same as in the first pass. In addition, relative losses $p_\text{scatter}$ from scattering affect the beam intensity in the second pass:
+\begin{align}
+    \Delta I_{y, \text{second pass}} &= T^2_{y} \cdot  p_\text{scatter} =  0.867 \cdot p_\text{scatter}\\
+    \Delta I_{xz, \text{second pass}} &= T^2_{xz} \cdot  p_\text{scatter} = 0.701 \cdot p_\text{scatter}
+\end{align}
+$p_\text{scatter}$ depends on the geometry and density of the trapped atom cloud as well as the scattering rate, which in turn depends on the laser parameters.
+
+In order to achieve a similar cooling effect in both directions for each axis, meaning the first and second pass through the glass cell, the beam diameters $d$ could be reduced in the second pass with a focusing lens such that the intensities $I \propto \frac{1}{d^2}$ are equal in both passes,
+\begin{align}
+\frac{I_\text{second pass}}{I_\text{first pass}} =  \frac{T p_\text{scatter} / d^2_\text{second pass}}{1/ d^2_\text{first pass}} = 1 ~~\Rightarrow~~ \frac{d_\text{second pass}}{d_\text{first pass}} = \sqrt[]{T p_\text{scatter}}.
+\end{align}
 
 
 \paragraph{Magnetic Gradient}
