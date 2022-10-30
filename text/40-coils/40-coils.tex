@@ -1,0 +1,89 @@
+\renewcommand{\imagepath}{../40-coils/img}
+
+\chapter{Feshbach and Gradient Field Coils}
+
+In this chapter, the design and characterization of the coils used for creating steep magnetic gradients for the 3-dimensional magneto-optical trap and a strong homogeneous magnetic fields for tuning Feshbach resonances is presented. These coils are going to be called \textit{Feshbach coils} in this chapter.
+
+\section{Requirements and Constraints}
+\subsection*{Magnetic Field Strength}
+The Feshbach coils serve two main purposes in the FermiQP demonstrator. On the one hand, they provide magnetic gradients on the order of \SIrange[]{1e1}{1e2}{\gauss\per\centi\meter}\footnote{Definition of the unit \href[]{https://www.youtube.com/watch?v=_3_JVVs2Kls}{Gauss} (\si[]{\gauss}): $\SI{1}{\gauss} = \SI{1e-4}{\tesla}$} for the 3-dimensional magneto optical trap. On the other hand, they need to produce homogeneous magnetic fields for scanning over the Feshbach resonance of lithium at \SI{832}{\gauss}. A maximum field of \SI{1300}{\gauss}, created at a current of $I = \SI{400}{\ampere}$, was set as a target for coil setup.
+
+In order to generate these homogeneous fields, the coils are arranged in Helmholtz configuration, meaning that two equally-sized circular coils are placed on a common axis such that their distance is equal to their radius. The effective ratio of distance and radius required for homogeneous fields, however, depends on the finite size of the coils.
+
+\subsection*{Geometry}
+In order to produce the high Feshbach fields in the glass cell with reasonable currents, the radius of the coils should be kept as small as possible, and they should be placed as close to the glass cell as possible.
+
+The coils will enclose the two objectives sitting above and below the glass cell between them. This introduces a minimum distance of around \SI{50}{\milli\meter} between the coils still allowing a few \si[]{\milli\meter} of leeway to fit the objectives between the coils. It was decided for a distance of \SI{55}{\milli\meter} between the innermost wires coils, not considering additional surface material on the coils.
+
+The orientation of the coil arrangement is constraint by the requirement to drive Raman transitions on the atoms in the optical lattice with $\pi$-polarized light shone in through the objectives. $\pi$ transitions can only be driven with light having a polarization parallel to the quantization axis of atoms, which is set by the direction of the magnetic field. Light shone in along the $z$ axis through the objectives can only be $\pi$-polarized in the $xy$ plane, constraining the direction of the magnetic field to the $xy$ plane. It was decided to align the coil arrangement axis with the $y$ axis of the experiment chamber, meaning that the two coils sit on the left and on the right of the glass cell with the coil axis passing through the trap region of the magneto-optical trap.
+
+Figure~\ref{fig:feshbach_coil_geometry_constraints} shows the geometrical constraints on the position of the coils.
+
+\begin{figure}
+    \caption{Position of the Feshbach coils with respect to the glass cell and the objectives: The objectives which are positioned below and above the glass cell are enclosed by the two coils, setting the minimum distance between the coils. The pinning and science laser beams pass closely by the coil.}
+    \label{fig:feshbach_coil_geometry_constraints}
+\end{figure}
+
+As the coils have many windings, thus having a significant size, and are close to the glass cell, they block a significant part of the optical access to the location of the atoms. Many laser beams and imaging signals must, however, be shot into and received from the glass cell, demanding that the coils leave open as much optical access to the glass cell as possible. Most notably, the beams of the magneto-optical trap need to enter the glass cell on the $y$ axis through the left and right surfaces, the pinning lattice beams also enter there with incidence angles of $\pm \SI{45}{\degree}$. On the short side of the glass cell, the science lattice beams enter with incidence angles of around $\pm \SI{15}{\degree}$. The available space for the coils is hence bound by these laser beams. In order to be able to fit as many windings between these beams as possible, a parallelogram-shaped cross-section of the coils was opted for, as depicted in figure~\ref{fig:parallelogram_cross_section}.
+\begin{figure}
+    \caption{Parallelogram-shaped cross-section of the coils for fitting them between the science and pinning lattice beams}
+    \label{fig:parallelogram_cross_section}
+\end{figure}
+
+
+\subsection*{Field and Temperature Stability}
+The FermiQP demonstrator aims for a relative field stability of \SI{e-7}{} calling for an active stabilization mechanism. For this purpose, both coils are independently driven by two independent power supplies enabling fast switching.
+
+Furthermore, it is important to ensure thermal stability of the coils. The electrical power $P(I) = RI^2$ dissipated in the coils with resistance $R$ shows quadratic scaling  with the driving current $I$. For an exemplary coil with \SI{10}{\milli\ohm} resistance driven with $I = \SI{400}{\ampere}$ this would amount to a dissipated power of \SI{1.6}{\kilo\watt} converted into heat. In order to transport this heat off efficiently, avoiding a critical increase of temperature, the coil must be made of hollow-core wires allowing for water-cooling. For a given maximal temperature increase $\Delta T$ of the cooling water, the cooling power of the water can be estimated as
+\begin{align}
+    Q_\text{cool} = c_\text{water} ~ \Delta T ~ m_\text{water} ~ v_\text{flow}
+\end{align}
+with the heat capacity $ c_\text{water}$ of water, the specific mass $m_\text{water}$, and the speed $v_\text{flow}$ of the cooling water flow, which depends on the applied pressure, the turbulence of the flow, and the wire geometry.
+
+To lower the required cooling water pressure and to avoid turbulences in the cooling water stream, it was decided to separate the wire layers of the coils into pancakes of two layers each constituting separately driven water cooling circuits, as shown in figure~\ref{fig:pancake_structure}. For this the two supply lines for each pancake are placed next to each other, forming pairs of wires with current flowing in opposite directions. This has the additional advantage that the fields of the supply lines cancel out in the far-field and do not influence the magnetic field in the center of the coil arrangement.
+
+\begin{figure}
+    \caption{Pancake structure of the coils: Two layers of wire are combined into a so-called pancake that constitutes a single water cooling circuit. The current in the two supply lines for each pancake is flowing in opposite directions such that the magnetic fields originating from the wire cancel out in the far-field.}
+    \label{fig:pancake_structure}
+\end{figure}
+
+\subsection*{Field Curvature}
+When the atoms trapped in the optical lattice are exposed to the homogeneous Feshbach field, they experience an energy shift resulting from the interaction of the magnetic moment $\vec \mu$ with the field that can lead to trapping or anti-trapping effects $\vec B$~\cite{pritchard_cooling_1983,gehm_properties_2003, hagemann_setup_2020}:
+\begin{align}
+    E_{B, {\text{high-field seeker} \atop \text{low-field seeker}}} = \mp \vec \mu \vec B
+\end{align}
+where the sign of the shift depends on whether the atoms are in high- or low-field seeking states. The magnitude of the magnetic moment is $\mu \approx \mu_\text{B}$ with the Bohr magneton $\mu_\text{B} = \SI{9.27e-24}{\joule\per\tesla}$.
+
+In the very center of the coil arrangement, the magnetic field in the Helmholtz operation mode of the coils is completely homogeneous. Realistically, however, there is a non-negligible position dependence $B(\vec r)$ of the field, stemming from the finite size of the region of interest and imperfections in positioning, aligning, and manufacturing of the coils. This leads to a position-dependent potential that the atoms are exposed to:
+\begin{align}
+    \hat H(\vec r) = \frac{\vec p^2}{2m} \mp \vec \mu \vec B(\vec r)
+\end{align}
+
+Assuming that the magnetic field around the center of the coil arrangement follows a paraboloid shape, in one dimension $B(q) = B_0 + a_q q^2$ with a field curvature coefficient $a$ and a spatial coordinate $q$, one can identify the magnetic potential with a quantum mechanical harmonic oscillator:
+\begin{align}
+    \underbrace{V_0 + \frac{1}{2}m\omega^2q^2}_{V_\text{HO}(q)} ~~~\equiv~~~ \underbrace{\mp \mu B(q) = \mp \mu B_0 \mp \mu a_q q^2}_{V_\text{magnetic}(q)}
+\end{align}
+
+Identifying the position-dependent terms, the magnetic potential can be assigned the angular trap frequency $\omega_q$ along the $q$ coordinate axis:
+\begin{align}
+    \omega_q = \sqrt[]{\mp\frac{2 \mu a_q}{m}} = \sqrt[]{\mp\frac{2 \mu_\text{B} a_q}{m}}
+\end{align}
+In the following, the trapping potential is considered trapping in the $q$ direction if $\omega_q$ is real, and anti-trapping if $\omega_q$ is imaginary. For high-field seekers, the potential is trapping if $a_q < 0$ and anti-trapping if $a_q > 0$. For low-field seekers, the potential is trapping if $a_q > 0$, and anti-trapping if $a_q < 0$. This can be intuitively seen as high-field seekers are trapped if the field is concave and has a maximum, hence $a_q < 0$, and the other way around for high-field seekers. Plots of exemplary trapping and anti-trapping field landscapes are shown in figure~\ref{fig:magnetic_field_curvature_examples}.
+
+In a two-coil field, if the potential is trapping along the arrangement axis, it is anti-trapping in the cross-axis directions, and vice versa. As the field in the axis direction is twice as strong as in the cross-axis direction, the field curvatures scale like $\frac{a_\text{on-axis}}{a_\text{cross-axis}} = 2$, and the trap frequencies have a ratio of $\frac{\omega_\text{on-axis}}{\omega_\text{cross-axis}} = \sqrt{2}$~\cite{hagemann_setup_2020}.
+
+\begin{figure}
+    \caption{Trapping and anti-trapping field landscapes for high-field seekers: If the curvature $a_q$ is negative, the atoms are trapped in the maximum of the magnetic field.}
+    \label{fig:magnetic_field_curvature_examples}
+\end{figure}
+
+The design goal for the coil arrangement with regard to the field curvature is to minimize absolute trap frequency in each direction by setting the coil distance accordingly.
+
+\section{Specification of the Coils}
+
+\section{Characterization}
+\subsection*{Properties of the coils}
+
+\subsection*{Magnetic Gradient}
+
+\subsection*{Feshbach Field}

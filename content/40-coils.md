@@ -34,4 +34,9 @@
     - gradients
 
 - Measurements
-    - field map using probe or cell phone (one lateral, one into the plane)
+    - single coil measurements
+    - gradient
+    - problems with measuring Feshbach field
+        - precision
+        - weird values
+    - combination of single coil measurements
