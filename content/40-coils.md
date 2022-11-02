@@ -4,8 +4,7 @@
 - Gradient forces for the MOT
 - Tuning atom interactions using Feshbach resonances
 
-## Design of the coils
-### Requirements
+## Requirements and Constraints
 - Field range
 - Geometrical constraints
     - glass cell
@@ -19,10 +18,17 @@
     - splitting into multiple section
 - field stability requirements
 
-### Description
+## Simulation
+
+## Specifications
+- wire
+    - geometry
+    - hollow wire
+    - conductance
 - cone-shaped geometry
-- inner geometry
-- wire and casing
+    - 6x5
+    - epoxy layers
+    - layer jump
 - power supplies
 
 ## Characterization
@@ -34,6 +40,7 @@
     - gradients
 
 - Measurements
+    - mention probe and setup
     - single coil measurements
     - gradient
     - problems with measuring Feshbach field

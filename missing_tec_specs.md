@@ -6,3 +6,7 @@ The following technical specs are missing:
 
 - AOMs
     - efficiencies
+
+- Laser components mirrors
+    - name
+    - reflectivity

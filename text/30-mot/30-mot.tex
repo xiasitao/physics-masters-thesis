@@ -123,9 +123,7 @@ In order to create a confining trap, laser beams and magnetic gradients are cali
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/detuning_and_selection_rules_schematic/detuning_and_selection_rules_schematic.pdf}
-    \caption{One-dimensional schematic of selection rules and detunings of the laser beams: On both sides of the trap different transitions between magnetic sublevels are resonant with the red-detuned trap light. Due to the polarization-dependent selection rules, only one of the two counter-propagating beams is resonant on each side of the trap which sets the direction of momentum transfer between the light and the atoms. E.g. on the left center, the $\Ket{m = +1}$ state is closer to resonance. Only the $\sigma^+$ light coming from the left can excite this state, hence atoms on the left of the trap mostly acquire moment to the right, i.e. the trap center.
-    \todo[inline]{Make m italic}
-    }
+    \caption{One-dimensional schematic of selection rules and detunings of the laser beams: On both sides of the trap different transitions between magnetic sublevels are resonant with the red-detuned trap light. Due to the polarization-dependent selection rules, only one of the two counter-propagating beams is resonant on each side of the trap which sets the direction of momentum transfer between the light and the atoms. E.g. on the left center, the $\Ket{m = +1}$ state is closer to resonance. Only the $\sigma^+$ light coming from the left can excite this state, hence atoms on the left of the trap mostly acquire moment to the right, i.e. the trap center.}
     \label{fig:detuning_and_selection_rules_schematic}
 \end{figure}
 
@@ -179,7 +177,9 @@ These cooling and repumping cascades are summarized in equations~\eqref{eq:coole
 with notation being $\KetSpaced{J, F}$.
 
 \begin{figure}
-    \caption{Exemplary schematic of the cooling and repumping scheme in an alkali atom}\label{fig:cooler_repumper_in_alkali}
+    \caption{Exemplary schematic of the cooling and repumping scheme in an alkali atom
+    \todo[inline]{add image}
+    }\label{fig:cooler_repumper_in_alkali}
 \end{figure}
 \todo{Check with other source}
 
@@ -216,7 +216,9 @@ Lower temperatures than in magneto-optical traps operating on the D$_2$ line hav
 
 
 \begin{figure}
-    \caption{Level diagram of fermionic lithium ($^6$Li)}\label{fig:lithium_level_diagram}
+    \caption{Level diagram of fermionic lithium ($^6$Li)
+    \todo[inline]{add image}
+    }\label{fig:lithium_level_diagram}
 \end{figure}
 
 \subsection*{Gray Molasses Cooling}
@@ -226,7 +228,9 @@ Gray molasses is based on atoms moving in a polarization-gradient field where th
 \begin{figure}
     \centering
     \includegraphics{\imagepath/gray_molasses_level_diagram/gray_molasses_level_diagram.pdf}
-    \caption{Level diagram of the D$_1$ line of lithium. The $\Lambda$-system used in gray molasses cooling consists of two manifolds with equal $J$, made up of two magnetic sublevels in the ground state and one in the excited state.}\label{fig:gray_molasses_level_diagram}
+    \caption{Level diagram of the D$_1$ line of lithium. The $\Lambda$-system used in gray molasses cooling consists of two manifolds with equal $J$, made up of two magnetic sublevels in the ground state and one in the excited state.
+    \todo[inline]{add image}
+    }\label{fig:gray_molasses_level_diagram}
 \end{figure}
 
 The counter-propagating gray molasses beams have circular polarization\todo{not necessarily}. At every point the superposition of the polarizations yields an effective polarization that is sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect of each other, that means that the atoms see alternating circular, elliptical, linear, elliptical, etc. polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as shown in figure~\ref{fig:gray_molasses_polarization_gradient}.
@@ -234,7 +238,9 @@ The counter-propagating gray molasses beams have circular polarization\todo{not 
 \begin{figure}
     \centering
     \includegraphics{\imagepath/gray_molasses_polarization_gradient/gray_molasses_polarization_gradient.pdf}
-    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts depending on their position. At positions with low light shift, they transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further losing kinetic energy in the polarization gradient field until they decay back.}\label{fig:gray_molasses_polarization_gradient}
+    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts depending on their position. At positions with low light shift, they transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further losing kinetic energy in the polarization gradient field until they decay back.
+    \todo[inline]{add image}
+    }\label{fig:gray_molasses_polarization_gradient}
 \end{figure}
 
 In the gray molasses' light field, the $\Lambda$-system is dressed with two orthogonal, hence not mutually coupling, eigenstates $\Ket{\text{C}}$ and $\Ket{\text{D}}$, being superpositions of the two ground states. One of them, $\Ket{\text{C}}$, couples to the light field via the excited state and experiences an energy shift $E_C \propto \frac{\Omega_\text{eff}^2}{\delta}$. The other, $\Ket{\text{D}}$, is a dark state~\cite{weidemuller_novel_1994,gerken_gray_2016}.
@@ -295,7 +301,9 @@ The laser beams originate from two laser sources, one for D$_2$ light for the ma
 The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is jointly produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB VRFA-P-1500-671-SF-PLUS, "Socrates" and "Plato") with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two single-mode diode lasers at \SI{1342}{\nano\meter} (Toptica MDL pro, "Heraklitus" seeding "Socrates", and "Zeno" seeding "Plato"), delivering around \SI{20}{\milli\watt} of power. Each fiber amplifier contains a frequency-doubling stage creating \SI{671}{\nano\meter} light from the amplified \SI{1342}{\nano\meter} light. The seed lasers are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily within a range of a few hundred \si{\mega\hertz} \todo{verify}. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
 
 \begin{figure}
-    \caption{Schematic of the cooling laser setup: Two Raman fiber amplifiers provide light for the optics setups that prepare the light used in the magneto-optical traps and the gray molasses. The amplifiers are offset-locked via their seeds to a global reference lasers which, in turn, is locked to a reference cavity.}\label{fig:laser_interplay_schematic}
+    \caption{Schematic of the cooling laser setup: Two Raman fiber amplifiers provide light for the optics setups that prepare the light used in the magneto-optical traps and the gray molasses. The amplifiers are offset-locked via their seeds to a global reference lasers which, in turn, is locked to a reference cavity.
+    \todo[inline]{add image}
+    }\label{fig:laser_interplay_schematic}
 \end{figure}
 
 
@@ -362,7 +370,7 @@ The light is prepared on the optics board in the following steps (letters refere
     \label{fig:beam_diameter_evolution}
 \end{figure}
 
-    \item[h] The slimmed-down light is then coupled through the first acousto-optical modulator (Gooch \& Housego 3080-120, \SI{80(10)}{\mega\hertz}, aperture \SI{1}{\milli\meter}). This modulator is operated at \SI{+78}{\mega\hertz}. The zeroth order of the outgoing beam is blocked at i. The power efficiency of this acousto-optical modulator single pass is \todo{add AOM efficiency}. Thanks to the telescope, the beam diameter at this point is significantly smaller than the specified aperture.
+    \item[h] The slimmed-down light is then coupled through the first acousto-optical modulator (Gooch \& Housego 3080-120, \SI{80(10)}{\mega\hertz}, active aperture of \SI{1}{\milli\meter}). This modulator is operated at \SI{+78}{\mega\hertz}. The zeroth order of the outgoing beam is blocked at i. The power efficiency of this acousto-optical modulator single pass is \todo{add AOM efficiency}. Thanks to the telescope, the beam diameter at this point is significantly smaller than the specified aperture.
     
     \item[i] A half-wave plate sets the splitting ratio between light for the push beam (m) and light for the 2-dimensional magneto-optical trap.
     
@@ -378,7 +386,7 @@ The light is prepared on the optics board in the following steps (letters refere
     
     \item[o] With a half-wave plate and a polarizing beam splitter, the light is split into cooler (q) and repumper (p) paths. The polarizations of the beams are $\KetText{V}$ of the cooler and $\KetText{H}$ of the repumper beam.
     
-    \item[p, q] The cooler (q) and repumper  (p) paths contain acousto-optical modulators (Gooch \& Housego 3110-120, \SI{110(12)}{\mega\hertz}, aperture \SI{0.6}{\milli\meter}). Thanks to the refocusing lens (k), the beam diameter approximately matches the modulators' apertures. The power efficienies are \todo{add AOM efficiencies} for the cooler and for the repumper.
+    \item[p, q] The cooler (q) and repumper  (p) paths contain acousto-optical modulators (Gooch \& Housego 3110-120, \SI{110(12)}{\mega\hertz}, active aperture of \SI{0.6}{\milli\meter}). Thanks to the refocusing lens (k), the beam diameter approximately matches the modulators' apertures. The power efficienies are \todo{add AOM efficiencies} for the cooler and for the repumper.
     
     \item[r, s] The cooler and repumper beam are spatially overlapped in split into two paths on a combination of two polarizing beam splitter cubes and a half-wave plate. Due to their polarizations, the cooler is reflected on the first cube (r) while the repumper passes through it, both leaving the cube on the same port. A half-wave plate then turns their respective polarizations to diagonal $\KetText{D}$ and anti-diagonal $\KetText{A}$. A subsequent polarizing beam splitter cube (s) splits both cooler and repumper into two equally strong beams.
     
@@ -447,7 +455,7 @@ The reflection stages consist of an cascade of a quarter-, a half-, and another 
 \subsection*{Polarization}
 The trapping light needs to have circular polarization at the trap position in the glass cell, either with left or right helicity for both the forward and the backward pass, depending on the direction of the magnetic gradient. Since the polarization cannot be measured within the glass cell at the time of operation, the approximate configuration of the optics for attaining the necessary polarization is estimated.
 
-In the following, the Jones vector notation for polarization in the horizontal/vertical basis $\{\KetText{H}, \KetText{V}\}$ is going to be used to denote the circular polarization states $\KetText{R}$ and $\KetText{L}$ and the diagonal polarization states $\KetText{D}$ and $\KetText{A}$:
+In the following, the Jones vector notation for polarization in the horizontal-vertical basis $\{\KetText{H}, \KetText{V}\}$ is going to be used to denote the circular polarization states $\KetText{R}$ and $\KetText{L}$ and the diagonal polarization states $\KetText{D}$ and $\KetText{A}$:
 \begin{align}
         \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right)  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
         \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right)  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
@@ -472,8 +480,8 @@ where the $\text{s}$ and $\text{p}$ components of the polarization have been map
 The total transmission coefficient through the \SI{4}{\milli\meter}-thick wall of the glass is combined transmission into glass and back into air:
 \begin{align}
     \begin{split}
-        t_{\KetText{H}} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
-        t_{\KetText{V}} &= t_{\KetText{V}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}} = \SI{0.998}{}
+        t_{xz, \KetText{H}} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
+        t_{xz, \KetText{V}} &= t_{\KetText{V}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}} = \SI{0.998}{}
     \end{split}
 \end{align}
 
@@ -521,40 +529,40 @@ The ideal wave plate configuration on the reflection stage is now identified by 
 The complete evolution of polarization in the setup is for right polarization in the cell
 \begin{align}
     \label{eq:second_pass_waveplate_adjustment_cascade_r}
-    \underset{\text{beam}\atop\text{splitter}}{\longrightarrow}
+    \underset{\substack{\text{beam}\\\text{splitter}}}{\longrightarrow}
     \KetText{H} 
-    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \underset{\substack{\text{quarter}\\\text{wave plate}}}{\longrightarrow}
     \KetText{R}
-    \underset{\text{mirror \&} \atop \text{wave plates}}{\longrightarrow}
+    \underset{\substack{\text{mirror \&}\\\text{wave plates}}}{\longrightarrow}
     \Ket{\psi_\text{R}}
-    \underset{\text{mirror}}{\longrightarrow}
+    \underset{\substack{\text{mirror}}}{\longrightarrow}
     M\Ket{\psi_\text{R}}
-    \underset{\text{wave plates \&} \atop \text{mirror}}{\longrightarrow}
+    \underset{\substack{\text{wave plates \&}\\\text{mirror}}}{\longrightarrow}
     \KetText{R}
-    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \underset{\substack{\text{quarter}\\\text{wave plate}}}{\longrightarrow}
     \KetText{H}
-    \underset{\text{beam splitter} \atop \text{port 1}}{\longrightarrow}
+    \underset{\substack{\text{beam splitter}\\\text{port 1}}}{\longrightarrow}
 \end{align}
 and for left polarization in the cell
 \begin{align}
-    \label{eq:second_pass_waveplate_adjustment_cascade_r}
-    \underset{\text{beam}\atop\text{splitter}}{\longrightarrow}
+    \label{eq:second_pass_waveplate_adjustment_cascade_l}
+    \underset{\substack{\text{beam}\\\text{splitter}}}{\longrightarrow}
     \KetText{H} 
-    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \underset{\substack{\text{quarter}\\\text{wave plate}}}{\longrightarrow}
     \KetText{L}
-    \underset{\text{mirror \&} \atop \text{wave plates}}{\longrightarrow}
+    \underset{\substack{\text{mirror \&}\\\text{wave plates}}}{\longrightarrow}
     \Ket{\psi_\text{L}}
-    \underset{\text{mirror}}{\longrightarrow}
+    \underset{\substack{\text{mirror}}}{\longrightarrow}
     M\Ket{\psi_\text{L}}
-    \underset{\text{wave plates \&} \atop \text{mirror}}{\longrightarrow}
+    \underset{\substack{\text{wave plates \&}\\\text{mirror}}}{\longrightarrow}
     \KetText{L}
-    \underset{\text{quarter}\atop\text{wave plate}}{\longrightarrow}
+    \underset{\substack{\text{quarter}\\\text{wave plate}}}{\longrightarrow}
     \KetText{H}
-    \underset{\text{beam splitter} \atop \text{port 1}}{\longrightarrow}
+    \underset{\substack{\text{beam splitter}\\\text{port 1}}}{\longrightarrow}
 \end{align}
 with the polarization flip $M = \left(\begin{smallmatrix}1&0\\0&-1\end{smallmatrix}\right)$ caused by a mirror. The polarizations $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ identify the ideal wave plate configuration and are hence the observed parameter looked for in the mock setup. $\Ket{\psi_\text{R}}$ and $\Ket{\psi_\text{L}}$ can be measured by replacing the mirror with the polarization analyzer after an optical wave plate configuration has been found, as outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}.
 
-The ideal polarizations were identified by finding the minima of light power on port 2 of the beam splitter ($< \SI{1}{\percent}$ of the power after the sample window), they are listed in table~\ref{tab:polarization_second_pass}.
+The ideal polarizations were identified by finding the minima of light power on port 2 of the beam splitter ($< \SI{1}{\percent}$ of the power after the sample window). They are listed in table~\ref{tab:polarization_second_pass}.
 
 \begin{figure}
     \centering
