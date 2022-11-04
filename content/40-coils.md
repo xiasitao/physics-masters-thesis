@@ -13,6 +13,7 @@
         - Feshbach doesn't matter
         - Raman transition: we want to shine in pi light through objective for UV Raman transitions. For this, the quantization axis must be set in the $xy$ plane.
 - Curvature
+    - explain difference in trapping frequencies
 - Temperature stability requirements
     - turbulent flow for only one section
     - splitting into multiple section
