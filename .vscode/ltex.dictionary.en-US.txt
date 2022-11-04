@@ -20,4 +20,9 @@ GaussianBeam
 electro-optical
 red-detuned
 magpylib
-Acousto-optical
+birefringent
+ellipticity
+collimated
+incoupler
+Acousto-optic
+acousto-optic
