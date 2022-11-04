@@ -20,3 +20,4 @@ GaussianBeam
 electro-optical
 red-detuned
 magpylib
+Acousto-optical

@@ -219,7 +219,11 @@ Lower temperatures than in magneto-optical traps operating on the D$_2$ line hav
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/lithium_level_diagram/lithium_level_diagram.pdf}
+<<<<<<< HEAD
     \caption{Level diagram of fermionic lithium ($^6$Li) \cite{gehm_properties_2003, scherf_re-measurement_1996}: The transition between the  $^2\text{S}_{1/2}$ and the $^2\text{P}_{1/2}$ manifolds is called D$_1$ line with a frequency of $\SI{670.992}{\mega\hertz}$. The transition between the  $^2\text{S}_{1/2}$ and the $^2\text{P}_{3/2}$ manifolds is called D$_2$ line with a frequency of $\SI{670.977}{\mega\hertz}$. Both have a linewidth of $\Gamma = \SI{5.87}{\mega\hertz}$ which means that the $^2\text{P}_{3/2}$ manifold cannot be resolved with D$_2$ light. The hyperfine splitting in the $^2\text{S}_{1/2}$ manifold is \SI{228}{\mega\hertz}.}
+=======
+    \caption{Level diagram of fermionic lithium ($^6$Li) \cite{gehm_properties_2003}: The transition between the  $^2\text{S}_{1/2}$ and the $^2\text{P}_{1/2}$ manifolds is called D$_1$ line with a frequency of $\SI{670.992}{\mega\hertz}$. The transition between the  $^2\text{S}_{1/2}$ and the $^2\text{P}_{3/2}$ manifolds is called D$_2$ line with a frequency of $\SI{670.977}{\mega\hertz}$. Both have a line width of $\Gamma = \SI{5.87}{\mega\hertz}$ which means that the $^2\text{P}_{3/2}$ manifold, which is only \SI{4.4}{\mega\hertz} broad, cannot be resolved with D$_2$ light. The hyperfine splitting in the $^2\text{S}_{1/2}$ manifold is \SI{228}{\mega\hertz}.}
+>>>>>>> c12dbb5b3d1087c1eaa723703518509baede0d47
     \label{fig:lithium_level_diagram}
 \end{figure}
 
@@ -234,12 +238,12 @@ Gray molasses is based on atoms moving in a polarization-gradient field where th
     \label{fig:gray_molasses_level_diagram}
 \end{figure}
 
-The counter-propagating gray molasses beam have perpendicular polarization, e.g. circular polarization with different helicity. At every point the superposition of the polarization states of both beam yields an effective polarization sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect of each other, that means that the atoms see alternating circular, elliptical, linear, elliptical, etc.~polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as shown in figure~\ref{fig:gray_molasses_polarization_gradient}.
+The counter-propagating gray molasses beam have perpendicular polarization, e.g. circular polarization with different helicity. At every point the superposition of the polarization states of both beam yields an effective polarization sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect of each other, that means that the atoms see alternating circular, elliptical, linear, elliptical, etc.~polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as hinted at in figure~\ref{fig:gray_molasses_polarization_gradient}.
 
 \begin{figure}
     \centering
     \includegraphics{\imagepath/gray_molasses_polarization_gradient/gray_molasses_polarization_gradient.pdf}
-    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts depending on their position. At positions with low light shift, they transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further losing kinetic energy in the polarization gradient field until they decay back.}\label{fig:gray_molasses_polarization_gradient}
+    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts $E_c$ depending on their position. At positions with low light shift, the polarization allows that they transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further in the light field losing kinetic energy until they decay back.\todo[inline]{Add arrow on thick red line, make energy loss and movement direction font smaller, kinetic! energy loss add }}\label{fig:gray_molasses_polarization_gradient}
 \end{figure}
 
 In the gray molasses' light field, the $\Lambda$-system is dressed with two orthogonal, hence not mutually coupling, eigenstates $\Ket{\text{C}}$ and $\Ket{\text{D}}$, being superpositions of the two ground states. One of them, $\Ket{\text{C}}$, couples to the light field via the excited state and experiences an energy shift $E_C \propto \frac{\Omega_\text{eff}^2}{\delta}$. The other, $\Ket{\text{D}}$, is a dark state~\cite{weidemuller_novel_1994,gerken_gray_2016}.
@@ -310,14 +314,13 @@ The main advantage of using the Raman fiber amplifiers is that they produce enou
 
 \subsection*{Important Optical Elements}
 \todo{Optical elements, such as AOMs  would need to be explained here already.}
-The following optical components were the main building blocks of this optics setup: \todo{formulate}
+The following optical components were among the main building blocks of the optics setup that is described in the following: \todo{formulate}
 \begin{itemize}
-    \item PBS
-    \item waveplate
-    \item AOM
-    \item telescope
-    \item incoupler
-    \item mirror
+    \item Polarizing beam splitter cubes (PBS): Polarizing beam splitter cubes spatially split a laser beam into its $\KetText{H}$- and $\KetText{V}$-polarized components. The $\KetText{H}$ component passes through the cube while the $\KetText{V}$ component is deflected. In the setup described below, polarizing beam splitter cubes are used for splitting a laser beam into portions of arbitrary power using a preceding half-wave plate for setting the incident polarization accordingly, and for overlapping two beams of different polarization into a common spatial mode.
+    \item Wave plate: Wave plates allow changing the polarization of a beam. Wave plates are made of birefringent crystals cut to the right length such that the there is a defined phase retardation between the fast and the slow axis of the crystal. Half-wave plates generate a \SI{180}{\degree} phase difference, quarter-wave plates generate a \SI{90}{\degree} phase difference between their axes. Depending on the angle between the axes of the crystal and the polarization components of the beam, half-wave plates can turn linear polarization into any other arbitrary linear polarization, whereas quarter-wave plates introduce ellipticity in the polarization and hence can generate circularly polarized light. Using a quarter- and a half-wave plate, linear polarization can be turned into any arbitrary polarization state. For turning an arbitrary polarization state into any other polarization state, an arrangement of quarter-, half-, and another quarter-wave plate is necessary as a single quarter-wave plate cannot arbitrarily change the ellpticity of incident elliptical light.\footnote{An intuitive example of why only a quarter- and a half-wave plate are not sufficient for turning an arbitrary polarization state into any other polarzation state, is the transformation of circular light into elliptical light of any arbitrary ellipticity: A quarter-wave plate always transforms circularly polarized light into linearly polarized light, so at least another quarter-wave plate is necessary for creating arbitrary ellipticity.}
+    \item Acousto-optical modulator (AOM): Acousto-optical modulators allow changing the optical frequency of a laser beam by multiples of the operating frequency $f_\text{AOM}$ . The beam is sent through a crystal in which the index of refraction $n$ is spatially modulated perpendicular to the beam direction by an acoustic wave of frequency $f_\text{AOM}$. The incident laser light is diffracted on this spatial modulation of the index of refraction, leading to multiple light beams after of the modulator at angles $\theta_m$ with $\sin \theta_m = m\frac{\lambda_\text{light}}{\lambda_\text{acoustic}}$ where $m \in \{..., -2, -1, 0, 1, 2, ...\}$ is the order of each refracted beam and $\lambda_\text{light}, \lambda_\text{acoustic}$ are the optical and acoustic wave lengths. A beam of order $m$ is frequency-shifted by $\Delta f = mf_\text{AOM}$~\cite{hunsperger_acousto-optic_2002}. In the optical setup described below, acousto-optical modulators are used for increasing or decreasing the frequency of a laser beam and as fast optical shutters by switching the diffraction on and off. Sending light forwards and backwards through an acousto-optical modulator, a so-called double pass, doubles the frequency shift of the light and avoids the angular diffraction, which cancels out for both passes through the modulator. Typical coupling efficiencies for the first order are \SIrange[]{80}{90}{\percent}.
+    \item Telescope: A telescope reduces the diameter of a collimated laser beam. It consists of two lenses, the first with negative, the second with positive focal length.
+    \item Incoupler: An incoupler arrangement feeds a free-space laser beam into an optical fiber. The beam is focused down onto the tip of the fiber using an aspheric lens with an appropriate focal length such that the waist of the focused beam matches with the fiber size.\todo{add formula}
 \end{itemize}
 
 \subsection*{Outline of the Laser Setup}
