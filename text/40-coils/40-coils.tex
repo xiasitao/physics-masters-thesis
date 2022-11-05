@@ -29,7 +29,7 @@ Figure~\ref{fig:feshbach_coil_geometry_constraints} shows the geometrical constr
     \label{fig:feshbach_coil_geometry_constraints}
 \end{figure}
 
-As the coils have many windings, thus having a significant size, and are close to the glass cell, they block a significant part of the optical access to the location of the atoms. Many laser beams and imaging signals must, however, be shot into and received from the glass cell, demanding that the coils leave open as much optical access to the glass cell as possible. Most notably, the beams of the magneto-optical trap need to enter the glass cell on the $y$ axis through the left and right surfaces, the pinning lattice beams also enter there with incidence angles of $\pm \SI{45}{\degree}$. On the short side of the glass cell, the science lattice beams enter with incidence angles of around $\pm \SI{15}{\degree}$. The available space for the coils is hence bound by these laser beams. In order to minimize the blocked optical access, a parallelogram-shaped cross-section of the coils with $6 \times 5$ windings was opted for, as depicted in figure~\ref{fig:parallelogram_cross_section}.
+As the coils have many windings, thus having a significant size, and are close to the glass cell, they block a significant part of the optical access to the location of the atoms. Many laser beams and imaging signals must, however, be shot into and received from the glass cell, demanding that the coils leave open as much optical access to the glass cell as possible. Most notably, the beams of the magneto-optical trap need to enter the glass cell on the $y$ axis through the left and right surfaces, the pinning lattice beams also enter there with incidence angles of $\pm \SI{45}{\degree}$. On the short side of the glass cell, the science lattice beams enter with incidence angles of around $\pm \SI{15}{\degree}$. The available space for the coils is hence bound by these laser beams. In order to minimize the blocked optical access, a cone-shape coil geometry with parallelogram-shaped cross-section, consisting of $6 \times 5$ windings, was opted for, as depicted in figure~\ref{fig:parallelogram_cross_section}. The opening angle of the cone has been set to $\SI{45}{\degree}$ because then the Helmholtz condition of equal coil distance and radius is approximately fulfilled for every layer.
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/parallelogram_cross_section/parallelogram_cross_section.pdf}
@@ -56,7 +56,7 @@ To lower the required cooling water pressure and to avoid turbulences in the coo
     \label{fig:pancake_structure}
 \end{figure}
 
-\subsection*{Field Curvature}
+\subsection*{Field Curvature}\label{ch:field_curvature_definition}
 When the atoms trapped in the optical lattice are exposed to the homogeneous Feshbach field, they experience an energy shift resulting from the interaction of the magnetic moment $\vec \mu$ with the field that can lead to trapping or anti-trapping effects $\vec B$~\cite{pritchard_cooling_1983,gehm_properties_2003, hagemann_setup_2020}:
 \begin{align}
     E_{B, {\text{high-field seeker} \atop \text{low-field seeker}}} = \mp \vec \mu \vec B
@@ -73,15 +73,15 @@ Assuming that the magnetic field around the center of the coil arrangement follo
     \underbrace{V_0 + \frac{1}{2}m\omega^2q^2}_{V_\text{HO}(q)} ~~~\equiv~~~ \underbrace{\mp \mu B(q) = \mp \mu B_0 \mp \mu a_q q^2}_{V_\text{magnetic}(q)}
 \end{align}
 
-Identifying the position-dependent terms, the magnetic potential can be assigned the angular trap frequency $\omega_q$ along the $q$ coordinate axis:
-\begin{align}
-    \omega_q = \sqrt[]{\mp\frac{2 \mu a_q}{m}} = \sqrt[]{\mp\frac{2 \mu_\text{B} a_q}{m}}
+Identifying the position-dependent terms, the magnetic potential can be assigned the angular trap frequency $\omega_{\vec q}$ along the $\vec q$ coordinate axis:
+\begin{align}\label{eq:trap_omega_definition}
+    \omega_{\vec q} = \sqrt[]{\mp\frac{2 \mu a_{\vec q}}{m}} = \sqrt[]{\mp\frac{2 \mu_\text{B} a_{\vec q}}{m}}
 \end{align}
-In the following, the trapping potential is considered trapping in the $q$ direction if $\omega_q$ is real, and anti-trapping if $\omega_q$ is imaginary. For high-field seekers, the potential is trapping if $a_q < 0$ and anti-trapping if $a_q > 0$. For low-field seekers, the potential is trapping if $a_q > 0$, and anti-trapping if $a_q < 0$. This can be intuitively seen as high-field seekers are trapped if the field is concave and has a maximum, hence $a_q < 0$, and the other way around for high-field seekers. Plots of exemplary trapping and anti-trapping field landscapes are shown in figure~\ref{fig:magnetic_field_curvature_examples}.
+In the following, the trapping potential is considered trapping in the ${\vec q}$ direction if $\omega_{\vec q}$ is real, and anti-trapping if $\omega_{\vec q}$ is imaginary. For high-field seekers, the potential is trapping if $a_{\vec q} < 0$ and anti-trapping if $a_{\vec q} > 0$. For low-field seekers, the potential is trapping if $a_{\vec q} > 0$, and anti-trapping if $a_{\vec q} < 0$. This can be intuitively seen as high-field seekers are trapped if the field is concave and has a maximum, hence $a_{\vec q} < 0$, and the other way around for high-field seekers. Plots of exemplary trapping and anti-trapping field landscapes are shown in figure~\ref{fig:magnetic_field_curvature_examples}.
 
 In a two-coil field, if the potential is trapping along the arrangement axis, it is anti-trapping in the cross-axis directions, and vice versa. This is due to Earnshaw's theorem~\cite{earnshaw_nature_1842} stating that a magnetic field in three dimensions has the shape of a hyperboloid, and thus cannot have a global extremum rather than a saddle point, implying that the magnetic field is curved into opposite directions on two axes. The field in the coil-axis direction is curved twice as much as in the cross-axis direction: $\frac{a_\text{on-axis}}{a_\text{cross-axis}} = -2$, hence the trap frequencies have a ratio of $\frac{|\omega_\text{on-axis}|}{|\omega_\text{cross-axis}|} = \sqrt{2}$~\cite{hagemann_setup_2020}.
 
-Note that $a_q$ relates to the field landscape along $q$ as $a_q  = \frac{1}{2} \pdv[2]{B}{q}$ which can be seen from the Taylor expansion $B(q) = \eval{B}_{0} + \eval{\pdv{B}{q}}_{0} q + \frac{1}{2} \eval{\pdv[2]{B}{q}}_{0} q^2 + \mathcal{O}(q^3)$ around $0$ identifying the second order term with $a_q q^2$.
+Note that $a_{\vec q}$ relates to the field landscape along ${\vec q}$ as $a_{\vec q}  = \frac{1}{2} \pdv[2]{B}{q}$ which can be seen from the Taylor expansion $B(q) = \eval{B}_{0} + \eval{\pdv{B}{q}}_{0} q + \frac{1}{2} \eval{\pdv[2]{B}{q}}_{0} q^2 + \mathcal{O}(q^3)$ around $0$ identifying the second order term with $a_{\vec q} q^2$.
 
 \begin{figure}
     \caption{Trapping and anti-trapping field landscapes for high-field seekers: If the curvature $a_q$ is negative, the atoms are trapped in the maximum of the magnetic field.}
@@ -93,20 +93,77 @@ The design goal for the coil arrangement with regard to the field curvature is t
 \section{Simulation}\label{ch:simulation}
 In order to determine the optimal specifications and to characterize the coils, a simulation python library was developed (called \textit{coil simulation library} from now on). It makes heavy use of the magnetic field library \textit{magpylib}~\cite{ortner_magpylib_2020, noauthor_magpylibmagpylib_2022} providing magnetic field vectors at arbitrary positions originating from wire loops, straight wires and permanent magnets of different shapes.
 
-The coil simulation library models arrangements of two or more coils sharing a common axis. The models are parameterized by the distance of the coils to the center, the number, the radius, and the arrangement geometry of the windings of each coil, the spacing between the windings, the geometry of the wire, presence and length of supply lines, and the current flowing in each coil and even in each winding if desired. For an arrangement, the library provides the user with sketches of the arrangement, magnetic field vectors and magnitudes at arbitrary positions, plots of fields along trajectories through the arrangement, maps of the field landscape in planes in the arrangement, information about gradients and curvatures of the fields, resistances, inductances, dipole moments, $L\over R$ times, and mutually exerted mechanical forces of the coils.
+\subsection*{Modelling}
+The \textit{coil simulation library} models arrangements of two or more coils sharing a common axis. The models are parameterized by the distance $d_\text{coil}$ of the coils to the center, the number $n_\text{coil}$, the radius $r_\text{coil}$, and the arrangement geometry of the windings of each coil, the spacing $w$ between the windings, the geometry of the wire, presence and length of supply lines, and the current $I_\text{coil}$ flowing in each coil and even in each winding if desired.
 
-The technical details of the implementation of the coil simulation library is outlined in appendix chapter~\ref{ch:coil_simulation_library}. In the following paragraphs it is explained how the coil simulation library calculates important characteristics of the coils and fields.
+A coil is modelled as a set $\mathcal{L}$ of circular wire loops $L(r, y, I)$ with radius $r_i$, a center $y$ position $y$, and current $I$. As is the case for the FermiQP demonstrator, the wire loops' axes are parallel to the $y$ axis. For the $n_\text{on-axis} = 6$ on-axis windings and the $n_\text{cross-axis} = 5$ cross-axis windings, each loop $L_{ac}$ with on-axis index $a \in \{0, \ldots, n_\text{on-axis} - 1\}$ and cross-axis index $c \in \{0, \ldots n_\text{cross-axis} - 1\}$ is defined as
+\begin{align}
+    L_{ac} = L \left(r_\text{coil} + r_{ac}, y_\text{coil} + y_{ac}, I_\text{coil}\right)
+\end{align}
+with the on-axis ($y$) and radial (cross-axis) offsets
+\begin{align}
+    y_{ac} &= w\cdot \left(a-\frac{n_\text{on-axis}}{2} + \frac{1}{2}\right) \\
+    r_{ac} &= y_{ac} \tan \eta + w \cdot \left(c - \frac{n_\text{cross-axis}}{2} + \frac{1}{2}\right)
+\end{align}
+where $w$ is the side length of a wire, and $\eta$ is the opening angle of the parallelogram-shaped cross-section of the coil cone ($\eta = \SI{45}{\degree}$ for the coils in the FermiQP demonstrator). Figure~\ref{fig:coil_model} visualizes how a coil is modelled as a set of wires.
+
+This way of modelling a coil neglects the spiral shape of the coil wire as well as the jump between different on-axis layers of the coil.
+
+\begin{figure}
+    \caption{Modelling a coil as a set of wires:
+    \todo[inline]{add figure}
+    }
+    \label{fig:coil_model}
+\end{figure}
+
+For an arrangement, the library provides the user with sketches of the arrangement, magnetic field vectors and magnitudes at arbitrary positions, plots of fields along trajectories through the arrangement, maps of the field landscape in planes in the arrangement, information about gradients and curvatures of the fields, resistances, inductances, dipole moments, $L\over R$ times, and mutually exerted mechanical forces of the coils.
+
+The technical details of the implementation of the \textit{coil simulation library} are outlined in appendix chapter~\ref{ch:coil_simulation_library}. The following paragraphs explain how important characteristics of the coils and fields are calculated in the \textit{coil simulation library}.
 
 \subsection*{Coil properties}
-
+The \textit{coil simulation library} provides the following fundamental coil properties:
 \paragraph{Resistance}
-\paragraph{Inductance and $L\over R$ time}
+The resistance $R$ of a coil is determined using the specific resistance of copper of $\rho_\text{copper} = \SI{1.72e-8}{\ohm\meter}$:
+\begin{align}
+    R_\mathcal{L} = \frac{\rho_\text{copper} \sum\limits_{L \in \mathcal{L}} 2\pi r_L} {w^2 - A_\text{hollow}}
+\end{align}
+with the cross-section area $A_\text{hollow}$ of the hollow wire.
+
+\paragraph{Inductance and L/R time} The inductance of a coil can be determined as $L = \frac{\Phi}{I}$ with the magnetic flux $\Phi = \int B \dd A$ at a current $I$~\cite{demtroder_zeitlich_2013}. In the \textit{coil simulation library}, the flux through a wire loop $L$ is approximated as $\Phi_L \approx B \cdot \pi r_L^2$ with the total magnetic field $B$. The total inductance of coil $L$ is calculated as
+\begin{align}
+    L_\mathcal{L} = \sum\limits_{L \in \mathcal{L}} \frac{B(y = y_L) \pi r_L^2}{I_L}
+\end{align}
+
+For calculating the self-inductance, $B$ was set to the field solely generated by the respective coil. For estimating the inductance of the coil when part of an arrangement of coils, $B$ was set to the field of the whole arrangement. This leads to higher inductances when operated in Helmholtz configuration and lower inductances when operated in gradient configuration. This in-arrangement inductances are only meaningful if the amount of current flowing in all coils is the same and coupled, and if the coils have the same geometry.\footnote{With coupled currents in the individual coils, the whole arrangement can be thought of as a single coil consisting of multiple sub-coils at different positions. The self-inductance of the arrangement is then calculated with the total magnetic field produced by all sub-coils of the arrangement, and can be though of as a sum of the individual inductances of the sub-coils.}\todo{add factor , see Demtroder 2 ch 4.3.2.2}
+
+The time constant $\tau = \frac{L}{R}$ quantifies how fast the current in a coil with inductance $L$ and resistance $R$ can be switched by a sudden change of the applied voltage: $\Delta I(t) \propto 1-\exp \left(-\frac{t}{\tau}\right)$~\cite{demtroder_zeitlich_2013}. In the \textit{coil simulation library}, this time constant is estimated as
+\begin{align}
+    \tau_\mathcal{L} = \frac{L_\mathcal{L}}{R_\mathcal{L}}.
+\end{align}
+Using the inductance of the whole arrangement in Helmholtz configuration for $L$ increases  the estimated $\tau$, as the inductance of the whole arrangement of coils with coupled currents is higher and hence has a longer switching time. For the arrangement in gradient mode, the estimated $\tau$ is decreased as the coils' mutual inductance effects have opposite sign.\todo{Verify, does the L modelling and the conclusions for $\tau$ make sense?}
+
 \paragraph{Dipole moment}
+The magnetic dipole moment $\vec m$ of a coil determines the force $\vec F = \vec m (\vec \nabla \vec B)$ and torque $T = \vec m \times \vec B$ it experiences in a magnetic field. Furthermore, the magnetic field generated on the coil axis ($y$) by a magnetic moment $\vec m$ amounts to $\vec B = \frac{\mu_0 \vec m}{2\pi y^3}$ in the far-field ($y \gg r$). For a wire loop, it is defined as $\vec m = I \vec A$ with the coil axis vector $\vec A$ having the length of the wire loop cross-section area~\cite{demtroder_statische_2013}. In the \textit{coil simulation library}, the magnetic moment of a coil arrangement $\mathcal{A}$ is calculated as
+\begin{align}
+    m_\mathcal{A} = \sum\limits_{L \in \mathcal{A}} I_L \cdot \pi r_L^2.
+\end{align}
 
 \subsection*{Field properties}
-\paragraph{Curvature}
+The \textit{coil simulation library} provides the following properties of the field generated by an arrangement:
+
+\paragraph{Curvature and Trap Frequency}
+The field curvature $a_q$ along an axis $q$ in an arrangement, as defined in chapter~\ref{ch:field_curvature_definition}, is calculated from sampled magnetic field strength values $B_i(\vec 0 + d \cdot \vec q)$ for distances $d$ from the center along the $\vec q$ axis. In the \textit{coil simulation library}, the curvature is determined in a region of $\SI{+-2}{\milli\meter}$ around the center in \SI{200}{} steps as a default. A degree-7 polynomial $\hat B(d) = \sum\limits_{i=0}^7 c_i d^i$ is fit to the sampled data. The curvature is then the second coefficient of the fit: $a_{\vec q} = \hat c_2$.
+
+The high-field seeker trap frequency is then calculated as (cf. equation \eqref{eq:trap_omega_definition})
+\begin{align}
+    f_{q, \text{high-field seeker}} = \frac{1}{2\pi}  \sqrt{\left| \frac{2 \hat c_2 \mu_\text{B}}{m_{^6\text{Li}}} \right|} (-\mathrm{sgn} \hat c_2)
+\end{align}
+which is then positive if the field is trapping and negative if anti-trapping for high-field seekers along $\vec q$.
+
 \paragraph{Gradient}
-\paragraph{Mechanical Forces}
+
+
+\paragraph{Mechanical Force}
 
 
 

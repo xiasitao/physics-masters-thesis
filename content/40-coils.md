@@ -20,6 +20,10 @@
 - field stability requirements
 
 ## Simulation
+- drawbacks
+    - no layer jump
+    - no spiraling wire
+    - finite size of wires
 
 ## Specifications
 - wire
