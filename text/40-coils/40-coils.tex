@@ -16,7 +16,7 @@ In order to generate these homogeneous fields, the coils are arranged in Helmhol
 \subsection*{Geometry}
 In order to produce the high Feshbach fields in the glass cell with reasonable currents, the radius of the coils should be kept as small as possible, and they should be placed as close to the glass cell as possible.
 
-The coils will enclose the two objectives sitting above and below the glass cell between them. This introduces a minimum distance of around \SI{50}{\milli\meter} between the coils still allowing a few \si[]{\milli\meter} of leeway to fit the objectives between the coils. It was decided for a distance of \SI{55}{\milli\meter} between the innermost wires of the coils, not considering additional surface material on the coils. These geometrical constraints allow an estimation of the number of windings needed to attain the required \SI{1300}{\gauss} of field in Helmholtz configuration to 30, which was determined using simulations (see section~\ref{ch:simulation}).
+The coils will enclose the two objectives sitting above and below the glass cell between them. This introduces a minimum distance of around \SI{50}{\milli\meter} between the coils still allowing a few \si[]{\milli\meter} of leeway to fit the objectives between the coils. It was decided for a distance of \SI{55}{\milli\meter} between the innermost wires of the coils, not considering additional surface material on the coils. These geometrical constraints allow an estimation of the number of windings needed to attain the required \SI{1300}{\gauss} of field in Helmholtz configuration to 30, which was determined using simulations (see sections~\ref{ch:simulation} and~\ref{ch:coil_properties}).
 
 The orientation of the coil arrangement is constraint by the requirement to drive Raman transitions on the atoms in the optical lattice with $\pi$-polarized light shone in through the objectives. $\pi$ transitions can only be driven with light having a polarization parallel to the quantization axis of the atoms, which is set by the direction of the magnetic field. Light shone in along the $z$ axis through the objectives can only be $\pi$-polarized in the $xy$ plane, constraining the direction of the magnetic field to the $xy$ plane. It was decided to align the coil arrangement axis with the $y$ axis of the experiment chamber, meaning that the two coils sit on the left and on the right of the glass cell with the coil axis passing through the trap region of the magneto-optical trap.
 
@@ -36,7 +36,6 @@ As the coils have many windings, thus having a significant size, and are close t
     \caption{Parallelogram-shaped cross-section of the coils for minimizing the blocked optical access into the glass cell, letting the pinning and science lattice beams pass alongside the coil (view from above): The windings layers stacked onto each other (in the coil axis direction) have radii that increase by one wire size per layer (cross-axis direction).}
     \label{fig:parallelogram_cross_section}
 \end{figure}
-
 
 \subsection*{Field and Temperature Stability}
 The FermiQP demonstrator aims for a relative field stability of \SI{e-7}{} calling for an active stabilization mechanism. For this purpose, both coils are independently driven by two independent power supplies enabling fast switching.
@@ -154,23 +153,33 @@ The \textit{coil simulation library} provides the following properties of the fi
 \paragraph{Curvature and Trap Frequency}
 The field curvature $a_q$ along an axis $q$ in an arrangement, as defined in chapter~\ref{ch:field_curvature_definition}, is calculated from sampled magnetic field strength values $B_i(\vec 0 + d \cdot \vec q)$ for distances $d$ from the center along the $\vec q$ axis. In the \textit{coil simulation library}, the curvature is determined in a region of $\SI{+-2}{\milli\meter}$ around the center in \SI{200}{} steps as a default. A degree-7 polynomial $\hat B(d) = \sum\limits_{i=0}^7 c_i d^i$ is fit to the sampled data. The curvature is then the second coefficient of the fit: $a_{\vec q} = \hat c_2$.
 
-The high-field seeker trap frequency is then calculated as (cf. equation \eqref{eq:trap_omega_definition})
+The high-field seeker trap frequency is then calculated as (cf. equation \ref{eq:trap_omega_definition})
 \begin{align}
-    f_{q, \text{high-field seeker}} = \frac{1}{2\pi}  \sqrt{\left| \frac{2 \hat c_2 \mu_\text{B}}{m_{^6\text{Li}}} \right|} (-\mathrm{sgn} \hat c_2)
+    f_{\vec q, \text{high-field seeker}} = \frac{1}{2\pi}  \sqrt{\left| \frac{2 \hat c_2 \mu_\text{B}}{m_{^6\text{Li}}} \right|} (-\mathrm{sgn} \hat c_2)
 \end{align}
 which is then positive if the field is trapping and negative if anti-trapping for high-field seekers along $\vec q$.
 
 \paragraph{Gradient}
-
+The gradient, meaning the linear components of the field landscape, along $\vec q$ is determined from the same polynomial fit as for the curvature.
+\begin{align}
+    g_{\vec q} = \eval{\pdv[]{B}{q}}_{q = 0} = \hat c_1
+\end{align}
 
 \paragraph{Mechanical Force}
+The axial mechanical force on a coil $\mathcal{L}$ in the field of an arrangement is estimated using its magnetic moment and the field gradient: $\vec F = \vec m (\vec \nabla \vec B)$. As the magnetic moment only has a $y$ component, only the axial gradient of the field is relevant. For calculating the force on the total coil, its wire loops' magnetic moments $m_L = I_L \cdot \pi r_L^2$ multiplied by the approximated $y$ gradient $\eval{\pdv[]{B}{y}}_{y = y_L} \approx \frac{B(y_L + s) - B(y_L)}{s}$, with a default step length $s = \SI{0.5}{\milli\meter}$, are summed:
+\begin{align}
+    F_\mathcal{L} \approx \sum\limits_{L \in \mathcal L} m_L \cdot \eval{\pdv[]{B}{y}}_{y = y_L} \approx \sum\limits_{L \in \mathcal L} I_L \pi r_L^2 \left(\frac{B(y_L + s)-B(y_L)}{s}\right)
+\end{align}
+
+This approximation is coarse, not only because of the approximation of the gradient, but especially because the finite radial extent of the coil was neglected, meaning that the coil was assumed to be small compared to the radial distance on which the $y$ gradient changes.\todo{check validity}
 
 
 
 
+\section{Coil Properties}\label{ch:coil_properties}
+In this section, an overview of the geometrical specifications, the operational properties of the Feshbach coils for the FermiQP demonstrator is given. Also, the field generated by a single coil is characterized.
 
 
-\section{Specification}
 \begin{figure}
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
@@ -196,8 +205,23 @@ which is then positive if the field is trapping and negative if anti-trapping fo
     \label{fig:single_coil_drawing}
 \end{figure}
 
-\section{Characterization}
-\subsection*{Properties of the coils}
+\subsection*{Geometry}
+\begin{table}
+    \caption{Geometrical properties of the Feshbach coils}
+\end{table}
+
+The coils are held in place using holders made out of the non-magnetic material PEEK designed by the engineering department of the Max Planck Institute of Quantum Optics. Massive spacers between the two coils ensure that they cannot change their distance due to the gradient forces, and they impede vibrations by tightly fixing the coils.
+
+\subsection*{Operational Properties}
+\begin{table}
+    \caption{Operational properties of the Feshbach coils}
+\end{table}
+
+\subsection*{Magnetic Fields}
+
+
+\section{Field Characterization}\label{ch:field_characterization}
+In this section, a characterization of the coils is conducted by examining the simulated and measured magnetic fields of the coils.
 
 \subsection*{Magnetic Gradient}
 
