@@ -27,3 +27,5 @@ incoupler
 Acousto-optic
 acousto-optic
 specfications
+two-qubit
+qubit
