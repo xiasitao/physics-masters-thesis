@@ -190,7 +190,7 @@ A center-of-mass radius of \SI{83}{\milli\meter} was decided for. The six layers
     \begin{tabular}{rcccc}
         \toprule
         & specified & \textit{Gauss} & \textit{Maxwell} & \textit{Tesla} \\
-        \midrule
+        \toprule
         center-of-mass radius & \SI{83}{\milli\meter} &&& \\
         diameter of layer 1 (inner) & \SI{116}{\milli\meter} &&& \\
         diameter of layer 2 (inner) & \SI{126}{\milli\meter} &&& \\
@@ -252,7 +252,7 @@ Figure~\ref{fig:coil_geometry_specification} shows how in the cross-section of a
     \caption{Geometry of a Feshbach coil}
 \end{figure}
 
-The coils are held in place using holders designed by the engineering department of the Max Planck Institute of Quantum Optics made out of the non-magnetic material PEEK. Massive spacers between the two coils ensure that they cannot change their distance due to any gradient forces, and they impede vibrations by tightly fixing the coils.
+The coils are held in place using holders designed by the engineering department of the Max Planck Institute of Quantum Optics, made out of the non-magnetic material PEEK. Massive spacers between the two coils ensure that they cannot change their distance due to any gradient forces, and they impede vibrations by tightly fixing the coils.
 
 \subsection*{Operational Properties}
 The operational properties introduced in section \ref{ch:simulation} were simulated using the \textit{coil simulation library} and are listed in table~\ref{tab:operational_properties}.
@@ -262,7 +262,7 @@ The operational properties introduced in section \ref{ch:simulation} were simula
     \begin{tabular}{rcc}
         \toprule
         quantity & simulated value  & equation reference \\
-        \midrule
+        \toprule
         wire length & \SI{15.7}{\meter} & \\
         resistance $R_\mathcal{L}$ & \SI{15.7}{\milli\ohm} & \eqref{eq:resistance_simulation} \\
         \midrule
@@ -282,16 +282,73 @@ The operational properties introduced in section \ref{ch:simulation} were simula
 \todo{add resonance and resistance measurements}
 
 \subsection*{Magnetic Fields}
-Using a Sensys FGM3D/1000 magnetic field probe, the on-axis magnetic field produced by the three coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} was mapped and is displayed in figure~\ref{fig:single_coil_fields}. In addition to that, the fields were fit to the following model:
+Using a Sensys FGM3D/1000 fluxgate magnetic field probe (dominant relative error of \SI{0.5}{\percent}), the on-axis magnetic field produced by the three coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} at $I = \SI{1.000}{\ampere}$ was mapped and is displayed in figure~\ref{fig:single_coil_fields}. In addition to that, the fields were fit to the following model the on-axis field of \SI{30}{} partially separated wire loops:
+\begin{align}\label{eq:on_axis_field_model}
+    \hat B(I, r, y_0) = \sum\limits_{a = 0}^5 \sum\limits_{c = 0}^4 \frac{\mu_0 I}{2} \frac{r_{ac}^2}{\left(r_{ac}^2 + y_{ac}^2\right)^\frac{3}{2}}
+\end{align}
+with the $y$ position $y_{ac} = y_0 + (a - 2.5) w$ and the radius $r_{ac} = r + (c-2)w$ of a winding with on-axis index $a$, cross-axis index $c$, and a winding spacing $w$.
+
+With root means square error $RMSE[B, \hat B] = \sqrt{\frac{1}{N}\sum_{i = 1}^N (B_i-\hat B_i)^2}$ values of $<\SI{3}{\milli\gauss}$, which is about \SI{e-3}{} of the maximum field, the model fits the observed field landscapes very well. The resulting parameters $\hat I$, $\hat r$, and $\hat y_0$ are listed in table~\ref{tab:single_coil_fields_fit_parameters}.\footnote{$\hat I$ and $\hat r$ are highly correlated (\SI{99.9976}{\percent}), which can be attributed to $\hat B \underset{y^2 \ll r^2}{\propto} \frac{I}{r}$. This means that } One can conclude that the coils cannot produce the same maximum field and that they act like they are operated at different currents and/or have slightly different dimensions. Comparing the measured and the simulated fields with $RMSE[B, B_\text{simulated}]$ (see table~\ref{tab:single_coil_fields_fit_parameters}), one can also see that \textit{Tesla} matches the expected field landscape best, followed by \textit{Gauss}, and \textit{Maxwell} very far off.
 
 \begin{figure}
-    \caption{Fields of a single coil: simulation results and measurements for \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla}}
+    \centering
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/single_coil_fields/single_coil_fields.pgf}}
+    \end{pgfpicture}
+    \caption{Simulated on-axis fields and measured on-axis fields of the coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} for $I = \SI{1.000}{\ampere}$. Position $\SI{0}{\milli\meter}$ is the projected center point between two coils. While \textit{Tesla}'s field matches the simulation best, \textit{Gauss}'s is a little weaker, and \textit{Maxwell}'s is substantially less than expected.}
     \label{fig:single_coil_fields}
 \end{figure}
 
+\begin{table}
+    \centering
+    \begin{tabular}{lcccc}
+        \toprule
+        & \textit{Gauss} & \textit{Maxwell} & \textit{Tesla} & simulation \\
+        \toprule
+        $\hat I$ in \si[]{\ampere} & \SI{0.97(00)}{} & \SI{0.93(00)}{} & \SI{0.98(00)}{} & \SI{1.00}{} \\
+        $\hat r$ in \si[]{\milli\meter} & \SI{80.99(13)}{} & \SI{81.90(14)}{} & \SI{80.66(13)}{} & \SI{83.00}{} \\
+        $\hat y_0$ in \si[]{\milli\meter} & \SI{-40.03(10)}{} & \SI{-40.41(10)}{} & \SI{-39.54(10)}{} & \SI{-42.50}{} \\
+        $RMSE[B, \hat B]$ in \si[]{\milli\gauss} & \SI{2.73}{} & \SI{2.14}{} & \SI{2.69}{} & \\
+        $RMSE[B, B_\text{simulation}]$ in \si[]{\milli\gauss} & \SI{31.20}{} & \SI{121.19}{} & \SI{17.30}{} & \\
+        \bottomrule
+    \end{tabular}
+    \caption{Results for the on-axis magnetic field model parameters $\hat I$, $\hat r$, and $\hat y_0$ in equation \eqref{eq:on_axis_field_model} for \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla}, operated at $I = \SI{1.000}{\ampere}$: All coils act as if they are operated with different currents and/or have different geometries. While \textit{Gauss} and \textit{Tesla} are still quite close to the expected fields, which can be seen from the $RMSE$ between the measured fields $B$ and the simulated fields $B_\text{simulation}$, \textit{Maxwell} is far off the expectations. For all coils, the fits match the measured fields very well, which can be seen from $RMSE[B, \hat B]$.}
+    \label{tab:single_coil_fields_fit_parameters}
+\end{table}
+
+In order to investigate the origin of this problem, the individual pancakes of all coils were characterized with respect to the maximum field they produce at $I = \SI{1.000}{\ampere}$, as listed in table~\ref{tab:pancake_characterization}. The values show that even the respective outer, middle, and inner pancakes of the individual coils differ significantly in terms of the magnetic fields they produce.
+
+\begin{table}
+    \centering
+    \begin{tabular}{cccc}
+        \toprule
+        pancake & coil & $y_\text{max}$ & $B_\text{max}$ \\
+        \toprule
+        \multirow{3}{*}{outer} & \textit{Gauss} & \SI{-56(1)}{\milli\meter} & \SI{0.689}{\gauss} \\
+        & \textit{Maxwell} & \SI{-57(1)}{\milli\meter} & \SI{0.622}{\gauss} \\
+        & \textit{Tesla} & \SI{-55(1)}{\milli\meter} & \SI{0.658}{\gauss} \\
+        \midrule
+        \multirow{3}{*}{middle} & \textit{Gauss} & \SI{-42(1)}{\milli\meter} & \SI{0.762}{\gauss} \\
+        & \textit{Maxwell} & \SI{-46(1)}{\milli\meter} & \SI{0.715}{\gauss} \\
+        & \textit{Tesla} & \SI{-44(1)}{\milli\meter} & \SI{0.773}{\gauss} \\
+        \midrule
+        \multirow{3}{*}{inner} & \textit{Gauss} & \SI{-31(1)}{\milli\meter} & \SI{0.813}{\gauss} \\
+        & \textit{Maxwell} & \SI{-31(1)}{\milli\meter} & \SI{0.804}{\gauss} \\
+        & \textit{Tesla} & \SI{-32(1)}{\milli\meter} & \SI{0.879}{\gauss} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Maximum fields of the individual pancakes of \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} at a current of \SI{1.000}{\ampere}: The maximum field generated is substantially different for each coil even on when regarding single pancakes.}
+    \label{tab:pancake_characterization}
+\end{table}
+
+These differences between the coils could originate from geometrical irregularities introduced during the manufacturing process, electrical shorts (which are rather unlikely considering that every pancake would be affected), the layer jumps, or other imperfections. During the writing of this thesis, the reason of these deviances could not be clearly identified. The different fields and geometrical scales of the coils need to be taken into account when setting the coil distance and the respective operating currents for getting a flat and curvature-free homogeneous field.
+
+
+
+
 
 \section{Field Characterization}\label{ch:field_characterization}
-In this section, a characterization of the coils is conducted by examining the simulated and measured magnetic fields of the coils.
+In this section, the fields of an arrangement of two coils in Helmholtz configuration is simulated and optimized in terms of coil position and operating current taking into account the determined properties of the single coils.
 
 \subsection*{Magnetic Gradient}
 

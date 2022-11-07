@@ -6,8 +6,15 @@
 	ngerman
 ]{scrbook}
 
+\newif\ifprintversion
+\printversionfalse
+
 % === Page  ===
-\usepackage[paper=a4paper,]{geometry}
+\ifprintversion
+  \usepackage[paper=a4paper,bindingoffset=10mm,twoside]{geometry}
+\else 
+  \usepackage[paper=a4paper]{geometry}
+\fi
 
 % === Fonts  ===
 \usepackage{noto}
@@ -74,6 +81,7 @@
 % === Graphics ===
 \usepackage{tikz}
 \usepackage{subcaption}
+\usepackage{pgf}
 % \usepackage{float}
 \newcommand{\imagepath}{}
 
