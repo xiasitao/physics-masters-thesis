@@ -297,7 +297,7 @@ The cooling laser beams for the 2-dimensional and the 3-dimensional magneto-opti
 The laser beams originate from two laser sources, one for D$_2$ light for the magneto-optical traps and one for D$_1$ light for the gray molasses. All beams produced by the setup consist of cooler and repumper light, which is separated by \SI{228}{\mega\hertz}, the hyperfine splitting of the $^2\text{S}_{1/2}$ ground state. For the 2-dimensional magneto-optical trap, the frequencies of the cooler and repumper light as well as their powers are fixed, for the 3-dimensional trap and the gray molasses light they need to be variable in order to compress and optimize the traps dynamically. The light for the 3-dimensional trap and the gray molasses cooling should be prepared on the same optical path, which is useful as both cooling schemes are carried out at the same position in the experiment chamber. All beams need to have sufficient power levels such that several saturation intensities on the respective trap cross-sections (\SI{30}{\milli\meter} for the 2-dimensional trap and \SI{7}{\milli\meter} for the 3-dimensional trap and the gray molasses cooling).\todo{Give exemplary power levels for realistic saturation intensities. Finish sentence.}
 
 \subsection*{Laser sources}
-The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is jointly produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB VRFA-P-1500-671-SF-PLUS, "Socrates" and "Plato") with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two single-mode diode lasers at \SI{1342}{\nano\meter} (Toptica MDL pro, "Heraklitus" seeding "Socrates", and "Zeno" seeding "Plato"), delivering around \SI{20}{\milli\watt} of power. Each fiber amplifier contains a frequency-doubling stage creating \SI{671}{\nano\meter} light from the amplified \SI{1342}{\nano\meter} light. The seed lasers are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily within a range of a few hundred \si{\mega\hertz} \todo{verify}. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
+The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is jointly produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB VRFA-P-1500-671-SF-PLUS, "Socrates" and "Plato") with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two single-mode diode lasers at \SI{1342}{\nano\meter} (Toptica MDL pro, "Heraklitus" seeding "Socrates", and "Zeno" seeding "Plato"), delivering around \SI{20}{\milli\watt} of power. Each fiber amplifier contains a frequency-doubling stage creating a \SI{671}{\nano\meter} laser beam of \SI{1}{\milli\meter} diameter from the amplified \SI{1342}{\nano\meter} light. The seed lasers are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily within a range of a few hundred \si{\mega\hertz} \todo{verify}. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
 
 \begin{figure}
     \caption{Schematic of the cooling laser setup: Two Raman fiber amplifiers provide light for the optics setups that prepare the light used in the magneto-optical traps and the gray molasses. The amplifiers are offset-locked via their seeds to a global reference lasers which, in turn, is locked to a reference cavity.
@@ -374,7 +374,7 @@ The light is prepared on the optics board in the following steps (letters refere
     \label{fig:beam_diameter_evolution}
 \end{figure}
 
-    \item[h] The slimmed-down light is then coupled through the first acousto-optic modulator operated at \SI{+78}{\mega\hertz}. The zeroth order of the outgoing beam is blocked at i. The power efficiency of this acousto-optic modulator single pass is \todo{add AOM efficiency}. Thanks to the telescope, the beam diameter at this point is significantly smaller than the specified aperture.
+    \item[h] The slimmed-down light is then coupled through the first acousto-optic modulator operated at \SI{+78}{\mega\hertz}. The zeroth order of the outgoing beam is blocked at i. The power efficiency of this acousto-optic modulator single pass is \SI{83}{\percent} (see also table~\ref{tab:power_loss_table}). Thanks to the telescope, the beam diameter at this point is significantly smaller than the specified aperture.
     
     \item[i] A half-wave plate sets the splitting ratio between light for the push beam (m) and light for the 2-dimensional magneto-optical trap.
     
@@ -390,11 +390,11 @@ The light is prepared on the optics board in the following steps (letters refere
     
     \item[o] With a half-wave plate and a polarizing beam splitter, the light is split into cooler (q) and repumper (p) paths. The polarizations of the beams are $\KetText{V}$ of the cooler and $\KetText{H}$ of the repumper beam.
     
-    \item[p, q] The cooler (q) and repumper (p) paths each contain an acousto-optic modulator operated at \SI{+114}{\mega\hertz} and \SI{-114}{\mega\hertz} respectively. Thanks to the refocusing lens (k), the beam diameter approximately matches the modulators' apertures. The power efficienies are \todo{add AOM efficiencies} for the cooler and for the repumper.
+    \item[p, q] The cooler (q) and repumper (p) paths each contain an acousto-optic modulator operated at \SI{+114}{\mega\hertz} and \SI{-114}{\mega\hertz} respectively. Thanks to the refocusing lens (k), the beam diameter approximately matches the modulators' apertures. The power efficienies are \SI{76}{\percent} for the cooler and \SI{81}{\percent} for the repumper (see also table~\ref{tab:power_loss_table}).
     
     \item[r, s] The cooler and repumper beam are spatially overlapped in split into two paths on a combination of two polarizing beam splitter cubes and a half-wave plate. Due to their polarizations, the cooler is reflected on the first cube (r) while the repumper passes through it, both leaving the cube on the same port. A half-wave plate then turns their respective polarizations to diagonal $\KetText{D}$ and anti-diagonal $\KetText{A}$. A subsequent polarizing beam splitter cube (s) splits both cooler and repumper into two equally strong beams.
     
-    \item[t, u] The two resulting beams are coupled into fibers guiding it to the experiment chamber. In each beam, a pair of a quarter- and half-wave plate allow for arbitrary corrections of the polarization if necessary. The coupling efficiencies are \todo{add coupling efficiences}.
+    \item[t, u] The two resulting beams are coupled into fibers guiding it to the experiment chamber. In each beam, a pair of a quarter- and half-wave plate allow for arbitrary corrections of the polarization if necessary. The coupling efficiencies are \SI{84}{\percent} for fiber A (t) and \SI{74}{\percent} for fiber B (u) for both cooler and repumper (see also table~\ref{tab:power_loss_table}).
 \end{itemize}
 
 Table \ref{tab:power_table} lists measured remaining power levels after each dissipating element (tab.~\ref{tab:power_loss_table}) as well as measured recombination (tab.~\ref{tab:power_recombination}) and splitting ratios (tab.~\ref{tab:power_splitting}).
@@ -435,7 +435,7 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
     \end{subtable}
 
     \vspace{1cm}
-    \begin{subtable}{\textwidth}
+    \begin{subtable}{0.5\textwidth}
         \centering
         \begin{tabular}{llc}
             \toprule
@@ -450,7 +450,7 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
     \end{subtable}
 
     \vspace{1cm}
-    \begin{subtable}{\textwidth}
+    \begin{subtable}{0.65\textwidth}
         \centering
         \begin{tabular}{lllc}
             \toprule
@@ -525,10 +525,10 @@ The trapping light needs to have circular polarization at the trap position in t
 
 In the following, the Jones vector notation for polarization in the horizontal-vertical basis $\{\KetText{H}, \KetText{V}\}$ is going to be used to denote the circular polarization states $\KetText{R}$ and $\KetText{L}$ and the diagonal polarization states $\KetText{D}$ and $\KetText{A}$:
 \begin{align}
-        \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right)  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
-        \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right)  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
+        \text{circular:} && \KetText{R} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - i \KetText{V}\right),  & \KetText{L} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + i \KetText{V}\right) \\
+        \text{diagonal:} && \KetText{D} &= \frac{1}{\sqrt{2}} \left(\KetText{H} + \KetText{V}\right),  &  \KetText{A} &= \frac{1}{\sqrt{2}} \left(\KetText{H} - \KetText{V}\right)
 \end{align}
-Here, horizontal polarization $\KetText{H}$ is defined as parallel to the glass cell surface  where the beam enters the cell, vertical polarization $\KetText{V}$ is perpendicular to $\KetText{H}$ and encloses a \SI{30}{\degree} angle with the surface normal of the glass cell surface.
+Here, horizontal polarization $\KetText{H}$ is defined as parallel to the glass cell surface  where the beam enters the cell, vertical polarization $\KetText{V}$ is perpendicular to $\KetText{H}$. For the $y$ beams, $\KetText{V}$ is also parallel to the glass cell surface. For the $xz$ beams, $\KetText{V}$ encloses a \SI{30}{\degree} angle with the surface normal of the glass cell surface.
 
 For the $y$ axis trap beam entering the glass cell from the left or right, the circular polarization can directly be set on the wave plates in the outcoupling stage. As the light enters the glass cell perpendicular to its surface, the polarization will not be affected when transmitted through the glass.
 
@@ -537,19 +537,21 @@ For the other two $xz$ beams entering at shallow angles with $\theta = \SI{60}{\
 The glass cell is made of fused silica with a refractive index of $n = \SI{1.456}{}$ at \SI{671}{\nano\meter} \cite{malitson_interspecimen_1965}. According to Snell's law, for the $xz$ beams the angle between the light and the surface normal in the glass is $\theta_\text{glass} = \arcsin \frac{\sin \theta}{n} = \SI{36.5}{\degree}$~\cite{demtroder_elektromagnetische_2013}. The transmission coefficients for the two polarization components are then~\cite{demtroder_elektromagnetische_2013}
 \begin{align}\label{eq:fresnel}
     \begin{split}
-        t_{\KetText{H}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{\cos \theta + n \cos \theta_\text{glass}} =  \SI{0.916}{}\\
-        t_{\KetText{H}, \text{glass} \rightarrow \text{air}} &= \frac{2n \cos \theta_\text{glass}}{n \cos \theta_\text{glass} + \cos \theta} = \SI{0.999}{} \\
-        t_{\KetText{V}, \text{air} \rightarrow \text{glass}} &= \frac{2 \cos \theta}{n \cos \theta + \cos \theta_\text{glass}} = \SI{0.916}{}\\ 
-        t_{\KetText{V}, \text{glass} \rightarrow \text{air}} &= \frac{2 n \cos \theta_\text{glass}}{\cos \theta_\text{glass} + \cos \theta} = \SI{0.999}{}\\ 
+        t_{\KetText{H}, \text{air} \rightarrow \text{glass}}(\theta, \theta_\text{glass})  &= \frac{2 \cos \theta}{\cos \theta + n \cos \theta_\text{glass}}\\
+        t_{\KetText{H}, \text{glass} \rightarrow \text{air}}(\theta, \theta_\text{glass})  &= \frac{2n \cos \theta_\text{glass}}{n \cos \theta_\text{glass} + \cos \theta} \\
+        t_{\KetText{V}, \text{air} \rightarrow \text{glass}}(\theta, \theta_\text{glass})  &= \frac{2 \cos \theta}{n \cos \theta + \cos \theta_\text{glass}}\\ 
+        t_{\KetText{V}, \text{glass} \rightarrow \text{air}}(\theta, \theta_\text{glass})  &= \frac{2 n \cos \theta_\text{glass}}{\cos \theta_\text{glass} + \cos \theta}\\ 
     \end{split}
 \end{align}
-where the $\text{s}$ and $\text{p}$ components of the polarization have been mapped to the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively.\todo{Check values and propagate if they were wrong}
+where the $\text{s}$ and $\text{p}$ components of the polarization have been mapped to the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively. For the $y$ beam, they evaluate to $t_{\text{air} \rightarrow \text{glass}}(\SI{0}{\degree}, \SI{0}{\degree}) = \SI{0.814}{}$, $t_{\text{glass} \rightarrow \text{air}}(\SI{0}{\degree}, \SI{0}{\degree}) = \SI{1.186}{}$.\footnote{Note that it is not unphysical if $t > 0$. The transmitted power on a surface from air to a material with $n > 1$ is $\frac{n \cos \theta_\text{transmitted}}{\cos \theta_\text{incident}}t^2 \leq 1$~\cite{demtroder_elektromagnetische_2013}.} For the $xz$ beams, they evaluate to $t_{\KetText{H}, \text{air} \rightarrow \text{glass}}(\theta, \theta_\text{glass}) = t_{\KetText{H}, \text{glass} \rightarrow \text{air}}(\theta, \theta_\text{glass}) = \SI{0.916}{}$, $t_{\KetText{V}, \text{air} \rightarrow \text{glass}}(\theta, \theta_\text{glass}) = t_{\KetText{V}, \text{glass} \rightarrow \text{air}}(\theta, \theta_\text{glass}) = \SI{0.999}{}$.
+\todo{Check values and propagate if they were wrong}
 
 The total transmission coefficient through the \SI{4}{\milli\meter}-thick wall of the glass is combined transmission into glass and back into air:
 \begin{align}
+    t_{y} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}(\SI{0}{\degree}, \SI{0}{\degree})  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}}(\SI{0}{\degree}, \SI{0}{\degree}) = \SI{0.965}{} \\
     \begin{split}
-        t_{xz, \KetText{H}} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}} = \SI{0.839}{} \\
-        t_{xz, \KetText{V}} &= t_{\KetText{V}, \text{air} \rightarrow \text{glass}}  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}} = \SI{0.998}{}
+        t_{xz, \KetText{H}} &= t_{\KetText{H}, \text{air} \rightarrow \text{glass}}(\theta, \theta_\text{glass})  \cdot t_{\KetText{H}, \text{glass} \rightarrow \text{air}}(\theta, \theta_\text{glass}) = \SI{0.839}{} \\
+        t_{xz, \KetText{V}} &= t_{\KetText{V}, \text{air} \rightarrow \text{glass}}(\theta, \theta_\text{glass})  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}}(\theta, \theta_\text{glass}) = \SI{0.998}{}
     \end{split}
 \end{align}
 
