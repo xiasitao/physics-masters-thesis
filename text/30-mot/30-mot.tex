@@ -439,13 +439,13 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
         \centering
         \begin{tabular}{llc}
             \toprule
-            \textbf{recombination} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{percentage} \\
+            \textbf{beam} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{percentage} \\
             \toprule
             cooler & q - r & \SI{51}{\percent} \\
             repumper & p - r & \SI{47}{\percent} \\
             \bottomrule
         \end{tabular}
-        \caption{Recombination ratios on polarizing beam splitter cube r}
+        \caption{Power ratios of the recombined cooler and repumper beams on the polarizing beam splitter cube r}
         \label{tab:power_recombination}
     \end{subtable}
 
@@ -454,18 +454,19 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
         \centering
         \begin{tabular}{lllc}
             \toprule
-            \multicolumn{2}{l}{\textbf{splitting}} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{ratio} \\
-            \toprule 
-            \multirow{3}{*}{branch A} & cooler \& repumper & s - t & \SI{50}{\percent} \\
-            & cooler & q - t & \SI{52}{\percent} \\
-            & repumper & p - t & \SI{49}{\percent} \\
+            \textbf{beam} & \textbf{branch} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{ratio} \\
+            \toprule
+            \multirow{2}{*}{cooler \& repumper} & A & s - t & \SI{50}{\percent} \\
+            & B & s - u & \SI{51}{\percent} \\
             \midrule
-            \multirow{3}{*}{branch B} & cooler \& repumper & s - u & \SI{51}{\percent} \\
-            & cooler & q - u & \SI{54}{\percent} \\
-            & repumper & p - u & \SI{46}{\percent} \\
+            \multirow{2}{*}{cooler} & A & q - t & \SI{49}{\percent} \\
+            & B & q - u & \SI{53}{\percent} \\
+            \midrule
+            \multirow{2}{*}{repumper} & A & p - t & \SI{51}{\percent} \\
+            & B & p - u & \SI{49}{\percent} \\
             \bottomrule
         \end{tabular}
-        \caption{Splitting ratios on polarizing beam splitter cube s}
+        \caption{Power splitting ratios into branches A and B on the polarizing beam splitter cube s}
         \label{tab:power_splitting}
     \end{subtable}
     
