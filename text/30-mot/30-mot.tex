@@ -397,21 +397,80 @@ The light is prepared on the optics board in the following steps (letters refere
     \item[t, u] The two resulting beams are coupled into fibers guiding it to the experiment chamber. In each beam, a pair of a quarter- and half-wave plate allow for arbitrary corrections of the polarization if necessary. The coupling efficiencies are \todo{add coupling efficiences}.
 \end{itemize}
 
-Table \ref{tab:power_cascade} outlines how much power is dissipated on the optics board and gives exemplary numbers for a typical mode of operation.
+Table \ref{tab:power_table} lists measured remaining power levels after each dissipating element (tab.~\ref{tab:power_loss_table}) as well as measured recombination (tab.~\ref{tab:power_recombination}) and splitting ratios (tab.~\ref{tab:power_splitting}).
 
 \begin{table}
-    \begin{tabularx}{\textwidth}{ccc}
-        \toprule
-        after board element & relative power & exemplary power \\
-        \toprule
-        a & \SI{100}{\percent} & \SI{1500}{\milli\watt}\\
-        b && \\
-        ... && \\
-        \bottomrule
-        \caption{Power dissipation on the board creating the light for the 2-dimensional magneto-optical trap.    \todo[inline]{Fill in power levels}
-        }
-        \label{tab:power_cascade}
-    \end{tabularx}
+    \centering
+    \begin{subtable}{\textwidth}
+        \centering
+        \begin{tabular}{lllc}
+            \toprule
+            \multicolumn{2}{l}{\textbf{element}} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{power after element} \\
+            \toprule
+            isolator & & a - d & \SI{97}{\percent} \\
+            \midrule
+            telescope & & g - h & \SI{99}{\percent} \\
+            \midrule
+            \multirow{3}{*}{switching AOM} & all orders & h & \SI{100}{\percent} \\ 
+            & positive orders & h - k & \SI{89}{\percent} \\
+            & first order & h - o & \SI{83}{\percent} \\
+            \midrule
+            \multirow{2}{*}{cooler AOM} & all orders & q & \SI{97}{\percent} \\
+            & first order  & q - r & \SI{76}{\percent} \\
+            \midrule
+            \multirow{2}{*}{repumper AOM} & all orders & p & \SI{99}{\percent} \\
+            & first order  & p - r & \SI{81}{\percent} \\
+            \midrule
+            \multirow{3}{*}{fiber A} & cooler \& repumper & s - t & \SI{84}{\percent} \\
+            & cooler & q - t & \SI{78}{\percent} \\
+            & repumper & q - t & \SI{81}{\percent} \\
+            \midrule
+            \multirow{3}{*}{fiber B} & cooler \& repumper & s - u & \SI{74}{\percent} \\
+            & cooler & q - u & \SI{71}{\percent} \\
+            & repumper & q - u & \SI{77}{\percent} \\
+            \bottomrule
+        \end{tabular}
+        \caption{Remaining powers after dissipating elements}    
+        \label{tab:power_loss_table}
+    \end{subtable}
+
+    \vspace{1cm}
+    \begin{subtable}{\textwidth}
+        \centering
+        \begin{tabular}{llc}
+            \toprule
+            \textbf{recombination} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{percentage} \\
+            \toprule
+            cooler & q - r & \SI{51}{\percent} \\
+            repumper & p - r & \SI{47}{\percent} \\
+            \bottomrule
+        \end{tabular}
+        \caption{Recombination ratios on polarizing beam splitter cube r}
+        \label{tab:power_recombination}
+    \end{subtable}
+
+    \vspace{1cm}
+    \begin{subtable}{\textwidth}
+        \centering
+        \begin{tabular}{lllc}
+            \toprule
+            \multicolumn{2}{l}{\textbf{splitting}} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{ratio} \\
+            \toprule 
+            \multirow{3}{*}{branch A} & cooler \& repumper & s - t & \SI{50}{\percent} \\
+            & cooler & q - t & \SI{52}{\percent} \\
+            & repumper & p - t & \SI{49}{\percent} \\
+            \midrule
+            \multirow{3}{*}{branch B} & cooler \& repumper & s - u & \SI{51}{\percent} \\
+            & cooler & q - u & \SI{54}{\percent} \\
+            & repumper & p - u & \SI{46}{\percent} \\
+            \bottomrule
+        \end{tabular}
+        \caption{Splitting ratios on polarizing beam splitter cube s}
+        \label{tab:power_splitting}
+    \end{subtable}
+    
+    \caption{Measured power dissipations and power ratios on the optics board for the 2-dimensional magneto-optical trap}
+    \label{tab:power_table}
 \end{table} 
 
 
@@ -517,7 +576,7 @@ For verifying these polarizations in a mock setup, a sample fused silica glass p
 
     \begin{tabular}{ccc}
         \toprule
-        target polarization & set before glass plate & measured after glass plate \\
+        \textbf{target polarization} & \textbf{set before glass plate} & \textbf{measured after glass plate} \\
         \toprule
         $\KetText{R}$ & $0.78 \KetText{H} + (-0.02-0.63i) \KetText{V}$ & $0.70 \KetText{H} +(0.00-0.71i)\KetText{V}$ \\
         $\KetText{L}$ & $0.75 \KetText{H} + (-0.01+0.67i)\KetText{V}$ & $0.70 \KetText{H} + (0.00+0.71i)\KetText{V}$ \\
@@ -530,7 +589,7 @@ For verifying these polarizations in a mock setup, a sample fused silica glass p
 \paragraph{Second pass}\todo{explain why we need three waveplates more in depth mentioning all important properties}
 In order to attain the same circular polarization on the second pass through the glass cell, the wave plates on the reflection stages must be set accordingly. Their required configuration is determined experimentally since the glass surfaces and mirrors in the beam path introduce many polarization changes that are hard to deduct from principle. Again, a mock setup with a sample glass plate with a shallow angle with respect to the beam is used. This time, it acts as the surface which the light leaves the glass cell through.
 
-Light is transmitted through a polarizing beam splitter cube, then circularly polarized using a quarter-wave plate. This light mimics the trap light before leaving the glass cell on the first pass. It is then transmitted through the sample glass plate at the shallow angle of \SI{60}{\degree}, simulating the exit from the glass cell. Afterwards the light is deflected onto a mock reflection stage, made up of a quarter-, a half-, and another quarter-wave plate, and finally onto a mirror sending the light back through the setup such that it reaches the beam splitter cube again. This arrangement is outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. For the mirrors used for deflecting the beam onto the reflection stage (Laser Componenets \todo{model name and specs}), it was verified that individual mirrors changes the polarization in the same way at an incidence angle of \SI{45}{\degree}.
+Light is transmitted through a polarizing beam splitter cube, then circularly polarized using a quarter-wave plate. This light mimics the trap light before leaving the glass cell on the first pass. It is then transmitted through the sample glass plate at the shallow angle of \SI{60}{\degree}, simulating the exit from the glass cell. Afterwards the light is deflected onto a mock reflection stage, made up of a quarter-, a half-, and another quarter-wave plate, and finally onto a mirror sending the light back through the setup such that it reaches the beam splitter cube again. This arrangement is outlined in figure~\ref{fig:second_pass_waveplate_adjustment_scheme}. For the mirrors used for deflecting the beam onto the reflection stage (Laser Componenets \todo{model name and specs}), it was verified that individual mirrors all change the polarization in the same way at an incidence angle of \SI{45}{\degree}.
 
 The ideal wave plate configuration on the reflection stage is now identified by monitoring the power reflected on the polarizing beam splitter depending on the wave plate configuration: Light passing back through the setup with the same circular polarization as on the first pass will be completely transmitted back through the beam splitter cube after traversing the quarter-wave plate in reverse direction. This means that for the desired configuration, all light of the second pass will be transmitted on the beam splitter cube, and the deflected power on the cube is minimal.
 
@@ -582,7 +641,7 @@ The ideal polarizations were identified by finding the minima of light power on 
     \centering
     \begin{tabular}{cl}
         \toprule
-        target polarization $P$ & polarization $\Ket{\psi_P}$ in reflection stage \\
+        \textbf{target polarization $P$} & \textbf{polarization $\Ket{\psi_P}$ in reflection stage} \\
         \toprule
         $\KetText{R}$ & $0.71 \KetText{H} + (0.70+0.09i) \KetText{V}$ \\
         $\KetText{L}$ & $0.62\KetText{H} + (0.77+0.17i)\KetText{V}$ \\
@@ -632,7 +691,7 @@ Table~\ref{tab:intensity_losses} lists all of these relative intensity losses.
     \centering
     \begin{tabular}{llc}
         \toprule
-        & predicted loss & measured loss \\
+        & \textbf{predicted loss} & \textbf{measured loss} \\
         \toprule
         $p_{y, \text{first pass}}$ & \SI{93.2}{\percent} & \SI{94}{\percent} \\
         $p_{xz, \text{first pass}}$ & \SI{83.7}{\percent} & \SI{84}{\percent} \\
@@ -655,5 +714,24 @@ In order to achieve a similar cooling effect in both directions for each axis, m
 \subsection*{Magnetic Gradient}
 \todo{after coil chapter}
 
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \caption{Profile of the magnetic gradient along the coil axis}
+        \label{fig:mot_gradient_axis}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \caption{Profile of the magnetic gradient along a radial axis}        
+        \label{fig:mot_gradient_radial}
+    \end{subfigure}
+    \caption{Simulated maximum magnetic field gradients in the 3-dimensional magnetic optical trap for a current of \SI{400}{\ampere}: The dimensions of the trap beams are added for orientation
+    \todo[inline]{add image}
+    }
+    \label{fig:mot_gradient}
+\end{figure}
+\todo{gradient per gauss rule-of-thumb}
+
 \subsection*{Parameter Estimation}
-\todo{after gradient}
+\todo{MOT extent and volume in different directions}
+\todo{$v_\text{max}$}
+\todo{oscillator properties}
