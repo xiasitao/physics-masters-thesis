@@ -14,3 +14,4 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe telescope consists of a convex lens (\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q) focusing the beam and a concave lens (\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q) after about 30 .\\E$"}
 {"rule":"OBJECTIVE_CASE","sentence":"^\\QThe zeroth order of the outgoing beam is blocked at i.\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QIt is then transmitted through the sample glass plate at the shallow angle of 60 , simulating the exit from the glass cell.\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\Q3-dimensional sketch of the windings of the coil arrangement (generated with magpylib \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q)  !\\E$"}
