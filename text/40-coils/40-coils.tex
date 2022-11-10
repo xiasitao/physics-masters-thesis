@@ -286,6 +286,8 @@ The coils are held in place using holders designed by the engineering department
 \subsection*{Operational Properties}
 The operational properties introduced in section \ref{ch:simulation} were simulated using the \textit{coil simulation library} and are listed in table~\ref{tab:operational_properties}.
 
+\todo{mention resistance and resonance measurement}
+
 \begin{table}
     \centering
     \begin{tabular}{rcc}
@@ -373,7 +375,7 @@ These differences between the coils could originate from geometrical irregularit
 In this section, the fields of an arrangement of two coils in Helmholtz configuration is simulated and optimized in terms of coil position and operating current taking into account the determined properties of the single coils.\todo{more concise, shorter sentences}
 
 \subsection*{Homogeneous Field}
-As a first step, the homogeneous field (coils in Helmholtz configuration) was characterized with respect to its curvature and the field landscape between the coils. Then the measured field landscapes for the coils \textit{Gauss} and \textit{Tesla} were used to optimize the operating current and positions for both coils.
+As a first step, the homogeneous field (coils in Helmholtz/Feshbach configuration) was characterized with respect to its curvature and the field landscape between the coils. Then the measured field landscapes for the coils \textit{Gauss} and \textit{Tesla} were used to optimize the operating current and positions for both coils.
 
 \paragraph{Trap frequencies}
 The expected trap frequency of the arrangement of coils was determined with the \textit{coil simulation library} for different coil positions. As can be seen from figure~\ref{fig:feshbach_field_trap_frequencies}, the optimal position of (the center of mass of) the coils where the absolute trap frequencies are minimal in both on-axis and cross-axis direction is at about \SI{42.8}{\milli\meter}.
@@ -388,7 +390,6 @@ The expected trap frequency of the arrangement of coils was determined with the 
 \end{figure}
 
 \paragraph{Field landscape}
-The simulated field landscape in this optimal configuration of the coils is mapped in figure~\ref{fig:feshbach_field_map}, the fields along the coil axis and the cross-axis are displayed in figure~\ref{fig:feshbach_field_slices}. The maximum field at the center in this configuration is \SI{1309}{\gauss}. Table~\ref{tab:feshbach_properties} lists some properties of the arrangement and its field in Helmholtz/Feshbach configuration.
 
 \begin{table}
     \centering
@@ -407,6 +408,8 @@ The simulated field landscape in this optimal configuration of the coils is mapp
     \caption{Properties of the coil arrangement in Helmholtz/Feshbach configuration and of the produced fields (simulated using the \textit{coil simulation library})}
     \label{tab:feshbach_properties}
 \end{table}
+
+The simulated field landscape in this optimal configuration of the coils is mapped in figure~\ref{fig:feshbach_field_map}, the fields along the coil axis and the cross-axis are displayed in figure~\ref{fig:feshbach_field_slices}. The maximum field at the center in this configuration is \SI{1309}{\gauss}. Table~\ref{tab:feshbach_properties} lists some properties of the arrangement and its field in Helmholtz/Feshbach configuration.
 
 
 \begin{figure}
@@ -445,33 +448,64 @@ The simulated field landscape in this optimal configuration of the coils is mapp
 \paragraph{Optimization of Current and Position}
 The observed difference in the measured field landscapes of \textit{Gauss} and \textit{Tesla} (see figure~\ref{fig:single_coil_fields}), which are to be used for implementing the coil arrangement, call for an optimization of their respective position and current such that the curvature of the Feshbach field is minimal and has as little gradient as possible.
 
-For this, the current of each was adjusted by the factor $\frac{\hat r^2}{(\hat r^2 + \hat y_0^2)^\frac{3}{2}}$ such that the fields in the center are equivalent:
+For this, the current of each was adjusted by the factor $\frac{\hat r^2}{(\hat r^2 + \hat y_0^2)^\frac{3}{2}}$ (cf. equation \eqref{eq:on_axis_field_model}) such that the fields in the center are equivalent:
 \begin{align}
     \frac{I_{\text{optimal}, \textit{Gauss}}}{I_{\text{optimal}, \textit{Tesla}}} = \frac{\hat r_\textit{Tesla}^2 / (\hat r_\textit{Tesla}^2 + \hat y_{0, \textit{Tesla}}^2)^\frac{3}{2}}{\hat r_\textit{Gauss}^2 / (\hat r_\textit{Gauss}^2 + \hat y_{0, \textit{Gauss}}^2)^\frac{3}{2}} = \frac{\SI{400}{\ampere}}{\SI{396.5}{\ampere}}
 \end{align}
 
-The positions were optimized in a grid-search fashion by varying each of them between \SI{39.0}{\milli\meter} and \SI{44}{\milli\meter} in steps of \SI{0.5}{\milli\meter}, as shown in figure~\ref{fig:position_optimization}. Using sampled data from the fit model~\eqref{eq:on_axis_field_model}, the trap frequency due to the field curvature and the gradient were determined for each pair of positions using ~\eqref{eq:trap_frequency_simulation} and~\eqref{eq:gradient_simulation}.
-The optimal positions found are listed in table~\ref{tab:position_optimization_results}. It was decided for optimal positions of $y_{0, \textit{Gauss}} = \SI{-41.0}{\milli\meter}$ and $y_{0, \textit{Gauss}} = \SI{41.5}{\milli\meter}$.
+The positions of each coil were optimized in a grid-search way by varying them between \SI{39.0}{\milli\meter} and \SI{44}{\milli\meter} in steps of \SI{0.5}{\milli\meter}, as shown in figure~\ref{fig:position_optimization}. Using sampled data from the fit model~\eqref{eq:on_axis_field_model}, the trap frequency due to the field curvature and the gradient were determined for each pair of positions using ~\eqref{eq:trap_frequency_simulation} and~\eqref{eq:gradient_simulation}.
+The optimal positions found are listed in table~\ref{tab:position_optimization_results}. The positions of $y_{0, \textit{Gauss}} = \SI{-41.0}{\milli\meter}$ and $y_{0, \textit{Gauss}} = \SI{41.5}{\milli\meter}$ are suggested to be used, as for these the trap frequency is minimal (\SI{0.63}{\hertz}) and the gradient is almost negligible (\SI{-0.07}{\gauss\per\centi\meter}).
 
-\begin{table}
-    \caption{Optimal positions of the coils \textit{Gauss} and \textit{Tesla} as concluded from a grid-search }
-    \label{tab:position_optimization_results}
-\end{table}
-
+The expected field landscape generated by \textit{Gauss} and \textit{Tesla} with optimized currents and positions is plotted in figure~\ref{fig:optimized_projected_landscape}. At the time of writing of this thesis, the holder for the coils were not yet manufactured such that an experimental verification of this optimal configuration and further optimization is still pending.
 
 \begin{figure}
-    \caption{Optimization of the coil positions using the fit parameters of the single coil measurements for \textit{Gauss} and \textit{Tesla} (see figure~\ref{fig:single_coil_fields} and table~\ref{tab:single_coil_fields_fit_parameters})}
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[]{\imagepath/position_optimization/position_optimization_gradient.pdf}
+        \caption{Expected field gradient for different coil positions}
+        \label{fig:position_optimization_gradient}
+    \end{subfigure}
+    \hspace{0.03\textwidth}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[]{\imagepath/position_optimization/position_optimization_trapfrequency.pdf}
+        \caption{Expected trap frequency for different coil positions}
+        \label{fig:position_optimization_trapfrequency}
+    \end{subfigure}
+    \caption{Optimization of the coil positions with respect to gradient and trap frequency: Using the fit parameters of the single coil measurements for \textit{Gauss} and \textit{Tesla} (see figure~\ref{fig:single_coil_fields} and table~\ref{tab:single_coil_fields_fit_parameters}), the field landscape was sampled from the model \eqref{eq:on_axis_field_model} for different coil positions. Optimal positions are listed in table~\ref{tab:position_optimization_results}.}
     \label{fig:position_optimization}
 \end{figure}
 
-- single coil measurements\\
-    -- combining fits to get homogeneous field\\
-    -- new optimal distance and optimal currents\\
+\begin{table}
+    \centering
+    \begin{tabular}{rccc}
+        \toprule
+        \textbf{benchmark} & \textbf{optimal \textit{Gauss} position} & \textbf{optimal \textit{Tesla} position} & \textbf{optimum} \\
+        \toprule
+        on-axis gradient & \SI{-44.0}{\milli\meter} & \SI{+43.5}{\milli\meter} & \SI{0.00}{\gauss\per\centi\meter} \\
+        on-axis trap frequency & \SI{-41.0}{\milli\meter} & \SI{+41.5}{\milli\meter} & \SI{0.63}{\hertz} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Optimal positions of the coils \textit{Gauss} and \textit{Tesla} as concluded from the grid-search optimization }
+    \label{tab:position_optimization_results}
+\end{table}
 
+\begin{figure}
+    \centering
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/position_optimization/position_optimization_Gauss-Tesla_landscape.pgf}}
+    \end{pgfpicture}
+    \caption{Expected field landscape sampled from the field landscape model \eqref{eq:on_axis_field_model} for \textit{Gauss} (left) and \text{Tesla} (right) with optimized positions $y_{0, \textit{Gauss}} = \SI{-41.0}{\milli\meter}$ and $y_{0, \textit{Gauss}} = \SI{41.5}{\milli\meter}$ and optimized currents $I_\textit{Gauss} = \SI{400.0}{\ampere}$, $I_\textit{Tesla} = \SI{396.5}{\ampere}$. The resulting field landscape has a gradient of \SI{-0.07}{\gauss\per\centi\meter} and a trap frequency of \SI{0.63}{\hertz}.}
+    \label{fig:optimized_projected_landscape}
+\end{figure}
 
 \todo{field per gauss per centimeter rule-of-thumb}
 
+
+
 \subsection*{Magnetic Gradient}
+
 \todo{gradient per gauss rule-of-thumb}
 
 \begin{figure}
