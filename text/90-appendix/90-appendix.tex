@@ -6,3 +6,92 @@
 using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$
 
 \chapter{Coil simulation library}\label{ch:coil_simulation_library}
+
+
+\chapter{Rules of Thumb for Magnetic Fields and Gradients}
+The following rules of thumb are useful for calculating the magnitude of homogeneous fields and gradients for coils in Helmholtz configuration, meaning that the distance of the coils equals their radius.
+
+\section*{Homogeneous Fields}
+The field in the center of a Helmholtz configuration of coils of radius $r$, distance $r$, operated at current $I$ can be estimated as
+\begin{align}\label{eq:rot_field}
+    B(r, I) \approx \left. \frac{I}{\SI{1}{\ampere}} \middle/ \frac{r}{\SI{1}{\centi\meter}} ~ \cdot ~\SI{1}{\gauss}\right.
+\end{align}
+This means that, roughly speaking, coils in  Helmholtz configuration generate a field of
+\begin{align}\nonumber
+    \SI{1}{\gauss} ~~ \text{per} ~~ \frac{\si{\ampere} ~~ \text{of current}}{\si{\centi\meter} ~~ \text{of radius}}~.
+\end{align}
+
+Figure~\ref{fig:rot_field} compares this rule of thumb to exact simulations with the \textit{coil simulation library} (see~\ref{ch:simulation} and~\ref{ch:coil_simulation_library}). The rule of thumb overestimates the field by about \SI{10}{\percent}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/rule_of_thumb_field/rule_of_thumb_field_radius.pgf}}
+        \end{pgfpicture}
+        \caption{Dependency on the radius, with the coil distance fixed to the radius}
+        \label{fig:rot_field_radius}
+    \end{subfigure} 
+    \hspace{0.03\textwidth}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/rule_of_thumb_field/rule_of_thumb_field_current.pgf}}
+        \end{pgfpicture}
+        \caption{Dependency on the current}
+        \label{fig:rot_field_current}
+    \end{subfigure} 
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/rule_of_thumb_field/rule_of_thumb_field_3d.pgf}}
+        \end{pgfpicture}
+        \caption{Field as a function of radius and current: Exact fields are displayed in red, the rule-of-thumb approximation in gray above.}
+        \label{fig:rot_field_3d}
+    \end{subfigure}
+    \caption{Fields in the center of a Helmholtz arrangement of coils for different radii and currents, comparing the rule of thumb \eqref{eq:rot_field} with simulated values. Parameters: $I = \SI{100}{\ampere}, r = \SI{10}{\centi\meter}, N_\text{windings} = 1$}
+    \label{fig:rot_field}
+\end{figure}
+
+
+\section*{Gradient Fields}
+A similar rule of thumb can be formulated for the gradient around the center between coils in the same configuration, meaning the distance of the coils equals their radius, along the coil axis:
+\begin{align}\label{eq:rot_gradient}
+    \pdv{B(r, I)}{x_\text{on-axis}} \approx \left. \frac{I}{\SI{1}{\ampere}} \middle/ \left(\frac{r}{\SI{1}{\centi\meter}}\right)^2 ~\cdot~ \SI{1}{\gauss\per\centi\meter} \right.
+\end{align}
+
+Figure~\ref{fig:rot_gradient} compares the rule of thumb to simulations with the \textit{coil simulation library} (see~\ref{ch:simulation} and~\ref{ch:coil_simulation_library}). The rule of thumb underestimates the gradient by about \SI{10}{\percent}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/rule_of_thumb_gradient/rule_of_thumb_gradient_radius.pgf}}
+        \end{pgfpicture}
+        \caption{Dependency on the radius, with the coil distance fixed to the radius}
+        \label{fig:rot_gradient_radius}
+    \end{subfigure}
+    \hspace{0.03\textwidth}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/rule_of_thumb_gradient/rule_of_thumb_gradient_current.pgf}}
+        \end{pgfpicture}
+        \caption{Dependency on the current}
+        \label{fig:rot_gradient_current}
+    \end{subfigure}
+
+    \begin{subfigure}{\textwidth}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/rule_of_thumb_gradient/rule_of_thumb_gradient_3d.pgf}}
+        \end{pgfpicture}
+        \caption{Gradient as a function of radius and current: Simulated gradients are displayed in red, the rule-of-thumb approximation in gray below.}
+        \label{fig:rot_gradient_3d}
+    \end{subfigure}
+    \caption{Gradients around the center of a Helmholtz arrangement of coils with mutually invert currents for different radii and currents, comparing the rule of thumb \eqref{eq:rot_gradient} with simulated values. Parameters: $I = \SI{100}{\ampere}, r = \SI{10}{\centi\meter}, N_\text{windings} = 1$}
+    \label{fig:rot_gradient}
+\end{figure}
