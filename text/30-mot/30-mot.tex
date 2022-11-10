@@ -1,7 +1,6 @@
 \renewcommand{\imagepath}{../30-mot/img}
 
 \chapter{The 3-dimensional Magneto-optical Trap}
-\epigraph{When is Your First MOT Due?}{protyre.co.uk}
 
 \todo{TODO: make spectroscopic notation non-italic}
 In the first section of this chapter, the theory of laser cooling with magneto-optical traps and gray molasses is outlined. Subsequently, the geometry, the laser setup, the optics and the magnetic gradients for the 3-dimensional magneto-optical trap in the FermiQP demonstrator will be presented. Finally, estimations of important parameters of the magneto-optical trap will be given.
@@ -719,23 +718,38 @@ In order to achieve a similar cooling effect in both directions for each axis, m
 
 \begin{figure}
     \centering
-    \begin{subfigure}{0.45\textwidth}
-        \caption{Profile of the magnetic gradient along the coil axis}
-        \label{fig:mot_gradient_axis}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-        \caption{Profile of the magnetic gradient along a radial axis}        
-        \label{fig:mot_gradient_radial}
-    \end{subfigure}
-    \caption{Simulated maximum magnetic field gradients in the 3-dimensional magnetic optical trap for a current of \SI{400}{\ampere}: The dimensions of the trap beams are added for orientation
+    \caption{Simulated magnetic field gradients in the 3-dimensional magnetic optical trap for different currents along the recapturing path ($x$ axis). The dimensions of the trap beams are added for orientation. Details about the simulation are described in chapter \ref{ch:simulation}.
     \todo[inline]{add image}
     }
     \label{fig:mot_gradient}
 \end{figure}
-\todo{gradient per gauss rule-of-thumb}
 
-\subsection*{Parameter Estimation}
-\todo{MOT extent and volume in different directions}
+
+
+\subsection*{Trap Parameter Estimation}
+In this section, the properties of the geometry, the trapping light and the magnetic gradients are used to estimate some basic quantities about the 3-dimensional magneto-optical trap.
+
+\paragraph{Trap Dimensions}
+As depicted in figure~\ref{fig:mot_extent}, the size of the trap as outlined by the $\frac{1}{e^2}$ diameters of the laser beams is \SI[]{14}{\milli\meter} in the recapturing direction (along $x$), \SI[]{8.1}{\milli\meter} along the $z$ axis, and extends over the whole glass cell in $y$ direction.
+
+\todo{consider smaller beams due to reflection losses}
+
+\begin{figure}
+    \centering
+    \includegraphics[]{\imagepath/mot_extent/mot_extent.pdf}
+    \caption{Extent of the trap volume set by the $\frac{1}{e^2}$-diameters of the three trap laser beams: $2\cdot \SI[]{7}{\milli\meter} = \SI[]{14}{\milli\meter}$ in $x$ direction, unbounded in $y$ direction, and $\frac{\SI[]{7}{\milli\meter}}{\cos \SI[]{30}{\degree}} = \SI[]{8.1}{\milli\meter}$ in $z$ direction.
+    \todo[inline]{consider smaller beams due to reflection losses}
+    }
+    \label{fig:mot_extent}
+\end{figure}
+
+
+\todo{relate detuning to trap size  using gradients, use Tiecke expression from far above}
+
+\paragraph{Intensity}
+Along the recapturing direction, the average intensity 
 \todo[]{average intensities}
+
+\paragraph{Maximum Velocity}
 \todo{$v_\text{max}$, talk about shallow angles again}
 \todo{oscillator properties}
