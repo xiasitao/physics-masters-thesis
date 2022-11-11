@@ -48,18 +48,19 @@ The light-atom interaction process can be described semi-classically understandi
 with the saturation parameter $s_0 = \frac{I}{I_\text{s}} = \frac{2\Omega^2}{\Gamma^2}$, the Rabi frequency $\Omega \propto \sqrt{I}$, and the detuning $\delta$. The detuning is the deviation of the laser frequency from the transition frequency, as seen by the atom considering the Doppler shift stemming from its velocity $\vec v$ with respect to the propagation direction $\vec k$ of the laser:
 \begin{align}
     \delta &= \overbrace{\omega_\text{laser} - \vec k \vec v }^\text{apparent laser frequency}- \omega_\text{transition} \\
-    \nonumber & = \omega_\text{laser}  - \omega_\text{transition} - kv \cos \theta
+    \nonumber & = \omega_\text{laser}  - \omega_\text{transition} \pm kv \cos \theta
 \end{align}
-with the angle $\theta$ between the atoms' velocity and the propagation direction of the light.
+where $+$ is for atoms moving against and $-$ for atoms moving along with the laser. $\theta$ is the  angle between the atoms' velocity and the propagation direction of the light.
 
 \begin{figure}
     \centering
-    \caption{Scattering force as a function of speed against the laser direction for different values of the detuning $\delta_\text{laser}$.
-    \todo[inline]{add figure}
-    }\label{fig:scattering_force_vs_velocity}
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/scattering_rate/scattering_rate.pgf}}
+    \end{pgfpicture}
+    \caption{Scattering rate $R_\text{scatter}$ as a function of the atom speed against the laser direction for different values of the detuning $\delta_\text{laser}$. Scattering is maximal where the doppler shift compensates the detuning, thus $v = \frac{\delta}{k}$}\label{fig:scattering_rate}
 \end{figure}
 
-Figure~\ref{fig:scattering_force_vs_velocity} shows how the scattering force depends on the velocity of the atoms. The force is maximal for velocities where Doppler shift $\vec k \vec v$ cancels out the laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement; atoms moving in the other direction do not sense the scattering force (see figure~\ref{fig:scattering_force_detuning}).
+Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the scattering force force depends on the velocity of the atoms. The force is maximal for velocities where Doppler shift cancels out the laser detuning: $\vec k \vec v = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement; atoms moving in the other direction do not sense the scattering force (see figure~\ref{fig:scattering_force_detuning}).
 
 \begin{figure}
     \centering
@@ -78,19 +79,24 @@ Laser cooling techniques using spontaneous emission of photons, by principle, ca
 \subsection*{Magneto-optical Traps}
 Magneto-optical traps use light scattering on atoms in order to cool and spatially confine atoms. They have become a standard tool in ultracold neutral atom experiments over the last decades.
 
-\paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams for red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms are decelerated in each direction. For an atom of speed $v \ll \frac{\Gamma}{k}$, travelling at an angle $\theta$ with respect to the  counter-propagating beams with wave number $k$, the scattering force in this direction can be linearized as as friction force
-\begin{equation}
+\paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams for red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms are decelerated in each direction. For an atom of speed $v$, travelling at an angle $\theta$ with respect to the counter-propagating beams with wave number $k$, the scattering force of two counter-propagating beams adds up to
+\begin{align}\label{eq:optical_molasses_force}
+    F_\text{OM} = F_\text{scatter}(\delta = \omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F_\text{scatter}(\delta = \omega_\text{laser} - \omega_\text{transition} + kv \cos \theta).
+\end{align}
+For slow velocities $\ll \frac{\Gamma}{k}$, the force can be linearized as a friction force:
+\begin{equation}\label{eq:optical_molasses_force_linearized}
     \begin{split}
-        F_\text{OM} &= F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} + kv \cos \theta) \\
-        &\approx - 2 \pdv{F_\text{scatter}}{\omega} k v \cos \theta \equiv -\alpha v \cos \theta
+        F_\text{OM} \approx - 2 \pdv{F_\text{scatter}}{\omega} k v \cos \theta \equiv -( \alpha \cos \theta) v
     \end{split}
 \end{equation}
-with damping $\alpha = 2k \pdv{F}{\omega}$\footnote{For $s_0 \ll 1$, the damping coefficient can be approximated as $\alpha  = 4 \hbar k^2 s_0 \frac{-2\delta/\Gamma}{{\left(1+{{(2\delta/\Gamma)}}^2\right)}^2}$~\cite{foot_atomic_2005}.}~\cite{foot_atomic_2005}. The velocity-dependence of the optical molasses deceleration force is depicted in figure~\ref{fig:optical_molasses_force}.
+with damping $\alpha = 2k \pdv{F}{\omega} = -8 \hbar k^2 s_0 \frac{\delta/\Gamma}{{\left(1+s_0+{{(2\delta/\Gamma)}}^2\right)}^2}$ where low saturation $s_0 \ll 1$ is assumed~\cite{foot_atomic_2005, metcalf_laser_1999}. The velocity-dependence of the optical molasses deceleration force is depicted in figure~\ref{fig:optical_molasses_force}. Slow atoms don't sense a net force whereas moving atoms are decelerated as they compensate the detuning of the light with the Doppler shift. For detunings $\delta \approx -0.5 \Gamma$, the maximum of the force is approximately at the resonance speed, thus at $v \approx \pm \frac{\delta}{k}$.
 
 \begin{figure}
-    \caption{Scattering force in optical molasses as a function of velocity. Due to the Doppler shift, only fast atoms (close to resonance) sense the scattering force. Here, the detuning was set to $\delta = -\Gamma/2$.
-    \todo[inline]{add figure}
-    }
+    \centering
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/optical_molasses_force/optical_molasses_force.pgf}}
+    \end{pgfpicture}
+    \caption{Optical molasses force $F_\text{MO}$ as a function of velocity for different detunings, as in \eqref{eq:optical_molasses_force}. Due to the Doppler shift, fast atoms are close to resonance and sense the scattering force whereas slow atoms don't sense a net force. For detunings of $\delta \approx -0.5\Gamma$, the maximum force is at $v \approx \frac{\delta}{k}$.}
     \label{fig:optical_molasses_force}
 \end{figure}
 
@@ -98,7 +104,7 @@ with damping $\alpha = 2k \pdv{F}{\omega}$\footnote{For $s_0 \ll 1$, the damping
 \begin{align}
     \Delta E(m) = g \mu_\text{B} m B
 \end{align}
-with the Landé factor $g$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. Applying a magnetic gradient, the transition frequencies between two magnetic sublevels $m$ and $m'$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
+with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. Applying a magnetic gradient, the transition frequencies between two magnetic sublevels $m$ and $m'$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
       \omega_\text{transition}(q) &= \omega_\text{transition} + \frac{\Delta E(q)}{\hbar} \\  
@@ -133,10 +139,10 @@ Similarly to the optical molasses consideration, in the magneto-optical trap the
 \begin{equation}\label{eq:mot_force}
     \begin{split}
         F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
-        &= -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - \alpha \cos \theta v - \frac{\alpha \beta}{k} q
+        &= -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - (\alpha \cos \theta) v - \frac{\alpha \beta}{k} q
     \end{split}
 \end{equation}
-This shows how a magneto-optical trap combines the friction force $- \alpha v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
+This shows how a magneto-optical trap combines the friction force $-(\alpha \cos \theta) v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
 
 \todo{Maybe add 3D plot with v, z, F axes.}
 
@@ -166,17 +172,29 @@ The magneto-optical trap can be benchmarked by, among others, the following quan
         \right)
     \end{align}
     Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max, resonance}$ can give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
-    \item Additionally, one can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q} = \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see e.g. \cite{lunden_enhancing_2020} and \eqref{eq:mot_force}):
+    \item Additionally, one can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q}$. In case of high radiation pressure, this can be approximated with the maximum scattering force $F_\text{scatter, max}(q) = \frac{\hbar k \Gamma}{2}$ being constant over the whole trap, leading to the following capture velocity \cite{lunden_enhancing_2020}:
+    \begin{align}\label{eq:capture_velocity_high}
+        v_\text{capture, max}^\text{high} \approx \sqrt{\frac{\hbar k \Gamma \cdot 2 r_\text{trap}}{m}}.
+    \end{align}
+     For a lower scattering force ($s_0 \ll 1$, see~\eqref{eq:mot_force}), the work is $\int F_\text{MOT}(q)\dd{q}= \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see~\eqref{eq:mot_force}):
     \begin{align}
-            v_\text{max, capture} 
+            v_\text{max, capture}^\text{low}
             = \sqrt{\frac{2}{m} \int\limits_{-r_\text{trap}}^{+r_\text{trap}} F_\text{MOT}(q) \dd{q}} 
             \approx \sqrt{\frac{2}{m} \alpha \cos \theta \cdot \frac{v_\text{max, capture}}{2} \cdot 2r_\text{trap}}
     \end{align}
     where the integral over the velocity was estimated as $\int\limits_{-r_\text{trap}}^{+r_\text{trap}}  v(q) \dd{q} \approx \frac{v_\text{max}}{2} \cdot 2r_\text{trap}$, assuming that the velocity in the trap is reduced at a constant rate until standstill. The capture velocity is then estimated as
-    \begin{align}\label{eq:capture_velocity}
-        v_\text{max, capture} \approx \frac{2 \alpha \cos \theta ~ r_\text{trap}}{m}
+    \begin{align}\label{eq:capture_velocity_low}
+        v_\text{max, capture}^\text{low} \approx \frac{2 \alpha \cos \theta ~ r_\text{trap}}{m}.
     \end{align}
-    \todo{compare this to Lunden (1), sqrt(2hbar k Gamma/(2m) D)}
+    Figure \ref{fig:capture_velocity_comparison} compares the two estimations of the capture velocity. For small saturation intensities, $v_\text{max, capture}^\text{low}$ takes into consideration that the slowing force is weak, hence only slow atoms can be brought to standstill in the trap. For higher saturation intensities, where it loses applicability, $v_\text{max, capture}^\text{low}$ approaches $v_\text{max, capture}^\text{high}$ setting the upper bound of the capture velocity.
+    \begin{figure}
+        \centering
+        \begin{pgfpicture}
+            \pgftext{\input{\imagepath/capture_velocity_comparison/capture_velocity_comparison.pgf}}
+        \end{pgfpicture}
+        \caption[]{Comparison between the different estimations of the capture velocity: The low-intensity capture velocity $v_\text{max, capture}^\text{low}$ takes low scattering force at $s_0 \ll 1$ into consideration, approaching the intensity-ignorant $v_\text{max, capture}^\text{high}$ for $s_0 \approx 1$. Parameters: $\delta = -5\Gamma$, $r_\text{trap} = \SI[]{7}{\milli\meter}, \theta = \SI[]{0}{\degree}$.}
+        \label{fig:capture_velocity_comparison}
+    \end{figure}
     \item The loading rate characterizes how many atoms can be trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
     \item The temperature of the atoms in the trap. It usually in the order of magnitude above the Doppler temperature $T_\text{D}$\todo{add citation}.
     \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with atom mass $m$~\cite{metcalf_laser_1999}.
@@ -767,42 +785,27 @@ If the reflection losses on the glass cell surface are compensated for by focusi
 
 Depending on their velocity $v$, the atoms recaptured from the atomic beam see a maximum radius due to the resonance condition~\eqref{eq:resonance_radius}.
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.48\textwidth}
-        \caption{Resonance radius \eqref{eq:resonance_radius} for different velocities and magnetic gradients, with $\lambda = \SI{671}{\nano\meter}, \theta = \SI[]{30}{\degree}, \delta = \omega_{laser} = \omega_{transition} = -5\Gamma$. Areas where the resonance radius would exceed the \SI[]{7}{\milli\meter} maximum set by the beam geometry are not shown.
-        \todo[inline]{remove any radii that are outside the 7mm (x axis) recapture range}
-        }
-        \label{fig:resonance_radius}
-    \end{subfigure}
-    \hspace{0.03\textwidth}
-    \begin{subfigure}[t]{0.48\textwidth}
-        \caption{Maximum resonance velocity \eqref{eq:resonance_velocity} for recapturing from the atomic beam for different gradients and detunings
-        \todo[inline]{add image}
-        }
-        \label{fig:resonance_velocity}
-    \end{subfigure}
-    \caption{Visualizations of the resonance radius and the maximum resonant velocity on the trap edge}
-    \label{fig:resonance_conditions}
-\end{figure}
-
-
-\todo{relate detuning to trap size  using gradients, use Tiecke expression from far above}
-
 \paragraph{Intensity}
 Along the recapturing direction, the average intensity 
 \todo[]{average intensities}
+\todo{talk about shallow angles, e.g. so much more power for reaching $s_0 >> 1$}
 
-\paragraph{Capture and Resonance Velocities}\todo{$v_\text{max}$, talk about shallow angles again}
+\paragraph{Capture and Resonance Velocities}
+For a trap length of \SI[]{14}{\milli\meter} and saturation $s_0 \gg 1$, the maximum velocity for the small $^6$Li atoms recaptured from the atomic beam can be estimated with \eqref{eq:capture_velocity_high}:
+\begin{align}
+    v_\text{max, capture} = \sqrt{\frac{\hbar k \Gamma \cdot \SI[]{14}{\milli\meter}}{m}} = \SI[]{90}{\meter\per\second}
+\end{align}
 
-\eqref{eq:resonance_velocity} \eqref{eq:capture_velocity}
+The resonance velocity~\eqref{eq:resonance_velocity} tell which maximum velocity atoms can still have to be on resonance when entering the trap given a certain magnetic gradient and laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Atoms faster than that would require even further detuned light to be on resonance. The resonance velocity is mapped in figure~\ref{fig:resonance_velocity_map} outlining how  gradient and detuning can be traded for each other at a fixed resonance velocities. For $\delta_\text{laser} = -5\Gamma$, a gradient of \SI[]{57}{\gauss\per\centi\meter} would be required to reach $v_\text{max, resonance} \approx v_\text{max, capture}$.
+
 
 \begin{figure}
     \centering
-    \caption{Estimated capture velocity \eqref{eq:capture_velocity} for different detunings $\delta = \omega_{laser} = \omega_{transition}$ and intensities $s_0$
-    \todo[inline]{add image}
-    }
-    \label{fig:capture_velocity}
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/resonance_velocity_map/resonance_velocity_map.pgf}}
+    \end{pgfpicture}
+    \caption{Estimated resonance velocity~\eqref{eq:resonance_velocity} along the recapturing axis $x$ for different detunings $\delta_\text{laser}$ and gradients $\pdv{B}{x}$ along the recapturing axis: For a fixed resonance velocity, gradient can be traded for detuning. Resonance velocities higher than the capture velocity of \SI[]{90}{\milli\meter} are cut off. Parameters: $r_\text{trap} = \SI[]{7}{\milli\meter}, \theta = \SI[]{30}{\degree}$.}
+    \label{fig:resonance_velocity_map}
 \end{figure}
 
 
