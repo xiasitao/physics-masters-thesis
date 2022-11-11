@@ -81,8 +81,8 @@ Magneto-optical traps use light scattering on atoms in order to cool and spatial
 \paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams for red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms are decelerated in each direction. For an atom of speed $v \ll \frac{\Gamma}{k}$, travelling at an angle $\theta$ with respect to the  counter-propagating beams with wave number $k$, the scattering force in this direction can be linearized as as friction force
 \begin{equation}
     \begin{split}
-        F &= F(\omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F(\omega_\text{laser} - \omega_\text{transition} + kv \cos \theta) \\
-        &\approx - 2 \pdv{F}{\omega} k v \cos \theta \equiv -\alpha v \cos \theta
+        F_\text{OM} &= F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} + kv \cos \theta) \\
+        &\approx - 2 \pdv{F_\text{scatter}}{\omega} k v \cos \theta \equiv -\alpha v \cos \theta
     \end{split}
 \end{equation}
 with damping $\alpha = 2k \pdv{F}{\omega}$\footnote{For $s_0 \ll 1$, the damping coefficient can be approximated as $\alpha  = 4 \hbar k^2 s_0 \frac{-2\delta/\Gamma}{{\left(1+{{(2\delta/\Gamma)}}^2\right)}^2}$~\cite{foot_atomic_2005}.}~\cite{foot_atomic_2005}. The velocity-dependence of the optical molasses deceleration force is depicted in figure~\ref{fig:optical_molasses_force}.
@@ -102,7 +102,7 @@ with the Landé factor $g$, the Bohr magneton $\mu_\text{B}$, the magnetic field
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
       \omega_\text{transition}(q) &= \omega_\text{transition} + \frac{\Delta E(q)}{\hbar} \\  
-      &= \omega_\text{transition} + \frac{g \mu_\text{B}}{\hbar} \dv{B}{q} q \equiv \omega_\text{transition} + \beta q
+      &= \omega_\text{transition} + \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} q \equiv \omega_\text{transition} + \beta q
     \end{split}
 \end{equation}
 Hence also the detuning between the laser light and the driven transition becomes position-dependent which allows for spatially varying scattering forces.
@@ -132,8 +132,8 @@ Note that the helicity of the polarization is given with respect to the (arbitra
 Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized \todo{Under which condition?} (here again for one dimension)~\cite{foot_atomic_2005}:
 \begin{equation}\label{eq:mot_force}
     \begin{split}
-        F_\text{MOT} &= F_{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
-        &= -2 \pdv{F}{\omega} k\cos \theta v + 2 \pdv{F}{\omega_0} \beta q  \equiv - \alpha \cos \theta v - \frac{\alpha \beta}{k} q
+        F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
+        &= -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - \alpha \cos \theta v - \frac{\alpha \beta}{k} q
     \end{split}
 \end{equation}
 This shows how a magneto-optical trap combines the friction force $- \alpha v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
@@ -166,7 +166,7 @@ The magneto-optical trap can be benchmarked by, among others, the following quan
         \right)
     \end{align}
     Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max, resonance}$ can give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
-    \item Additionally, one can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q} = \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see \cite{nn_mot_2018}\todo{find better citation} and \eqref{eq:mot_force}):
+    \item Additionally, one can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q} = \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see e.g. \cite{lunden_enhancing_2020} and \eqref{eq:mot_force}):
     \begin{align}
             v_\text{max, capture} 
             = \sqrt{\frac{2}{m} \int\limits_{-r_\text{trap}}^{+r_\text{trap}} F_\text{MOT}(q) \dd{q}} 
@@ -176,6 +176,7 @@ The magneto-optical trap can be benchmarked by, among others, the following quan
     \begin{align}\label{eq:capture_velocity}
         v_\text{max, capture} \approx \frac{2 \alpha \cos \theta ~ r_\text{trap}}{m}
     \end{align}
+    \todo{compare this to Lunden (1), sqrt(2hbar k Gamma/(2m) D)}
     \item The loading rate characterizes how many atoms can be trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
     \item The temperature of the atoms in the trap. It usually in the order of magnitude above the Doppler temperature $T_\text{D}$\todo{add citation}.
     \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with atom mass $m$~\cite{metcalf_laser_1999}.
