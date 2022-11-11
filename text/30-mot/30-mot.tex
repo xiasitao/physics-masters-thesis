@@ -98,11 +98,11 @@ with damping $\alpha = 2k \pdv{F}{\omega}$\footnote{For $s_0 \ll 1$, the damping
 \begin{align}
     \Delta E(m) = g \mu_\text{B} m B
 \end{align}
-with the Landé factor $g$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. Applying a magnetic gradient, the transition frequencies between two magnetic sublevels $m$ and $m'$ becomes position-dependent:
+with the Landé factor $g$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. Applying a magnetic gradient, the transition frequencies between two magnetic sublevels $m$ and $m'$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
-      \omega_\text{transition}(r) &= \omega_\text{transition} + \frac{\Delta E(r)}{\hbar} \\  
-      &= \omega_\text{transition} + \frac{g \mu_\text{B}}{\hbar} \dv{B}{r} r \equiv \omega_\text{transition} + \beta r
+      \omega_\text{transition}(q) &= \omega_\text{transition} + \frac{\Delta E(q)}{\hbar} \\  
+      &= \omega_\text{transition} + \frac{g \mu_\text{B}}{\hbar} \dv{B}{q} q \equiv \omega_\text{transition} + \beta q
     \end{split}
 \end{equation}
 Hence also the detuning between the laser light and the driven transition becomes position-dependent which allows for spatially varying scattering forces.
@@ -130,34 +130,52 @@ Note that the helicity of the polarization is given with respect to the (arbitra
 
 
 Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized \todo{Under which condition?} (here again for one dimension)~\cite{foot_atomic_2005}:
-\begin{equation}
+\begin{equation}\label{eq:mot_force}
     \begin{split}
-        F_\text{MOT} &= F_{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(r) - kv \cos \theta) + F_{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(r) + kv \cos \theta)\\
-        &= -2 \pdv{F}{\omega} k\cos \theta v + 2 \pdv{F}{\omega_0} \beta r  \equiv - \alpha \cos \theta v - \frac{\alpha \beta}{k} r
+        F_\text{MOT} &= F_{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
+        &= -2 \pdv{F}{\omega} k\cos \theta v + 2 \pdv{F}{\omega_0} \beta q  \equiv - \alpha \cos \theta v - \frac{\alpha \beta}{k} q
     \end{split}
 \end{equation}
-This shows how a magneto-optical trap combines the friction force $- \alpha v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} z$ confining the atoms to a trap center.
+This shows how a magneto-optical trap combines the friction force $- \alpha v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
 
 \todo{Maybe add 3D plot with v, z, F axes.}
 
-\paragraph{Characteristic quantities}
+\paragraph{Characteristic Quantities and Benchmarks}
 Important technical quantities that need to be adjusted for optimizing the performance of a MOT include:
 \begin{itemize}
     \item laser intensities $I_\text{cooler}$ and $I_\text{repumper}$
     \item laser detunings with respect to the transition wavelength $\delta_\text{cooler}$ and $\delta_\text{repumper}$
     \item the angle $\theta$ of the atomic beam with respect to the cooling laser beams
-    \item magnetic gradient $\pdv{B}{r}$
+    \item magnetic gradient $\pdv{B}{q}$
 \end{itemize}
 
 These quantities might also be varied over one trapping cycle, e.g. for compressing the trap and cooling the atoms further down by decreasing the laser intensity and the laser detuning and increasing the magnetic gradient.
 
 The magneto-optical trap can be benchmarked by, among others, the following quantities:
 \begin{itemize}
-    \item The radius $r_\text{max}$ of the trapping region where the atoms are slowed  is on the order of the size of the trapping beams: $r_\text{max} \approx w$. The trap size is also limited by the distance $r_\text{resonance}$ from the trap center where the trapping beams become resonant due to the Zeeman shift (cf. equation \ref{eq:omega_transition_zeeman}): $\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v = \frac{g \mu_\text{B}}{\hbar} \pdv{B}{r} r_\text{resonance}$. At larger distances from the trap, the trapping light is blue detuned and thus accelerating, hence slowing of atoms only occurs within a distance of $r_\text{resonance}$. In a one-dimensional consideration, one can deduce a maximum speed at which atoms entering the trap can still be on resonance~\cite{tiecke_high-flux_2009}:
-    \begin{align}
-        v_\text{max} = \frac{1}{k \cos \theta}\left(\omega_\text{laser} - \omega_\text{transition} - \frac{g \mu_\text{B}}{\hbar} \pdv{B}{r} r_\text{resonance}\right)
+    \item The radius $r_\text{trap}$ of the trapping region where the atoms are slowed  is on the order of the size of the trapping beams: $r_\text{trap} \approx w$.
+    \item The trap size is also limited by the distance $r_\text{resonance}$ from the trap center where the trapping beams become resonant due to the Zeeman shift, thus $\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v = \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{resonance}$ (see equation \ref{eq:omega_transition_zeeman}):
+    \begin{align}\label{eq:resonance_radius}
+        r_\text{resonance}(\vec v) = \frac{\hbar}{g \mu_\text{B}} \left(\pdv{B}{q}\right)^{-1} \left(\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v\right)
     \end{align}
-    Given that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max}$ can be used to estimate the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
+     At larger distances from the trap, the trapping light is blue detuned and thus accelerating, hence slowing of atoms of velocity $\vec v$ only occurs within a distance of $r_\text{resonance}(\vec v)$. In a one-dimensional consideration with $\vec k \vec v = - kv \cos\theta$, one can deduce a maximum speed at which atoms entering the trap can still be on resonance at the outermost position $r_\text{trap}$~\cite{tiecke_high-flux_2009}:
+    \begin{align}\label{eq:resonance_velocity}
+        v_\text{max, resonance} \approx \frac{1}{k \cos \theta}
+        \left(
+            \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{trap} - \left(\omega_\text{laser} - \omega_\text{transition}\right)
+        \right)
+    \end{align}
+    Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max, resonance}$ can give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
+    \item Additionally, one can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q} = \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see \cite{nn_mot_2018}\todo{find better citation} and \eqref{eq:mot_force}):
+    \begin{align}
+            v_\text{max, capture} 
+            = \sqrt{\frac{2}{m} \int\limits_{-r_\text{trap}}^{+r_\text{trap}} F_\text{MOT}(q) \dd{q}} 
+            \approx \sqrt{\frac{2}{m} \alpha \cos \theta \cdot \frac{v_\text{max, capture}}{2} \cdot 2r_\text{trap}}
+    \end{align}
+    where the integral over the velocity was estimated as $\int\limits_{-r_\text{trap}}^{+r_\text{trap}}  v(q) \dd{q} \approx \frac{v_\text{max}}{2} \cdot 2r_\text{trap}$, assuming that the velocity in the trap is reduced at a constant rate until standstill. The capture velocity is then estimated as
+    \begin{align}\label{eq:capture_velocity}
+        v_\text{max, capture} \approx \frac{2 \alpha \cos \theta ~ r_\text{trap}}{m}
+    \end{align}
     \item The loading rate characterizes how many atoms can be trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
     \item The temperature of the atoms in the trap. It usually in the order of magnitude above the Doppler temperature $T_\text{D}$\todo{add citation}.
     \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with atom mass $m$~\cite{metcalf_laser_1999}.
@@ -675,7 +693,7 @@ In the second pass, the first loss $T_{\text{out}}$ is due to reflections on the
     T_{y, \text{out}} &= T_{y, \text{in}} = 0.932 \\
     T_{xz, \text{out}} &= \frac{1}{2} T_{xz, \KetText{H}} + \frac{1}{2} T_{xz, \KetText{V}} = 0.837
 \end{align}
-The second loss $T_{\text{in}}$ is due to entering the glass cell again with the same polarization as in the first pass. In addition, relative losses $p_\text{scatter}$ from scattering in the first pass affect the beam power in the second pass. The remaining power in the second pass compared to the power in the first pass is
+The second loss $T_{\text{in}}$ is due to entering the glass cell again with the same polarization as in the first pass. In addition, relative losses $1 - p_\text{scatter}$ from scattering in the first pass affect the beam power in the second pass. The remaining power in the second pass compared to the power in the first pass is
 \begin{align}
     p_{y, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{y, \text{out}} T_{y, \text{in}}   =  0.867 p_\text{scatter}\\
     p_{xz, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}}   = 0.701 p_\text{scatter},
@@ -708,9 +726,11 @@ Table~\ref{tab:intensity_losses} lists all of these relative intensity losses.
 \end{table}
 
 In order to achieve a similar cooling effect in both directions for each axis, meaning the first and second pass through the glass cell, the beam diameters $d$ could be reduced in the second pass with a focusing lens such that the intensities $I \propto \frac{1}{d^2}$ are equal in both passes,
-\begin{align}
+\begin{align}\label{eq:intensity_focusing}
 \frac{I_\text{second pass}}{I_\text{first pass}} =  \frac{T_\text{out} T_\text{in} p_\text{scatter} / d^2_\text{second pass}}{1/ d^2_\text{first pass}} = 1 ~~\Rightarrow~~ \frac{d_\text{second pass}}{d_\text{first pass}} = \sqrt[]{T_\text{out} T_\text{in} p_\text{scatter}}.
 \end{align}
+
+This would amount to $\left(\frac{d_\text{second pass}}{d_\text{first pass}}\right)_y = \SI[]{0.931}{} \cdot \sqrt{p_\text{scatter}}$ and $\left(\frac{d_\text{second pass}}{d_\text{first pass}}\right)_{xz} = \SI[]{0.837}{} \cdot \sqrt{p_\text{scatter}}$.
 
 
 \subsection*{Magnetic Gradient}
@@ -718,11 +738,12 @@ In order to achieve a similar cooling effect in both directions for each axis, m
 
 \begin{figure}
     \centering
-    \caption{Simulated magnetic field gradients in the 3-dimensional magnetic optical trap for different currents along the recapturing path ($x$ axis). The dimensions of the trap beams are added for orientation. Details about the simulation are described in chapter \ref{ch:simulation}.
+    \caption{Simulated magnetic field gradients along the recapturing path ($x$ axis) in the 3-dimensional magnetic optical trap for different currents. The dimensions of the trap beams are added for orientation. Details about the simulation are described in chapter \ref{ch:simulation}.
     \todo[inline]{add image}
     }
     \label{fig:mot_gradient}
 \end{figure}
+
 
 
 
@@ -732,7 +753,7 @@ In this section, the properties of the geometry, the trapping light and the magn
 \paragraph{Trap Dimensions}
 As depicted in figure~\ref{fig:mot_extent}, the size of the trap as outlined by the $\frac{1}{e^2}$ diameters of the laser beams is \SI[]{14}{\milli\meter} in the recapturing direction (along $x$), \SI[]{8.1}{\milli\meter} along the $z$ axis, and extends over the whole glass cell in $y$ direction.
 
-\todo{consider smaller beams due to reflection losses}
+If the reflection losses on the glass cell surface are compensated for by focusing the beam as suggested in \eqref{eq:intensity_focusing}, the beam diameter and thus also the trap size would decrease to $\SI[]{11.7}{\milli\meter}$ in $x$ direction, and $\SI[]{6.8}{\milli\meter}$ in $z$ direction, assuming negligible losses from scattering ($p_\text{scatter} \approx 0$).
 
 \begin{figure}
     \centering
@@ -743,6 +764,27 @@ As depicted in figure~\ref{fig:mot_extent}, the size of the trap as outlined by 
     \label{fig:mot_extent}
 \end{figure}
 
+Depending on their velocity $v$, the atoms recaptured from the atomic beam see a maximum radius due to the resonance condition~\eqref{eq:resonance_radius}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \caption{Resonance radius \eqref{eq:resonance_radius} for different velocities and magnetic gradients, with $\lambda = \SI{671}{\nano\meter}, \theta = \SI[]{30}{\degree}, \delta = \omega_{laser} = \omega_{transition} = -5\Gamma$. Areas where the resonance radius would exceed the \SI[]{7}{\milli\meter} maximum set by the beam geometry are not shown.
+        \todo[inline]{remove any radii that are outside the 7mm (x axis) recapture range}
+        }
+        \label{fig:resonance_radius}
+    \end{subfigure}
+    \hspace{0.03\textwidth}
+    \begin{subfigure}[t]{0.48\textwidth}
+        \caption{Maximum resonance velocity \eqref{eq:resonance_velocity} for recapturing from the atomic beam for different gradients and detunings
+        \todo[inline]{add image}
+        }
+        \label{fig:resonance_velocity}
+    \end{subfigure}
+    \caption{Visualizations of the resonance radius and the maximum resonant velocity on the trap edge}
+    \label{fig:resonance_conditions}
+\end{figure}
+
 
 \todo{relate detuning to trap size  using gradients, use Tiecke expression from far above}
 
@@ -750,6 +792,17 @@ As depicted in figure~\ref{fig:mot_extent}, the size of the trap as outlined by 
 Along the recapturing direction, the average intensity 
 \todo[]{average intensities}
 
-\paragraph{Maximum Velocity}
-\todo{$v_\text{max}$, talk about shallow angles again}
+\paragraph{Capture and Resonance Velocities}\todo{$v_\text{max}$, talk about shallow angles again}
+
+\eqref{eq:resonance_velocity} \eqref{eq:capture_velocity}
+
+\begin{figure}
+    \centering
+    \caption{Estimated capture velocity \eqref{eq:capture_velocity} for different detunings $\delta = \omega_{laser} = \omega_{transition}$ and intensities $s_0$
+    \todo[inline]{add image}
+    }
+    \label{fig:capture_velocity}
+\end{figure}
+
+
 \todo{oscillator properties}
