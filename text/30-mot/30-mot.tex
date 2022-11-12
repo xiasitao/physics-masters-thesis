@@ -160,7 +160,7 @@ These quantities might also be varied over one trapping cycle, e.g. for compress
 The magneto-optical trap can be benchmarked by, among others, the following quantities:
 \begin{itemize}
     \item The radius $r_\text{trap}$ of the trapping region where the atoms are slowed  is on the order of the size of the trapping beams: $r_\text{trap} \approx w$.
-    \item The trap size is also limited by the distance $r_\text{resonance}$ from the trap center where the trapping beams become resonant due to the Zeeman shift, thus $\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v = \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{resonance}$ (see equation \ref{eq:omega_transition_zeeman}):
+    \item The trap size is also limited by the distance $r_\text{resonance}$ from the trap center where the trapping beams become resonant due to the Zeeman shift, thus $\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v = \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{resonance}$~\cite{tiecke_high-flux_2009}:
     \begin{align}\label{eq:resonance_radius}
         r_\text{resonance}(\vec v) = \frac{\hbar}{g \mu_\text{B}} \left(\pdv{B}{q}\right)^{-1} \left(\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v\right)
     \end{align}
@@ -459,14 +459,14 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
             \midrule
             \multirow{3}{*}{fiber A} & cooler \& repumper & s - t & \SI{84}{\percent} \\
             & cooler & q - t & \SI{78}{\percent} \\
-            & repumper & q - t & \SI{81}{\percent} \\
+            & repumper & p - t & \SI{81}{\percent} \\
             \midrule
             \multirow{3}{*}{fiber B} & cooler \& repumper & s - u & \SI{74}{\percent} \\
             & cooler & q - u & \SI{71}{\percent} \\
-            & repumper & q - u & \SI{77}{\percent} \\
+            & repumper & p - u & \SI{77}{\percent} \\
             \bottomrule
         \end{tabular}
-        \caption{Remaining powers after dissipating elements}    
+        \caption{Measured remaining powers after dissipating elements}
         \label{tab:power_loss_table}
     \end{subtable}
 
@@ -481,7 +481,7 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
             repumper & p - r & \SI{47}{\percent} \\
             \bottomrule
         \end{tabular}
-        \caption{Power ratios of the recombined cooler and repumper beams on the polarizing beam splitter cube r}
+        \caption{Measured power ratios of the recombined cooler and repumper beams on the polarizing beam splitter cube r}
         \label{tab:power_recombination}
     \end{subtable}
 
@@ -502,7 +502,7 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
             & B & p - u & \SI{49}{\percent} \\
             \bottomrule
         \end{tabular}
-        \caption{Power splitting ratios into branches A and B on the polarizing beam splitter cube s}
+        \caption{Measured power splitting ratios into branches A and B on the polarizing beam splitter cube s}
         \label{tab:power_splitting}
     \end{subtable}
     
