@@ -77,17 +77,19 @@ Identifying the position-dependent terms, the magnetic potential can be assigned
 \begin{align}\label{eq:trap_omega_definition}
     \omega_{\vec q} = \sqrt[]{\mp\frac{2 \mu a_{\vec q}}{m}} = \sqrt[]{\mp\frac{2 \mu_\text{B} a_{\vec q}}{m}}
 \end{align}
-In the following, the trapping potential is considered trapping in the ${\vec q}$ direction if $\omega_{\vec q}$ is real, and anti-trapping if $\omega_{\vec q}$ is imaginary. For high-field seekers, the potential is trapping if $a_{\vec q} < 0$ and anti-trapping if $a_{\vec q} > 0$. For low-field seekers, the potential is trapping if $a_{\vec q} > 0$, and anti-trapping if $a_{\vec q} < 0$. This can be intuitively seen as high-field seekers are trapped if the field is concave and has a maximum, hence $a_{\vec q} < 0$, and the other way around for high-field seekers. Plots of exemplary trapping and anti-trapping field landscapes are shown in figure~\ref{fig:magnetic_field_curvature_examples}.
+In the following, the trapping potential is considered trapping in the ${\vec q}$ direction if $\omega_{\vec q}$ is real, and anti-trapping if $\omega_{\vec q}$ is imaginary. For high-field seekers, the potential is trapping if $a_{\vec q} < 0$ and anti-trapping if $a_{\vec q} > 0$. For low-field seekers, the potential is trapping if $a_{\vec q} > 0$, and anti-trapping if $a_{\vec q} < 0$. This can be intuitively seen as high-field seekers are trapped if the field is concave and has a maximum, hence $a_{\vec q} < 0$, and the other way around for high-field seekers.
 
-In a two-coil field, if the potential is trapping along the arrangement axis, it is anti-trapping in the cross-axis directions, and vice versa. This is due to Earnshaw's theorem~\cite{earnshaw_nature_1842} stating that a magnetic field in three dimensions has the shape of a hyperboloid, and thus cannot have a global extremum rather than a saddle point, implying that the magnetic field is curved into opposite directions on two axes. The field in the coil-axis direction is curved twice as much as in the cross-axis direction: $\frac{a_\text{on-axis}}{a_\text{cross-axis}} = -2$, hence the trap frequencies have a ratio of $\frac{|\omega_\text{on-axis}|}{|\omega_\text{cross-axis}|} = \sqrt{2}$~\cite{hagemann_setup_2020} (see also figure~\ref{fig:feshbach_field_trap_frequencies} in section~\ref{ch:field_characterization}).
+In a two-coil field, if the potential is trapping along the arrangement axis, it is anti-trapping in the cross-axis directions, and vice versa. This is due to Earnshaw's theorem~\cite{earnshaw_nature_1842} stating that a magnetic field in three dimensions has the shape of a hyperboloid, and thus cannot have a global extremum rather than a saddle point. This implies that the magnetic field is curved into opposite directions on two axes as shown in figure~\ref{fig:field_landscape}. The field in the coil-axis direction is curved twice as much as in the cross-axis direction: $\frac{a_\text{on-axis}}{a_\text{cross-axis}} = -2$, hence the trap frequencies have a ratio of $\frac{|\omega_\text{on-axis}|}{|\omega_\text{cross-axis}|} = \sqrt{2}$~\cite{hagemann_setup_2020} (see also figure~\ref{fig:feshbach_field_trap_frequencies} in section~\ref{ch:field_characterization}).
 
 Note that $a_{\vec q}$ relates to the field landscape along ${\vec q}$ as $a_{\vec q}  = \frac{1}{2} \pdv[2]{B}{q}$ which can be seen from the Taylor expansion $B(q) = \eval{B}_{0} + \eval{\pdv{B}{q}}_{0} q + \frac{1}{2} \eval{\pdv[2]{B}{q}}_{0} q^2 + \mathcal{O}(q^3)$ around $0$ identifying the second order term with $a_{\vec q} q^2$.
 
 \begin{figure}
-    \caption{Trapping and anti-trapping field landscapes for high-field seekers: If the curvature $a_q$ is negative, the atoms are trapped in the maximum of the magnetic field.
-    \todo[inline]{add plot or remove figure}
-    }
-    \label{fig:magnetic_field_curvature_examples}
+    \centering
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/field_landscape/field_landscape.pgf}}
+    \end{pgfpicture}
+    \caption{Field curvature around the center of a homogeneous field: While on one axis, the curvature is positive (here along $y$ (blue), anti-trapping for high-field seekers), it is negative on the other axis (here along $x$ (red), trapping for high-field seekers).}
+    \label{fig:field_landscape}
 \end{figure}
 
 The design goal for the coil arrangement with regard to the field curvature is to minimize the absolute trap frequency in each direction by setting the coil distance accordingly.

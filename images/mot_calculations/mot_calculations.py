@@ -103,7 +103,8 @@ v_resonance = np.vectorize(v_resonance)
 plt.figure(figsize=(10*cm, 5*cm))
 plt.xlabel(r'speed in $\Gamma/k$')
 plt.ylabel(r'scattering rate in $1/\Gamma$')
-speeds_by_Gamma_by_k = np.linspace(-5, 7, 300)
+plt.grid()
+speeds_by_Gamma_by_k = np.linspace(-8, 5, 300)
 speeds = speeds_by_Gamma_by_k * (Gamma/k_D2)
 detunings_by_Gamma = np.arange(-3, 3.5, 3)
 
@@ -111,14 +112,12 @@ for detuning_by_Gamma in detunings_by_Gamma:
     fs = rho_ee(s_0=1, delta=detuning_by_Gamma * Gamma + k_D2*speeds)  # + for towards
     plt.plot(speeds_by_Gamma_by_k, fs, label=rf'$\delta = {"+" if detuning_by_Gamma >= 0 else ""}{detuning_by_Gamma:.0f} \Gamma$')
     if detuning_by_Gamma == -3:
-        v_max = -(detuning_by_Gamma*Gamma) / k_D2
+        v_max = -detuning_by_Gamma
         plt.vlines(v_max, 0, 0.28, linestyles='dashed', linewidth=1)
         plt.arrow(v_max/2, 0.29, -v_max/2, 0, length_includes_head=True, linewidth=0.4, head_length=0.1, head_width=0.01, color=thesis_red)
         plt.arrow(v_max/2, 0.29, +v_max/2, 0, length_includes_head=True, linewidth=0.4, head_length=0.1, head_width=0.01, color=thesis_red)
         plt.text(v_max/2-0.12, 0.24, s=r'$\frac{\delta}{k}$', color=thesis_red)
-plt.grid()
-plt.legend()
-plt.tight_layout()
+plt.legend(loc='upper left')
 plt.savefig('img/scattering_rate.pgf', bbox_inches='tight')
 plt.show()
 # %%
@@ -128,7 +127,7 @@ plt.xlabel(r'speed in $\Gamma/k$')
 plt.ylabel(r'$F_\mathrm{MO}$ in $1/(\hbar k \Gamma)$')
 speeds_by_Gamma_by_k = np.linspace(-2, 2, 300)
 speeds = speeds_by_Gamma_by_k * (Gamma/k_D2)
-detunings_by_Gamma = np.linspace(-1.5, -0.5, 3)
+detunings_by_Gamma = np.linspace(-0.5, -1.5, 3)
 for detuning_by_Gamma in detunings_by_Gamma:
     fs = F_optical_molasses(s_0=0.1, delta_laser=detuning_by_Gamma*Gamma, k=k_D2, v=speeds, theta=0)
     plt.plot(speeds_by_Gamma_by_k, fs/(hbar*k_D2*Gamma), label=rf'$\delta = {detuning_by_Gamma:.1f} \Gamma$', color=thesis_red, alpha=(3+detuning_by_Gamma*1.8)/2.5)
