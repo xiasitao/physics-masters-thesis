@@ -2,25 +2,21 @@
 
 \chapter{The 3-dimensional Magneto-optical Trap}
 
-\todo{TODO: make spectroscopic notation non-italic}
-In the first section of this chapter, the theory of laser cooling with magneto-optical traps and gray molasses is outlined. Subsequently, the geometry, the laser setup, the optics and the magnetic gradients for the 3-dimensional magneto-optical trap in the FermiQP demonstrator will be presented. Finally, estimations of important parameters of the magneto-optical trap will be given.
+This chapter presents the design and planning of the 3-dimensional magneto-optical trap of the FermiQP demonstrator. First, the theory of laser cooling with magneto-optical traps and gray molasses is recapitulated. Subsequently, the implementation of the joint laser setup for both magneto-optical traps and the gray molasses is explained. Afterwards, the projected realization of the trap is described, covering the geometry, the optics for the trapping light, and the magnetic gradients, concluding with some estimations of key trap properties.
 
-Due to massive supply chain problems and delivery time extensions by part vendors, only the laser setup and the magnetic gradient coils could be assembled and characterized during the writing of the thesis. For the other aspects of the trap, details of planning and simulations are presented.
-\todo{more precise,Make clear what is done already and what is still outstanding}
+Due to massive supply chain problems and delivery time extensions during this thesis project, only the trap laser setup and the magnetic gradient coils could be put into operation and characterized during the writing of this thesis. Due to the lack of an assembled and depressurized experiment chamber, the trap itself could not yet be built. \todo{put this before this chapter}
 
 \section{Theory of Laser Cooling with Magneto-optical Traps and Gray Molasses}
-\todo{History (Haensch, Earnshaw), examples, Nobel Prize 1997.}
+Laser light exerting a force onto an atom is the underlying mechanism of laser cooling. There are different implementations, each one making use of a different way light can interact with atoms: Doppler-cooling techniques on the one hand, which are used in, among others, magneto-optical traps, make use of momentum transfer from absorbed photons and are limited regarding the achievable temperature by spontaneous decays. Sub-Doppler-cooling techniques, on the other hand, surpass this limit using other ways of atom-light interaction, such as the optical dipole trap, Raman sideband cooling or Sisyphus cooling~\cite{foot_atomic_2005}.
 
-Laser light exerting a force onto an atom is the underlying mechanism of laser cooling. There are different implementations of laser cooling, each one making use of a different way light can interact with atoms: Doppler-cooling techniques on the one hand, as e.g.\ used in magneto-optical traps, are limited by the spontaneous decay of excited states regarding the achievable temperature. Sub-Doppler-cooling techniques, on the other hand, circumvent this limit using a variety atom-light interactions, such as the optical dipole trap, Raman sideband cooling or Sisyphus cooling~\cite{foot_atomic_2005}.
-
-The rest of this section is covering the theory of magneto-optical traps and the implementation of the 3-dimensional magneto-optical trap of the FermiQP demonstrator experiment. The explanations closely follow the respective chapters in~\cite{foot_atomic_2005} and~\cite{metcalf_laser_1999}.
+The following explanations of the theory of magneto-optical traps follow the respective chapters in~\cite{foot_atomic_2005} and~\cite{metcalf_laser_1999}.
 
 \subsection*{Light scattering on atoms}
 Electromagnetic waves carry momentum $\vec p = \hbar k$, which is directed into their propagation direction and depends on their wavelength $\lambda = \frac{2\pi}{k}$. When laser light scatters on atoms, a momentum transfer between the photons of the laser and the atoms takes place. The total transfer can be broken down into two parts: the absorption of laser photons where the atoms acquire momentum $\hbar \vec k$ per photon, and the spontaneous emission of photons where the atoms lose $\hbar \vec k_\text{emitted}$ per photon:
 \begin{align}
     \vec p_\text{after} &= \vec p_\text{before} + \hbar \vec k + \hbar \vec k_\text{emitted}
 \end{align}
-The latter, however, averages to zero over many scattering events as photons are emitted into random directions. In this way, atoms loose momentum over many scattering events, if the propagation of the light and the atom movement are in opposite directions:
+While the former is always aligned with the laser beam, the latter averages to zero over many scattering events as photons are emitted into random directions. In this way, atoms loose momentum over many scattering events if the propagation of the light and the atom movement are in opposite directions:
 \begin{align}
     \Braket{\vec p_\text{after} - \vec p_\text{before}} = \Braket{\hbar \vec k} + \underbrace{\Braket{\hbar \vec k_\text{emitted}}}_{=0}
 \end{align}
@@ -29,14 +25,17 @@ As visualized in figure~\ref{fig:light_scattering_momentum_transfer}, the atoms 
 \begin{figure}    
     \centering
     \includegraphics[]{\imagepath/light_scattering_momentum_transfer/light_scattering_momentum_transfer.pdf}
-    \caption{Schematic of momentum transfer from the laser against the atom movement direction. The momenta of the scattered photons, originating from spontaneous in random directions, averages to zero.}\label{fig:light_scattering_momentum_transfer}
+    \caption{Schematic of momentum transfer from the laser against the atom movement direction. The momenta of the scattered photons, originating from spontaneous in random directions, averages to zero, leading to a net decelerating force over many scattering events.
+    \todo[inline]{Add force, make clear that arrow is movement}
+    }
+    \label{fig:light_scattering_momentum_transfer}
 \end{figure}
 
-The rate at which this happens is determined by the fraction $\rho_{ee}$ of atoms in the excited state when light of wavelength $\omega_\text{laser}$ and intensity $I$ is shone in:
+The rate at which this happens is determined by the fraction $\rho_{ee}$ of atoms in the excited state and the rate $\Gamma$ at which they spontaneously decay into the ground state emitting a photon:
 \begin{align}
     R_\text{scatter} = \Gamma \rho_{ee}
 \end{align}
-with the rate $\Gamma$ of spontaneous decays from the excited state into the ground state. The scattering force which corresponds to the decrease of momentum of the atoms is hence
+The scattering force, which corresponds to the decrease of momentum of the atoms averaged over many scattering events, is hence
 \begin{align}
     \vec F_\text{scatter} = R_\text{scatter} \hbar \vec k = \Gamma \rho_{ee} \hbar \vec k.
 \end{align}
@@ -57,15 +56,15 @@ where $+$ is for atoms moving against and $-$ for atoms moving along with the la
     \begin{pgfpicture}
         \pgftext{\input{\imagepath/scattering_rate/scattering_rate.pgf}}
     \end{pgfpicture}
-    \caption{Scattering rate $R_\text{scatter}$ as a function of the atom speed against the laser direction for different values of the detuning $\delta_\text{laser}$. Scattering is maximal where the doppler shift compensates the detuning, thus $v = \frac{\delta}{k}$}\label{fig:scattering_rate}
+    \caption{Scattering rate $R_\text{scatter}$ as a function of the atom speed against the laser direction for different values of the detuning $\delta_\text{laser}$: Scattering is maximal where the Doppler shift compensates the detuning, thus $v = \frac{\delta}{k}$}\label{fig:scattering_rate}
 \end{figure}
 
-Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the scattering force force depends on the velocity of the atoms. The force is maximal for velocities where Doppler shift cancels out the laser detuning: $\vec k \vec v = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement; atoms moving in the other direction do not sense the scattering force (see figure~\ref{fig:scattering_force_detuning}).
+Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the scattering force depends on the velocity of the atoms. The force is maximal for velocities where the Doppler shift cancels out the laser detuning: $\vec k \vec v = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement. Atoms moving in the other direction do not sense the scattering force as for them the laser is too far detuned (see figure~\ref{fig:scattering_force_detuning}).
 
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/scattering_force_detuning/scattering_force_detuning.pdf}
-    \caption{Atoms moving against the direction of laser propagation see the laser light blue-shifted, atoms moving in the other direction see it red-shifted. For negative laser detuning ($\delta_\text{laser} < 0$) the former sense the light as it is close to resonance, the latter do not sense it as it is far detuned for them.}\label{fig:scattering_force_detuning}
+    \caption{Atoms moving against the direction of laser propagation see the laser light blue-shifted, atoms moving in the other direction see it red-shifted. For negative laser detuning ($\delta_\text{laser} < 0$) the former sense the light as it appears to be close to resonance, the latter do not sense it as it is far detuned for them.}\label{fig:scattering_force_detuning}
 \end{figure}
 
 \paragraph*{Doppler limit} While the momentum gained by spontaneous emission of photons averages to zero, the square of momentum $\vec p_\text{after decay}^2$ gained from the spontaneous decays does not. This means that the atom is always left with a finite amount of kinetic energy from the recoil of emitted photons. The magnitude of this leftover energy is related to the decay rate $\Gamma$ and is called the Doppler limit:
@@ -79,11 +78,11 @@ Laser cooling techniques using spontaneous emission of photons, by principle, ca
 \subsection*{Magneto-optical Traps}
 Magneto-optical traps use light scattering on atoms in order to cool and spatially confine atoms. They have become a standard tool in ultracold neutral atom experiments over the last decades.
 
-\paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams for red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms are decelerated in each direction. For an atom of speed $v$, travelling at an angle $\theta$ with respect to the counter-propagating beams with wave number $k$, the scattering force of two counter-propagating beams adds up to
+\paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams in case of red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms are decelerated in each direction. For an atom of speed $v$, travelling at an angle $\theta$ with respect to the counter-propagating beams with wave number $k$, the scattering force of two counter-propagating beams adds up to
 \begin{align}\label{eq:optical_molasses_force}
-    F_\text{OM} = F_\text{scatter}(\delta = \omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F_\text{scatter}(\delta = \omega_\text{laser} - \omega_\text{transition} + kv \cos \theta).
+    F_\text{OM} = F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} + kv \cos \theta).
 \end{align}
-For slow velocities $\ll \frac{\Gamma}{k}$, the force can be linearized as a friction force:
+For slow velocities $v \ll \frac{\Gamma}{k}$, the force can be linearized as a friction force:
 \begin{equation}\label{eq:optical_molasses_force_linearized}
     \begin{split}
         F_\text{OM} \approx - 2 \pdv{F_\text{scatter}}{\omega} k v \cos \theta \equiv -( \alpha \cos \theta) v
@@ -96,15 +95,15 @@ with damping $\alpha = 2k \pdv{F}{\omega} = -8 \hbar k^2 s_0 \frac{\delta/\Gamma
     \begin{pgfpicture}
         \pgftext{\input{\imagepath/optical_molasses_force/optical_molasses_force.pgf}}
     \end{pgfpicture}
-    \caption{Optical molasses force $F_\text{MO}$ as a function of velocity for different detunings, as in \eqref{eq:optical_molasses_force}. Due to the Doppler shift, fast atoms are close to resonance and sense the scattering force whereas slow atoms don't sense a net force. For detunings of $\delta \approx -0.5\Gamma$, the maximum force is at $v \approx \frac{\delta}{k}$.}
+    \caption{Optical molasses force $F_\text{MO}$ as a function of velocity for different detunings, as in \eqref{eq:optical_molasses_force}: Due to the Doppler shift, fast atoms are close to resonance and sense the scattering force whereas slow atoms don't sense a net force. For detunings of $\delta \approx -0.5\Gamma$, the maximum force is at $v \approx \frac{\delta}{k}$.}
     \label{fig:optical_molasses_force}
 \end{figure}
 
-\paragraph{Spatial confinement} For spatial confinement of atoms the Zeeman effect is exploited which shifts the energy levels of magnetic sublevels of spin or orbital angular momentum states under the influence of an external magnetic field. This energy shift with respect to a situation without a magnetic field, where the magnetic sublevels are degenerate, amounts to
+\paragraph{Spatial confinement} For spatial confinement of atoms, the Zeeman effect is exploited. It shifts the energy levels of magnetic sublevels of spin or orbital angular momentum states at presence of an external magnetic field. This energy shift (with respect to a situation without a magnetic field, where the magnetic sublevels are degenerate) amounts to
 \begin{align}
     \Delta E(m) = g \mu_\text{B} m B
 \end{align}
-with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. Applying a magnetic gradient, the transition frequencies between two magnetic sublevels $m$ and $m'$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
+with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. When applying a magnetic gradient, the transition frequency between two magnetic sublevels $m$ and $m + 1$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
       \omega_\text{transition}(q) &= \omega_\text{transition} + \frac{\Delta E(q)}{\hbar} \\  
@@ -113,7 +112,7 @@ with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magn
 \end{equation}
 Hence also the detuning between the laser light and the driven transition becomes position-dependent which allows for spatially varying scattering forces.
 
-In order to create a confining trap, laser beams and magnetic gradients are calibrated such that the atoms sense restoring forces towards a center point when they move away from there. This means that on opposite sides of the trap, these restoring forces must point in opposite directions. One achieves this by clever use of the magnetic gradient and the polarization-dependent selection rules for transitions between magnetic sublevels, as visualized in figures~\ref{fig:restoring_on_opposite_sides_schematic} and~\ref{fig:detuning_and_selection_rules_schematic}:
+In order to create a confining trap, laser beams and magnetic gradients are calibrated such that the atoms sense restoring forces towards a center point when they are displaced from there. This means that on opposite sides of the trap, these restoring forces must point in opposite directions. One achieves this by clever use of the magnetic gradient and the polarization-dependent selection rules for transitions between magnetic sublevels, as visualized in figures~\ref{fig:restoring_on_opposite_sides_schematic} and~\ref{fig:detuning_and_selection_rules_schematic}:
 \begin{itemize}
     \item Due to the magnetic gradient, the magnetic field has different sign on opposite sides of the trap center, hence also the Zeeman shifts $\Delta E$ have different sign for the transitions $\Delta m = +1$ and $\Delta m = -1$. This also means that on each side only one of these transitions is close to resonance with the laser light.
     \item $\sigma^+$ light (light with right helicity with respect to the atoms' quantization axis) can only drive transitions with $\Delta m = +1$, $\sigma^-$ light (left helicity) can only drive transitions with $\Delta m = -1$. In each pair of counter-propagating beams, one of the beams has $\sigma^+$ and one has $\sigma^-$ polarization, such that on each side the atoms only see the beam propagating towards the trap center.
@@ -122,61 +121,70 @@ In order to create a confining trap, laser beams and magnetic gradients are cali
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/restoring_on_opposite_sides_schematic/restoring_on_opposite_sides_schematic.pdf}
-    \caption{Two-dimensional schematic of creation of restoring forces: Due to the magnetic gradient and the Zeeman effect, on each side of the trap, different transitions between magnetic sublevels are on resonance. Assigning different helicity of circular polarization to counter-propagating lasers, atoms only sense a scattering force in the direction of the trap center.}\label{fig:restoring_on_opposite_sides_schematic}
+    \caption{
+        %Two-dimensional schematic of creation of restoring forces: Due to position-dependent detuning of beams of different helicity... Due to the magnetic gradient and the Zeeman effect, on each side of the trap, different transitions between magnetic sublevels are on resonance. Assigning different helicity of circular polarization to counter-propagating lasers, atoms sense a scattering force towards the trap center for any displacement.
+    \todo[inline]{shorter, more concise, more saying what the picture means}
+    }\label{fig:restoring_on_opposite_sides_schematic}
 \end{figure} 
 
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/detuning_and_selection_rules_schematic/detuning_and_selection_rules_schematic.pdf}
-    \caption{One-dimensional schematic of selection rules and detunings of the laser beams: On both sides of the trap different transitions between magnetic sublevels are resonant with the red-detuned trap light. Due to the polarization-dependent selection rules, only one of the two counter-propagating beams is resonant on each side of the trap which sets the direction of momentum transfer between the light and the atoms. E.g. on the left center, the $\Ket{m = +1}$ state is closer to resonance. Only the $\sigma^+$ light coming from the left can excite this state, hence atoms on the left of the trap mostly acquire moment to the right, i.e. the trap center.}
+    \caption{The restoring mechanism in a magneto-optical trap: On both sides of the trap different transitions between magnetic sublevels are resonant with the red-detuned trap light. Due to the polarization-dependent selection rules, only one of the two counter-propagating beams is resonant on each side of the trap which sets the direction of momentum transfer between the light and the atoms. E.g. on the left center, the $\Ket{m = +1}$ state is closer to resonance. Only the $\sigma^+$ light coming from the left can excite this state, hence atoms displaced to the left of the trap only acquire moment to the right, i.e. towards the trap center.}
     \label{fig:detuning_and_selection_rules_schematic}
 \end{figure}
 
-Note that the helicity of the polarization is given with respect to the (arbitrary, but fixed) quantization axis of the atoms. As the laser beams in each pair counter-propagate, one of them points to in and one against the quantization axis. The circular polarization with respect to their respective propagation direction is hence the same for both laser beams in a pair (both $\KetText{R}$ or both $\KetText{L}$, depending on the direction of the gradient field).
+Note that the helicity of the polarization is given with respect to the (arbitrary, but fixed) quantization axis of the atoms. As the laser beams in each pair counter-propagate, one of them points in and the other one against the direction the quantization axis. The circular polarization with respect to their respective propagation direction is hence the same for both laser beams in a pair (both $\KetText{R}$ or both $\KetText{L}$, depending on the direction of the gradient field).
 
 
-Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized \todo{Under which condition?} (here again for one dimension)~\cite{foot_atomic_2005}:
+Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized for small displacements $q \ll \frac{\Gamma}{\beta}$ (here again for one dimension)~\cite{foot_atomic_2005}:
 \begin{equation}\label{eq:mot_force}
     \begin{split}
         F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
-        &= -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - (\alpha \cos \theta) v - \frac{\alpha \beta}{k} q
+        &\approx -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - (\alpha \cos \theta) v - \frac{\alpha \beta}{k} q
     \end{split}
 \end{equation}
-This shows how a magneto-optical trap combines the friction force $-(\alpha \cos \theta) v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
+This demonstrates again that a magneto-optical trap combines the friction force $-(\alpha \cos \theta) v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
 
-\todo{Maybe add 3D plot with v, z, F axes.}
+\paragraph{Relevant transitions in alkali atoms}
+\sloppy For cooling alkali atoms in a magneto-optical trap, transitions between electronic levels $J_\text{g}$ and $J_\text{g} + 1$ are used for scattering (g for ground state). The cooling transition can be imple\-mented between hyperfine states $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ (the highest $F$ in the $J_\text{g}$ manifold), and $\KetSpaced{J = J_\text{g} + 1, F= J_\text{g} + I + 1}$. This ensures that all decays, owing to the selection rule $\Delta F \in \{-1, 0, 1\}$,  bring the atom down into the original $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ state such that the cooling cycle can start from anew.
+
+If, however, the atom is excited into the $\KetSpaced{J = J_\text{g} + 1, F = J_\text{g} + I}$ state due to a non-zero matrix element for this transition, it can also fall back into the $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I - 1}$ state. In this case, it would not be subject to cooling anymore as this state is dark to the cooling transition. To combat this, a repumper laser beam is shone in in addition to the cooler beam. This beam addresses the transition $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I - 1} \rightarrow \KetSpaced{J = J_\text{g} + 1, F = J_\text{g} + I}$ from where they can decay back into the ground state of the cooling transition which returns them into the cooling cycle~\cite{metcalf_laser_1999}.
+
+The cooling and repumping mechanism is illustrated in figure~\ref{fig:cooler_repumper_in_alkali}, the respective cascades can be summarized as
+\begin{align}
+    \label{eq:cooler_cascade}\text{cooling:}~~~~~ & \KetSpaced{J_\text{g},J_\text{g} + I} \underset{\text{cooler}}{\longrightarrow} \KetSpaced{J_\text{g} + 1, J_\text{g} + I + 1} \rightsquigarrow  \KetSpaced{J_\text{g}, J_\text{g} + I}\\
+    \label{eq:repumper_cascade}\text{repumping:}~~~~~ & \KetSpaced{J_\text{g} + 1, J_\text{g} + I} \underset{\text{loss}}{\rightsquigarrow} \KetSpaced{J_\text{g}, J_\text{g} + I - 1}  \underset{\text{repumper}}{\longrightarrow} \KetSpaced{J_\text{g} + 1, J_\text{g} + I} \rightsquigarrow  \KetSpaced{J_\text{g}, J_\text{g} + I}
+\end{align}
+with notation in the $\KetSpaced{J, F}$ basis.
+
+\begin{figure}
+    \centering
+    \includegraphics[]{\imagepath/cooler_repumper_in_alkali/cooler_repumper_in_alkali.pdf}
+    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler transition, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.}
+    \label{fig:cooler_repumper_in_alkali}
+\end{figure}
+\todo{Check with other source}
 
 \paragraph{Characteristic Quantities and Benchmarks}
-Important technical quantities that need to be adjusted for optimizing the performance of a MOT include:
+Important technical quantities that can be adjusted for optimizing the performance of a MOT include:
 \begin{itemize}
-    \item laser intensities $I_\text{cooler}$ and $I_\text{repumper}$
+    \item laser intensity saturations $s_{0, \text{cooler}}$ and $s_{0, \text{repumper}}$
     \item laser detunings with respect to the transition wavelength $\delta_\text{cooler}$ and $\delta_\text{repumper}$
     \item the angle $\theta$ of the atomic beam with respect to the cooling laser beams
     \item magnetic gradient $\pdv{B}{q}$
 \end{itemize}
 
-These quantities might also be varied over one trapping cycle, e.g. for compressing the trap and cooling the atoms further down by decreasing the laser intensity and the laser detuning and increasing the magnetic gradient.
+These quantities might also be varied over one trapping cycle, e.g. for compressing the trap and cooling the atoms further down by increasing the magnetic gradient and decreasing the laser intensity as well as the laser detuning.
 
-The magneto-optical trap can be benchmarked by, among others, the following quantities:
+A magneto-optical trap can be characterized by, among others, the following quantities:
 \begin{itemize}
-    \item The radius $r_\text{trap}$ of the trapping region where the atoms are slowed  is on the order of the size of the trapping beams: $r_\text{trap} \approx w$.
-    \item The trap size is also limited by the distance $r_\text{resonance}$ from the trap center where the trapping beams become resonant due to the Zeeman shift, thus $\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v = \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{resonance}$~\cite{tiecke_high-flux_2009}:
-    \begin{align}\label{eq:resonance_radius}
-        r_\text{resonance}(\vec v) = \frac{\hbar}{g \mu_\text{B}} \left(\pdv{B}{q}\right)^{-1} \left(\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v\right)
-    \end{align}
-     At larger distances from the trap, the trapping light is blue detuned and thus accelerating, hence slowing of atoms of velocity $\vec v$ only occurs within a distance of $r_\text{resonance}(\vec v)$. In a one-dimensional consideration with $\vec k \vec v = - kv \cos\theta$, one can deduce a maximum speed at which atoms entering the trap can still be on resonance at the outermost position $r_\text{trap}$~\cite{tiecke_high-flux_2009}:
-    \begin{align}\label{eq:resonance_velocity}
-        v_\text{max, resonance} \approx \frac{1}{k \cos \theta}
-        \left(
-            \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{trap} - \left(\omega_\text{laser} - \omega_\text{transition}\right)
-        \right)
-    \end{align}
-    Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max, resonance}$ can give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
-    \item Additionally, one can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q}$. In case of high radiation pressure, this can be approximated with the maximum scattering force $F_\text{scatter, max}(q) = \frac{\hbar k \Gamma}{2}$ being constant over the whole trap, leading to the following capture velocity \cite{lunden_enhancing_2020}:
+    \item The radius $r_\text{trap}$ of the trapping region where the atoms are slowed  is on the order of the size of the trapping beams: $r_\text{trap} \approx w$ (beam waist radius).
+    \item One can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q}$. In case of high radiation pressure, this can be approximated with the maximum scattering force $F_\text{scatter, max}(q) = \frac{\hbar k \Gamma}{2}$ being constant over the whole trap, leading to the following capture velocity \cite{lunden_enhancing_2020}:
     \begin{align}\label{eq:capture_velocity_high}
         v_\text{capture, max}^\text{high} \approx \sqrt{\frac{\hbar k \Gamma \cdot 2 r_\text{trap}}{m}}.
     \end{align}
-     For a lower scattering force ($s_0 \ll 1$, see~\eqref{eq:mot_force}), the work is $\int F_\text{MOT}(q)\dd{q}= \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see~\eqref{eq:mot_force}):
+     For a lower scattering force ($s_0 \ll 1$), the work is $\int F_\text{MOT}(q)\dd{q}= \int (-\alpha \cos \theta v(q) - \frac{\alpha\beta}{k}q) \dd{q} = - \int \alpha \cos \theta v(q) \dd{q}$ (see equation~\ref{eq:mot_force}):
     \begin{align}
             v_\text{max, capture}^\text{low}
             = \sqrt{\frac{2}{m} \int\limits_{-r_\text{trap}}^{+r_\text{trap}} F_\text{MOT}(q) \dd{q}} 
@@ -186,43 +194,36 @@ The magneto-optical trap can be benchmarked by, among others, the following quan
     \begin{align}\label{eq:capture_velocity_low}
         v_\text{max, capture}^\text{low} \approx \frac{2 \alpha \cos \theta ~ r_\text{trap}}{m}.
     \end{align}
-    Figure \ref{fig:capture_velocity_comparison} compares the two estimations of the capture velocity. For small saturation intensities, $v_\text{max, capture}^\text{low}$ takes into consideration that the slowing force is weak, hence only slow atoms can be brought to standstill in the trap. For higher saturation intensities, where it loses applicability, $v_\text{max, capture}^\text{low}$ approaches $v_\text{max, capture}^\text{high}$ setting the upper bound of the capture velocity.
+    Figure \ref{fig:capture_velocity_comparison} compares the two estimations of the capture velocity. For small saturation intensities, $v_\text{max, capture}^\text{low}$ takes into consideration that the slowing force is weak, hence only slow atoms can be brought to standstill in the trap. For higher saturation intensities, where it loses applicability, $v_\text{max, capture}^\text{low}$ approaches $v_\text{max, capture}^\text{high}$ which is an upper bound of the capture velocity.
     \begin{figure}
         \centering
         \begin{pgfpicture}
             \pgftext{\input{\imagepath/capture_velocity_comparison/capture_velocity_comparison.pgf}}
         \end{pgfpicture}
-        \caption[]{Comparison between the different estimations of the capture velocity: The low-intensity capture velocity $v_\text{max, capture}^\text{low}$ takes low scattering force at $s_0 \ll 1$ into consideration, approaching the intensity-ignorant $v_\text{max, capture}^\text{high}$ for $s_0 \approx 1$. Parameters: $\delta = -5\Gamma$, $r_\text{trap} = \SI[]{7}{\milli\meter}, \theta = \SI[]{0}{\degree}$.}
+        \caption[]{Comparison between the different estimations of the capture velocity: The low-intensity capture velocity $v_\text{max, capture}^\text{low}$ takes the low scattering force at $s_0 \ll 1$ into consideration, approaching the intensity-ignorant upper-bound capture velocity $v_\text{max, capture}^\text{high}$ around ${s_0 \approx 1}$. Parameters: $\delta = -5\Gamma$, ${r_\text{trap} = \SI[]{7}{\milli\meter}}, {\theta = \SI[]{0}{\degree}}$.}
         \label{fig:capture_velocity_comparison}
     \end{figure}
+    \item For atoms of velocity $v$, the trap size is also set by the distance $r_\text{resonance}$ from the trap center where the trapping beams are resonant due to the Zeeman shift, i.e.~${\omega_\text{laser} - \omega_\text{transition} - \vec k \vec v = \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{resonance}}$, from which follows~\cite{tiecke_high-flux_2009}
+    \begin{align}\label{eq:resonance_radius}
+        r_\text{resonance}(\vec v) = \frac{\hbar}{g \mu_\text{B}} \left(\pdv{B}{q}\right)^{-1} \left((\omega_\text{laser} - \omega_\text{transition}) - \vec k \vec v\right).
+    \end{align}
+     At larger distances from the trap, the trapping light is blue detuned (see figure~\ref{fig:detuning_and_selection_rules_schematic}) and thus not decelerating, hence slowing of atoms of velocity $\vec v$ only occurs within a distance of $r_\text{resonance}(\vec v)$.\todo{rethink this} In a one-dimensional consideration with $\vec k \vec v = - kv \cos\theta$, one can deduce a maximum speed at which atoms entering the trap can still be on resonance at the outermost displacement $r_\text{trap}$~\cite{tiecke_high-flux_2009}:
+    \begin{align}\label{eq:resonance_velocity}
+        v_\text{max, resonance} \approx \frac{1}{k \cos \theta}
+        \left(
+            \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{trap} - \left(\omega_\text{laser} - \omega_\text{transition}\right)
+        \right)
+    \end{align}
+    Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max, resonance}$ can also give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
     \item The loading rate characterizes how many atoms can be trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
-    \item The temperature of the atoms in the trap. It usually in the order of magnitude above the Doppler temperature $T_\text{D}$\todo{add citation}.
-    \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with atom mass $m$~\cite{metcalf_laser_1999}.
+    \item The temperature of the atoms in the trap. It is usually in the order of magnitude above the Doppler temperature $T_\text{D}$ and also depends on a multitude of parameters\todo{Add citation}.
+    \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with the atom mass $m$~\cite{metcalf_laser_1999}.
 \end{itemize}
 
-\paragraph{Relevant transitions in alkali atoms}
-\sloppy For cooling alkali atoms in a magneto-optical trap, transitions between electronic levels $J_\text{g}$ and $J_\text{g} + 1$ are used. The cooling transition can be imple\-mented between hyperfine states $\KetSpaced{J = J_\text{g}, F = I + J_\text{g}}$ (the highest $F$ in the $J_\text{g}$ manifold), and $\KetSpaced{J = J_\text{g} + 1, F= I + J_\text{g} + 1}$. This ensures that all decays bring the atom down into the original $\KetSpaced{J = J_\text{g}, F = I + J_\text{g}}$ state due to the selection rule $\Delta F \in \{-1, 0, 1\}$.
+\todo[color=green]{proofreading run 1}
 
-If, however, the atom is excited into the $\KetSpaced{J = J_\text{e}, F = F_\text{g}}$ state due to a non-zero matrix element for this transition, it can also fall back into the $\KetSpaced{J = J_\text{e}, F = I + J_\text{g} - 1}$ state. In this case, it would not be subject to cooling anymore as this state is dark to the cooling transition. To combat this, a repumper laser beam is shone in in addition to the cooler beam. This beam addresses the transition $\KetSpaced{J = J_\text{g}, F = I + J_\text{g} - 1} \rightarrow \KetSpaced{J = J_\text{g} + 1, F = I + J_\text{g}}$ from where they can decay back into the ground state of the cooling transition which brings them back into the cooling cycle~\cite{metcalf_laser_1999}.
-
-These cooling and repumping cascades are summarized in equations~\eqref{eq:cooler_cascade} and~\eqref{eq:repumper_cascade}:
-\begin{align}
-    \label{eq:cooler_cascade}\text{cooling:}~~~~~ & \KetSpaced{J_\text{g},I + J_\text{g}} \underset{\text{cooler}}{\longrightarrow} \KetSpaced{J_\text{g} + 1, I + J_\text{g} + 1} \rightsquigarrow  \KetSpaced{J_\text{g}, I + J_\text{g}}\\
-    \label{eq:repumper_cascade}\text{repumping:}~~~~~ & \KetSpaced{J_\text{g} + 1, I + J_\text{g}} \underset{\text{loss}}{\rightsquigarrow} \KetSpaced{J_\text{g}, I + J_\text{g} - 1}  \underset{\text{repumper}}{\longrightarrow} \KetSpaced{J_\text{g} + 1, I + J_\text{g}} \rightsquigarrow  \KetSpaced{J_\text{g}, I + J_\text{g}}
-\end{align}
-with notation in the $\KetSpaced{J, F}$ basis.
-
-\begin{figure}
-    \centering
-    \includegraphics[]{\imagepath/cooler_repumper_in_alkali/cooler_repumper_in_alkali.pdf}
-    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): the cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler transition, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.}
-    \label{fig:cooler_repumper_in_alkali}
-\end{figure}
-\todo{Check with other source}
-
-
-\paragraph{Magneto-optical Traps with Lithium}\ref{ch:3d_mots_with_li}
-3-dimensional magneto-optical traps for lithium usually operate on the D$_2$ line, i.e.~between the $^2\text{S}_{1/2}$ and $^2\text{P}_{3/2}$ manifolds, as in the implementation in the FermiQP demonstrator. Since the first implementation with lithium in the early 1990s \cite{kawanaka_decay_1993}, they have become a standard part of ultracold lithium experiments, namely for experiments with fermionic~\cite{duarte_all-optical_2011,omran_microscopic_2015} and bosonic~\cite{kawanaka_decay_1993,schunemann_magneto-optic_1998} lithium as well as for isotope mixtures \cite{mewes_simultaneous_1999, schreck_sympathetic_2001, hilker_laser_2012, kerkmann_novel_2019} and species mixtures~\cite{ladouceur_compact_2009,tiecke_high-flux_2009,chen_lithium-cesium_2021}.
+\paragraph{Magneto-optical Traps with Lithium}\label{ch:3d_mots_with_li}
+Magneto-optical traps for lithium usually operate on the D$_2$ line, i.e.~between the $^2\text{S}_{1/2}$ and $^2\text{P}_{3/2}$ manifolds, as in the implementation in the FermiQP demonstrator. Since the first implementation with lithium in the early 1990s \cite{kawanaka_decay_1993}, they have become a standard part of ultracold lithium experiments, namely for experiments with fermionic~\cite{duarte_all-optical_2011,omran_microscopic_2015} and bosonic~\cite{kawanaka_decay_1993,schunemann_magneto-optic_1998} lithium as well as for isotope mixtures \cite{mewes_simultaneous_1999, schreck_sympathetic_2001, hilker_laser_2012, kerkmann_novel_2019} and species mixtures~\cite{ladouceur_compact_2009,tiecke_high-flux_2009,chen_lithium-cesium_2021}.
 
 For D$_2$ line traps for fermionic lithium, the energy splitting between the two ground state hyperfine manifolds $\KetSpaced{J=1/2, F=1/2}$ and $\KetSpaced{J=1/2, F=3/2}$ is \SI{228}{\mega\hertz}, which sets the difference in frequency for the cooler and repumper laser beams. The cooler addresses the transition $\Ket{^2\text{S}_{1/2}, F = 3/2} \rightarrow \Ket{^2\text{P}_{3/2}}$, the repumper addresses the transition $\Ket{^2\text{S}_{1/2}, F = 1/2} \rightarrow \Ket{^2\text{P}_{3/2}}$. These transitions are shown in figure~\ref{fig:lithium_level_diagram}.
 
@@ -296,36 +297,6 @@ The cooling effect in this scheme can now be understood as follows: Atoms move a
 with $I_s = \SI{7.59}{\milli\watt\per\square\centi\meter}$ and $\Gamma = \SI{5.8724}{\mega\hertz}$ for the D$_1$ line~\cite{gehm_properties_2003}.
 
 \todo{Add transition to concrete implementation}
-
-\section{Geometry}
-The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap. It is guided through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell. The space around the glass cell is tightly packed with the two microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction.
-
-\begin{figure}
-    \centering
-    \includegraphics{\imagepath/glass_cell_vicinity/glass_cell_vicinity.pdf}
-    \caption{Position of the glass cell between the microscope objectives and the Feshbach coils. The tightly packed vicinity of the glass cell determines the geometry of the magneto-optical trap.}\label{fig:glass_cell_vicinity}
-\end{figure}
-
-The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot match with the Cartesian coordinate axes: no beams can be shot along the $z$ axis which is blocked by the objectives, and no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible on the other side of the glass cell.
-
-Instead, two beams are shone in in the $xz$ plane at an angle with respect to the atomic beam. The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}). The beams are reflected back on reflection stages behind the glass cell.
-\todo{name all beams consistently $y$ axis beam, (shallow) $xz$ axis beams}
-
-\begin{figure}
-    \centering
-    \begin{subfigure}[t]{0.7\textwidth}
-        \centering
-        \includegraphics[scale=0.7]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_1.pdf}
-        \caption{$xz$ beams, view perpendicular to the atomic beam}\label{fig:glass_cell_sides_mot_beams_0}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.29\textwidth}
-        \centering
-        \includegraphics[scale=0.7]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_0.pdf}
-        \caption{The $y$ beam, view against the atomic beam}\label{fig:glass_cell_sides_mot_beams_1}
-    \end{subfigure}
-    \caption{Schematic side views of the glass cell and the trap beams: The $y$ beam comes in from the left/right. The two $xz$ beams come in under shallow angles, with incidence angles of \SI{60}{\degree} with respect to the glass cell surface normal. Behind the glass cell, the $xz$ beams are deflected away to their respective reflection stages. The beams have a diameter of \SI{7}{\milli\meter}. The glass cell has a side length of \SI{20}{\milli\meter} and \SI{4}{\milli\meter}-thick walls. Dimensions are to scale in this schematic. The change of the incidence angle of the $xz$ beams within the glass due to refraction was neglected in this schematic.}
-    \label{fig:glass_cell_sides_mot_beams}
-\end{figure} 
 
 \section{Preparation of the Trap Laser Light}
 The cooling laser beams for the 2-dimensional and the 3-dimensional magneto-optical traps as well as for the gray molasses are jointly produced on an optics board from where they are transferred to the experiment chamber via optical fibers.
@@ -472,7 +443,7 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
         \label{tab:power_loss_table}
     \end{subtable}
 
-    \vspace{1cm}
+    \vspace{0.6cm}
     \begin{subtable}{0.5\textwidth}
         \centering
         \begin{tabular}{llc}
@@ -487,7 +458,7 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
         \label{tab:power_recombination}
     \end{subtable}
 
-    \vspace{1cm}
+    \vspace{0.6cm}
     \begin{subtable}{0.65\textwidth}
         \centering
         \begin{tabular}{lllc}
@@ -514,7 +485,37 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
 
 
 \section{Projected Implementation}
-In this section, the projected trap implementation is outlined. The geometry of the trapping beams with respect to the glass cell is explained. The planned optical setup around the experiment chamber is outlined, as well as how it needs to be configured to create the necessary polarization in the trap. Some estimations on the light intensities and magnetic gradients are given. The section concludes with a forecast about the properties of the trap.
+In this section, the projected trap implementation is outlined. The geometry of the trap setup serves as a starting point for elaborating the arrangement and configuration of the optical setup for the trapping beams. The section concludes with a forecast about key properties of the trap.
+
+\subsection*{Geometry}
+The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap. It is guided through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell. The space around the glass cell is tightly packed with the two microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction.
+
+\begin{figure}
+    \centering
+    \includegraphics{\imagepath/glass_cell_vicinity/glass_cell_vicinity.pdf}
+    \caption{Position of the glass cell between the microscope objectives and the Feshbach coils. The tightly packed vicinity of the glass cell determines the geometry of the magneto-optical trap.}\label{fig:glass_cell_vicinity}
+\end{figure}
+
+The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot match with the Cartesian coordinate axes: no beams can be shot along the $z$ axis which is blocked by the objectives, and no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible on the other side of the glass cell.
+
+Instead, two beams are shone in in the $xz$ plane at an angle with respect to the atomic beam. The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}). The beams are reflected back on reflection stages behind the glass cell.
+\todo{name all beams consistently $y$ axis beam, (shallow) $xz$ axis beams}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.7\textwidth}
+        \centering
+        \includegraphics[scale=0.7]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_1.pdf}
+        \caption{$xz$ beams, view perpendicular to the atomic beam}\label{fig:glass_cell_sides_mot_beams_0}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.29\textwidth}
+        \centering
+        \includegraphics[scale=0.7]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_0.pdf}
+        \caption{The $y$ beam, view against the atomic beam}\label{fig:glass_cell_sides_mot_beams_1}
+    \end{subfigure}
+    \caption{Schematic side views of the glass cell and the trap beams: The $y$ beam comes in from the left/right. The two $xz$ beams come in under shallow angles, with incidence angles of \SI{60}{\degree} with respect to the glass cell surface normal. Behind the glass cell, the $xz$ beams are deflected away to their respective reflection stages. The beams have a diameter of \SI{7}{\milli\meter}. The glass cell has a side length of \SI{20}{\milli\meter} and \SI{4}{\milli\meter}-thick walls. Dimensions are to scale in this schematic. The change of the incidence angle of the $xz$ beams within the glass due to refraction was neglected in this schematic.}
+    \label{fig:glass_cell_sides_mot_beams}
+\end{figure} 
 
 \subsection*{Optics around the Experiment Chamber}
 The six cooling laser beams for the 3-dimensional magneto-optical trap are transferred from the optics board to the experiment chamber with optical fibers. 
