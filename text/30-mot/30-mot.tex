@@ -2,9 +2,9 @@
 
 \chapter{The 3-dimensional Magneto-optical Trap}\label{ch:mot}
 
-This chapter presents the design and planning of the 3-dimensional magneto-optical trap and the gray molasses of the FermiQP demonstrator. First, the theory of laser cooling with these two techniques is recapitulated. Subsequently, the implementation of the joint laser setup for both magneto-optical traps and the gray molasses is explained. Afterwards, the projected realization of the magneto-optical trap is described, covering the geometry, the optics for the trapping light, and the magnetic gradients. It concludes with some estimations of key trap properties.
+This chapter presents the projected design and planning of the 3-dimensional magneto-optical trap and the gray molasses of the FermiQP demonstrator. First, the theory of laser cooling with these two techniques is recapitulated. Subsequently, the implementation of the joint laser setup for both magneto-optical traps and the gray molasses is explained. Afterwards, the intended realization of the magneto-optical trap is described, covering the geometry, the optics for the trapping light, and the magnetic gradients. It concludes with some estimations of key trap properties.
 
-Due to massive supply chain problems and delivery time extensions during this thesis project, only the trap laser setup and the magnetic gradient coils could be put into operation and characterized during the writing of this thesis. Due to the lack of an assembled and depressurized experiment chamber, the trap itself has not yet been built.
+Due to massive supply chain problems and delivery delays during this thesis project, only the trap laser setup and the magnetic gradient coils could be put into operation and characterized during the writing of this thesis. The trap itself could not yet be built due to the lack of an assembled and depressurized experiment chamber.
 
 \section{Theory of Laser Cooling with Magneto-optical Traps and Gray Molasses}\label{ch:mot_theory}
 Laser light exerting a force onto an atom is the underlying mechanism of laser cooling. There are different implementations, each one making use of a different way light can interact with atoms: Doppler-cooling techniques on the one hand, which are used in, among others, magneto-optical traps, make use of momentum transfer from absorbed photons and are limited regarding the achievable temperature by spontaneous decays. Sub-Doppler-cooling techniques, on the other hand, surpass this limit using other ways of atom-light interaction, such as the optical dipole trap, Raman sideband cooling or Sisyphus cooling~\cite{foot_atomic_2005}.
@@ -16,11 +16,11 @@ Electromagnetic waves carry momentum $\vec p = \hbar k$, which is directed into 
 \begin{align}
     \vec p_\text{after} &= \vec p_\text{before} + \hbar \vec k + \hbar \vec k_\text{emitted}
 \end{align}
-While the former is always aligned with the laser beam, the latter averages to zero over many scattering events as photons are emitted into random directions. In this way, atoms loose momentum over many scattering events if the propagation of the light and the atom movement are in opposite directions:
+While the former is always pointing in the direction of the laser beam, the latter averages to zero over many scattering events as photons are emitted into random directions. In this way, atoms lose momentum over many scattering events if the propagation of the light and the atom movement are in opposite directions:
 \begin{align}
     \Braket{\vec p_\text{after} - \vec p_\text{before}} = \Braket{\hbar \vec k} + \underbrace{\Braket{\hbar \vec k_\text{emitted}}}_{=0}
 \end{align}
-As visualized in figure~\ref{fig:light_scattering_momentum_transfer}, the atoms are decelerated opposite the direction of laser propagation, corresponding to cooling of the atoms.
+As visualized in figure~\ref{fig:light_scattering_momentum_transfer}, the atoms are thereby decelerated, corresponding to cooling of the atoms.
 
 \begin{figure}    
     \centering
@@ -29,20 +29,20 @@ As visualized in figure~\ref{fig:light_scattering_momentum_transfer}, the atoms 
     \label{fig:light_scattering_momentum_transfer}
 \end{figure}
 
-The rate at which this happens is determined by the fraction $\rho_{ee}$ of atoms in the excited state and the rate $\Gamma$ at which they spontaneously decay into the ground state emitting a photon:
+The rate at which this happens is determined by the steady-state fraction $\rho_{ee}^\text{ss}$ of atoms in the excited state and the rate $\Gamma$ at which they spontaneously decay into the ground state emitting a photon:
 \begin{align}
-    R_\text{scatter} = \Gamma \rho_{ee}
+    R_\text{scatter} = \Gamma \rho_{ee}^\text{ss}
 \end{align}
 The scattering force, which corresponds to the decrease of momentum of the atoms averaged over many scattering events, is hence
 \begin{align}
-    \vec F_\text{scatter} = R_\text{scatter} \hbar \vec k = \Gamma \rho_{ee} \hbar \vec k.
+    \vec F_\text{scatter} = R_\text{scatter} \hbar \vec k = \Gamma \rho_{ee}^\text{ss} \hbar \vec k.
 \end{align}
 
 The light-atom interaction process can be described semi-classically understanding the light as a classical electromagnetic wave, but describing the dynamics within the atom using the quantum mechanical optical Bloch equations, according to which the steady-state population of the excited state amounts to
 \begin{align}
-    \rho_{ee} = \frac{s_0/2}{1 + s_0 + {\left(\frac{2\delta}{\Gamma}\right)}^2},
+    \rho_{ee}^\text{ss} = \frac{s_0/2}{1 + s_0 + {\left(\frac{2\delta}{\Gamma}\right)}^2},
 \end{align}
-with the saturation parameter $s_0 = \frac{I}{I_\text{s}} = \frac{2\Omega^2}{\Gamma^2}$, the Rabi frequency $\Omega \propto \sqrt{I}$, and the detuning $\delta$. The detuning is the deviation of the laser frequency from the transition frequency, as seen by the atom taking into account the Doppler shift stemming from its velocity $\vec v$ with respect to the propagation direction $\vec k$ of the laser:
+with the saturation parameter $s_0 = \frac{I}{I_\text{s}} = \frac{2\Omega^2}{\Gamma^2}$, the Rabi frequency $\Omega \propto \sqrt{I}$, and the detuning $\delta$. The detuning is the deviation of the laser frequency from the transition frequency, as it appears to the atom taking into account the Doppler shift stemming from its velocity $\vec v$ with respect to the propagation direction $\vec k$ of the laser:
 \begin{align}
     \delta ~~=~~ \underbrace{\omega_\text{laser} - \vec k \vec v }_{\substack{\text{apparent}\\ \text{laser frequency}}} - \omega_\text{transition}
     ~~=~~ \omega_\text{laser}  - \omega_\text{transition} \pm kv \cos \theta
@@ -57,7 +57,7 @@ where $+$ is for atoms moving against and $-$ for atoms moving along with the la
     \caption{Scattering rate $R_\text{scatter}$ as a function of the atom speed against the laser direction for different values of the detuning $\delta_\text{laser}$: Scattering is maximal where the Doppler shift compensates the detuning, thus $v = \frac{\delta}{k}$}\label{fig:scattering_rate}
 \end{figure}
 
-Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the scattering force depends on the velocity of the atoms. The force is maximal for velocities where the Doppler shift cancels out the laser detuning: $\vec k \vec v = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement. Atoms moving in the other direction do not sense the scattering force as for them the laser is too far detuned (see figure~\ref{fig:scattering_force_detuning}).
+Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the scattering force depends on the velocity of the atoms. The force is maximal for velocities where the Doppler shift cancels out the laser detuning: $\vec k \vec v = \omega_\text{laser} - \omega_\text{transition}$. Deceleration of atoms happens with red laser detuning $\delta_\text{laser} < 0$ as the light is resonant for atoms moving against the laser propagation direction. These atoms sense the light scattering force against their direction of movement. Atoms moving in the other direction do not sense the scattering force as, for them, the laser is too far detuned (see figure~\ref{fig:scattering_force_detuning}).
 
 \begin{figure}
     \centering
@@ -65,16 +65,16 @@ Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the
     \caption{Atoms moving against the direction of laser propagation see the laser light blue-shifted, atoms moving in the other direction see it red-shifted. For negative laser detuning ($\delta_\text{laser} < 0$) the former sense the light as it appears to be close to resonance, the latter do not sense it because it is far detuned for them.}\label{fig:scattering_force_detuning}
 \end{figure}
 
-\paragraph*{Doppler limit} While the momentum gained by spontaneous emission of photons averages to zero, the square of momentum $\vec p_\text{after decay}^2$ gained from the spontaneous decays does not. This means that the atom is always left with a finite amount of kinetic energy from the recoil of emitted photons. The magnitude of this leftover energy is related to the decay rate $\Gamma$ and is called the Doppler limit:
+\paragraph*{Doppler limit} While the momentum gained by spontaneous emission of photons averages to zero, the square of momentum $\vec p_\text{after decay}^2$ gained from the spontaneous decays does not. This means that the atom is always left with a finite amount of kinetic energy from the recoil of emitted photons. The magnitude of this leftover energy is related to the decay rate $\Gamma$ and is called the Doppler limit of minimak achievable temperature $T_\text{D}$:
 \begin{align}
     k_\text{B} T_\text{D} = \frac{\hbar \Gamma}{2}
 \end{align}
-Laser cooling techniques using spontaneous emission of photons, by principle, cannot provide cooling below this limit (neglecting any coincidental sub-Doppler cooling effects)~\cite{foot_atomic_2005}.
+Laser cooling techniques using spontaneous emission of photons, by principle, cannot cooling further down than this limit (neglecting any coincidental sub-Doppler cooling effects)~\cite{foot_atomic_2005}.
 
 \subsection*{Magneto-optical Traps}
-Magneto-optical traps use light scattering on atoms in order to cool and spatially confine atoms. They have become a standard tool in ultracold neutral atom experiments over the last decades.
+Magneto-optical traps use light scattering on atoms not only in order to cool, but also in order to spatially confine atoms. They have become a standard tool in ultracold neutral atom experiments over the last decades.
 
-\paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams in case of red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms are decelerated in each direction. For an atom of speed $v$, travelling at an angle $\theta$ with respect to the counter-propagating beams with wave number $k$, the scattering force of two counter-propagating beams adds up to
+\paragraph{Optical molasses} Magneto-optical traps make use of the optical molasses technique for slowing down atoms. As discussed above, light scattering provides a decelerating force opposite the direction of laser beams in case of red detuning. By using three pairs of counter-propagating laser beams, one pair in each spatial degree of freedom, atoms can be decelerated in each direction. For an atom of speed $v$, travelling at an angle $\theta$ with respect to the counter-propagating beams with wave number $k$, the scattering force of two counter-propagating beams on one axis adds up to
 \begin{align}\label{eq:optical_molasses_force}
     F_\text{OM} = F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} - kv \cos \theta) - F_\text{scatter}(\omega_\text{laser} - \omega_\text{transition} + kv \cos \theta).
 \end{align}
@@ -95,11 +95,11 @@ with damping $\alpha = 2k \pdv{F}{\omega} = -8 \hbar k^2 s_0 \frac{\delta/\Gamma
     \label{fig:optical_molasses_force}
 \end{figure}
 
-\paragraph{Spatial confinement} For spatial confinement of atoms, the Zeeman effect is exploited. It shifts the energy levels of magnetic sublevels of spin or orbital angular momentum states at presence of an external magnetic field. This energy shift (with respect to a situation without a magnetic field, where the magnetic sublevels are degenerate) amounts to
+\paragraph{Spatial confinement} For spatial confinement of atoms in magneto-optical traps, the Zeeman effect is exploited. It shifts the energy levels of magnetic substates of angular momentum states at presence of an external magnetic field. This energy shift (with respect to a situation without a magnetic field, where the magnetic substates are degenerate) amounts to
 \begin{align}
     \Delta E(m) = g \mu_\text{B} m B
 \end{align}
-with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$ and the magnetic quantum number $m$. When applying a magnetic gradient, the transition frequency between two magnetic sublevels $m$ and $m + 1$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
+with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$, and the magnetic quantum number $m$. When applying a magnetic gradient, the transition frequency between two magnetic sublevels $m$ and $m + 1$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
       \omega_\text{transition}(q) &= \omega_\text{transition} + \frac{\Delta E(q)}{\hbar} \\  
@@ -110,8 +110,8 @@ Hence also the detuning between the laser light and the driven transition become
 
 In order to create a confining trap, laser beams and magnetic gradients are calibrated such that the atoms sense restoring forces towards a center point when they are displaced from there. This means that on opposite sides of the trap, these restoring forces must point in opposite directions. One achieves this by clever use of the magnetic gradient and the polarization-dependent selection rules for transitions between magnetic sublevels, as visualized in figures~\ref{fig:restoring_on_opposite_sides_schematic} and~\ref{fig:detuning_and_selection_rules_schematic}:
 \begin{itemize}
-    \item Due to the magnetic gradient, the magnetic field has different sign on opposite sides of the trap center, hence also the Zeeman shifts $\Delta E$ have different sign for the transitions $\Delta m = +1$ and $\Delta m = -1$. This also means that on each side only one of these transitions is close to resonance with the laser light.
-    \item $\sigma^+$ light (light with right helicity with respect to the atoms' quantization axis) can only drive transitions with $\Delta m = +1$, $\sigma^-$ light (left helicity) can only drive transitions with $\Delta m = -1$. In each pair of counter-propagating beams, one of the beams has $\sigma^+$ and one has $\sigma^-$ polarization, such that on each side the atoms only see the beam propagating towards the trap center.
+    \item Due to the magnetic gradient, the magnetic field has different sign on opposite sides of the trap center, hence also the Zeeman shifts $\Delta E$ have opposite sign on opposite sides of the trap, for the transitions $\Delta m = +1$ and $\Delta m = -1$ respectively. This also means that on each side only one of these transitions is close to resonance with the laser light.
+    \item $\sigma^+$ light (light with right helicity with respect to the atoms' quantization axis) can only drive transitions with $\Delta m = +1$, $\sigma^-$ light (left helicity) can only drive transitions with $\Delta m = -1$. In each pair of counter-propagating beams, one of the beams has $\sigma^+$ and one has $\sigma^-$ polarization, such that on each side the scattering transition is only driven by the beam propagating towards the trap center.
 \end{itemize}
 
 \begin{figure}
@@ -138,7 +138,7 @@ Similarly to the optical molasses consideration, in the magneto-optical trap the
         &\approx -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - (\alpha \cos \theta) v - \frac{\alpha \beta}{k} q
     \end{split}
 \end{equation}
-This demonstrates again that a magneto-optical trap combines the friction force $-(\alpha \cos \theta) v$ for slowing down atoms and the trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
+This demonstrates that a magneto-optical trap combines a friction force $-(\alpha \cos \theta) v$ for slowing down atoms and a trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
 
 \paragraph{Relevant transitions in alkali atoms}
 \sloppy For cooling alkali atoms in a magneto-optical trap, transitions between electronic levels $J_\text{g}$ and $J_\text{g} + 1$ are used for scattering (g for ground state). The cooling transition can be imple\-mented between hyperfine states $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ (the highest $F$ in the $J_\text{g}$ manifold), and $\KetSpaced{J = J_\text{g} + 1, F= J_\text{g} + I + 1}$. This ensures that all decays, owing to the selection rule $\Delta F \in \{-1, 0, 1\}$,  bring the atom down into the original $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ state such that the cooling cycle can start from anew.
@@ -155,7 +155,7 @@ with notation in the $\KetSpaced{J, F}$ basis.
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/cooler_repumper_in_alkali/cooler_repumper_in_alkali.pdf}
-    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler transition, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.}
+    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler and repumper transitions, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.}
     \label{fig:cooler_repumper_in_alkali}
 \end{figure}
 
@@ -168,12 +168,12 @@ Important technical quantities that can be adjusted for optimizing the performan
     \item magnetic gradient $\pdv{B}{q}$
 \end{itemize}
 
-These quantities might also be varied over one trapping cycle, e.g. for compressing the trap and cooling the atoms further down by increasing the magnetic gradient and decreasing the laser intensity as well as the laser detuning.
+These quantities might also be varied over one trapping cycle, e.g. for compressing the trap and cooling the atoms further down by increasing the magnetic gradient and decreasing the laser intensity as well as the absolute laser detuning.
 
 A magneto-optical trap can be characterized by, among others, the following quantities:
 \begin{itemize}
     \item The radius $r_\text{trap}$ of the trapping region where the atoms are slowed  is on the order of the size of the trapping beams: $r_\text{trap} \approx w$ (beam waist radius).
-    \item One can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q}$. In case of high radiation pressure, this can be approximated with the maximum scattering force $F_\text{scatter, max}(q) = \frac{\hbar k \Gamma}{2}$ being constant over the whole trap, leading to the following capture velocity \cite{lunden_enhancing_2020}:
+    \item One can estimate a maximum velocity $v_\text{max, capture}$ such that the atoms entering the trap are decelerated to standstill within the length $2r_\text{trap}$ of the trap. This would require that their kinetic energy $\frac{1}{2}mv^2$ be dissipated by the cooling force performing the mechanical work $\int F_\text{MOT}(q) \dd{q}$. In case of high radiation pressure, this can be approximated with the maximum scattering force $F_\text{scatter, max}(q) = \frac{\hbar k \Gamma}{2}$ being constant over the whole trap diameter $2 r_\text{trap}$, leading to the following capture velocity \cite{lunden_enhancing_2020}:
     \begin{align}\label{eq:capture_velocity_high}
         v_\text{capture, max}^\text{high} \approx \sqrt{\frac{\hbar k \Gamma \cdot 2 r_\text{trap}}{m}}.
     \end{align}
@@ -207,7 +207,7 @@ A magneto-optical trap can be characterized by, among others, the following quan
             \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} r_\text{trap} - \left(\omega_\text{laser} - \omega_\text{transition}\right)
         \right)
     \end{align}
-    Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept on resonance with the (due to the magnetic gradient) ever less detuned trapping light. In this case, $v_\text{max, resonance}$ can also give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
+    Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept close to resonance with the ever less detuned trapping light (due to the magnetic gradient along the trajectory through the trap). In this case, $v_\text{max, resonance}$ can also give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
     \item The loading rate characterizes how many atoms can be trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
     \item The temperature of the atoms in the trap. It is usually in the order of magnitude above the Doppler temperature $T_\text{D}$ and also depends on a multitude of parameters.
     \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with the atom mass $m$~\cite{metcalf_laser_1999}.
@@ -220,7 +220,7 @@ For D$_2$ line traps for fermionic lithium, the energy splitting between the two
 
 It is important to note that the hyperfine levels $F = \frac{5}{2}$, $\frac{3}{2}$, and $\frac{1}{2}$ of the excited state cannot be resolved because the D$_2$ line is broader ($\Gamma = \SI[]{5.87}{\mega\hertz}$) than the splitting between these hyperfine states (\SI[]{4.4}{\mega\hertz})~\cite{gehm_properties_2003}. This implies that it cannot be controlled which hyperfine state the cooler excites the atoms into. A large fraction of them will hence drop into the $\KetSpaced{J=1/2, F=1/2}$ state and need to be repumped back into the cycle. For this reason, the cooler and repumper roughly have equal importance in a Lithium magneto-optical trap and should thus also have on comparable power. Another implication is that coincidental sub-Doppler cooling, as observed in magneto-optical traps for other atomic species, cannot be expected to support the cooling process~\cite{grier_lambda-enhanced_2013}.
 
-Typical parameter ranges for 3-dimensional traps with lithium from earlier experiments are~\cite{
+Typical parameter ranges for 3-dimensional traps with lithium from other experiments are~\cite{
     tiecke_high-flux_2009,
     kawanaka_decay_1993,
     schunemann_magneto-optic_1998,
@@ -238,10 +238,10 @@ Typical parameter ranges for 3-dimensional traps with lithium from earlier exper
     \item detuning: mostly around $-5\Gamma$, also up to $-8 \Gamma$ (\cite{li_enhanced_2015}), with the repumper often being less detuned than the cooler
     \item magnetic gradients: \SIrange{10}{50}{\gauss\per\centi\meter}
     \item achieved temperature: on the order of \SIrange{1e-3}{3e-4}{\kelvin}
-    \item atom number: about \SIrange{e7}{e8}{}
+    \item atom number in the trap: about \SIrange{e7}{e8}{}
 \end{itemize}
 
-Lower temperatures than in magneto-optical traps operating on the D$_2$ line have been reached by using a UV transition~\cite{duarte_all-optical_2011,omran_microscopic_2015} which, however, requires expensive laser sources optical components~\cite{burchianti_efficient_2014}. More efficient loading rates have been achieved in a magneto-optical trap by adding frequency sidebands onto the cooling light in order to address more velocity classes~\cite{li_enhanced_2015}.
+Lower temperatures than in magneto-optical traps operating on the D$_2$ line have been reached by using a UV transition~\cite{duarte_all-optical_2011,omran_microscopic_2015} which, however, requires expensive laser sources and optical components~\cite{burchianti_efficient_2014}. More efficient loading rates have been achieved in a magneto-optical trap by adding frequency sidebands onto the cooling light in order to address more velocity classes~\cite{li_enhanced_2015}.
 
 \begin{figure}
     \centering
@@ -253,7 +253,7 @@ Lower temperatures than in magneto-optical traps operating on the D$_2$ line hav
 \subsection*{Gray Molasses Cooling}
 The subsequent step in the cooling cycle in the FermiQP demonstrator, after the 3-dimensional magneto-optical trap, is gray molasses cooling~\cite{grynberg_proposal_1994,weidemuller_novel_1994}. This sub-Doppler cooling technique operates on the D$_1$ line of lithium, i.e. the $^2\text{S}_{1/2} \rightarrow {^2\text{P}_{1/2}}$ transition~\cite{burchianti_efficient_2014}.
 
-Gray molasses is based on atoms moving in a polarization-gradient field where they move up a potential hill until they decay into a lower energy state, similar to Sisyphus cooling~\cite{foot_atomic_2005}. Gray molasses operates on $\Delta J = 0$ transitions, as is the case for the D$_1$ line. This transition functions as a $\Lambda$-system with the two ground states being the states $\Ket{\text{ground}, m}$ and $\Ket{\text{ground}, m + 2}$ and the excited state being $\Ket{\text{excited}, m + 1}$~\cite{weidemuller_novel_1994}, as illustrated in figure~\ref{fig:gray_molasses_level_diagram}. Coupling between these states is polarization-dependent due to dipole selection rules.
+Gray molasses is based on atoms moving in a polarization-gradient field where they move up a potential hill until they decay into a lower energy state, similar to Sisyphus cooling~\cite{foot_atomic_2005}. Gray molasses operate on $\Delta J = 0$ transitions, as is the case for the D$_1$ line. This transition functions as a $\Lambda$-system with the two ground states being the states $\Ket{\text{ground}, m}$ and $\Ket{\text{ground}, m + 2}$ and the excited state being $\Ket{\text{excited}, m + 1}$~\cite{weidemuller_novel_1994}, as illustrated in figure~\ref{fig:gray_molasses_level_diagram}. Coupling between these states is polarization-dependent due to dipole selection rules.
 \begin{figure}
     \centering
     \includegraphics{\imagepath/gray_molasses_level_diagram/gray_molasses_level_diagram.pdf}
@@ -261,12 +261,12 @@ Gray molasses is based on atoms moving in a polarization-gradient field where th
     \label{fig:gray_molasses_level_diagram}
 \end{figure}
 
-The counter-propagating gray molasses beams have orthogonal polarization, e.g. circular polarization with different helicity. At every point, the superposition of the polarization states of both beams yields an effective polarization sensed by the atoms. This effective polarization depends on the phase of the two light beams with respect to each other, which means that the atoms see alternating circular, elliptical, linear, elliptical, etc.~polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as hinted at in figure~\ref{fig:gray_molasses_polarization_gradient}.
+The counter-propagating gray molasses beams have orthogonal polarization, e.g. circular polarization with different helicity. At every point, the superposition of the polarization states of both beams yields an effective polarization sensed by the atoms. This position-dependent effective polarization depends on the local phase of the two light beams with respect to each other, which means that the atoms see alternating circular, elliptical, linear, elliptical, etc.~polarization along their journey through the light field. This makes the coupling between the relevant states position-dependent, as hinted at in figure~\ref{fig:gray_molasses_polarization_gradient}.
 
 \begin{figure}
     \centering
     \includegraphics{\imagepath/gray_molasses_polarization_gradient/gray_molasses_polarization_gradient.pdf}
-    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts $E_c$ depending on their position. At positions with low light shift, the polarization allows that they transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further in the light field losing kinetic energy until they decay back.}
+    \caption{Polarization-gradient in the gray molasses scheme: Atoms move along the light field and see different energy shifts $E_c$ depending on their position. At positions with low light shift, the polarization allows them to transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$ and move further in the light field losing kinetic energy until they decay back.}
     \label{fig:gray_molasses_polarization_gradient}
 \end{figure}
 
@@ -277,7 +277,7 @@ The absence of coupling between these two states only persists as long as the at
 The cooling effect in this scheme can now be understood as follows: Atoms move along the gray molasses light field with a velocity $v > 0$. At points with low light shift due to the polarization gradient, they are likely to transition from the dark state $\Ket{\text{D}}$ to the coupling state $\Ket{\text{C}}$. Moving further in the polarization-gradient field, their light shift energy $E_C$ increases, at the cost of their kinetic energy. When they spontaneously decay back into the dark state $\Ket{\text{D}}$ they lose an amount of energy on the order of the light shift $E_C$. This is illustrated in figure~\ref{fig:gray_molasses_polarization_gradient}. The gray molasses light needs to be blue detuned ($\delta > 0$) because then the light shift is positive, and the atoms lose energy when falling back into the dark state $\Ket{\text{D}}$. With this scheme,  temperatures even below the recoil limit $T_\text{recoil}$ can be reached~\cite{weidemuller_novel_1994,gerken_gray_2016}.
 
 
-\paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  enables reusing optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 3/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 1/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine levels is larger than the line width~\cite{gerken_gray_2016}.
+\paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  allows reusing the optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 3/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 1/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine levels is larger than the line width~\cite{gerken_gray_2016}.
 
 \citeauthor{burchianti_efficient_2014} implemented gray molasses for fermionic lithium in 2014. Their parameters were taken as a reference starting point for configuring the gray molasses of the FermiQP demonstrator setup~\cite{burchianti_efficient_2014}:
 \begin{itemize}
@@ -290,9 +290,9 @@ In the following two sections, the laser setup for and the projected implementat
 
 
 \section{Preparation of the Trap Laser Light}\label{ch:light_preparation}
-In the FermiQP demonstrator, the cooling laser light for the 2-dimensional and the 3-dimensional magneto-optical traps as well as for the gray molasses is jointly produced on an optics board from where they are transferred to the experiment chamber via optical fibers.
+In the FermiQP demonstrator, the cooling laser light for the 2-dimensional and the 3-dimensional magneto-optical traps as well as for the gray molasses is jointly produced on an optics board from where they it is transferred to the experiment chamber via optical fibers.
 
-The laser beams originate from two laser sources, one for D$_2$ light for the magneto-optical traps and one for D$_1$ light for the gray molasses. All beams produced by the setup consist of cooler and repumper light, which is separated by about \SI{228}{\mega\hertz}, the hyperfine splitting of the $^2\text{S}_{1/2}$ ground state. For the 2-dimensional magneto-optical trap, the frequencies of the cooler and repumper light as well as their powers are fixed, for the 3-dimensional trap and the gray molasses light they need to be variable over an experiment cycle in order to compress and optimize the traps dynamically. The light for the 3-dimensional magneto-optical trap and the gray molasses is prepared on the same optical path, which is possible as both cooling schemes are carried out at the same position and which allows reusing the optics components. All beams need to have sufficient power levels such that several saturation intensities on the respective trap cross-sections are in reach for the \SI{30}{\milli\meter} beam of the 2-dimensional trap ($10 s_{0, \text{D}_2} ~\hat{=}~ \SI[]{180}{\milli\watt}$) and the \SI{7}{\milli\meter} beams for the 3-dimensional trap ($10 s_{0, \text{D}_2} ~\hat{=}~ \SI[]{39}{\milli\watt}$) and for the gray molasses cooling ($10 s_{0, \text{D}_1} ~\hat{=}~ \SI[]{117}{\milli\watt}$).
+The laser beams originate from two laser sources, one for D$_2$ light for the magneto-optical traps and one for D$_1$ light for the gray molasses. All beams produced by the setup consist of cooler and repumper light, which are separated by about \SI{228}{\mega\hertz}, the hyperfine splitting of the $^2\text{S}_{1/2}$ ground state. For the 2-dimensional magneto-optical trap, the frequencies of the cooler and repumper light as well as their powers are fixed, for the 3-dimensional trap and the gray molasses light they need to be variable over an experiment cycle in order to compress and optimize the traps dynamically. The light for the 3-dimensional magneto-optical trap and the gray molasses is prepared on the same optical path, which is possible as both cooling schemes are carried out at the same position and which allows reusing the deployed optics components. All beams need to have sufficient power levels such that several saturation intensities on the respective trap cross-sections are in reach for the \SI{30}{\milli\meter} beam of the 2-dimensional trap and the \SI{7}{\milli\meter} beams for the 3-dimensional trap  and for the gray molasses cooling.
 
 \subsection*{Laser sources}
 The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is produced for all aforementioned cooling beams by two Raman fiber amplifiers (MPB VRFA-P-1500-671-SF-PLUS, \textit{Socrates} and \textit{Plato}) with a specified output power of \SI{1.5}{\watt} each. They are supplied with seed light by two single-mode diode lasers at \SI{1342}{\nano\meter} (Toptica MDL pro, \textit{Heraklitus} seeding \textit{Socrates}, and \textit{Zeno} seeding \textit{Plato}), delivering around \SI{20}{\milli\watt} of power. Each fiber amplifier contains a frequency-doubling stage creating a \SI{671}{\nano\meter} laser beam of \SI{1}{\milli\meter} diameter from the amplified \SI{1342}{\nano\meter} light. The seed lasers are offset-locked to a global reference laser that itself is locked to an ultra-low expansion cavity. The offset locking allows shifting the laser frequencies of the D$_2$ and the D$_1$ light arbitrarily by up to \SI[]{10}{\giga\hertz}. The interplay of these lasers is outlined in figure~\ref{fig:laser_interplay_schematic}.
@@ -304,18 +304,18 @@ The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is produced 
     \label{fig:laser_interplay_schematic}
 \end{figure}
 
-The main advantage of using the Raman fiber amplifiers is that they produce enough optical power to simultaneously supply all three aforementioned traps with light. An alternative would be separate laser sources, each of which would need to be frequency-locked and monitored independently. During the writing of the thesis, the Raman fiber amplifiers showed signs of substantial degradation as their output power decreased by over \SI{20}{\percent} in only a few weeks of intermittent operation. The details and the severity of this degradation are presented in~\cite{qesja_design_2022}. As the experimenters of FermiQP as well as the manufacturer of the amplifier could not come up with a quick and reliable solution to this problem that could be verified during the writing of this thesis, it stays uncertain whether the Raman fiber amplifiers can be used long-term for the laser cooling within the FermiQP demonstrator. An alternative approach would be amplification of the seed light using tapered amplifier chips.
+The main advantage of using the Raman fiber amplifiers is that they produce enough optical power to simultaneously supply all three aforementioned traps with light. An alternative would be separate laser sources for every beam, each of which would need to be frequency-locked and monitored independently. During the writing of the thesis, the Raman fiber amplifiers showed signs of substantial degradation as their output power decreased by over \SI{30}{\percent} in only a few weeks of intermittent operation. The details and the severity of this degradation are presented in~\cite{qesja_design_2022}. As the experimenters of FermiQP as well as the manufacturer of the amplifier could not come up with a quick and reliable solution to this problem that could be verified during the writing of this thesis, it stays uncertain whether the Raman fiber amplifiers can be used long-term for the laser cooling within the FermiQP demonstrator. An alternative approach would be amplification of the seed light using tapered amplifier chips.
 
 \subsection*{Important Optical Elements}
-The following optical components were among the main building blocks of the part of the optics setup built within the scope of this thesis, which is described further below:
+The following optical components are among the main building blocks of the optics setup for generating the trap laser light:
 \begin{itemize}
     \item \textbf{Polarizing beam splitter cube:} Polarizing beam splitter (PBS) cubes spatially split a laser beam into its $\KetText{H}$- and $\KetText{V}$-polarized components. The $\KetText{H}$ component passes through the cube while the $\KetText{V}$ component is deflected. In the setup described below, polarizing beam splitter cubes are used for splitting a laser beam into portions of arbitrary power using a preceding half-wave plate for setting the incident polarization accordingly, and for overlapping two beams of different polarization into a common spatial mode. The polarizing beam splitter cubes used for building the laser setup were manufactured by CeNing optics with a specified transmission extinction ratio error of $\frac{1}{1000}$ and a surface reflectivity of $<\SI{0.25}{\percent}$.
     
     \item \textbf{Wave plate:} Wave plates allow changing the polarization of a beam. They are made of birefringent crystals cut to the right length such that the there is a defined phase retardation between the fast and the slow axis of the crystal. Half-wave plates generate a \SI{180}{\degree} phase difference, quarter-wave plates generate a \SI{90}{\degree} phase difference between their axes. Depending on the angle between the axes of the crystal and the polarization components of the beam, half-wave plates can turn linear polarization into any other arbitrary linear polarization, whereas quarter-wave plates introduce ellipticity in the polarization and hence can generate circularly polarized light.\\
     Using a quarter- and a half-wave plate, linear polarization can be turned into any arbitrary polarization state. For turning an arbitrary polarization state into any other polarization state, an arrangement of quarter-, half-, and another quarter-wave plate is necessary as a single quarter-wave plate cannot arbitrarily change the ellipticity of incident elliptical light.\footnote{An intuitive example of why only a quarter- and a half-wave plate are not sufficient for turning an arbitrary polarization state into any other polarization state is the transformation of circular light into elliptical light of any arbitrary ellipticity: A quarter-wave plate always transforms circularly polarized light into linearly polarized light, so at least one additional quarter-wave plate is necessary for creating arbitrary ellipticity.} The wave plates used for building the laser setup were zero-order wave plates sold by Laser Components (part numbers:  WPZ-671-04-2-R05, WPZ-671-09-2-R10, WPZ-671-04-4-R05,  WPZ-671-09-4-R10) with a specified retardance threshold of $\frac{\lambda}{300}$ and reflectance of $<\SI{0.2}{\percent}$.
     
-    \item \textbf{Acousto-optic modulator:} Acousto-optic modulators (AOM) allow changing the optical frequency of a laser beam by multiples of the operating frequency $f_\text{AOM}$, typically in the order of \SI[]{1e2}{\mega\hertz}. The beam is sent through a crystal in which the index of refraction $n$ is spatially modulated perpendicular to the beam direction by an acoustic wave of frequency $f_\text{AOM}$. The incident laser light is diffracted on this spatial modulation of the index of refraction, leading to multiple light beams after of the modulator at angles $\eta_m$ with $\sin \eta_m = m\frac{\lambda_\text{light}}{\lambda_\text{acoustic}}$ where $m \in \{..., -2, -1, 0, 1, 2, ...\}$ is the order of each refracted beam and $\lambda_\text{light}, \lambda_\text{acoustic}$ are the optical and acoustic wave lengths. A beam of order $m$ is frequency-shifted by $\Delta f = mf_\text{AOM}$~\cite{hunsperger_acousto-optic_2002}.\\
-    In the optical setup described below, acousto-optic modulators are used for increasing or decreasing the frequency of a laser beam and as fast optical shutters by switching the diffraction on and off. Sending light forwards and backwards through an acousto-optic modulator using a mirror, a so-called double pass, doubles the frequency shift of the light and avoids the angular diffraction, which cancels out for both passes through the modulator. While propagating through the double pass, the light is polarization-turned from $\KetText{H}$ to $\KetText{V}$ using a quarter-wave plate that the laser beam traverses in forward and backward direction such that incoming and outgoing light can be separated on a polarizing beam splitter. Typical coupling efficiencies for the first order are \SIrange[]{80}{90}{\percent}. The acousto-optic modulators used for building the laser setup were produced by Gooch \& Housego (part numbers: 3080-120, frequency range: \SI{80(10)}{\mega\hertz}, active aperture of \SI{1}{\milli\meter} and 3110-120, frequency range: \SI{110(12)}{\mega\hertz}, active aperture of \SI{0.6}{\milli\meter}).
+    \item \textbf{Acousto-optic modulator:} Acousto-optic modulators (AOM) allow changing the optical frequency of a laser beam by multiples of the operating frequency $f_\text{AOM}$, typically in the order of \SI[]{e2}{\mega\hertz}. The beam is sent through a crystal in which the index of refraction $n$ is spatially modulated perpendicular to the beam direction by an acoustic wave of frequency $f_\text{AOM}$. The incident laser light is diffracted on this spatial modulation of the index of refraction, leading to multiple light beams after of the modulator at angles $\eta_m$ with $\sin \eta_m = m\frac{\lambda_\text{light}}{\lambda_\text{acoustic}}$ where $m \in \{..., -2, -1, 0, 1, 2, ...\}$ is the order of each refracted beam and $\lambda_\text{light}, \lambda_\text{acoustic}$ are the optical and acoustic wave lengths. The beam of order $m$ is frequency-shifted by $\Delta f = mf_\text{AOM}$~\cite{hunsperger_acousto-optic_2002}.\\
+    In the optical setup described below, acousto-optic modulators are used for increasing or decreasing the frequency of a laser beam and as fast optical shutters by switching the diffraction on and off. Sending light forwards and backwards through an acousto-optic modulator using a mirror, a so-called double pass, doubles the frequency shift of the light and avoids the angular diffraction, which cancels out for both passes through the modulator. While propagating through the double pass, the light is polarization-turned from $\KetText{H}$ to $\KetText{V}$ using a quarter-wave plate that the laser beam traverses in forward and backward direction, such that incoming and outgoing light can be separated on a polarizing beam splitter. Typical coupling efficiencies for the first order are \SIrange[]{80}{90}{\percent}. The acousto-optic modulators used in the laser setup were produced by Gooch \& Housego (part numbers: 3080-120, frequency range: \SI{80(10)}{\mega\hertz}, active aperture of \SI{1}{\milli\meter} and 3110-120, frequency range: \SI{110(12)}{\mega\hertz}, active aperture of \SI{0.6}{\milli\meter}).
 
     \item \textbf{Telescope:} A telescope reduces the diameter of a collimated laser beam. It consists of two lenses, the first being convex ($f > 0$) focusing down the laser beam, the second being concave ($f < 0$) re-collimating the beam.
     
@@ -325,20 +325,20 @@ The following optical components were among the main building blocks of the part
 \end{itemize}
 
 \subsection*{Outline of the Laser Setup}
-The necessary output beams for the traps and the gray molasses are created from the two input beams on the D$_2$ and the D$_1$ frequency as depicted in figure~\ref{fig:laser_setup_schematic}.
+The necessary output beams for the traps and the gray molasses are created from the two input beams on the D$_2$ and the D$_1$ frequency as schematized in figure~\ref{fig:laser_setup_schematic}.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{\imagepath/laser_setup_schematic/laser_setup_schematic.pdf}
     \caption{Schematic of the laser setup for preparing the cooling light for the magneto-optical traps and the gray molasses: D$_2$ light is split into two branches for the 2-dimensional (to the right) and the 3-dimensional magneto-optical (to the bottom) traps at the first PBS (A).\\
     For the light for the 2-dimensional trap, a small amount of power is taken out for the push beam (B) before it is split into cooler and repumper light (C) and frequency-shifted by \SI[]{+-114}{\mega\hertz} on acousto-optic modulators. It is then recombined (D) and split into two outputs (E). It is considered to add an electro-optical modulator (EOM) for improving the cooling effect of the light. This part of the laser setup was constructed within the scope of this thesis (gray box).\\
-    The light for the 3-dimensional trap and the D$_1$ light for the gray molasses are spatially overlapped (F), split into cooler and repumper (G) and frequency-shifted by  \SI[]{162}{\mega\hertz} and \SI[]{+390}{\mega\hertz} respectively on acousto-optic modulator double passes, recombined (H), and then split into three outputs (I).\\
+    The light for the 3-dimensional trap and the D$_1$ light for the gray molasses are spatially overlapped (F), split into cooler and repumper (G) and frequency-shifted by  \SI[]{+162}{\mega\hertz} and \SI[]{+390}{\mega\hertz} respectively on acousto-optic modulator double passes, recombined (H), and then split into three outputs (I).\\
     Small amounts of power of both input laser beams are split off for locking on offset locks. A small amount of light for the 3-dimensional magneto-optical trap and the gray molasses is split off for monitoring the light frequencies on a cavity.\\
-    HWP and QWP stand for half- and quarter-wave plate respectively. The numbers in \si[]{\milli\watt} next to the beam lines are target powers assuming optically working laser sources.}
+    HWP and QWP stand for half- and quarter-wave plate respectively. The numbers in \si[]{\milli\watt} next to the beam lines are target powers assuming optimally working laser sources.}
     \label{fig:laser_setup_schematic}
 \end{figure}
 
-The D$_2$ light is offset-locked at \SI{-78}{\mega\hertz} below the actual D$_2$ transition frequency. It is split on a polarizing beam splitter into two paths for the 2-dimensional and the 3-dimensional magneto-optical trap (A in figure~\ref{fig:laser_setup_schematic}). The power splitting ratio was preliminarily planned as about $\frac{1}{3}$ for the 3-dimensional and $\frac{2}{3}$ for the 2-dimensional optical trap since the 2-dimensional trap needs to reach the required intensity for a larger trap cross-section, and it is the first cooling stage of the experiment bridging the large range from several hundred Kelvin to sub-Kelvin temperatures on two of three spatial axes.
+The D$_2$ light is offset-locked at \SI{-78}{\mega\hertz} below the actual D$_2$ transition frequency. It is split on a polarizing beam splitter into two paths for the 2-dimensional and the 3-dimensional magneto-optical trap (marker A in figure~\ref{fig:laser_setup_schematic}). The power splitting ratio was preliminarily planned as about $\frac{1}{3}$ for the 3-dimensional and $\frac{2}{3}$ for the 2-dimensional optical trap since the 2-dimensional trap needs to reach the required intensity for a larger trap cross-section, and it is the first cooling stage of the experiment bridging the large range from several hundred Kelvin to sub-Kelvin temperatures on two of three spatial axes.
 
 \paragraph{2D Trap Branch} The branch for the 2-dimensional trap can be blocked using a shutter and an acousto-optic modulator used as a fast optical switch steered by the experiment control system. The shutter is a loudspeaker magnet with a beam blocker attached to it and acts as an additional slow controllable beam blockade ensuring that definitely no light can pass. This acousto-optic modulator increases the laser frequency by \SI{+78}{\mega\hertz} such that the light is resonant with the D$_2$ transition again. Using another half-wave plate and beam splitter, a small fraction of the laser power is branched off for the push beam (B). This light is frequency-shifted by \SI{+114}{\mega\hertz} in order to be resonant with the cooler transition. The remaining light is used in the trap.
 
@@ -352,7 +352,7 @@ The combined beam of D$_2$ and D$_1$ light is then also split into two paths for
 
 \subsection*{Implementation of the Laser Setup for the 2-dimensional Magneto-optical Trap}
 Within this thesis, the part of the laser setup providing the light for the 2-dimensional magneto-optical trap, as highlighted in figure~\ref{fig:laser_setup_schematic}, was built.
-Figure~\ref{fig:2d_mot_setup_photo} shows a photograph of the implementation of this part of the setup. The light is prepared on the optics board in the following steps (letters reference points in figure~\ref{fig:2d_mot_setup_photo}):
+Figure~\ref{fig:2d_mot_setup_photo} shows a photograph of the implementation of this part of the setup. The light is prepared on the optics board in the following steps (letters reference markers in figure~\ref{fig:2d_mot_setup_photo}):
 
 \begin{figure}
     \centering
@@ -363,20 +363,20 @@ Figure~\ref{fig:2d_mot_setup_photo} shows a photograph of the implementation of 
 \begin{itemize}
     \item[a] The D$_2$ light is coming from the doubling stage of the Raman fiber amplifier ``Plato'' where the amplified \SI{1342}{\nano\meter} light is frequency-doubled to \SI{671}{\nano\meter} light. At this point, the laser beam has a $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}.
 
-    \item[b] In order to prevent any inadvertent reflections travelling back into the amplifier, a Newport optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and \SI{95}{\percent} transmission could be attested in agreement with the specifications.
+    \item[b] In order to prevent any inadvertent reflections travelling back into the amplifier, a Newport optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and over \SI{95}{\percent} transmission could be attested in agreement with the specifications.
 
     \item[c] After the optical isolator, a quarter-wave plate is used to eliminate any elliptical polarization components from the beam caused by hitting mirrors with light that has polarization other than $\KetText{H}$ and $\KetText{V}$.
 
     \item[d] The D$_2$ light is split into the paths for the 2D and the 3D magneto-optical traps with a half-wave plate and a polarizing beam splitter. The splitting ratio between the beams was not yet fixed during the course of this thesis.
 
-    \item[e, f] The light transmitted on the aforementioned beam splitter is again split and coupled into optical fibers leading to the offset lock (f) and to the other optics board hosting the rest of the setup (e, for details see~\cite{qesja_design_2022}). The light reflected off on the beam splitter (d) is used for the push beam and the 2-dimensional magneto-optical trap.
+    \item[e, f] The light transmitted on the aforementioned beam splitter is again split and coupled into optical fibers leading to the offset lock (f) and to the other optics board hosting the rest of the setup (e, for details about the implementation see~\cite{qesja_design_2022}). The light reflected off on the beam splitter (d) is used for the push beam and the 2-dimensional magneto-optical trap.
 
-    \item[g] As the acousto-optic modulators used in the setup require smaller beam diameters than the \SI{1000}{\micro\meter} beam supplied by the Raman fiber amplifier, a telescope for decreasing the beam diameter was placed after the aforementioned beam splitter cube. The telescope consists of a convex lens ($f = \SI{75}{\milli\meter}$) focusing the beam and a concave lens ($f = \SI{-50}{\milli\meter}$) re-collimating it after about \SI{30}{\milli\meter}. This reduces the beam diameter to about \SI{650}{\micro\meter} immediately after the second lens, the beam waist is now about $2w_0 = \SI{600}{\micro\meter}$ located about \SI{175}{\milli\meter} away from the telescope. Lowering the beam diameter is a trade-off between a slimmer beam waist $w_0$ making the beam fitting better into the acousto-optic modulators' apertures and a larger beam divergence $\frac{\lambda}{\pi w_0}$ that would lead to even larger beam diameters after some propagation distance. The scaled-down beam reaches a diameter of about \SI{700}{\micro\meter} after about \SI{475}{\milli\meter} after the telescope. In order to scale it down for the rest of the beam path on the board, an additional convex lens ($f = \SI{500}{\milli\meter}$) was placed in the beam path (k). In this way, the beam diameter is kept under \SI{700}{\micro\meter} on the remaining beam path with the waist (diameter $2w_0 \approx \SI{650}{\micro\meter}$) at a total distance of \SI{720}{\milli\meter} from the telescope.  These parameters were estimated based on a simulation in the software \textit{GaussianBeam}~\cite{noauthor_gaussianbeam_nodate}, shown in figure~\ref{fig:beam_diameter_evolution}.
+    \item[g] As the acousto-optic modulators used in the setup require smaller beam diameters than the \SI{1000}{\micro\meter} beam supplied by the Raman fiber amplifier, a telescope for decreasing the beam diameter was placed after the aforementioned beam splitter cube. The telescope consists of a convex lens ($f = \SI{75}{\milli\meter}$) focusing the beam and a concave lens ($f = \SI{-50}{\milli\meter}$) re-collimating it after about \SI{30}{\milli\meter}. This reduces the beam diameter to about \SI{650}{\micro\meter} immediately after the second lens, the beam waist is now about $2w_0 = \SI{600}{\micro\meter}$ located about \SI{175}{\milli\meter} away from the telescope. Lowering the beam diameter is a trade-off between a slimmer beam waist $w_0$ making the beam fit better into the acousto-optic modulators' apertures and a larger beam divergence $\frac{\lambda}{\pi w_0}$ that would lead to even larger beam diameters after some propagation distance. The scaled-down beam reaches a diameter of about \SI{700}{\micro\meter} after about \SI{475}{\milli\meter} after the telescope. In order to scale it down for the rest of the beam path on the board, an additional convex lens ($f = \SI{500}{\milli\meter}$) was placed there in the beam path (k). In this way, the beam diameter is kept under \SI{700}{\micro\meter} on the remaining beam path where the cooler and repumper acousto-optic modulators sit (p and q).  These parameters were estimated based on a simulation in the software \textit{GaussianBeam}~\cite{noauthor_gaussianbeam_nodate}, shown in figure~\ref{fig:beam_diameter_evolution}.
 
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/beam_diameter_evolution/beam_diameter_evolution.pdf}
-    \caption{Evolution of the beam shape along the beam path: The telescope (g) shrinks the beam from a diameter of \SI[]{1000}{\micro\meter} to about \SI[]{600}{\micro\meter} at the first acousto-optic modulator (h, \SI[]{125}{\milli\meter} from the telescope). On the lens (k), the beam is focused again such that at the cooler and repumper acousto-optic modulators (p and q, about \SI[]{730}{\milli\meter} from the telescope), the beam has a diameter of about \SI[]{660}{\micro\meter}.}
+    \caption{Evolution of the beam shape along the beam path: The telescope (g) shrinks the beam from a diameter of \SI[]{1000}{\micro\meter} to about \SI[]{600}{\micro\meter} at the first acousto-optic modulator (h, \SI[]{125}{\milli\meter} from the telescope). On the lens (k, about \SI{475}{\milli\meter} from the telescope), the beam is focused again such that at the cooler and repumper acousto-optic modulators (p and q, about \SI[]{730}{\milli\meter} from the telescope), the beam has a diameter of about \SI[]{660}{\micro\meter}.}
     \label{fig:beam_diameter_evolution}
 \end{figure}
 
@@ -482,10 +482,10 @@ Table \ref{tab:power_table} lists measured remaining power levels after each dis
 
 
 \section{Projected Implementation}\label{ch:projected_implementation}
-In this section, the projected implementation of the 3-dimensional magneto-optical trap is presented. The intended geometry of the trap setup serves as a starting point for elaborating the arrangement and configuration of the optical setup around the glass cell for the trapping beams. The planned magnitude of magnetic gradients is shortly mentioned. The section concludes with a forecast about key properties of the trap.
+In this section, the projected implementation of the 3-dimensional magneto-optical trap is presented. The intended geometry of the trap setup serves as a starting point for elaborating the arrangement and configuration of the optical setup around the glass cell for the trapping beams. The range of possible magnetic gradients is shortly mentioned. The section concludes with a forecast about key properties of the trap.
 
 \subsection*{Geometry}
-The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap. It is guided through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell. The space around the glass cell is tightly packed with the two microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction.
+The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded from the atomic beam originating from the 2-dimensional magneto-optical trap. It is guided through a differential pumping stage separating the high and the ultra-high vacuum regions of the experiment chamber. The trap is located in the front part of the glass cell, the space around which is tightly packed with the two microscope objectives sitting above and below the trap and the Feshbach coils placed left and right of the incoming atomic beam, as shown in figure~\ref{fig:glass_cell_vicinity}. As a reminder, the reference coordinate system of the experiment chamber is that $x$ is along the atomic beam, $y$ is to the left as seen in the direction of the atomic beam, and $z$ is in upward direction.
 
 \begin{figure}
     \centering
@@ -493,9 +493,9 @@ The 3-dimensional magneto-optical trap of the FermiQP demonstrator is loaded fro
     \caption{Position of the glass cell between the microscope objectives and the Feshbach coils. The tightly packed vicinity of the glass cell determines the geometry of the magneto-optical trap.}\label{fig:glass_cell_vicinity}
 \end{figure}
 
-The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot match with the Cartesian coordinate axes: no beams can be shot along the $z$ axis which is blocked by the objectives, and no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible on the other side of the glass cell.
+The magneto-optical trap needs three pairs of beams, one for each spatial degree of freedom that the atoms should be cooled along. For each pair, a beam is shot in from one side and retroreflected after passing through the glass cell. Due to the tightly packed vicinity of the glass cell, the beam axes cannot be matched with the Cartesian coordinate axes: no beams can be shot along the $z$ axis which is blocked by the objectives, and no beam can be shot directly along the atomic beam axis ($x$) because no retroreflection would be possible on the other side of the glass cell.
 
-Instead, two beams are shone in in the $xz$ plane where they fit through: The geometry of the microscope objectives only permits shooting beams into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle of $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}). The beams are reflected back on reflection stages a bit away from the glass cell.
+Instead, two beams are shone in in the $xz$ plane where they fit through: The geometry of the microscope objectives only permits shooting them into the glass cell at shallow angles, namely with an incidence angle of \SI{60}{\degree} with respect to the surface normal of the glass cell, as depicted in figure~\ref{fig:glass_cell_sides_mot_beams_0}. These beams provide cooling and confinement along the atomic beam axis ($x$, with an angle of $\theta = \SI{30}{\degree}$ between light propagation $\vec k$ and velocity $\vec v$ of the atomic beam) and the up-down axis ($y$). The third beam is shot in along the $y$ axis, i.e.\ from left to right (see figure~\ref{fig:glass_cell_sides_mot_beams_1}). The beams are reflected back on reflection stages a bit away from the glass cell.
 
 \begin{figure}
     \centering
@@ -517,12 +517,12 @@ Instead, two beams are shone in in the $xz$ plane where they fit through: The ge
 \subsection*{Optics around the Experiment Chamber}
 The six cooling laser beams for the 3-dimensional magneto-optical trap are transferred from the optics board to the experiment chamber with optical fibers where they are outcoupled and prepared on outcoupling stages. 
 
-The $y$ beam will be reflected back directly on a reflection stage at the other side of the glass cell. The two $xz$ beams are shot into the glass cell from the upper and lower front of the glass cell through the upper surfaces at an incidence angle of \SI{60}{\degree} in order not to be blocked by the microscope objectives (as explained in the geometry section above, see figure~\ref{fig:glass_cell_sides_mot_beams}). For reflecting these beams back into the glass cell, they are first guided away from the experiment chamber onto stand-alone reflection stages as there wouldn't be enough space for these stages between the vacuum chamber and the glass cell (see figure~\ref{fig:mot_optics_schematic_from_above}).
+The $y$ beam will be reflected back directly on a reflection stage at the other side of the glass cell. The two $xz$ beams are shot into the glass cell from the upper and lower front of the glass cell through the upper surfaces. For reflecting them back into the glass cell, they are first guided away from the experiment chamber onto stand-alone reflection stages as there wouldn't be enough space for these stages between the vacuum chamber and the glass cell (see figure~\ref{fig:mot_optics_schematic_from_above}).
 
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/mot_optics_schematic_from_above/mot_optics_schematic_from_above.pdf}
-    \caption{Schematic of the optics for the 3-dimensional magneto-optical trap from above: The reflection stages of the $xz$ beams would not fit between the glass cell and the vacuum chamber. Instead, the $xz$ beams are reflected away from the chamber on a mirror onto the $xz$ reflection stages away from the chamber.}
+    \caption{Schematic of the optics for the 3-dimensional magneto-optical trap from above: The trapping light is coupled out of the fibers coming from the optics boards on outcopling stages. After passing through the glass cell, they are reversed on reflection stages such that they pass through the glass cell another time. The reflection stages of the $xz$ beams would not fit between the glass cell and the vacuum chamber. Instead, the $xz$ beams are reflected away from the chamber on a mirror onto the $xz$ reflection stages away from the chamber.}
     \label{fig:mot_optics_schematic_from_above}
 \end{figure}
 
@@ -550,7 +550,7 @@ The reflection stages consist of an cascade of a quarter-, a half-, and another 
 \begin{figure}
     \centering
     \includegraphics[scale=0.77]{\imagepath/reflection_stage_schematic/reflection_stage_schematic.pdf}
-    \caption{Schematic of the reflection stage in an optical cage system: Incoming light is sent through a quarter-, a half-, and anther quarter-wave plate, and then reflected on a mirror. It leaves the stage propagating through the three wave plates again in reverse order.}
+    \caption{Schematic of the reflection stage in an optical cage system: Incoming light is sent through a quarter-, a half-, and another quarter-wave plate, and then reflected on a mirror. It leaves the stage after propagating through the three wave plates again in reverse order.}
     \label{fig:reflection_stage_schematic}
 \end{figure}
 
@@ -578,7 +578,6 @@ The glass cell is made of fused silica with a refractive index of $n = \SI{1.456
     \end{split}
 \end{align}
 where the $\text{s}$ and $\text{p}$ components of the polarization have been mapped to the $\KetText{H}$ and $\KetText{V}$ basis vectors respectively. For the $y$ beam, they evaluate to $t_{\text{air} \rightarrow \text{glass}}(\SI{0}{\degree}, \SI{0}{\degree}) = \SI{0.814}{}$, $t_{\text{glass} \rightarrow \text{air}}(\SI{0}{\degree}, \SI{0}{\degree}) = \SI{1.186}{}$.\footnote{Note that it is not unphysical if $t > 1$. The transmitted power on a surface from air to a material with $n > 1$ is $\frac{n \cos \xi_\text{transmitted}}{\cos \xi_\text{incident}}t^2$ which is always less than $1$~\cite{demtroder_elektromagnetische_2013}.} For the $xz$ beams, they evaluate to $t_{\KetText{H}, \text{air} \rightarrow \text{glass}}(\xi, \xi_\text{glass}) = t_{\KetText{H}, \text{glass} \rightarrow \text{air}}(\xi, \xi_\text{glass}) = \SI{0.916}{}$, $t_{\KetText{V}, \text{air} \rightarrow \text{glass}}(\xi, \xi_\text{glass}) = t_{\KetText{V}, \text{glass} \rightarrow \text{air}}(\xi, \xi_\text{glass}) = \SI{0.999}{}$.
-\todo{Check values and propagate if they were wrong}
 
 The total transmission coefficient through the \SI{4}{\milli\meter}-thick wall of the glass consists of the transmission coefficients into glass and back into air:
 \begin{align}
@@ -588,6 +587,8 @@ The total transmission coefficient through the \SI{4}{\milli\meter}-thick wall o
         t_{xz, \KetText{V}} &= t_{\KetText{V}, \text{air} \rightarrow \text{glass}}(\xi, \xi_\text{glass})  \cdot t_{\KetText{V}, \text{glass} \rightarrow \text{air}}(\xi, \xi_\text{glass}) = \SI{0.998}{}
     \end{split}
 \end{align}
+
+In the following, the necessary polarization adjustments of the $xz$ beams will be discussed:
 
 \paragraph{First pass}
 In order to attain circular polarization on the first pass through the glass cell, these polarization-dependent losses need to be pre-compensated when choosing the polarization before the glass cell surface:
@@ -629,7 +630,7 @@ In the mock setup, light is transmitted through a polarizing beam splitter cube 
 
 The ideal wave plate configuration on the reflection stage is now identified by monitoring the power reflected on the polarizing beam splitter depending on the wave plate configuration: Light passing back through the setup with the same circular polarization as on the first pass will be completely transmitted back through the beam splitter cube after traversing the quarter-wave plate in reverse direction. This means that for the desired configuration, all light of the second pass will be transmitted on the beam splitter cube, and the deflected power on the cube is minimal.
 
-The complete evolution of polarization in the setup for right polarization in the cell is
+The complete evolution of polarization in the optimally configured setup for right polarization in the cell would be
 \begin{align}
     \label{eq:second_pass_waveplate_adjustment_cascade_r}
     \underset{\substack{\text{beam}\\\text{splitter}}}{\longrightarrow}
@@ -646,7 +647,7 @@ The complete evolution of polarization in the setup for right polarization in th
     \KetText{H}
     \underset{\substack{\text{beam splitter}\\\text{port 1}}}{\longrightarrow}
 \end{align}
-and for left polarization in the cell it is analogously
+and, analogously, for left polarization in the cell it would be
 \begin{align}
     \label{eq:second_pass_waveplate_adjustment_cascade_l}
     \underset{\substack{\text{beam}\\\text{splitter}}}{\longrightarrow}
@@ -698,26 +699,26 @@ In the first pass, the intensity loss is due to reflections on the outer and inn
     \begin{split}
         p_{xz, \text{first pass}} = T_{xz, \text{in}} &= 0.765^2 T_{xz, \KetText{H}} + 0.644^2 T_{xz, \KetText{V}} \\
         &=  0.765^2 \left(\frac{1}{n} t^2_{\KetText{H}, \text{air} \rightarrow \text{glass}}(\xi)\right) \left(n t^2_{\KetText{H}, \text{glass} \rightarrow \text{air}}(\xi_\text{glass})\right) \\ &~~~~~+ 0.644^2 \left(\frac{1}{n} t^2_{\KetText{V}, \text{air} \rightarrow \text{glass}}(\xi)\right) \left(n t^2_{\KetText{V}, \text{glass} \rightarrow \text{air}}(\xi_\text{glass})\right) \\
-        &= 0.765^2 \cdot (0.916^2 \cdot 0.999^2) + 0.644^2 \cdot (0.999^2 \cdot 0.916^2) = 0.837
+        &= 0.765^2 \cdot \underbrace{0.704}_{T_{xz, \KetText{H}}} ~~+~~ 0.644^2 \cdot \underbrace{0.995}_{T_{xz, \KetText{V}}} = 0.825
     \end{split}
 \end{align}
 
-These values could be asserted by measuring optical power in a mock setup using a sample glass plate, similar to the ones for setting the polarization (figures~\ref{fig:first_pass_polarization_measurement_scheme} and~\ref{fig:second_pass_waveplate_adjustment_scheme}). The measured intensity losses are listed in table~\ref{tab:intensity_losses}.
+These values are corroborated by measured optical powers in a mock setup using a sample glass plate, similar to the ones for setting the polarization (figures~\ref{fig:first_pass_polarization_measurement_scheme} and~\ref{fig:second_pass_waveplate_adjustment_scheme}). The measured intensity losses are listed in table~\ref{tab:intensity_losses}.
 
 In the second pass, the first loss $T_{\text{out}}$ is due to reflections on the two surfaces of the other glass cell wall upon exit from the glass cell. There, both beams have circular polarization before entering the glass:
 \begin{align}
     T_{y, \text{out}} &= T_{y, \text{in}} = 0.932 \\
-    T_{xz, \text{out}} &= \frac{1}{2} T_{xz, \KetText{H}} + \frac{1}{2} T_{xz, \KetText{V}} = 0.837
+    T_{xz, \text{out}} &= \frac{1}{2} T_{xz, \KetText{H}} + \frac{1}{2} T_{xz, \KetText{V}} = 0.849
 \end{align}
 The second loss $T_{\text{in}}$ is due to entering the glass cell again with the same polarization as in the first pass. In addition, relative losses ${(1 - p_\text{scatter})}$ from scattering on the atoms in the first pass affect the beam power in the second pass. The remaining power in the second pass compared to the power in the first pass is
 \begin{align}
     p_{y, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{y, \text{out}} T_{y, \text{in}}   =  0.867 p_\text{scatter}\\
-    p_{xz, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}}   = 0.701 p_\text{scatter},
+    p_{xz, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}}   = 0.700 p_\text{scatter},
 \end{align}
 and the remaining power in the first pass compared to the original input power is
 \begin{align}
     p_{y, \text{input} \rightarrow \text{second pass}} &= T_{y, \text{in}} \cdot p_\text{scatter} \cdot T_{y, \text{out}} T_{y, \text{in}} =  0.810 p_\text{scatter} \\
-    p_{xz, \text{input} \rightarrow \text{second pass}} &= T_{xz, \text{in}} \cdot p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}} = 0.586 p_\text{scatter}.
+    p_{xz, \text{input} \rightarrow \text{second pass}} &= T_{xz, \text{in}} \cdot p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}} = 0.578 p_\text{scatter}.
 \end{align}
 $p_\text{scatter}$ depends on the geometry and density of the trapped atom cloud as well as the scattering rate, which in turn depends on the laser parameters.
 
@@ -730,16 +731,16 @@ Table~\ref{tab:intensity_losses} lists all of these relative intensity losses.
         & \textbf{predicted loss} & \textbf{measured loss} \\
         \toprule
         $p_{y, \text{first pass}}$ & \SI{93.2}{\percent} & \SI{94}{\percent} \\
-        $p_{xz, \text{first pass}}$ & \SI{83.7}{\percent} & \SI{84}{\percent} \\
+        $p_{xz, \text{first pass}}$ & \SI{82.5}{\percent} & \SI{84}{\percent} \\
         \midrule
         $p_{y, \text{first pass} \rightarrow \text{second pass}}$ & $\SI{86.7}{\percent} \cdot p_\text{scatter}$ & \\
-        $p_{xz, \text{first pass} \rightarrow \text{second pass}}$ & $\SI{70.1}{\percent} \cdot p_\text{scatter}$ & \\
+        $p_{xz, \text{first pass} \rightarrow \text{second pass}}$ & $\SI{70.0}{\percent} \cdot p_\text{scatter}$ & \\
         \midrule
         $p_{y, \text{input} \rightarrow \text{second pass}}$ & $\SI{81.0}{\percent} \cdot p_\text{scatter}$ & \\
-        $p_{xz, \text{input} \rightarrow \text{second pass}}$ & $\SI{58.6}{\percent} \cdot p_\text{scatter}$ & \\
+        $p_{xz, \text{input} \rightarrow \text{second pass}}$ & $\SI{57.8}{\percent} \cdot p_\text{scatter}$ & \\
         \bottomrule
     \end{tabular}
-    \caption{Remaining intensities on the first and the second pass through the glass cell surface for the $y$ and the $xz$ beams. First pass intensities were experimentally verified on a mock setup.}
+    \caption{Remaining intensities on the first and the second pass through the glass cell surface for the $y$ and the $xz$ beams. First pass power losses were experimentally determined on a mock setup.}
     \label{tab:intensity_losses}
 \end{table}
 
@@ -749,15 +750,16 @@ In order to achieve a similar cooling effect in both directions for each axis, m
 \end{align}
 
 This would amount to $\left(\frac{d_\text{second pass}}{d_\text{first pass}}\right)_y = \SI[]{0.931}{} \cdot \sqrt{p_\text{scatter}}$ and $\left(\frac{d_\text{second pass}}{d_\text{first pass}}\right)_{xz} = \SI[]{0.837}{} \cdot \sqrt{p_\text{scatter}}$.
+\todo{check all those numbers again}
 
 \subsection*{Magnetic Gradient}
-The magnetic gradients for the 3-dimensional magneto-optical trap are produced by the Feshbach coils placed next to the glass cell (see chapter~\ref{ch:coils}). Thanks to the high currents that are planned for the Feshbach operation, the coils can generate high gradients upon reversal of the current in one of the coils. As presented in more detail in chapter~\ref{ch:field_characterization}, the achievable gradients in the trapping region are ideally \SI{99}{\gauss\per\centi\meter} in the $xz$ axis, where the recapturing axis lies, and even \SI{197}{\gauss\per\centi\meter} along the $y$ axis.
+The magnetic gradients for the 3-dimensional magneto-optical trap are produced by the Feshbach coils placed next to the glass cell (see chapter~\ref{ch:coils}). Thanks to the high currents that are planned for the Fesh\-bach operation, the coils can generate high gradients upon reversal of the current in one of the coils. As presented in more detail in chapter~\ref{ch:field_characterization}, the achievable gradients in the trapping region are ideally \SI{99}{\gauss\per\centi\meter} in the $xz$ axis, where the recapturing axis lies, and even \SI{197}{\gauss\per\centi\meter} along the $y$ axis.
 
 \subsection*{Trap Parameter Estimation}
-In this section, the properties of the geometry, the trapping light, and the magnetic gradients are used to estimate some benchmarking quantities of the projected 3-dimensional magneto-optical trap.
+To conclude this chapter, the properties of the geometry, the trapping light, and the magnetic gradients are used to estimate some benchmarking quantities of the projected 3-dimensional magneto-optical trap.
 
 \paragraph{Trap Dimensions}
-As depicted in figure~\ref{fig:mot_extent}, the  $\frac{1}{e^2}$-diameter envelopes of the laser beams outline the trap as a rhomboid shaped region which is \SI[]{14}{\milli\meter}long in the recapturing direction (along $x$), \SI[]{8.1}{\milli\meter} long along the $z$ axis, and extends over the whole glass cell in $y$ direction.
+As depicted in figure~\ref{fig:mot_extent}, the  $\frac{1}{e^2}$-diameter envelopes of the laser beams outline the trap as a rhomboid shaped region which is \SI[]{14}{\milli\meter} long in the recapturing direction (along $x$), \SI[]{8.1}{\milli\meter} long along the $z$ axis, and extends over the whole glass cell in $y$ direction.
 
 If the reflection losses on the glass cell surface are compensated for by focusing the beam as suggested in \eqref{eq:intensity_focusing}, the beam diameter and thus also the trap size would decrease to $\SI[]{11.7}{\milli\meter}$ in $x$ direction, and $\SI[]{6.8}{\milli\meter}$ in $z$ direction, assuming negligible losses from scattering ($p_\text{scatter} \approx 0$).
 
@@ -775,7 +777,7 @@ Assuming optical powers of about \SI{60}{\milli\watt} for each beam of the 3-dim
 \begin{align}
     s_{0, \text{3D MOT, recapturing axis}} = 31 \cdot \cos \SI{30}{\degree} \cdot 2 = 53
 \end{align}
-(for the cooler and the repumper respectively), where $\cos \SI{30}{\degree}$ originates from the shallow angles of incidence and the factor of $2$ accounts for the fact that both $xz$ beams cool along the recapturing axis. This saturation is large compared to the intensities reported for other trap implementations (cf. section~\ref{ch:3d_mots_with_li}) which means that there is a considerable power overhead for the 3-dimensional magneto-optical trap in the FermiQP demonstrator.
+(for the cooler and the repumper respectively), where $\cos \SI{30}{\degree}$ originates from the shallow angles of incidence and the factor of $2$ accounts for the fact that both $xz$ beams cool along the recapturing axis. This saturation is very large compared to the intensities reported for other trap implementations (cf. section~\ref{ch:3d_mots_with_li}) which means that there is a considerable power overhead for the 3-dimensional magneto-optical trap in the FermiQP demonstrator.
 
 For the gray molasses, the average intensity of the D$_1$ light would be $\frac{\SI{90}{\milli\watt}}{\pi (\SI{0.35}{\centi\meter})^2} = \SI{247}{\milli\watt\per\centi\meter\squared}$ which would amount to $s_0 = 16$ for the cooler beam.
 
@@ -800,3 +802,4 @@ The resonance velocity~\eqref{eq:resonance_velocity} tells which maximum velocit
 \end{figure}
 
 \todo[color=green]{Ch 3 proofreading run 1 until here}
+\todo[color=green]{Ch 3 proofreading run 2 until here}
