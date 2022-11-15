@@ -15,5 +15,9 @@
     - Spin/liquid/see Bachelor seminar
     - Neutral atoms and quantum gas microscopy
 
+- Quantum gas microscope
+    - history
+    - lithium microscopes
+
 - Structure of the thesis
 
