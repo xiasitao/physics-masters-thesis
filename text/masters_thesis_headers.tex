@@ -41,6 +41,7 @@
   \re@DeclareMathSymbol{\sharp}{\mathord}{ntxletters}{"5D}
   \re@DeclareMathAccent{\vec}{\mathord}{ntxletters}{"7E}
 \makeatother
+\renewcommand{\epsilon}{\varepsilon}
 \usepackage[]{todonotes}
 
 
@@ -80,6 +81,11 @@
 % === Quotes  ===
 \usepackage{csquotes}
 \usepackage{epigraph}
+\usepackage{listings}
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  numbers=left
+}
 
 % === Graphics ===
 \usepackage{tikz}

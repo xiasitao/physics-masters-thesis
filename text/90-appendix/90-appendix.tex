@@ -3,7 +3,86 @@
 \appendix
 \chapter{The Jones and Azimuth-Ellipticity Polarization Bases}\label{ch:pypol_trafos}
 
-using the Python library py-pol~\cite{noauthor_python_nodate}. Note that py-pol defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V}), \KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$
+Polarization is commonly represented in the Jones basis, the Mueller basis, or in the azimuth-ellipticity basis of a Poincaré sphere. For reference, transformations between the Jones and the azimuth-ellipticity basis are outlined here, as they were used for polarization characterizations in chapter~\ref{ch:projected_implementation}. This appendix chapter follows~\cite{trager_springer_2012}, but with a different definition of right- and left-handedness.
+
+\section*{Transformations}
+In the Jones basis, polarization is denoted using two basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using three real valued parameters:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
+\begin{align}
+    \vec J = \begin{pmatrix}h \\ v \exp(-i \phi)\end{pmatrix}
+\end{align}
+
+\paragraph*{Jones to Azimuth-Ellipticity}
+In the Mueller basis, a given Jones polarization vector with $h$, $v$, and $\phi$ is represented as a stokes vector:
+\begin{align}
+    \vec S = \begin{pmatrix}
+        I \\ Q \\ U \\ V
+    \end{pmatrix} = 
+    \begin{pmatrix}
+      h^2 + v^2\\
+      h^2 - v^2\\
+      2hv \cos \phi\\
+      2hv \sin \phi  
+    \end{pmatrix}
+\end{align}
+
+In the azimuth-ellipticity basis of the Poincaré sphere, this state is expressed as
+\begin{align}
+    \begin{pmatrix}\alpha \\ \epsilon \end{pmatrix} =
+    \begin{pmatrix}
+        \frac{1}{2} \arctan \frac{2hv \cos \phi}{h^2 - v^2}\\
+        \frac{1}{2} \arcsin \frac{2hv\sin\phi}{h^2 + v^2}
+    \end{pmatrix}
+    ,
+\end{align}
+with $\alpha = 0$ if $h \neq 0, v = 0$, and $\alpha = \pm\frac{\pi}{2}$ if $h = 0, v \neq 0$, and $\alpha = \pm \frac{\pi}{4}$ if $h = v, \phi = \substack{0 \\ {\pm \pi}}$.
+$\alpha$ ranges from $-\frac{\pi}{2}$ to $+\frac{\pi}{2}$, $\epsilon$ ranges from $-\frac{\pi}{4}$ to $+\frac{\pi}{4}$.\todo{improve presentation of special cases}
+
+\paragraph*{Azimuth-Ellipticity to Jones}
+For a given azimuth $\alpha$ and ellipticity $\epsilon$, the Stokes vector can be determined up to its first component $I$:
+\begin{align}
+    \vec S = I \cdot 
+    \begin{pmatrix}
+        1 \\
+        \cos (2\alpha) \cos(2\epsilon) \\
+        \sin (2\alpha) \cos(2\epsilon) \\
+        \sin(2\epsilon) \\
+    \end{pmatrix}.
+\end{align}
+
+For $I = 1$, one can conclude the Jones vector parameters $h$, $v$, and $\phi$ from this vector.
+$V / U$ gives $\tan \phi = \frac{\tan(2\epsilon)}{\sin(2\alpha)}$, so
+\begin{align}
+    \phi = \arctan \frac{\tan(2\epsilon)}{\sin(2\alpha)},
+\end{align}
+with $\phi = \pm \frac{\pi}{2}$ for $\epsilon = \pm \frac{\pi}{4}$, and $\phi = 0$ for $\alpha  = 0$, and $\phi = \pm\pi$ for $\alpha = \pm\frac{\pi}{2}$.\todo{improve presentation of special cases}
+
+$I + Q$ yields $ 2 h^2 = 1 + \cos(2\alpha) \cos(2\epsilon)$, so:
+\begin{align}
+    h = \sqrt{\frac{1 + \cos(2\alpha) \cos(2\epsilon)}{2}}
+\end{align}
+
+From $h^2 + v^2 = 1$ it follows:
+\begin{align}
+    v = \sqrt{\frac{1 - \cos(2\alpha) \cos(2\epsilon)}{2}}
+\end{align}
+
+
+\section*{Using py-pol for Transforming from the Azimuth-Ellipticity Basis}
+Using the Python library py-pol~\cite{noauthor_python_nodate} polarization vectors can be transformed from the azimuth-ellipticity basis to the Jones basis with
+\begin{lstlisting}[language=Python]
+def azimuth_ellipticity_to_jones(alpha, epsilon):
+    polarisation = pypol.jones_vector.Jones_vector()
+    polarisation.general_azimuth_ellipticity(alpha, epsilon)
+    polarisation = polarisation.remove_global_phase()
+    h, v = polarisation.parameters.components()
+    v = v.conjugate()
+    return h, v
+\end{lstlisting}
+
+Note that py-pol, as does~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$, which is why the $v$ components is conjugated.
+
+
+
 
 \chapter{Coil simulation library}\label{ch:coil_simulation_library}
 
