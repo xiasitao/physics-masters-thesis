@@ -34,7 +34,24 @@ In the azimuth-ellipticity basis of the Poincaré sphere, this state is expresse
     \end{pmatrix}
     ,
 \end{align}
-with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$.
+with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$. Table~\ref{tab:jones_to_ae_special_cases} lists the special cases of these expressions.
+\begin{table}
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        \multicolumn{2}{c}{Jones basis} && $\alpha$ & $\epsilon$ \\
+        \toprule
+        $\KetText{H}$ & $h = 1, v = 0$ && \SI[]{0}{\degree} & \SI[]{0}{\degree} \\
+        $\KetText{V}$ & $h = 0, v = 1$ && \SI[]{+90}{\degree} & \SI[]{0}{\degree} \\
+        $\KetText{D}$ & $h = \sqrt{\frac{1}{2}}, v = \sqrt{\frac{1}{2}}, \phi = 0$ && \SI[]{+45}{\degree} & \SI[]{0}{\degree} \\
+        $\KetText{A}$ & $h = \sqrt{\frac{1}{2}}, v = \sqrt{\frac{1}{2}}, \phi = \pm\pi$ && \SI[]{-45}{\degree} & \SI[]{0}{\degree} \\
+        $\KetText{R}$ & $h = \sqrt{\frac{1}{2}}, v = \sqrt{\frac{1}{2}}, \phi = \frac{\pi}{2}$ && any & \SI[]{+45}{\degree} \\
+        $\KetText{L}$ & $h = \sqrt{\frac{1}{2}}, v = \sqrt{\frac{1}{2}}, \phi = -\frac{\pi}{2}$ && any & \SI[]{-45}{\degree} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Special cases in the transformation from the Jones to the azimuth-ellipticity basis (with $h^2 + v^2 = 1$)}   
+    \label{tab:jones_to_ae_special_cases}
+\end{table}
 
 \paragraph*{Azimuth-Ellipticity to Jones}
 For a given azimuth $\alpha$ and ellipticity $\epsilon$, the Stokes vector can be determined up to its first component $I$:
@@ -49,11 +66,12 @@ For a given azimuth $\alpha$ and ellipticity $\epsilon$, the Stokes vector can b
 \end{align}
 
 For $I = 1$, one can conclude the Jones vector parameters $h$, $v$, and $\phi$ from this vector.
+
 $V / U$ gives $\tan \phi = \frac{\tan(2\epsilon)}{\sin(2\alpha)}$, so
 \begin{align}
     \phi = \arctan \frac{\tan(2\epsilon)}{\sin(2\alpha)},
 \end{align}
-with $\phi = \pm \frac{\pi}{2}$ for $\epsilon = \pm \frac{\pi}{4}$, and $\phi = 0$ for $\alpha  = 0$, and $\phi = \pm\pi$ for $\alpha = \pm\frac{\pi}{2}$.\todo{improve presentation of special cases}
+with special cases listed in table~\ref{tab:jones_to_ae_special_cases}.
 
 $I + Q$ yields $ 2 h^2 = 1 + \cos(2\alpha) \cos(2\epsilon)$, so:
 \begin{align}
@@ -78,7 +96,7 @@ def azimuth_ellipticity_to_jones(alpha, epsilon):
     return h, v
 \end{lstlisting}
 
-Note that py-pol, as does~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$, which is why the $v$ components is conjugated.
+Note that py-pol, as also in~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$, which is why the $v$ component is conjugated.
 
 
 
@@ -117,15 +135,15 @@ The usage of the \textit{coil simulation library} is exemplarily shown with the 
 \begin{lstlisting}[language=Python]
 import coil_simulation_lib as csl
 COIL_PROPERTIES = {
-    'windings_axis': 6,
-    'windings_cross_axis': 5,
-    'cone_angle': np.arctan(1),
-    'current': 400,
-    'gradient': True,
-    'radius': 83e-3,
-    'wire_spacing': 5.3e-3,
-    'on_axis_coil_distance': 85.5e-3,
-    'non_conducting_cross_section_area': (1.5e-3)**2*np.pi + 4 * (5e-3 * 0.15e-3)
+ 'windings_axis': 6,
+ 'windings_cross_axis': 5,
+ 'cone_angle': np.arctan(1),
+ 'current': 400,  # A
+ 'gradient': True,
+ 'radius': 83e-3,  # m
+ 'wire_spacing': 5.3e-3,  # m
+ 'on_axis_coil_distance': 85.5e-3,  # m
+ 'non_conducting_cross_section_area': (1.5e-3)**2*np.pi + 4 * (5e-3 * 0.15e-3)  # m^2
 }
 arrangement = csl.ConeShapedCoilArrangement(**COIL_PROPERTIES)
 \end{lstlisting}
@@ -146,24 +164,23 @@ field_map_xy.plot_slices()  # field along axes
 
 \subsection*{Field Strength, Gradient, and Curvature}
 \begin{lstlisting}[language=Python]
+arrangement.field_at_center() * 1e4  # field at the center in G
 curvature_analyzer = csl.CurvatureAnalyzer().from_arrangement(arrangement=arrangement, steps=100)
-x_freq_in_Hz = curvature_analyzer.get_trap_frequency_on_axis("x")
-x_gradient_in_G = curvature_analyzer.get_gradient_on_axis("x")*1e2
-field_at_center_in_G =arrangement.field_at_center() * 1e4
+curvature_analyzer.get_trap_frequency_on_axis("x")  # trap frequency along x in Hz
+curvature_analyzer.get_gradient_on_axis("x")*1e2  # gradient along x in G/cm
 \end{lstlisting}
 
-\subsection*{Coil Properties}\todo[]{shorten or leave out}
+\subsection*{Coil Properties}
 \begin{lstlisting}[language=Python]
-f'wire length: l = {arrangement.get_total_coil_length()/2:.2f} m'
-f'resistance: R = {arrangement.get_single_coil_resistance()*1000:.2f} mOhm'
-f'single winding pair + supply line resistance: R ~ {arrangement.get_single_coil_resistance(supply_line_length=3.1, coil_length_factor=1/3)*1000:.2f} mOhm'
-f'inductance (single): L = {arrangement.estimate_single_coil_self_inductance()*1000:.2f} mH'
-f'L/R time (single): L/R = {arrangement.get_single_coil_L_over_R_time()*1000:.2f} ms'
-f'inductance (all): L = {arrangement.estimate_all_coils_self_inductance()*1000:.2f} mH'
-f'L/R time (all): L/R = {arrangement.get_all_coils_L_over_R_time()*1000:.2f} ms'
-f'magnetic dipole moment: m = {arrangement.get_magnetic_dipole_moment():.2f} Am^2'
-f'magnetic dipole moment (single coil): m = {arrangement.get_magnetic_dipole_moment(coil_index=0):.2f} Am^2'
-f'outward force: {arrangement.get_total_outward_force_on_single_coil()}'
+arrangement.get_total_coil_length()/2  # length of a single coil in m
+arrangement.get_single_coil_resistance()*1000  # resistance in mOhm
+arrangement.estimate_single_coil_self_inductance()*1000  # inductance in mH
+arrangement.get_single_coil_L_over_R_time()*1000  # single coil L/R time in ms
+arrangement.estimate_all_coils_self_inductance()*1000  # all-coil inductance in mH
+arrangement.get_all_coils_L_over_R_time()*1000  # all coils L/R time in ms
+arrangement.get_magnetic_dipole_moment(coil_index=0)  # coil mag. moment in A m^2
+arrangement.get_magnetic_dipole_moment()  # arrangement mag. dipole moment in A m^2
+arrangement.get_total_outward_force_on_single_coil()  # outward force in N
 \end{lstlisting}
 
 \section*{Implementing New Coil Geometries}
