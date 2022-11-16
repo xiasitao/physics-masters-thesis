@@ -1,0 +1,4 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{3D MOT}{2}{0}{1}
+\beamer@sectionintoc {2}{Feshbach Coils}{13}{0}{2}
+\beamer@sectionintoc {3}{Coil simulation library}{25}{0}{3}
