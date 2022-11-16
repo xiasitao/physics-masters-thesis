@@ -85,6 +85,25 @@
 \usepackage{multicol}
 \usepackage{pgf}
 
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[scale=1]{sourcecodepro}
+\definecolor{stringcolor}{RGB}{154,91,145}  % rebecca
+\definecolor{keywordcolor}{RGB}{80,189,233} % blue
+\definecolor{commentcolor}{RGB}{255,0,0}  % red
+\lstset{
+  basicstyle=\ttfamily\tiny,
+  numbers=left,
+  breaklines=true,
+  language=Python,
+  otherkeywords={True,False},
+  commentstyle=\color{commentcolor},
+  keywordstyle=\color{keywordcolor}\bfseries,
+  stringstyle=\color{stringcolor},
+  emph={self, csl, ConeShapedCoilArrangement, FieldMap, Collection, Jones_vector},
+  emphstyle={\color{keywordcolor}},
+}
+
 
 % === Color theme ===
 \makeatletter

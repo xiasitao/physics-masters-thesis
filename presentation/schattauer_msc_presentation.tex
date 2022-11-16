@@ -284,7 +284,7 @@
 \begin{frame}
     \frametitle{Curvature}
     \begin{align*}
-        \underbrace{V_0 + \frac{1}{2}m\omega^2q^2}_{V_\text{HO}(q)} ~~~=~~~ \underbrace{\mp \mu_\text{B} B_0 \mp \mu a_q q^2}_{V_\text{magnetic}(q)}
+        \underbrace{V_0 + \frac{1}{2}m\omega^2q^2}_{V_\text{HO}(q)} ~~~=~~~ \underbrace{\mp \mu_\text{B} B_0 \mp \mu a_{\vec q} q^2}_{V_\text{magnetic}(q)}
     \end{align*}
     \onslide<+->
     \begin{align*}
@@ -350,12 +350,110 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{Usage}
+    Instantiation:
+    \begin{lstlisting}
+import coil_simulation_lib as csl
+COIL_PROPERTIES = {
+    'windings_axis': 6,
+    'windings_cross_axis': 5,
+    'cone_angle': np.arctan(1),
+    'current': 400,  # A
+    'gradient': True,
+    'radius': 83e-3,  # m
+    'wire_spacing': 5.3e-3,  # m
+    'on_axis_coil_distance': 85.5e-3,  # m
+    'non_conducting_cross_section_area': (1.5e-3)**2*np.pi + 4 * (5e-3 * 0.15e-3)  # m^2
+}
+arrangement = csl.ConeShapedCoilArrangement(**COIL_PROPERTIES)
+    \end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+    \frametitle{Usage}
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            Visualization:
+            \begin{lstlisting}[language=Python]
+arrangement.plot_arrangement_schematic(figsize=(9, 7), filename='schematic.pgf')
+arrangement.display_in_3D(figsize=(9, 9), filename='3d.pgf')
+            \end{lstlisting}
+        \end{column}
+        \begin{column}{0.19\textwidth}
+            \begin{figure}
+                \centering
+                \scalebox{0.3}{
+                    \begin{pgfpicture}
+                        \pgftext{\input{\imagepath/csl_sketches/csl_sketches_3d.pgf}}
+                    \end{pgfpicture}
+                }
+            \end{figure}
+        \end{column}
+    \end{columns}
+
+    \pause
+    \vspace{0.5cm}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            Field Mapping:
+            \begin{lstlisting}[language=Python]
+field_map_xy = csl.FieldMap(arrangement, 'xy', steps=100)
+field_map_xy.plot_map()  # color map
+field_map_xy.plot_landscape()  # 3D visualization
+field_map_xy.plot_slices()  # field along axes
+            \end{lstlisting}
+        \end{column}
+        \begin{column}{0.39\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.25]{\imagepath/gradient_field_map/gradient_field_map.pdf}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
     \frametitle{Implementing a new coil geometry}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            {\tiny
+                Steps:
+                \begin{itemize}
+                    \item Subclass \texttt{CoilArrangement}
+                    \item Implement method \texttt{\_compile\_single\_stack}
+                    \item Define radius and position of every winding
+                \end{itemize}
+            }
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.5]{\imagepath/coil_model/coil_model.pdf}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    
+    \pause
+    \vspace{0.5cm}
+    \begin{lstlisting}
+collection = mpl.Collection()
+current_factor = 1 if coil_index == 0 else -1  # opposite polarity on both sides
+for row in range(self.windings_axis):
+        on_axis_offset = (row - self.windings_axis/2 + 0.5) * winding_spacing
+        for column in range(self.windings_cross_axis):
+            radial_offset = np.tan(self.cone_angle)*on_axis_offset + (column - self.windings_cross_axis/2 + 0.5) * winding_spacing
+            current = self.get_current(coil_index=coil_index, row=row, column=column)*current_factor
+            loop = mpl.current.Loop(current=current, diameter=2*radius+2*radial_offset, position=(0, 0, on_axis_offset)
+            collection.add(loop)
+return collection
+        \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+    \section*{Thank you!}
 \end{frame}
 
 \end{document}

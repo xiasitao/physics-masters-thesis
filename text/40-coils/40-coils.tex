@@ -70,7 +70,7 @@ In the very center of the coil arrangement, the magnetic field in the Helmholtz 
 
 Assuming that the magnetic field around the center of the coil arrangement follows a paraboloid shape, in one dimension $B(q) = B_0 + a_q q^2$ with a field curvature coefficient $a$ and a spatial coordinate $q$, one can identify the magnetic potential with a quantum mechanical harmonic oscillator:
 \begin{align}
-    \underbrace{V_0 + \frac{1}{2}m\omega^2q^2}_{V_\text{HO}(q)} ~~~\equiv~~~ \underbrace{\mp \mu_\text{B} B(q) = \mp \mu_\text{B} B_0 \mp \mu_\text{B} a_q q^2}_{V_\text{magnetic}(q)}
+    \underbrace{V_0 + \frac{1}{2}m\omega^2q^2}_{V_\text{HO}(q)} ~~~\equiv~~~ \underbrace{\mp \mu_\text{B} B(q) = \mp \mu_\text{B} B_0 \mp \mu_\text{B} a_{\vec q} q^2}_{V_\text{magnetic}(q)}
 \end{align}
 
 Identifying the position-dependent terms, the magnetic potential can be assigned the angular trap frequency $\omega_{\vec q}$ along the $\vec q$ coordinate axis:
@@ -133,7 +133,7 @@ For an arrangement, the library provides the user with magnetic field vectors an
                 \pgftext{\input{\imagepath/csl_sketches/csl_sketches_3d.pgf}}
             \end{pgfpicture}
         }
-        \caption{3-dimensional sketch of the coil arrangement, modelled as individual circular windings (generated with \textit{magpylib}~\cite{noauthor_magpylibmagpylib_2022})}
+        \caption{3-dimensional sketch of the coil arrangement, modelled as individual circular windings (generated with \textit{magpylib}~\cite{noauthor_magpylibmagpylib_nodate})}
         \label{fig:csl_sketches_3d}
     \end{subfigure}
     \hspace{0.04\textwidth}
