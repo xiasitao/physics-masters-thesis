@@ -19,6 +19,7 @@
 % === Fonts  ===
 \usepackage{noto}
 \usepackage{ebgaramond}
+\usepackage[scale=0.75]{sourcecodepro}
 \usepackage[cmintegrals,cmbraces]{newtxmath}
 \usepackage{ebgaramond-maths}
 % Redefining missing symbols
@@ -83,7 +84,7 @@
 \usepackage{epigraph}
 \usepackage{listings}
 \lstset{
-  basicstyle=\footnotesize\ttfamily,
+  basicstyle=\ttfamily,
   numbers=left
 }
 
@@ -95,8 +96,17 @@
 \newcommand{\imagepath}{}
 
 % === Citations ===
-\usepackage[style=numeric-comp,backend=biber,sorting=none]{biblatex}
+\usepackage[
+  %style=numeric-comp,
+  style=nature,
+  backend=biber,
+  sorting=none
+]{biblatex}
 \addbibresource{../FermiQP.bib}
+\PassOptionsToPackage{hyphens}{url}
+\AtEveryBibitem{
+  \clearfield{urlyear}
+}{}
 
 % === Title ===
 \usepackage[

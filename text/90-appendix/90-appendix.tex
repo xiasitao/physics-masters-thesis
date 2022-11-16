@@ -6,7 +6,7 @@
 Polarization is commonly represented in the Jones basis, the Mueller basis, or in the azimuth-ellipticity basis of a Poincaré sphere. For reference, transformations between the Jones and the azimuth-ellipticity basis are outlined here, as they were used for polarization characterizations in chapter~\ref{ch:projected_implementation}. This appendix chapter follows~\cite{trager_springer_2012}, but with a different definition of right- and left-handedness.
 
 \section*{Transformations}
-In the Jones basis, polarization is denoted using two basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using three real valued parameters:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
+In the Jones basis, polarization is denoted using two basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using the three real valued parameters $h > 0$, $v > 0$, $\phi$:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
 \begin{align}
     \vec J = \begin{pmatrix}h \\ v \exp(-i \phi)\end{pmatrix}
 \end{align}
@@ -29,13 +29,12 @@ In the azimuth-ellipticity basis of the Poincaré sphere, this state is expresse
 \begin{align}
     \begin{pmatrix}\alpha \\ \epsilon \end{pmatrix} =
     \begin{pmatrix}
-        \frac{1}{2} \arctan \frac{2hv \cos \phi}{h^2 - v^2}\\
+        \frac{1}{2} \arctan \frac{2hv \cos \phi}{h^2 - v^2} + \Omega_{h, v}\\
         \frac{1}{2} \arcsin \frac{2hv\sin\phi}{h^2 + v^2}
     \end{pmatrix}
     ,
 \end{align}
-with $\alpha = 0$ if $h \neq 0, v = 0$, and $\alpha = \pm\frac{\pi}{2}$ if $h = 0, v \neq 0$, and $\alpha = \pm \frac{\pi}{4}$ if $h = v, \phi = \substack{0 \\ {\pm \pi}}$.
-$\alpha$ ranges from $-\frac{\pi}{2}$ to $+\frac{\pi}{2}$, $\epsilon$ ranges from $-\frac{\pi}{4}$ to $+\frac{\pi}{4}$.\todo{improve presentation of special cases}
+with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$.
 
 \paragraph*{Azimuth-Ellipticity to Jones}
 For a given azimuth $\alpha$ and ellipticity $\epsilon$, the Stokes vector can be determined up to its first component $I$:
@@ -61,7 +60,7 @@ $I + Q$ yields $ 2 h^2 = 1 + \cos(2\alpha) \cos(2\epsilon)$, so:
     h = \sqrt{\frac{1 + \cos(2\alpha) \cos(2\epsilon)}{2}}
 \end{align}
 
-From $h^2 + v^2 = 1$ it follows:
+Analogously, $I - Q$ yields $ 2 v^2 = 1 - \cos(2\alpha) \cos(2\epsilon)$, so:
 \begin{align}
     v = \sqrt{\frac{1 - \cos(2\alpha) \cos(2\epsilon)}{2}}
 \end{align}
@@ -85,6 +84,12 @@ Note that py-pol, as does~\cite{trager_springer_2012}, defines $\KetText{R} = \f
 
 
 \chapter{Coil simulation library}\label{ch:coil_simulation_library}
+\section*{Outline of the implementation}
+The coil simulation library 
+
+\section*{Usage}
+
+\section*{Implementing New Coil Geometries}
 
 
 \chapter{Rules of Thumb for Magnetic Fields and Gradients}
