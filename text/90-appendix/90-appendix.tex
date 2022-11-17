@@ -30,7 +30,7 @@ The acousto-optic modulators used in the laser setup were produced by Gooch \& H
 \paragraph{Mirrors}
 In the trap laser setup, mirrors with a broadband anti-reflection coating for incidence angles from \SIrange[]{0}{45}{\degree} from the vendors Thorlabs (part numbers: BB1-E02-10 and BB1-E02-05 with a specified reflectivity of \SIrange[]{99}{100}{\percent} (depending on polarization) at \SI[]{45}{\degree} and \SI[]{99}{\percent} at \SI[]{8}{\degree} at \SI[]{671}{\nano\meter}) and Laser Components (part numbers: 3051012 and 3051014 with a specficied transmittivity of \SI[]{0.04}{\percent} at \SI[]{45}{\degree} and \SI[]{0.03}{\percent} at \SI[]{0}{\degree} at \SI[]{671}{\nano\meter}, back-polished) were used. For the Laser Components mirrors, it was experimentally verified that arbitrary incident polarization states were transformed in the same way by different mirrors from the same batch at \SI[]{45}{\degree} incidence angle.
 
-\section{Power Dissipations, Recombinations, and Splittings}\label{ch:power_losses}
+\section{Power Dissipations, Recombination, and Splitting Ratios}\label{ch:power_losses}
 For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab:power_loss_table} lists the measured remaining power levels after each dissipating element. Table~\ref{tab:power_recombination} compares the cooler and repumper power on the recombination cube, and table~\ref{tab:power_splitting} gives the measured splitting ratios into the two optical fibers.
 
 \begin{table}[h]
@@ -110,6 +110,21 @@ In the Jones basis, polarization is denoted using two basis vectors, say $\{\Ket
     \vec J = \begin{pmatrix}h \\ v \exp(-i \phi)\end{pmatrix}
 \end{align}
 
+The azimuth-ellipticity basis of the Poincaré sphere identifies polarizations by the azimuth $\alpha \in \left[-\frac{\pi}{2}, +\frac{\pi}{2}\right]$ and the ellipticity $\epsilon \in \left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$. In two dimensions, a polarization state can be visualized as an ellipse in an $h$-$v$ plane, collapsing into a line for linear and extending into a circle for circular polarization, as displayed in figure~\ref{fig:azimuth_ellipticity_visualization}.
+
+\begin{figure}
+    \centering
+    \scalebox{0.8}{
+    \begin{pgfpicture}
+        \pgftext{\input{\imagepath/azimuth_ellipticity_visualization/azimuth_ellipticity_visualization.pgf}}
+    \end{pgfpicture}
+    }
+    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{12}$, the angles were added to the drawing.}
+    \label{fig:azimuth_ellipticity_visualization}
+\end{figure}
+
+In the following the Mueller-Stokes basis is going to be used as an intermediary for transforming between the Jones and the azimuth-ellipticity bases.
+
 \paragraph*{Jones to Azimuth-Ellipticity}
 In the Mueller basis, a given Jones polarization vector with $h$, $v$, and $\phi$ is represented as a stokes vector:
 \begin{align}
@@ -133,7 +148,7 @@ In the azimuth-ellipticity basis of the Poincaré sphere, this state is expresse
     \end{pmatrix}
     ,
 \end{align}
-with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$. Table~\ref{tab:jones_to_ae_special_cases} lists the special cases of these expressions.
+with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$ ensuring that $\alpha$ matches. Table~\ref{tab:jones_to_ae_special_cases} lists the special cases of these expressions.
 \begin{table}
     \centering
     \begin{tabular}{ccccc}
