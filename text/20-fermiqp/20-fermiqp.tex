@@ -1,8 +1,33 @@
 \renewcommand{\imagepath}{../20-fermiqp/img}
 
 \chapter{FermiQP: a Fermion Quantum Processor}
+In this chapter, the FermiQP demonstrator quantum gas microscopy experiment is introduced. It is first presented as a platform for quantum simulations and quantum computing. Then the projected experimental setup is explained.
 
-\section{A Versatile Microscope}
+\section{A Versatile Microscope for Quantum Gases}
+Within the last two decades, quantum gas microscopes have evolved into a well-proven and auspicious platform for exploring the nature of atoms in correlated systems and researching the phenomena of quantum many-body physics. In these machines, atoms are cooled down to \si[]{\micro\kelvin} temperatures and caught in regular patterns with the optical lattice or optical tweezer techniques\todo{check if that is called qgm too}. Single-site imaging techniques allow resolving individual atoms and detecting their respective states~\cite{bloch_many-body_2008,gross_quantum_2017}, granting access to the physics of their interactions. The underlying premise of this experimental approach is that for exploring the quantum realm, rather than simulating quantum phenomena on classical computers using established models of physics, which scale exponentially with the size of the described system, it is by far more advantageous to map these phenomena to controllable quantum systems and simulate them, as already suggested by Richard Feynman in 1982~\cite{feynman_simulating_1982}.
+
+While the first quantum gas microscopes in the late 2000s were based on bosonic rubidium (e.g.~\cite{sherson_single-atom-resolved_2010}), for experiments using fermionic alkali atoms  first results were published in 2015, such as for potassium~\cite{cheuk_quantum-gas_2015}, and for lithium \cite{parsons_site-resolved_2015, omran_microscopic_2015}.
+
+The FermiQP project, which started in 2021, is one of the newest fermion quantum gas microscopy experiments operated with lithium. It aims for surpassing existing fermionic lithium experiments with respect to their atom number, precision and atom lifetime in the microscope\todo{Really? Anything else}. On the one hand, FermiQP will use atoms in an optical lattice for investigating the nature of strongly interacting fermionic particles, which can be described by the Fermi-Hubbard model~\cite{hubbard_electron_1963, esslinger_fermi-hubbard_2010}. On the other hand, exploiting the properties of its fermionic atoms, FermiQP is designed to function as a quantum computer, hence the name \textit{Fermion Quantum Processor}, where its key advantage over other platforms for quantum computing is the comparatively high scalability.
+
+FermiQP is a consortium of many contributing institutes and scientific groups in different areas of physics across Germany. The actual quantum gas microscope, the \textit{FermiQP demonstrator}, is being built at the Max Planck Institute of Quantum Optics in Garching, where this thesis was written.
+
+The rest of this section introduces the techniques used in the FermiQP demonstrator and its projected features, followed by an overview of the planned experimental realization in the next section.
+
+\subsection*{Laser Cooling}
+Laser cooling of atoms is the necessary first step for a quantum gas microscope to run. With the idea dating back to the 1970s~\cite{hansch_cooling_1975}, laser cooling and trapping has paved the way for a whole realm of experiments exploring the world of atoms in ultracold regimes. After the 1997 nobel prize was awarded ''for development of methods to cool and trap atoms with laser light``\todo{citation}, they have become an established technique employed in a multitude of quantum gas experiments, which themselves have led to the 2001 nobel prize for achieving Bose-Einstein condensation\todo[]{citation}.
+
+In the FermiQP demonstrator, different laser cooling techniques are used: The atoms are first cooled and confined with a two- and a three-dimensional magneto-optical trap~\cite{foot_atomic_2005}, the latter of which is described in chapter~\ref{ch:mot}. Then gray molasses cooling~\cite{weidemuller_novel_1994}, Raman sideband cooling (see~\cite*{hilker_spin-resolved_2017}, implemented in~\cite{krumm_notitle_2022}), and evaporative cooling (see~\cite{foot_atomic_2005}, implemented in~\cite{sun_construction_2022}) bring them into the (sub) \si[]{\micro\kelvin} regime.
+
+\subsection*{Optical Lattices}
+Optical lattices are then used to confine cooled individual atoms into sites arranged in regular patterns. They make use of the optical dipole force
+
+\cite{bloch_many-body_2008, bloch_quantum_2012}.
+
+\subsection*{Quantum Simulations in the Analog Mode}
+
+\subsection*{Quantum Computing in the Digital Mode}
 
 
-\section{Setup of the FermiQP demonstrator}
+
+\section{Experimental Setup of the FermiQP Demonstrator}
