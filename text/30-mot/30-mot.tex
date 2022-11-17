@@ -99,11 +99,11 @@ with damping $\alpha = 2k \pdv{F}{\omega} = -8 \hbar k^2 s_0 \frac{\delta/\Gamma
 \begin{align}
     \Delta E(m) = g \mu_\text{B} m B
 \end{align}
-with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$, and the magnetic quantum number $m$. When applying a magnetic gradient, the transition frequency between two magnetic sublevels $m$ and $m + 1$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
+with the Landé factor $g \approx 2$, the Bohr magneton $\mu_\text{B}$, the magnetic field $B$, and the magnetic quantum number $m$. When applying a magnetic gradient, the transition frequency between two magnetic sublevels $m$ and $m \pm 1$ becomes dependent on the position $q$\footnote{In the following paragraphs, $q$ will be used as a generalized coordinate. In the setup of the FermiQP demonstrator, setting $q = x$ would condition the following considerations to the atomic beam axis ($x$).}:
 \begin{equation}
     \begin{split}\label{eq:omega_transition_zeeman}
-      \omega_\text{transition}(q) &= \omega_\text{transition} + \frac{\Delta E(q)}{\hbar} \\  
-      &= \omega_\text{transition} + \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} q \equiv \omega_\text{transition} + \beta q
+      \omega_\text{transition}(q) &= \omega_\text{transition} \pm \frac{\Delta E(q)}{\hbar} \\  
+      &= \omega_\text{transition} \pm \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} q \equiv \omega_\text{transition} \pm \beta q
     \end{split}
 \end{equation}
 Hence also the detuning between the laser light and the driven transition becomes position-dependent which allows for spatially varying scattering forces.
@@ -134,14 +134,14 @@ Note that the helicity of the polarization is given with respect to the (arbitra
 Similarly to the optical molasses consideration, in the magneto-optical trap the scattering forces can be linearized for small displacements $q \ll \frac{\Gamma}{\beta}$ (here again for one dimension)~\cite{foot_atomic_2005}:
 \begin{equation}\label{eq:mot_force}
     \begin{split}
-        F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
+        F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) - F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)\\
         &\approx -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - (\alpha \cos \theta) v - \frac{\alpha \beta}{k} q
     \end{split}
 \end{equation}
 This demonstrates that a magneto-optical trap combines a friction force $-(\alpha \cos \theta) v$ for slowing down atoms and a trapping force $- \frac{\alpha \beta}{k} q$ confining the atoms to a trap center.
 
 \paragraph{Relevant transitions in alkali atoms}
-\sloppy For cooling alkali atoms in a magneto-optical trap, transitions between electronic levels $J_\text{g}$ and $J_\text{g} + 1$ are used for scattering (g for ground state). The cooling transition can be imple\-mented between hyperfine states $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ (the highest $F$ in the $J_\text{g}$ manifold), and $\KetSpaced{J = J_\text{g} + 1, F= J_\text{g} + I + 1}$. This ensures that all decays, owing to the selection rule $\Delta F \in \{-1, 0, 1\}$,  bring the atom down into the original $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ state such that the cooling cycle can start from anew.
+\sloppy For cooling alkali atoms in a magneto-optical trap, transitions between electronic levels $J_\text{g}$ and $J_\text{g} + 1$ are used for scattering (g for ground state). The cooling transition can be imple\-mented between hyperfine states $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ (the highest $F$ in the $J_\text{g}$ manifold), and $\KetSpaced{J = J_\text{g} + 1, F= J_\text{g} + I + 1}$. This ensures that all decays, owing to the selection rule $\Delta F \in \{-1, 0, 1\}$,  bring the atom down into the original state $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I}$ such that the cooling cycle can start from anew.
 
 If, however, the atom is excited into the $\KetSpaced{J = J_\text{g} + 1, F = J_\text{g} + I}$ state due to a non-zero matrix element for this transition, it can also fall back into the $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I - 1}$ state. In this case, it would not be subject to cooling anymore as this state is dark to the cooling transition. To combat this, a repumper laser beam is shone in in addition to the cooler beam. This beam addresses the transition $\KetSpaced{J = J_\text{g}, F = J_\text{g} + I - 1} \rightarrow \KetSpaced{J = J_\text{g} + 1, F = J_\text{g} + I}$ from where they can decay back into the ground state of the cooling transition which returns them into the cooling cycle~\cite{metcalf_laser_1999}.
 
@@ -155,7 +155,9 @@ with notation in the $\KetSpaced{J, F}$ basis.
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/cooler_repumper_in_alkali/cooler_repumper_in_alkali.pdf}
-    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler and repumper transitions, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.}
+    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler and repumper transitions, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.
+    \todo[inline]{add detunings}
+    }
     \label{fig:cooler_repumper_in_alkali}
 \end{figure}
 

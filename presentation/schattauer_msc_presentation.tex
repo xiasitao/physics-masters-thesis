@@ -10,7 +10,7 @@
 		\begin{block}
 			{\centering \\
 				\medskip
-				\textbf{\textsc{3D MOT and Feshbach coils}}\\
+				\textbf{\textsc{3D MOT and Feshbach Coils}}\\
 				\medskip}
 		\end{block}
 
@@ -76,6 +76,19 @@
     \end{equation*}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Back to the MOT}
+    How to get spatial confinement?
+    \begin{itemize}
+        \item position-dependent detuning of $m \rightarrow m \pm 1$ transition via Zeeman shift:
+        \begin{align*}
+            \omega_\text{transition}(q) = \omega_\text{transition} \pm \frac{\Delta E(q)}{\hbar} = \omega_\text{transition} \pm \frac{g \mu_\text{B}}{\hbar} \pdv{B}{q} q \equiv \omega_\text{transition} \pm \beta q
+        \end{align*}
+        \pause
+        \item use of $\sigma^+$- and $\sigma^-$-polarized beams
+    \end{itemize}
+\end{frame}
+
 
 \begin{frame}
     \frametitle{Back to the MOT}
@@ -84,9 +97,10 @@
         \includegraphics[scale=0.75]{\imagepath/detuning_and_selection_rules_schematic/detuning_and_selection_rules_schematic.pdf}
     \end{figure}
 
-    \onslide<+->
+    \pause
     \begin{align*}
-        F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) + F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta) \\ \nonumber
+        \onslide<+->{
+        F_\text{MOT} &= F_\text{scatter}^{\sigma^+}(\omega_\text{laser} - \omega_\text{transition}(q) - kv \cos \theta) - F_\text{scatter}^{\sigma^-}(\omega_\text{laser} - \omega_\text{transition}(q) + kv \cos \theta)} \\ \nonumber
         \onslide<+->{&\approx -2 \pdv{F_\text{scatter}}{\omega} k\cos \theta v + 2 \pdv{F_\text{scatter}}{\omega_0} \beta q  \equiv - (\alpha \cos \theta) v - \frac{\alpha \beta}{k} q}
     \end{align*}
 \end{frame}
@@ -102,7 +116,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Transitions in a MOT}
+    \frametitle{Transitions in a Lithium MOT}
     \begin{figure}
         \centering
         \includegraphics[scale=0.7]{\imagepath/cooler_repumper_in_alkali/cooler_repumper_in_alkali.pdf}
@@ -113,8 +127,15 @@
     \frametitle{Capture velocity}
     Kinetic energy $\frac{1}{2}mv^2$ dissipated by force $\frac{\Gamma}{2} \hbar k$ along trajectory $2 r_\text{trap}$ in the MOT:
     \begin{align*}\label{eq:capture_velocity_high}
-        v_\text{capture, max}^\text{high} \approx \sqrt{\frac{\hbar k \Gamma \cdot 2 r_\text{trap}}{m}} = \SI[]{90}{\meter\per\second}
+        v_\text{capture, max}^\text{high} = \sqrt{\frac{\hbar k \Gamma \cdot 2 r_\text{trap}}{m}} = \SI[]{90}{\meter\per\second}
     \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Polarization}
+    \begin{figure}
+        \includegraphics[scale=0.7]{\imagepath/glass_cell_sides_mot_beams/glass_cell_sides_mot_beams_1.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -155,6 +176,7 @@
             \begin{itemize}
                 \item tight geometry
                 \item field strength $\gg \SI[]{832}{\gauss}$
+                \item water cooling
                 \item curvature
             \end{itemize}
         \end{column}
@@ -405,10 +427,11 @@ field_map_xy.plot_slices()  # field along axes
             \end{lstlisting}
         \end{column}
         \begin{column}{0.39\textwidth}
-            \begin{figure}
-                \centering
-                \includegraphics[scale=0.25]{\imagepath/gradient_field_map/gradient_field_map.pdf}
-            \end{figure}
+            \begin{tikzpicture}
+                \node (map) {\includegraphics[scale=0.25]{\imagepath/gradient_field_map/gradient_field_map.pdf}};
+                \node[scale=0.5] (slices) at (map.south east) {\pgftext{\input{\imagepath/gradient_field_slices/gradient_field_slices_xy.pgf}}};
+                % \node (3d) at (slices.south east) {\begin{pgfpicture}\pgftext{\input{\imagepath/field_landscape/field_landscape.pgf}}\end{pgfpicture}};
+            \end{tikzpicture}
         \end{column}
     \end{columns}
 \end{frame}
