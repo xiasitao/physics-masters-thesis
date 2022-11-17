@@ -1,8 +1,107 @@
 \renewcommand{\imagepath}{../90-appendix/img}
-
 \appendix
-\chapter{The Jones and Azimuth-Ellipticity Polarization Bases}\label{ch:pypol_trafos}
 
+\chapter{Details of the Trap Laser Setup}
+This appendix chapter gives some more detailed information about the optical elements used in the trap laser setup, as described in chapter~\ref{ch:light_preparation}, as well as important power ratios measured in the implemented setup for the light for two-dimensional magneto-optical trap.
+
+\section{Important Optical Elements}\label{ch:optical_components}
+In the optics setup for the magneto-optical traps, the following optical components are used for generating the trap laser light:
+
+\paragraph{Polarizing beam splitter cubes} Polarizing beam splitter (PBS) cubes spatially split a laser beam into its $\KetText{H}$- and $\KetText{V}$-polarized components. The $\KetText{H}$ component passes through the cube while the $\KetText{V}$ component is deflected. In the trap laser setup, polarizing beam splitter cubes are used for splitting a laser beam into portions of arbitrary power using a preceding half-wave plate for setting the incident polarization accordingly, and for overlapping two beams of different polarization into a common spatial mode.
+
+The polarizing beam splitter cubes used for building the laser setup were manufactured by CeNing Optics with a specified transmission extinction ratio error of $\frac{1}{1000}$ and a surface reflectivity of $<\SI{0.25}{\percent}$.
+    
+\paragraph*{Wave plates} Wave plates allow changing the polarization of a beam. They are made of birefringent crystals cut to the right length such that the there is a defined phase retardation between the fast and the slow axis of the crystal. Half-wave plates (HWP) generate a \SI{180}{\degree} phase difference, quarter-wave plates (QWP) generate a \SI{90}{\degree} phase difference between their axes. Depending on the angle between the axes of the crystal and the polarization components of the beam, half-wave plates can turn linear polarization into any other arbitrary linear polarization, whereas quarter-wave plates change the ellipticity of the polarization state and can hence generate circularly polarized light.
+
+Using a quarter- and a half-wave plate, linear polarization can be turned into any arbitrary polarization state. For turning an arbitrary polarization state into any other polarization state, an arrangement of quarter-, half-, and another quarter-wave plate is necessary as a single quarter-wave plate cannot arbitrarily change the ellipticity of incident elliptical light. An intuitive example of why only a quarter- and a half-wave plate are not sufficient for turning an arbitrary polarization state into any other polarization state is the transformation of circular light into elliptical light of any arbitrary ellipticity: A quarter-wave plate always transforms circularly polarized light into linearly polarized light, so at least one additional quarter-wave plate is necessary for creating arbitrary ellipticity.
+
+The wave plates used for building the laser setup were zero-order wave plates sold by Laser Components (part numbers:  WPZ-671-04-2-R05, WPZ-671-09-2-R10, WPZ-671-04-4-R05,  WPZ-671-09-4-R10) with a specified retardance threshold of $\frac{\lambda}{300}$ and reflectance of $<\SI{0.2}{\percent}$.
+    
+\paragraph{Acousto-optic modulators} Acousto-optic modulators (AOM) allow changing the optical frequency of a laser beam by multiples of the operating frequency $f_\text{AOM}$, typically in the order of \SI[]{e2}{\mega\hertz}. The beam is sent through a crystal in which the index of refraction $n$ is spatially modulated perpendicular to the beam direction by an acoustic wave of frequency $f_\text{AOM}$. The incident laser light is diffracted on this spatial modulation of the index of refraction, leading to multiple light beams after of the modulator at angles $\eta_m$ with $\sin \eta_m = m\frac{\lambda_\text{light}}{\lambda_\text{acoustic}}$ where $m \in \{..., -2, -1, 0, 1, 2, ...\}$ is the order of each refracted beam and $\lambda_\text{light}, \lambda_\text{acoustic}$ are the optical and acoustic wave lengths. The beam of order $m$ is frequency-shifted by $\Delta f = mf_\text{AOM}$~\cite{hunsperger_acousto-optic_2002}.
+
+In the trap laser setup, acousto-optic modulators are used for increasing or decreasing the frequency of a laser beam and as fast optical shutters by switching the diffraction on and off. Sending light forwards and backwards through an acousto-optic modulator using a mirror, a so-called double-pass, doubles the frequency shift of the light and avoids the angular diffraction, which cancels out for both passes through the modulator. While propagating through the double-pass, the light is polarization-turned from $\KetText{H}$ to $\KetText{V}$ using a quarter-wave plate that the laser beam traverses in forward and backward direction, such that incoming and outgoing light can be separated on a polarizing beam splitter. Typical coupling efficiencies for the first order are \SIrange[]{80}{90}{\percent}.
+
+The acousto-optic modulators used in the laser setup were produced by Gooch \& Housego (part numbers: 3080-120, frequency range: \SI{80(10)}{\mega\hertz}, active aperture of \SI{1}{\milli\meter} and 3110-120, frequency range: \SI{110(12)}{\mega\hertz}, active aperture of \SI{0.6}{\milli\meter}).
+
+\paragraph{Telescope} A telescope reduces the diameter of a collimated laser beam. It consists of two lenses, the first being convex ($f > 0$) focusing down the laser beam, the second being concave ($f < 0$) re-collimating the beam.
+    
+\paragraph{Fiber Incouplers} An incoupler arrangement feeds a free-space laser beam into an optical fiber. The beam is focused down onto the tip of the fiber using an aspheric lens with an appropriate focal length such that the waist of the focused beam matches with the fiber size. Typical coupling efficiens range between \SIrange[]{80}{90}{\percent}.
+    
+\paragraph{Mirrors}
+In the trap laser setup, mirrors with a broadband anti-reflection coating for incidence angles from \SIrange[]{0}{45}{\degree} from the vendors Thorlabs (part numbers: BB1-E02-10 and BB1-E02-05 with a specified reflectivity of \SIrange[]{99}{100}{\percent} (depending on polarization) at \SI[]{45}{\degree} and \SI[]{99}{\percent} at \SI[]{8}{\degree} at \SI[]{671}{\nano\meter}) and Laser Components (part numbers: 3051012 and 3051014 with a specficied transmittivity of \SI[]{0.04}{\percent} at \SI[]{45}{\degree} and \SI[]{0.03}{\percent} at \SI[]{0}{\degree} at \SI[]{671}{\nano\meter}, back-polished) were used. For the Laser Components mirrors, it was experimentally verified that arbitrary incident polarization states were transformed in the same way by different mirrors from the same batch at \SI[]{45}{\degree} incidence angle.
+
+\section{Power Dissipations, Recombinations, and Splittings}\label{ch:power_losses}
+For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab:power_loss_table} lists the measured remaining power levels after each dissipating element. Table~\ref{tab:power_recombination} compares the cooler and repumper power on the recombination cube, and table~\ref{tab:power_splitting} gives the measured splitting ratios into the two optical fibers.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lllc}
+        \toprule
+        \multicolumn{2}{l}{\textbf{element}} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{power after element} \\
+        \toprule
+        isolator & & b & \SI{97}{\percent} \\
+        \midrule
+        telescope & & g & \SI{99}{\percent} \\
+        \midrule
+        \multirow{3}{*}{switching AOM} & all orders & h & \SI{100}{\percent} \\ 
+        & first order & h - o & \SI{83}{\percent} \\
+        \midrule
+        \multirow{2}{*}{cooler AOM} & all orders & q & \SI{97}{\percent} \\
+        & first order  & q - r & \SI{76}{\percent} \\
+        \midrule
+        \multirow{2}{*}{repumper AOM} & all orders & p & \SI{99}{\percent} \\
+        & first order  & p - r & \SI{81}{\percent} \\
+        \midrule
+        \multirow{3}{*}{fiber A} & cooler \& repumper & s - t & \SI{84}{\percent} \\
+        & cooler & q - t & \SI{78}{\percent} \\
+        & repumper & p - t & \SI{81}{\percent} \\
+        \midrule
+        \multirow{3}{*}{fiber B} & cooler \& repumper & s - u & \SI{74}{\percent} \\
+        & cooler & q - u & \SI{71}{\percent} \\
+        & repumper & p - u & \SI{77}{\percent} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Measured remaining powers after dissipating elements on the optics board for the two-dimensional magneto-optical trap}
+    \label{tab:power_loss_table}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llc}
+        \toprule
+        \textbf{beam} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{percentage} \\
+        \toprule
+        cooler & q - r & \SI{51}{\percent} \\
+        repumper & p - r & \SI{47}{\percent} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Measured power ratios of the recombined cooler and repumper beams on the polarizing beam splitter cube r on the optics board for the two-dimensional magneto-optical trap}
+    \label{tab:power_recombination}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lllc}
+        \toprule
+        \textbf{beam} & \textbf{branch} & \textbf{markers} (fig.~\ref{fig:2d_mot_setup_photo}) & \textbf{ratio} \\
+        \toprule
+        \multirow{2}{*}{cooler \& repumper} & A & s - t & \SI{50}{\percent} \\
+        & B & s - u & \SI{51}{\percent} \\
+        \midrule
+        \multirow{2}{*}{cooler} & A & q - t & \SI{49}{\percent} \\
+        & B & q - u & \SI{53}{\percent} \\
+        \midrule
+        \multirow{2}{*}{repumper} & A & p - t & \SI{51}{\percent} \\
+        & B & p - u & \SI{49}{\percent} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Measured power splitting ratios into branches A and B on the polarizing beam splitter cube s on the optics board for the two-dimensional magneto-optical trap}
+    \label{tab:power_splitting}
+\end{table}
+
+
+
+\chapter{The Jones and Azimuth-Ellipticity Polarization Bases}\label{ch:pypol_trafos}
 Polarization is commonly represented in the Jones basis, the Mueller basis, or in the azimuth-ellipticity basis of a Poincaré sphere. For reference, transformations between the Jones and the azimuth-ellipticity basis are outlined here, as they were used for polarization characterizations in chapter~\ref{ch:projected_implementation}. This appendix chapter follows~\cite{trager_springer_2012}, but with a different definition of right- and left-handedness.
 
 \section*{Transformations}
