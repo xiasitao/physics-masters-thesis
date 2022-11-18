@@ -155,9 +155,7 @@ with notation in the $\KetSpaced{J, F}$ basis.
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/cooler_repumper_in_alkali/cooler_repumper_in_alkali.pdf}
-    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler and repumper transitions, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude.
-    \todo[inline]{add detunings}
-    }
+    \caption{Schematic of the cooling and repumping scheme in an alkali atom, here exemplarily for fermionic $^6$Li atoms ($I = 1, J_\text{g} = \frac{1}{2}$): The cooling cycle is $\Ket{\frac{1}{2}, \frac{3}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{5}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. Atoms are lost if, during cooling, they end up in the $\Ket{\frac{3}{2}, \frac{3}{2}}$ state and decay down into the $\Ket{\frac{1}{2}, \frac{1}{2}}$ state. The repumper then leads them back into the cooling cycle via $\Ket{\frac{1}{2}, \frac{1}{2}} \rightarrow \Ket{\frac{3}{2}, \frac{3}{2}} \rightsquigarrow \Ket{\frac{1}{2}, \frac{3}{2}}$. As in $^6$Li the $^2\text{P}_{3/2}$ manifold is not resolved for the cooler and repumper transitions, the loss decay happens very often, and the rates of cooling and repumping are on the same order of magnitude. The detuning of the cooler and the repumper have been neglected in this schematic.}
     \label{fig:cooler_repumper_in_alkali}
 \end{figure}
 
@@ -239,11 +237,11 @@ Typical parameter ranges for three-dimensional traps with lithium from other exp
     \item beam diameter: \SIrange{5}{15}{\milli\meter}
     \item detuning: mostly around $-5\Gamma$, also up to $-8 \Gamma$ (\cite{li_enhanced_2015}), with the repumper often being less detuned than the cooler
     \item magnetic gradients: \SIrange{10}{50}{\gauss\per\centi\meter}
+    \item capture velocity: about \SIrange[]{30}{100}{\meter\per\second} 
     \item achieved temperature: on the order of \SIrange{1e-3}{3e-4}{\kelvin}
-    \item atom number in the trap: about \SIrange{e7}{e8}{}
+    \item loading rate: about $\SI[]{e7}{} \frac{\text{atoms}}{\si[]{\second}}$
+    \item atom number in the trap: about \SIrange{e7}{e10}{}
 \end{itemize}
-
-\todo{Hint to typical ranges of capture velocities and radii, according to these typical parameters}
 
 Lower temperatures than in magneto-optical traps operating on the D$_2$ line have been reached by using a UV transition~\cite{duarte_all-optical_2011,omran_microscopic_2015} which, however, requires expensive laser sources and optical components~\cite{burchianti_efficient_2014}. More efficient loading rates have been achieved by adding frequency sidebands onto the cooling light in order to address more velocity classes~\cite{li_enhanced_2015}.
 
@@ -311,7 +309,7 @@ The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is produced 
 The main advantage of using the Raman fiber amplifiers is that they produce enough optical power to simultaneously supply all three aforementioned traps with light. An alternative would be separate laser sources for every beam, each of which would need to be frequency-locked and monitored independently. During the writing of the thesis, the Raman fiber amplifiers showed signs of substantial degradation as their output power decreased by over \SI{30}{\percent} in only a few weeks of intermittent operation. The details and the severity of this degradation are presented in~\cite{qesja_design_2022}. As the experimenters of FermiQP as well as the manufacturer of the amplifier could not come up with a quick and reliable solution to this problem that could be verified during the writing of this thesis, it stays uncertain whether the Raman fiber amplifiers can be used long-term for the laser cooling within the FermiQP demonstrator. An alternative approach would be amplification of the seed light using tapered amplifier chips.
 
 \subsection*{Outline of the Laser Setup}
-The necessary output beams for the traps and the gray molasses are created from the two input beams on the D$_2$ and the D$_1$ frequency as schematized in figure~\ref{fig:laser_setup_schematic}.\todo{Shortly describe what these beams need to have: cooler and repumper, 2D MOT steady, 3D MOT + gray molasses power- and frequency-tunable}
+The output beams, all consisting of cooler and repumper light, with variable frequencies and powers for the 3-dimensional trap and the gray molasses allowing fast sweeping, are created from the two input beams on the D$_2$ and the D$_1$ frequency as schematized in figure~\ref{fig:laser_setup_schematic}.
 
 The most important optical components used in the laser setup as well as their technical specifications are reviewed in the appendix chapter~\ref{ch:optical_components}. Most notably, acousto-optic modulators are used for frequency-shifting the light on the order of \SI{e2}{\mega\hertz}. Taking advantage of the fact that the frequency-shift in these modulators is accompanied by a beam deflection by a frequency-dependent angle, they are also employed in combination with mechanical shutters for switching beams on and off programmatically. Wherever this deflection is not desirable, however, it can be circumvented by sending the beam through the modulator twice using a mirror such that the deflections cancel out, which is called a double-pass arrangement.
 
@@ -340,63 +338,59 @@ After that the light is split in a power ratio of approximately $1$:$1$ into coo
 
 The combined beam of D$_2$ and D$_1$ light is then also split into two paths for cooler and repumper in a ratio of approximately $1$:$1$ (G). Here, however, the light is fed through acousto-optic modulator double-passes as described in~\cite{qesja_design_2022}. As the net deflection is zero in double-passes, it allows a programmatic change of the frequency shift applied to each beam without the need to realign the beam path. Together with the ability to damp the laser power by reducing the modulators' radio-frequency driving power, frequency and power of each beam can be independently steered for compressing the three-dimensional magneto-optical trap and for switching powers when applying the gray molasses. The cooler beam is frequency-shifted by about \SI{+162}{\mega\hertz}, the repumper by about \SI{+390}{\mega\hertz}, with the double-passes allowing for an adjustment range of several tens of \si{\mega\hertz}. The total frequency shift considering the initial offset, the blockade modulators and modulator amounts to $\SI{-78}{\mega\hertz} - \SI{198}{\mega\hertz} + \SI{390}{\mega\hertz} = \SI{+114}{\mega\hertz}$ in the cooler path and $\SI{-78}{\mega\hertz} - \SI{198}{\mega\hertz} + \SI{162}{\mega\hertz} = \SI{-114}{\mega\hertz}$ in the repumper path, which is again the hyperfine splitting of the ground state manifold. The light is then recombined (H) and split into three output beams (I) sent to the experiment chamber via optical fibers.
 
-\subsection*{Implementation of the Laser Setup for the two-dimensional Magneto-optical Trap}\todo{Shorten dramatically!}
+\subsection*{Implementation of the Laser Setup for the two-dimensional Magneto-optical Trap}
 Within this thesis, the part of the laser setup providing the light for the two-dimensional magneto-optical trap, as highlighted in figure~\ref{fig:laser_setup_schematic}, was built.
 Figure~\ref{fig:2d_mot_setup_photo} shows a photograph of the implementation of this part of the setup. The light is prepared on the optics board in the following steps (letters reference markers in figure~\ref{fig:2d_mot_setup_photo}):
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{\imagepath/2d_mot_setup_photo/2d_mot_setup_photo.pdf}
-    \caption{Photograph of the part of the optics setup providing light for the two-dimensional magneto-optical trap. The beam path and reference points have been added for orientation.
-    \todo[inline]{Add important couplings to the setup: AOMs and total fiber couplings}
-    }
+    \caption{Photograph of the part of the optics setup providing light for the two-dimensional magneto-optical trap. The beam path and reference points have been added for orientation.\\Coupling efficiencies: h: \SI[]{83}{\percent}, p: \SI[]{81}{\percent}, q: \SI[]{76}{\percent}, t: \SI[]{84}{\percent}, u: \SI[]{74}{\percent}.}
     \label{fig:2d_mot_setup_photo}
 \end{figure}
 
 \begin{itemize}
-    \item[a] The D$_2$ light is coming from the doubling stage of the Raman fiber amplifier ``Plato'' where the amplified \SI{1342}{\nano\meter} light is frequency-doubled to \SI{671}{\nano\meter} light. At this point, the laser beam has a $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}.
+    \item[a] Doubling stage of the Raman fiber amplifier, beam $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}
 
-    \item[b] In order to prevent any inadvertent reflections travelling back into the amplifier, a Newport optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and over \SI{95}{\percent} transmission could be attested in agreement with the specifications.
+    \item[b] Optical isolator for preventing reflections into the amplifier (see~\ref{ch:optical_components} for specifications)
 
-    \item[c] After the optical isolator, a quarter-wave plate is used to eliminate any elliptical polarization components from the beam caused by hitting mirrors with light that has polarization other than $\KetText{H}$ and $\KetText{V}$.
+    \item[c] Elimination of any elliptical polarization components using a quarter-wave plate
 
-    \item[d] The D$_2$ light is split into the paths for the 2D and the 3D magneto-optical traps with a half-wave plate and a polarizing beam splitter. The splitting ratio between the beams was not yet fixed during the course of this thesis.
+    \item[d] Splitting of the D$_2$ light into the 2D and the 3D magneto-optical trap paths (splitting ratio between the beams was not yet fixed)
 
-    \item[e, f] The light transmitted on the aforementioned beam splitter is again split and coupled into optical fibers leading to the offset lock (f) and to the other optics board hosting the rest of the setup (e, for details about the implementation see~\cite{qesja_design_2022}). The light reflected off on the beam splitter (d) is used for the push beam and the two-dimensional magneto-optical trap.
-
-    \item[g] As the acousto-optic modulators used in the setup require smaller beam diameters than the \SI{1000}{\micro\meter} beam supplied by the Raman fiber amplifier, a telescope for decreasing the beam diameter was placed after the aforementioned beam splitter cube. The telescope consists of a convex lens ($f = \SI{75}{\milli\meter}$) focusing the beam and a concave lens ($f = \SI{-50}{\milli\meter}$) re-collimating it after about \SI{30}{\milli\meter}. This reduces the beam diameter to about \SI{650}{\micro\meter} immediately after the second lens, the beam waist is now about $2w_0 = \SI{600}{\micro\meter}$ located about \SI{175}{\milli\meter} away from the telescope. Lowering the beam diameter is a trade-off between a slimmer beam waist $w_0$ making the beam fit better into the acousto-optic modulators' apertures and a larger beam divergence $\frac{\lambda}{\pi w_0}$ that would lead to even larger beam diameters after some propagation distance. The scaled-down beam reaches a diameter of about \SI{700}{\micro\meter} after about \SI{475}{\milli\meter} after the telescope. In order to scale it down for the rest of the beam path on the board, an additional convex lens ($f = \SI{500}{\milli\meter}$) was placed there in the beam path (k). In this way, the beam diameter is kept under \SI{700}{\micro\meter} on the remaining beam path where the cooler and repumper acousto-optic modulators sit (p and q).  These parameters were estimated based on a simulation in the software \textit{GaussianBeam}~\cite{noauthor_gaussianbeam_nodate}, shown in figure~\ref{fig:beam_diameter_evolution}.
-
+    \item[e, f] Coupling into optical fibers leading to offset lock (f) and to the remaining of the setup for the three-dimensional magneto-optical trap (e, for details about the implementation see~\cite{qesja_design_2022})
+    
+    \item[g] Telescope (focal lengths of \SI[]{+75}{\milli\meter} and \SI[]{-50}{\milli\meter}) for slimming down the beam to fit through the active apertures of the shutter acousto-optic modulator (h, aperture \SI[]{1000}{\micro\meter}) and the cooler and repumper acousto-optic modulators (p/q, aperture \SI[]{600}{\micro\meter}). Lowering the beam diameter is a trade-off between a slimmer beam waist $w_0$ and a larger beam divergence $\frac{\lambda}{\pi w_0}$ leading to even larger beam diameters after some propagation distance. To combat the increased divergence after the telescope, another focusing lens was installed at k. The evolution of the beam diameter is shown in figure~\ref{fig:beam_diameter_evolution}.
+    
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/beam_diameter_evolution/beam_diameter_evolution.pdf}
-    \caption{Evolution of the beam shape along the beam path: The telescope (g) shrinks the beam from a diameter of \SI[]{1000}{\micro\meter} to about \SI[]{600}{\micro\meter} at the first acousto-optic modulator (h, \SI[]{125}{\milli\meter} from the telescope). On the lens (k, about \SI{475}{\milli\meter} from the telescope), the beam is focused again such that at the cooler and repumper acousto-optic modulators (p and q, about \SI[]{730}{\milli\meter} from the telescope), the beam has a diameter of about \SI[]{660}{\micro\meter}.}
+    \caption{Evolution of the beam shape along the beam path: The telescope (g) shrinks the beam from a diameter of \SI[]{1000}{\micro\meter} to about \SI[]{600}{\micro\meter} at the first acousto-optic modulator (h, \SI[]{125}{\milli\meter} from the telescope). On the lens (k, about \SI{475}{\milli\meter} from the telescope), the beam is focused again such that at the cooler and repumper acousto-optic modulators (p and q, about \SI[]{730}{\milli\meter} from the telescope), the beam has a diameter of about \SI[]{660}{\micro\meter}. The evolution is the beam diameters used for this graph was simulated using the software \textit{GaussianBeam}~\cite{noauthor_gaussianbeam_nodate}.}
     \label{fig:beam_diameter_evolution}
 \end{figure}
 
-    \item[h] The slimmed-down light is then coupled through the first acousto-optic modulator operated at \SI{+78}{\mega\hertz}. The zeroth order of the outgoing beam is blocked at i. The first-order power efficiency of this acousto-optic modulator single pass is \SI{83}{\percent} (see also table~\ref{tab:power_loss_table}). Thanks to the telescope, the beam diameter at this point is significantly smaller than the specified aperture.
+    \item[h] Acousto-optic modulator (shifting by \SI{+78}{\mega\hertz}, first-order power efficiency of \SI{83}{\percent}) for programmatically switching the beam on and off
     
-    \item[i] A half-wave plate sets the splitting ratio between light for the push beam (m) and light for the two-dimensional magneto-optical trap.
+    \item[i] Beam dump for the unwanted orders of the modulator at h and half-wave plate setting the power of the push beam (m)
     
-    \item[j] At this position the shutter will be placed in order to be able to completely bar any light from entering the magneto-optical trap.
+    \item[j] Free space for the mechanical shutter for barring any light from entering the magneto-optical trap
     
-    \item[k] Here the light is refocused using an $f = \SI{500}{\milli\meter}$ lens as described in point g. This sizes down the beam diameter such that it doesn't exceed the aperture of the acousto-optic modulators for creating the cooler and repumper beams (p, q).
+    \item[k] Refocusing lens (focal length of \SI{500}{\milli\meter}) for slimming the beam down in order to fit through the cooler and repumper acousto-optic modulators' (p, q) apertures
     
-    \item[l] The light is split into a few \si{\milli\watt} for the push beam (m) and the rest for the two-dimensional magneto-optical trap.
+    \item[l] Splitting off a few \si{\milli\watt} for the push beam (m)
 
-    \item[m] Here the push beam light will be prepared using a single pass acousto-optic modulator driven at \SI{+114}{\mega\hertz} which serves as a frequency shifter and as a shutter.
+    \item[m] Projected preparation  of the push beam light with a single pass acousto-optic modulator (\SI{+114}{\mega\hertz}) serving as a frequency shifter and a shutter
     
-    \item[n] At this point, space is left free for an electro-optical modulator that would add sidebands onto the light allowing for addressing more velocity classes in the trap and thus potentially increasing its loading rate.
+    \item[n] Free space for an electro-optical modulator adding sidebands for addressing more velocity classes in the trap and thus potentially increasing its loading rate
     
-    \item[o] With a half-wave plate and a polarizing beam splitter, the light is split into cooler (q) and repumper (p) paths. The polarizations of the beams are $\KetText{V}$ of the cooler and $\KetText{H}$ of the repumper beam.
+    \item[o, p, q] Splitting into cooler (q, horizontally polarized) and repumper (p, vertically polarized) paths, each containing an acousto-optic modulator operated at \SI{-114}{\mega\hertz} and \SI{+114}{\mega\hertz} with coupling efficiencies of \SI{76}{\percent} and \SI{81}{\percent} respectively
     
-    \item[p, q] The cooler (q) and repumper (p) paths each contain an acousto-optic modulator operated at \SI{-114}{\mega\hertz} and \SI{+114}{\mega\hertz} respectively. Thanks to the refocusing lens (k), the beam diameter approximately matches the modulators' apertures. The coupling efficiency is \SI{76}{\percent} for the cooler and \SI{81}{\percent} for the repumper (see also table~\ref{tab:power_loss_table}).
+    \item[r, s] Spatially overlapping cooler and repumper again and spliting into two paths on two polarizing beam splitters and a half-wave plate: Due to their respective polarizations, the cooler is reflected on the first cube (r) while the repumper is transmitted such that both leave the cube on the same port. A half-wave plate then turns their respective polarizations to diagonal $\KetText{D}$ and anti-diagonal $\KetText{A}$ such that the second polarizing beam splitter (s) splits both cooler and repumper into two approximately equal beams.
     
-    \item[r, s] The cooler and repumper beam are spatially overlapped and split into two paths on a combination of two polarizing beam splitter cubes and a half-wave plate. Due to their polarizations, the cooler is reflected on the first cube (r) while the repumper passes through it, both leaving the cube on the same port. A half-wave plate then turns their respective polarizations to diagonal $\KetText{D}$ and anti-diagonal $\KetText{A}$. A subsequent polarizing beam splitter cube (s) splits both cooler and repumper into two equally strong, spatially overlapped beams.
-    
-    \item[t, u] The two resulting beams, both containing cooler and repumper frequencies, are coupled into fibers guiding the light to the experiment chamber. In each beam, a pair of a quarter- and half-wave plate allow for arbitrary corrections of the polarization if necessary. The coupling efficiencies after the assembly of the optics board are \SI{84}{\percent} for fiber A (t) and \SI{74}{\percent} for fiber B (u) for both cooler and repumper (see also table~\ref{tab:power_loss_table}). When the magneto-optical traps are implemented and the frequencies of the cooler and repumper beams are optimized, the light needs to be coupled into the two fibers from anew as the deflection angles on the respective acousto-optic modulators will also change.
+    \item[t, u] Splitting into the two beams for the three-dimensional magneto-optical trap (both containing cooler and repumper light), coupled into fibers leading to the experiment chamber with coupling efficiencies of \SI{84}{\percent} at t and \SI{74}{\percent} at u\footnote{When the magneto-optical traps are implemented and the frequencies of the cooler and repumper beams are optimized, the light needs to be coupled into the two fibers from anew as the deflection angles on the respective acousto-optic modulators will also change.}
 \end{itemize}
 
-Refer to the appendix chapter~\ref{ch:power_losses} for a more detailed listing of the  measured remaining power levels after each dissipating element, the measured cooler and repumper recombination ratios (r), and the measured splitting ratios at the before the optical fibers (s).
+Refer to the appendix chapter~\ref{ch:power_losses} for a more detailed listing of the  measured remaining power levels after each dissipating element, the measured cooler and repumper recombination ratios (at r), and the measured splitting ratios at the before the optical fibers (at s).
 
 
 \section{Projected Implementation}\label{ch:projected_implementation}
@@ -707,11 +701,6 @@ For a trap length of \SI[]{14}{\milli\meter} and saturation $s_0 \gg 1$, so assu
 
 Note that this value is the maximum ideal value for atoms entering the trap exactly along the \SI{14}{\milli\meter}-long center line through the trapping light field. Atoms that are off this line will see a shorter trap radius and thus be constrained by a lesser capture velocity, let alone the diminished light intensity there.
 
-The resonance velocity~\eqref{eq:resonance_velocity} tells which maximum velocity atoms can still have to be on resonance when entering the trap given a certain magnetic gradient and laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Atoms faster than that would require even further detuned light to be on resonance. The resonance velocity is mapped in figure~\ref{fig:resonance_velocity_map} outlining how  gradient and detuning can be traded for each other at fixed resonance velocities. E.g., for $\delta_\text{laser} = -5\Gamma$, a gradient of \SI[]{57}{\gauss\per\centi\meter} would be required to reach $v_\text{max, resonance} \approx v_\text{max, capture}$.
-
-\todo{Add closing statement: cite atom numbers and loading rates from 1-2 papers, and conclude with something about experimentally testing and verifying}
-
-
 \begin{figure}
     \centering
     \begin{pgfpicture}
@@ -721,5 +710,7 @@ The resonance velocity~\eqref{eq:resonance_velocity} tells which maximum velocit
     \label{fig:resonance_velocity_map}
 \end{figure}
 
-\todo[color=green]{Ch 3 proofreading run 1 until here}
-\todo[color=green]{Ch 3 proofreading run 2 until here}
+The resonance velocity~\eqref{eq:resonance_velocity} tells which maximum velocity atoms can still have to be on resonance when entering the trap given a certain magnetic gradient and laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Atoms faster than that would require even further detuned light to be on resonance. The resonance velocity is mapped in figure~\ref{fig:resonance_velocity_map} outlining how  gradient and detuning can be traded for each other at fixed resonance velocities. E.g., for $\delta_\text{laser} = -5\Gamma$, a gradient of \SI[]{57}{\gauss\per\centi\meter} would be required to reach $v_\text{max, resonance} \approx v_\text{max, capture}$.
+
+\paragraph{Loading Rate and Atom Number}
+One can expect a loading rate of about $\SI[]{e7}{} \frac{\text{atoms}}{\si[]{\second}}$ and a number of about \SIrange{e8}{e9}{} atoms trappable in the trap, orienting on observations in other recent experiments~\cite{chen_lithium-cesium_2021, kerkmann_novel_2019}. The actual values of the fastest loading rate and the maximum atom number will need to be experimentally determined. Apart from the parameters of the three-dimensional magneto-optical trap, they will also depend on the parameters of the two-dimensional magneto-optical trap, the push beam intensity and detuning, as well as the oven temperature. So when the setup is completed, a quest for an optimum in a high-dimensional parameter space expects the experimenters of FermiQP.
