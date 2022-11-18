@@ -260,7 +260,7 @@ COIL_PROPERTIES = {
  'radius': 83e-3,  # m
  'wire_spacing': 5.3e-3,  # m
  'on_axis_coil_distance': 85.5e-3,  # m
- 'non_conducting_cross_section_area': (1.5e-3)**2*np.pi + 4 * (5e-3 * 0.15e-3)  # m^2
+ 'non_conducting_cross_section_area': (1.5e-3)**2*np.pi + 4*(5e-3*0.15e-3)  # m^2
 }
 arrangement = csl.ConeShapedCoilArrangement(**COIL_PROPERTIES)
 \end{lstlisting}
@@ -282,7 +282,7 @@ field_map_xy.plot_slices()  # field along axes
 \subsection*{Field Strength, Gradient, and Curvature}
 \begin{lstlisting}[language=Python]
 arrangement.field_at_center() * 1e4  # field at the center in G
-curvature_analyzer = csl.CurvatureAnalyzer().from_arrangement(arrangement=arrangement, steps=100)
+curvature_analyzer = csl.CurvatureAnalyzer().from_arrangement(arrangement)
 curvature_analyzer.get_trap_frequency_on_axis("x")  # trap frequency along x in Hz
 curvature_analyzer.get_gradient_on_axis("x")*1e2  # gradient along x in G/cm
 \end{lstlisting}
@@ -310,12 +310,19 @@ Conceptually, the implementation should iterate over all on-axis and cross-axis 
 collection = mpl.Collection()
 current_factor = 1 if coil_index == 0 else -1  # opposite polarity on both sides
 for row in range(self.windings_axis):
-        on_axis_offset = (row - self.windings_axis/2 + 0.5) * winding_spacing
-        for column in range(self.windings_cross_axis):
-            radial_offset = np.tan(self.cone_angle)*on_axis_offset + (column - self.windings_cross_axis/2 + 0.5) * winding_spacing
-            current = self.get_current(coil_index=coil_index, row=row, column=column)*current_factor
-            loop = mpl.current.Loop(current=current, diameter=2*radius+2*radial_offset, position=(0, 0, on_axis_offset)
-            collection.add(loop)
+    on_axis_offset = (row - self.windings_axis/2 + 0.5) * winding_spacing
+    for column in range(self.windings_cross_axis):
+        radial_offset = (
+            np.tan(self.cone_angle)*on_axis_offset
+            + (column-self.windings_cross_axis/2+0.5) * winding_spacing
+        )
+        current = self.get_current(coil_index=coil_index, row=row, column=column)*current_factor
+        loop = mpl.current.Loop(
+            current=current,
+            diameter=2*radius+2*radial_offset,
+            position=(0, 0, on_axis_offset)
+        )
+        collection.add(loop)
 return collection
 \end{lstlisting}
 The \texttt{current\_factor} ensures that the fields actually have same polarity in homogeneous field mode. The \texttt{self.gradient} property doesn't need to be considered here. The call to \texttt{self.get\_current} retrieves the current, which can be set independently each coil and each winding.

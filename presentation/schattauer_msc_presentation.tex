@@ -79,6 +79,7 @@
 \begin{frame}
     \frametitle{Back to the MOT}
     How to get spatial confinement?
+    \pause
     \begin{itemize}
         \item position-dependent detuning of $m \rightarrow m \pm 1$ transition via Zeeman shift:
         \begin{align*}
@@ -124,11 +125,13 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Capture velocity}
+    \frametitle{Capture velocity and Loading Rate}
     Kinetic energy $\frac{1}{2}mv^2$ dissipated by force $\frac{\Gamma}{2} \hbar k$ along trajectory $2 r_\text{trap}$ in the MOT:
     \begin{align*}\label{eq:capture_velocity_high}
         v_\text{capture, max}^\text{high} = \sqrt{\frac{\hbar k \Gamma \cdot 2 r_\text{trap}}{m}} = \SI[]{90}{\meter\per\second}
     \end{align*}
+
+    Typical loading rates: \SIrange[]{e7}{e8}{} $\frac{\text{atoms}}{\si[]{\second}}$
 \end{frame}
 
 \begin{frame}
@@ -148,6 +151,7 @@
                 \includegraphics[scale=0.5]{\imagepath/first_pass_polarization_measurement_scheme/first_pass_polarization_measurement_scheme.pdf}
             \end{figure}
         \end{column}
+        \pause
         \begin{column}[]{0.55\textwidth}
             \centering
             Second pass:
@@ -459,19 +463,25 @@ field_map_xy.plot_slices()  # field along axes
     \end{columns}
     
     \pause
-    \vspace{0.5cm}
     \begin{lstlisting}
 collection = mpl.Collection()
 current_factor = 1 if coil_index == 0 else -1  # opposite polarity on both sides
 for row in range(self.windings_axis):
-        on_axis_offset = (row - self.windings_axis/2 + 0.5) * winding_spacing
-        for column in range(self.windings_cross_axis):
-            radial_offset = np.tan(self.cone_angle)*on_axis_offset + (column - self.windings_cross_axis/2 + 0.5) * winding_spacing
-            current = self.get_current(coil_index=coil_index, row=row, column=column)*current_factor
-            loop = mpl.current.Loop(current=current, diameter=2*radius+2*radial_offset, position=(0, 0, on_axis_offset)
-            collection.add(loop)
+    on_axis_offset = (row - self.windings_axis/2 + 0.5) * winding_spacing
+    for column in range(self.windings_cross_axis):
+        radial_offset = (
+            np.tan(self.cone_angle) * on_axis_offset
+            + (column-self.windings_cross_axis/2+0.5) * winding_spacing
+        )
+        current = self.get_current(coil_index=coil_index, row=row, column=column) * current_factor
+        loop = mpl.current.Loop(
+            current=current,
+            diameter=2*radius+2*radial_offset,
+            position=(0, 0, on_axis_offset)
+        )
+        collection.add(loop)
 return collection
-        \end{lstlisting}
+    \end{lstlisting}
 \end{frame}
 
 
