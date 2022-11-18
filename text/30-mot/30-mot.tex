@@ -65,7 +65,7 @@ Figure~\ref{fig:scattering_rate} shows how the scattering rate and thus also the
     \caption{Atoms moving against the direction of laser propagation see the laser light blue-shifted, atoms moving in the other direction see it red-shifted. For negative laser detuning ($\delta_\text{laser} < 0$) the former sense the light as it appears to be close to resonance, the latter do not sense it because it is far detuned for them.}\label{fig:scattering_force_detuning}
 \end{figure}
 
-\paragraph*{Doppler limit} While the momentum gained by spontaneous emission of photons averages to zero, the square of momentum $\vec p_\text{after decay}^2$ gained from the spontaneous decays does not. This means that the atom is always left with a finite amount of kinetic energy from the recoil of emitted photons. The magnitude of this leftover energy is related to the decay rate $\Gamma$ and is called the Doppler limit of minimak achievable temperature $T_\text{D}$:
+\paragraph*{Doppler limit} While the momentum gained by spontaneous emission of photons averages to zero, the square of momentum $\vec p_\text{after decay}^2$ gained from the spontaneous decays does not. This means that the atom is always left with a finite amount of kinetic energy from the recoil of emitted photons. The magnitude of this leftover energy is related to the decay rate $\Gamma$ and is called the Doppler limit of the minimal achievable temperature $T_\text{D}$:
 \begin{align}
     k_\text{B} T_\text{D} = \frac{\hbar \Gamma}{2}
 \end{align}
@@ -309,13 +309,13 @@ The \SI{671}{\nano\meter} laser light for the D$_2$ and D$_1$ lines is produced 
 The main advantage of using the Raman fiber amplifiers is that they produce enough optical power to simultaneously supply all three aforementioned traps with light. An alternative would be separate laser sources for every beam, each of which would need to be frequency-locked and monitored independently. During the writing of the thesis, the Raman fiber amplifiers showed signs of substantial degradation as their output power decreased by over \SI{30}{\percent} in only a few weeks of intermittent operation. The details and the severity of this degradation are presented in~\cite{qesja_design_2022}. As the experimenters of FermiQP as well as the manufacturer of the amplifier could not come up with a quick and reliable solution to this problem that could be verified during the writing of this thesis, it stays uncertain whether the Raman fiber amplifiers can be used long-term for the laser cooling within the FermiQP demonstrator. An alternative approach would be amplification of the seed light using tapered amplifier chips.
 
 \subsection*{Outline of the Laser Setup}
-The output beams, all consisting of cooler and repumper light, with variable frequencies and powers for the 3-dimensional trap and the gray molasses allowing fast sweeping, are created from the two input beams on the D$_2$ and the D$_1$ frequency as schematized in figure~\ref{fig:laser_setup_schematic}.
+The output beams, all consisting of cooler and repumper light, with variable frequencies and powers for the 3-dimensional trap and the gray molasses, are created from the two input beams on the D$_2$ and the D$_1$ frequency as schematized in figure~\ref{fig:laser_setup_schematic}.
 
 The most important optical components used in the laser setup as well as their technical specifications are reviewed in the appendix chapter~\ref{ch:optical_components}. Most notably, acousto-optic modulators are used for frequency-shifting the light on the order of \SI{e2}{\mega\hertz}. Taking advantage of the fact that the frequency-shift in these modulators is accompanied by a beam deflection by a frequency-dependent angle, they are also employed in combination with mechanical shutters for switching beams on and off programmatically. Wherever this deflection is not desirable, however, it can be circumvented by sending the beam through the modulator twice using a mirror such that the deflections cancel out, which is called a double-pass arrangement.
 
 \begin{sidewaysfigure}
     \centering
-    \includegraphics[width=\textwidth]{\imagepath/laser_setup_schematic/laser_setup_schematic.pdf}
+    \includegraphics[width=.8\textwidth]{\imagepath/laser_setup_schematic/laser_setup_schematic.pdf}
     \caption{Schematic of the laser setup for preparing the cooling light for the magneto-optical traps and the gray molasses: D$_2$ light is split into two branches for the two-dimensional (to the right) and the three-dimensional magneto-optical (to the bottom) traps at the first PBS (A).\\
     For the light for the two-dimensional trap, a small amount of power is taken out for the push beam (B) before it is split into cooler and repumper light (C) and frequency-shifted by \SI[]{+-114}{\mega\hertz} on acousto-optic modulators. It is then recombined (D) and split into two outputs (E). It is considered to add an electro-optical modulator (EOM) for improving the cooling effect of the light. This part of the laser setup was constructed within the scope of this thesis (gray box).\\
     The light for the three-dimensional trap and the D$_1$ light for the gray molasses are spatially overlapped (F), split into cooler and repumper (G) and frequency-shifted by  \SI[]{+162}{\mega\hertz} and \SI[]{+390}{\mega\hertz} respectively on acousto-optic modulator double passes, recombined (H), and then split into three outputs (I).\\
@@ -350,7 +350,7 @@ Figure~\ref{fig:2d_mot_setup_photo} shows a photograph of the implementation of 
 \end{figure}
 
 \begin{itemize}
-    \item[a] Doubling stage of the Raman fiber amplifier, beam $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}
+    \item[a] Doubling stage of the Raman fiber amplifier, outputting the D$_2$ beam with a $\frac{1}{\text{e}^2}$ diameter of about \SI{1000}{\micro\meter}
 
     \item[b] Optical isolator for preventing reflections into the amplifier (see~\ref{ch:optical_components} for specifications)
 
@@ -373,21 +373,21 @@ Figure~\ref{fig:2d_mot_setup_photo} shows a photograph of the implementation of 
     
     \item[i] Beam dump for the unwanted orders of the modulator at h and half-wave plate setting the power of the push beam (m)
     
-    \item[j] Free space for the mechanical shutter for barring any light from entering the magneto-optical trap
+    \item[j] Free space for the mechanical shutter for barring any light from entering the magneto-optical trap when desired
     
     \item[k] Refocusing lens (focal length of \SI{500}{\milli\meter}) for slimming the beam down in order to fit through the cooler and repumper acousto-optic modulators' (p, q) apertures
     
-    \item[l] Splitting off a few \si{\milli\watt} for the push beam (m)
+    \item[l] Splitting off a few \si{\milli\watt} for the push beam
 
     \item[m] Projected preparation  of the push beam light with a single pass acousto-optic modulator (\SI{+114}{\mega\hertz}) serving as a frequency shifter and a shutter
     
     \item[n] Free space for an electro-optical modulator adding sidebands for addressing more velocity classes in the trap and thus potentially increasing its loading rate
     
-    \item[o, p, q] Splitting into cooler (q, horizontally polarized) and repumper (p, vertically polarized) paths, each containing an acousto-optic modulator operated at \SI{-114}{\mega\hertz} and \SI{+114}{\mega\hertz} with coupling efficiencies of \SI{76}{\percent} and \SI{81}{\percent} respectively
+    \item[o, p, q] Splitting into cooler (q, vertically polarized) and repumper (p, horizontally polarized) paths, each containing an acousto-optic modulator operated at \SI{-114}{\mega\hertz}/\SI{+114}{\mega\hertz} with coupling efficiencies of \SI{76}{\percent}/\SI{81}{\percent} respectively
     
-    \item[r, s] Spatially overlapping cooler and repumper again and spliting into two paths on two polarizing beam splitters and a half-wave plate: Due to their respective polarizations, the cooler is reflected on the first cube (r) while the repumper is transmitted such that both leave the cube on the same port. A half-wave plate then turns their respective polarizations to diagonal $\KetText{D}$ and anti-diagonal $\KetText{A}$ such that the second polarizing beam splitter (s) splits both cooler and repumper into two approximately equal beams.
+    \item[r, s] Spatially overlapping cooler and repumper again and spliting into two paths with two polarizing beam splitters and a half-wave plate: Due to their respective polarizations, the cooler is reflected on the first cube (r) while the repumper is transmitted such that both leave the cube on the same port. A half-wave plate then turns their respective polarizations to diagonal $\KetText{D}$ and anti-diagonal $\KetText{A}$ such that the second polarizing beam splitter (s) splits both cooler and repumper into two approximately equal beams.
     
-    \item[t, u] Splitting into the two beams for the three-dimensional magneto-optical trap (both containing cooler and repumper light), coupled into fibers leading to the experiment chamber with coupling efficiencies of \SI{84}{\percent} at t and \SI{74}{\percent} at u\footnote{When the magneto-optical traps are implemented and the frequencies of the cooler and repumper beams are optimized, the light needs to be coupled into the two fibers from anew as the deflection angles on the respective acousto-optic modulators will also change.}
+    \item[t, u] Splitting into the two beams for the three-dimensional magneto-optical trap (both containing cooler and repumper light) and coupling into fibers leading to the experiment chamber with coupling efficiencies of \SI{84}{\percent} at t and \SI{74}{\percent} at u\footnote{When the magneto-optical traps are implemented and the frequencies of the cooler and repumper beams are optimized, the light needs to be coupled into the two fibers from anew as the deflection angles on the respective acousto-optic modulators will also change.}
 \end{itemize}
 
 Refer to the appendix chapter~\ref{ch:power_losses} for a more detailed listing of the  measured remaining power levels after each dissipating element, the measured cooler and repumper recombination ratios (at r), and the measured splitting ratios at the before the optical fibers (at s).
@@ -684,7 +684,7 @@ If the reflection losses on the glass cell surface are compensated for by focusi
 
 In addition to that, the atoms recaptured from the atomic beam are subject to a maximum trapping radius depending on their velocity $v$ due to the resonance condition~\eqref{eq:resonance_radius}.
 
-\paragraph{Intensity Estimation}
+\paragraph{Intensity}
 Assuming optical powers of about \SI{60}{\milli\watt} for each beam of the three-dimensional magneto-optical trap (D$_2$ light), as estimated in figure~\ref{fig:laser_setup_schematic}, the average intensity in a beam for the magneto-optical trap would amount to $\frac{\SI{60}{\milli\watt}}{\pi (\SI{.35}{\centi\meter})^2} = \SI{156}{\milli\watt\per\centi\meter\squared}$ which amounts to a saturation of $s_0 = 31$ for cooler and repumper respectively. Along the recapturing axis ($x$), this amounts to an effective saturation for the magneto-optical trap of
 \begin{align}
     s_{0, \text{3D MOT, recapturing axis}} = 31 \cdot \cos \SI{30}{\degree} \cdot 2 = 53
@@ -713,4 +713,4 @@ Note that this value is the maximum ideal value for atoms entering the trap exac
 The resonance velocity~\eqref{eq:resonance_velocity} tells which maximum velocity atoms can still have to be on resonance when entering the trap given a certain magnetic gradient and laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Atoms faster than that would require even further detuned light to be on resonance. The resonance velocity is mapped in figure~\ref{fig:resonance_velocity_map} outlining how  gradient and detuning can be traded for each other at fixed resonance velocities. E.g., for $\delta_\text{laser} = -5\Gamma$, a gradient of \SI[]{57}{\gauss\per\centi\meter} would be required to reach $v_\text{max, resonance} \approx v_\text{max, capture}$.
 
 \paragraph{Loading Rate and Atom Number}
-One can expect a loading rate of about $\SI[]{e7}{} \frac{\text{atoms}}{\si[]{\second}}$ and a number of about \SIrange{e8}{e9}{} atoms trappable in the trap, orienting on observations in other recent experiments~\cite{chen_lithium-cesium_2021, kerkmann_novel_2019}. The actual values of the fastest loading rate and the maximum atom number will need to be experimentally determined. Apart from the parameters of the three-dimensional magneto-optical trap, they will also depend on the parameters of the two-dimensional magneto-optical trap, the push beam intensity and detuning, as well as the oven temperature. So when the setup is completed, a quest for an optimum in a high-dimensional parameter space expects the experimenters of FermiQP.
+One can expect a loading rate in the range of \SIrange[]{e7}{e9}{} $\frac{\text{atoms}}{\si[]{\second}}$ and a number of about \SIrange{e8}{e9}{} atoms trappable in the trap, orienting on observations in other recent experiments~\cite{chen_lithium-cesium_2021, kerkmann_novel_2019}. The actual values of the fastest loading rate and the maximum atom number will need to be experimentally determined. Apart from the parameters of the three-dimensional magneto-optical trap, they will also depend on the parameters of the two-dimensional magneto-optical trap, the push beam intensity and detuning, as well as the oven temperature. So when the setup is completed, a quest for an optimum in a high-dimensional parameter space expects the experimenters of FermiQP.
