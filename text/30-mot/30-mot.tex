@@ -208,7 +208,7 @@ A magneto-optical trap can be characterized by, among others, the following quan
         \right)
     \end{align}
     Assuming that the slowing force is large, one can assume that, on the way towards the trap center, the atoms are kept close to resonance with the ever less detuned trapping light (due to the magnetic gradient along the trajectory through the trap). In this case, $v_\text{max, resonance}$ can also give the order of magnitude of the capture velocity of the trap~\cite{tiecke_high-flux_2009}.
-    \item The loading rate characterizes how many atoms can be trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
+    \item The loading rate quantifies the initial increase of the number of atoms trapped per time unit. It depends on the trap geometry, the flux rate and the velocity distribution of the incoming atoms, the applied gradients, laser powers, detunings of the cooling and repumping light, collisions among the trapped atoms, and many more. Due to these complex dependencies, the loading rate needs to be characterized experimentally.
     \item The temperature of the atoms in the trap is usually one order of magnitude greater than the Doppler temperature $T_\text{D}$ and also depends on a multitude of parameters.
     \item Regarding the trap as a harmonic oscillator, one can quantify the atom oscillation frequency $\omega_\text{MOT} = \frac{\alpha}{m}$, oscillation damping rate $\Gamma_\text{MOT} = \sqrt{\frac{\alpha \beta}{km}}$, and atom trap restoring time $t_\text{restore} = \frac{2\Gamma_\text{MOT}}{\omega_\text{MOT}^2}$ with the atom mass $m$~\cite{metcalf_laser_1999}.
 \end{itemize}
@@ -239,7 +239,7 @@ Typical parameter ranges for three-dimensional traps with lithium from other exp
     \item magnetic gradients: \SIrange{10}{50}{\gauss\per\centi\meter}
     \item capture velocity: about \SIrange[]{30}{100}{\meter\per\second} 
     \item achieved temperature: on the order of \SIrange{1e-3}{3e-4}{\kelvin}
-    \item loading rate: about $\SI[]{e7}{} \frac{\text{atoms}}{\si[]{\second}}$
+    \item loading rate: about $\SIrange[]{e7}{e9}{} \frac{\text{atoms}}{\si[]{\second}}$
     \item atom number in the trap: about \SIrange{e7}{e10}{}
 \end{itemize}
 
@@ -281,7 +281,7 @@ The cooling effect in this scheme can now be understood as follows: Atoms move a
 
 \paragraph{Gray Molasses with Lithium} The D$_1$ line of lithium is just \SI{10}{\giga\hertz} off the D$_2$ line. This avoids the need for separate laser system in a different wavelength regime and  allows reusing the optics of the magneto-optical trap for the gray molasses. Similar to the magneto-optical trap, a cooler and a repumper are needed: the former is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 3/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$ transition, the latter is blue detuned with respect to the $\Ket{^2\text{S}_{1/2}, F = 1/2} \rightarrow \Ket{^2\text{P}_{1/2}, F = 3/2}$. In contrast to cooling on the D$_2$ line, the excited manifold of the D$_1$ line is resolved, meaning the splitting between its excited state's hyperfine levels is larger than the line width~\cite{gerken_gray_2016}.
 
-\citeauthor{burchianti_efficient_2014} implemented gray molasses for fermionic lithium in 2014. Their parameters were taken as a reference starting point for configuring the gray molasses of the FermiQP demonstrator setup~\cite{burchianti_efficient_2014}:
+\citeauthor{burchianti_efficient_2014} implemented gray molasses for fermionic lithium in 2014 reaching temperatures of about \SI[]{40}{\micro\kelvin}. Their parameters were taken as a reference starting point for configuring the gray molasses of the FermiQP demonstrator setup~\cite{burchianti_efficient_2014}:
 \begin{itemize}
     \item laser intensities: $s_{0, \text{cooler}} = 2.7$, $\frac{s_{0, \text{repumper}}}{s_{0, \text{cooler}}} \approx 0.2$
     \item detunings: $\delta_\text{cooler} = +5.4 \Gamma$, varying $\delta_\text{repumper}$ between $(\delta_\text{cooler} -2 \Gamma)$ and  $(\delta_\text{cooler}+ 3\Gamma)$
