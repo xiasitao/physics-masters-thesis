@@ -1,5 +1,5 @@
-red:        FF0000
-gray:       474847
-rebecca:    693EA3
-fuchsia:    9A5B91
-blue:       50BDE9
+red:        FF0000  (255,0,0) 
+gray:       474847  (71,72,71)
+rebecca:    693EA3  (105,62,163) 
+fuchsia:    9A5B91  (154,91,145) 
+blue:       50BDE9  (80,189,233) 

@@ -4,7 +4,7 @@
 In this chapter, the FermiQP quantum gas microscopy experiment is introduced. It is first presented as a platform for quantum simulations and quantum computing. Then the projected experimental setup is explained.
 
 \section{A Versatile Microscope for Quantum Gases}
-Within the last two decades, quantum gas microscopes have evolved into a well-proven and auspicious platform for exploring the nature of atoms in correlated systems and researching the phenomena of quantum many-body physics. In these machines, atoms are cooled down to sub \si[]{\micro\kelvin} \todo{Or even less?} temperatures and caught in regular patterns with the optical lattice or optical tweezer techniques\todo{check if that is called qgm too}. Single-site imaging techniques allow resolving individual atoms and detecting their respective states~\cite{bloch_many-body_2008,gross_quantum_2017, gross_quantum_2021}, granting access to the physics of their interactions. The underlying premise of this experimental approach is that for exploring the quantum realm, rather than simulating quantum phenomena on classical computers using established models of physics, which scale exponentially with the size of the described system, it is by far more advantageous to map these phenomena to controllable quantum systems and simulate them, as already suggested by Richard Feynman in 1982~\cite{feynman_simulating_1982}.
+Within the last two decades, quantum gas microscopes have evolved into a well-proven and auspicious platform for exploring the nature of atoms in correlated systems and researching phenomena of quantum many-body and condensed matter physics. In these machines, atoms are laser-cooled to sub-\si[]{\micro\kelvin} temperatures and caught in regular patterns with the optical lattice technique. Single-site imaging techniques allow resolving individual atoms and detecting their respective states~\cite{bloch_many-body_2008,gross_quantum_2017, gross_quantum_2021}, granting access to the physics of their interactions. The underlying premise of this experimental approach is that for exploring the quantum realm, rather than simulating quantum phenomena on classical computers using established models of physics, which scale exponentially with the size of the described system, it is by far more advantageous to map these phenomena to controllable quantum systems and simulate them, as already suggested by Richard Feynman in 1982~\cite{feynman_simulating_1982}.
 
 While the first quantum gas microscopes in the late 2000s were based on bosonic rubidium (e.g.~\cite{sherson_single-atom-resolved_2010}), for experiments using fermionic alkali atoms  first results were published in 2015, such as for potassium~\cite{cheuk_quantum-gas_2015} and lithium \cite{parsons_site-resolved_2015, omran_microscopic_2015}.
 
@@ -44,8 +44,8 @@ In the FermiQP demonstrator, multiple lattices are going to be used. Most notabl
                 tick style={draw=none},
                 xticklabels={,,}, yticklabels={,,}
             ]
-                \addplot[red, mark=none, line width=0.03cm, samples=500] {sin(2 * x*180)^2};
-                \addplot[black, mark=*, only marks] coordinates {(-0.5, 0.2) (0.0, 0.2) (0.5, 0.2) (1.0, 0.2)};
+                \addplot[thesisred, mark=none, line width=0.03cm, samples=500] {sin(2 * x*180)^2};
+                \addplot[thesisgray, mark=*, only marks] coordinates {(-0.5, 0.2) (0.0, 0.2) (0.5, 0.2) (1.0, 0.2)};
             \end{axis}
         \end{tikzpicture}
         \caption{Optical lattice in one dimension}
@@ -63,8 +63,8 @@ In the FermiQP demonstrator, multiple lattices are going to be used. Most notabl
                 tick style={draw=none},
                 xticklabels={,,}, yticklabels={,,}
             ]
-                \addplot[red, mark=none, line width=0.03cm, samples=500] {0.5*sin(2 * x*180)^2 + 0.5*sin(x*180 + 45)^2};
-                \addplot[black, mark=*, only marks] coordinates {(-0.45, 0.35) (-0.05, 0.35) (0.55, 0.35) (0.95, 0.35)};
+                \addplot[thesisred, mark=none, line width=0.03cm, samples=500] {0.5*sin(2 * x*180)^2 + 0.5*sin(x*180 + 45)^2};
+                \addplot[thesisgray, mark=*, only marks] coordinates {(-0.45, 0.35) (-0.05, 0.35) (0.55, 0.35) (0.95, 0.35)};
             \end{axis}
         \end{tikzpicture}
         \caption{Example of an optical superlattice potential landscape in one dimension: Every other potential barrier is shallow, outlining a lattice of double-wells}
@@ -79,7 +79,7 @@ In FermiQP, the superlattice technique will be used: By overlapping the optical 
 Raman sideband cooling will provide cooling for the atoms when they are confined in their lattice sites (see~\cite*{hilker_spin-resolved_2017}, designed for FermiQP in~\cite{krumm_notitle_2022}).
 
 \subsection*{Imaging}
-FermiQP will implement fluorescence imaging where light scattered by the atoms is used as an imaging signal and absorption imaging where the absorption of light reveals the position of individual atoms in the lattice. Two high-numerical aperture objectives will be used for collecting the imaging signal. In addition to observing positions, spin states of the atoms can be read out using spin-resolving detection techniques, e.g.~by spatially separating atoms of different spin state into the two double-well sites~\cite{boll_spin-_2016} or different layers in the third~\cite{koepsell_robust_2020} with magnetic fields like in a Stern-Gerlach experiment. An example of spin-resolved imaging is shown in figure~\ref{fig:absorption_image}.
+FermiQP will implement fluorescence imaging where light scattered by the atoms is used as an imaging signal and absorption imaging where the absorption of light reveals the position of individual atoms in the lattice. Two high-numerical aperture objectives will be used for collecting the imaging signal. In addition to observing positions, spin states of the atoms can be read out using spin-resolving detection techniques, e.g.~by spatially separating atoms of different spin state into the two double-well sites~\cite{boll_spin-_2016} or different layers across the lattice plane~\cite{koepsell_robust_2020} with magnetic fields like in a Stern-Gerlach experiment. An example of spin-resolved imaging is shown in figure~\ref{fig:absorption_image}.
 
 \begin{figure}
     \centering
@@ -89,16 +89,46 @@ FermiQP will implement fluorescence imaging where light scattered by the atoms i
 \end{figure}
 
 \subsection*{Quantum Simulations in the Analog Mode}
-In the analog operation mode, the fermionc lithium atoms in the optical lattices are used for simulating phenomena of Fermi gases, such as Mott insulators, superfluidity and  superconductivity, molecular phases of pair fermions, etc.~\cite{bloch_quantum_2012}. These phases emerge as different domains in the Fermi-Hubbard hamiltonian describing a system of fermions with spin state $\nu \in \{\Ket{\uparrow}, \Ket{\downarrow}\}$ in lattice sites $i$ and $j$:
-\begin{align}
+In the analog operation mode, the fermionc lithium atoms in the optical lattices are used for simulating phenomena of Fermi gases, such as the Mott insulator, superfluidity and  superconductivity, molecular phases of paired fermions, etc.~\cite{bloch_quantum_2012}. These phases emerge as different domains in the Fermi-Hubbard hamiltonian describing a system of fermions with spin state $\nu \in \{\Ket{\uparrow}, \Ket{\downarrow}\}$ in lattice sites $i$ and $j$~\cite{hubbard_electron_1963,esslinger_fermi-hubbard_2010}:
+\begin{align}\label{eq:fermi_hubbard_hamiltonian}
     \hat H =
     \underbrace{-t \sum\limits_{\Braket{i,j}, \nu} \left(\hat a^\dagger_{i, \nu} \hat a_{j, \nu} + \text{h.c.}\right)}_\text{kinetic term/tunneling}
     + \underbrace{U \sum\limits_i \hat n_{i, \Ket{\uparrow}} \hat n_{i, \Ket{\downarrow}}}_\text{on-site interaction}
     + \underbrace{\sum\limits_{i, \nu} \epsilon_{i} \hat n_{i\, \nu}}_\text{offset}
 \end{align}
-with $\Braket{i,j}$ meaning that $i$ and $j$ are neighboring sites~\cite{hubbard_electron_1963,esslinger_fermi-hubbard_2010}. The first term describes the rate of tunneling of a particle between two neighboring sites with the creation operator $\hat a^\dagger$ and the annihilation operator $\hat a$. The tunneling $t$ can be set in optical lattice experiments by lowering the potential barrier between sites, as hinted at above. The on-site interaction term describes the energy shift $U$ in sites where two atoms (in different spin states) are present, with $U > 0$ denoting repulsive and $U < 0$ denoting attractive interactions. The interaction between atoms on the same site is mediated by s-wave scattering. The mass of the particles and the free-space s-wave scattering length $a$ determine, along with other quantities, the interaction as $U \propto \frac{a}{m}$. The scattering length can be experimentally varied using Feshbach resonances as outlined in the next paragraph. Finally, $\epsilon$ is a site-dependent potential offset~\cite{esslinger_fermi-hubbard_2010}.
+with $\Braket{i,j}$ meaning that $i$ and $j$ are neighboring sites. The first term describes the rate of tunneling of a particle between two neighboring sites with the creation operator $\hat a^\dagger$ and the annihilation operator $\hat a$. The tunneling $t$ can be set in optical lattice experiments by lowering the potential barrier between sites, as hinted at above. The on-site interaction term describes the energy shift $U$ in sites where two atoms (in different spin states) are present, with $U > 0$ denoting repulsive and $U < 0$ denoting attractive interactions. The interaction between atoms on the same site is mediated by s-wave scattering. The mass of the particles and the free-space s-wave scattering length $a$ determine, along with other quantities, the interaction as $U \propto \frac{a}{m}$. The scattering length can be experimentally varied using Feshbach resonances as outlined in the next paragraph. Finally, $\epsilon_i$ is a site-dependent potential offset~\cite{esslinger_fermi-hubbard_2010}.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+            \begin{axis}[
+                height=5cm,
+                width=0.8\textwidth,
+                xmin=-0.8, xmax=1.3,
+                ymax=1.2,
+                axis line style={draw=none},
+                tick style={draw=none},
+                xticklabels={,,}, yticklabels={,,}
+            ]
+                \addplot[color=thesisred, mark=none, line width=0.06cm, samples=500] {sin(2 * x*180)^2};
+
+                \addplot[color=thesisfuchsia, mark=*, mark size=0.14cm, only marks] coordinates {(-0.5, 0.2)};
+                \addplot[color=thesisfuchsia, opacity=0.5, mark=*, mark size=0.14cm, only marks] coordinates {(0.0, 0.2)};
+
+                \draw[yscale=3, ->] (axis cs:-0.5, 0.09) arc [radius=0.25, start angle=180, delta angle=90, end angle=0]; 
+                \draw (axis cs: -0.25, 1.1) node {\small $t$};
+
+                \addplot[color=thesisfuchsia, mark=*, mark size=0.14cm, only marks] coordinates {(1.0-0.05, 0.7)};
+                \addplot[color=thesisblue, mark=*, mark size=0.14cm, only marks] coordinates {(1.0+0.05, 0.7)}; 
+                \draw[<->] (1.2, 0.25) -- (1.2, 0.7) node[midway, right] {\small $U$};
+            \end{axis}
+    \end{tikzpicture}
+    \caption{Tunneling and on-site interactions in the Fermi-Hubbard hamiltonian~\eqref{eq:fermi_hubbard_hamiltonian} in an optical lattice~\cite{esslinger_fermi-hubbard_2010}: The tunneling of a particle is determined by $t$, whereas the on-site interaction energy $U$ is the energy sites with two particles (of different spin state) are shifted by. Purple and blue colors indicate the spin state.}
+    \label{fig:fermi_hubbard_schematic}
+\end{figure}
 
 \paragraph*{Feshbach Resonances}
+
 
 
 \subsection*{Quantum Computing in the Digital Mode}
