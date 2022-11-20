@@ -8,7 +8,7 @@ Within the last two decades, quantum gas microscopes have evolved into a well-pr
 
 While the first quantum gas microscopes in the late 2000s were based on bosonic rubidium (e.g.~\cite{sherson_single-atom-resolved_2010}), for experiments using fermionic alkali atoms  first results were published in 2015, such as for potassium~\cite{cheuk_quantum-gas_2015} and lithium \cite{parsons_site-resolved_2015, omran_microscopic_2015}.
 
-The FermiQP project, which started in 2021, is one of the newest fermion quantum gas microscopy experiments operated with lithium. It aims for surpassing existing fermionic lithium experiments with respect to their atom number, precision and atom lifetime in the microscope\todo{Really? Anything else}. It will combine two modes of operation: In the so-called \textit{analog mode}, FermiQP will use atoms in an optical lattice for investigating the nature of strongly interacting fermionic particles, which can be described by the Fermi-Hubbard model~\cite{hubbard_electron_1963, esslinger_fermi-hubbard_2010}. In the \textit{digital mode} on the other hand, FermiQP will act as a quantum computing platform exploiting the properties of its fermionic atoms, hence the name \textit{Fermion Quantum Processor}, where its key advantage over other platforms for quantum computing is the comparatively high scalability of quantum gases in optical lattices.
+The FermiQP project, which started in 2021, is one of the newest fermion quantum gas microscopy experiments operated with lithium. It aims for surpassing existing fermionic lithium experiments with respect to their atom number, precision and atom lifetime in the microscope\todo{Really? Anything else}. It will combine two modes of operation: In the so-called \textit{analog mode}, FermiQP will use atoms in an optical lattice for investigating the nature of strongly interacting fermionic particles, which can be described by the Fermi-Hubbard model~\cite{hubbard_electron_1963, esslinger_fermi-hubbard_2010}. In the \textit{digital mode} on the other hand, FermiQP will act as a quantum computing platform exploiting the properties of its fermionic atoms and taking advantage of the long coherence time and the parallelizability of gate operations of atoms in optical lattices~\cite{zhang_functional_2022}. The key advantage over other platforms for quantum computing is the comparatively high scalability of quantum gases in optical lattices. The latter of both operation modes is what the experiment got its name from: a \text{Fermion Quantum Processor}.
 
 FermiQP is a consortium of many contributing institutes and scientific groups in different areas of physics across Germany. The actual quantum gas microscope, the \textit{FermiQP demonstrator}, is being built at the Max Planck Institute of Quantum Optics in Garching, where this thesis was written.
 
@@ -104,7 +104,7 @@ with $\Braket{i,j}$ meaning that $i$ and $j$ are neighboring sites. The first te
             \begin{axis}[
                 height=5cm,
                 width=0.8\textwidth,
-                xmin=-0.8, xmax=1.3,
+                xmin=-0.8, xmax=1.35,
                 axis line style={draw=none},
                 tick style={draw=none},
                 xticklabels={,,}, yticklabels={,,}
@@ -119,22 +119,55 @@ with $\Braket{i,j}$ meaning that $i$ and $j$ are neighboring sites. The first te
 
                 \addplot[color=thesisfuchsia, mark=*, mark size=0.14cm, only marks] coordinates {(1.0-0.05, 0.7)};
                 \addplot[color=thesisblue, mark=*, mark size=0.14cm, only marks] coordinates {(1.0+0.05, 0.7)}; 
-                \draw[<->] (1.2, 0.25) -- (1.2, 0.7) node[midway, right] {\small $U$};
+                \draw[<->] (1.25, 0.22) -- (1.25, 0.68) node[midway, right] {\small $U$};
+
+                \draw[color=thesisgray, thin, dashed] (0.05, 0.2) --(1.25, 0.2);
+                \draw[color=thesisgray, thin, dashed] (1.1, 0.7) --(1.25, 0.7);
             \end{axis}
     \end{tikzpicture}
     \caption{Tunneling and on-site interactions in the Fermi-Hubbard hamiltonian~\eqref{eq:fermi_hubbard_hamiltonian} in an optical lattice~\cite{esslinger_fermi-hubbard_2010}: The tunneling of a particle is determined by $t$, whereas the on-site interaction energy $U$ is the energy sites with two particles (of different spin state) are shifted by. Purple and blue colors indicate the spin state.}
     \label{fig:fermi_hubbard_schematic}
 \end{figure}
 
-\paragraph*{Feshbach Resonances}
-
-
+\paragraph*{Feshbach Resonances} Feshbach resonances allow varying the scattering length $a$ of certain atoms by applying a constant magnetic field and so also the on-site interaction $U$ in the Fermi-Hubbard model. In the collision process of two atoms, this magnetic field sets the energy difference between two states of the atoms, a scattering state and a bound molecular state with different magnetic moments. At a certain magnetic field $B_0$, these energy levels coincide and the scattering length becomes infinite, which is a Feshbach resonance. For $B < B_0$, the scattering length is positive, $a > 0$, and $U$ is repulsive, whereas for $B > B_0$, one gets $a < 0$ and attractive $U$:
+\begin{align}
+    a = a_\text{background} \left(1 - \frac{\Delta}{B-B_0}\right)
+\end{align}
+with the width $\Delta$ of the Feshbach resonance and the background scattering length $a_\text{background}$ at the absence of a magnetic field. Fermionic lithium has a broad ($\Delta = \SI[]{300}{\gauss}$) resonance at $B_0 = \SI[]{834}{\gauss}$ allowing a large variation of the on-site interaction in the FermiQP demonstrator experiment~\cite{chin_feshbach_2010}.
 
 \subsection*{Quantum Computing in the Digital Mode}
+In the digital mode, FermiQP aims to serve as a platform for universal quantum computing. Quantum computers are supposed accelerate the execution of certain algorithms that scale exponentially with problem size on classical computer hardware in terms of their execution time, such are Shor's algorithm for factoring large numbers~\cite{shor_algorithms_1994}. Quantum computers make use of entanglement and superposition of states to achieve this speed-up. In quantum computers, the smallest unit of information is a so-called qubit, a two-level system of quantum states~\cite{mainzer_quantencomputer_2020}.\todo{more citations}
+
+In the FermiQP demonstrator, qubits are encoded in the two energetically lowest hyperfine magnetic sublevels of the $2\text{s}^2\text{S}_{1/2}$ manifold, called $\Ket{1}$ and $\Ket{2}$. In the domain of high magnetic fields of \SIrange[]{500}{1000}{\gauss}, the magnetic sublevels of this manifold are separated by multiple \si[]{\giga\hertz}.\cite{gehm_properties_2003,wei_magnetic-field_2013}.
+
+Universal quantum computers need to implement two kinds of gate operations: single-qubit gates for flipping indivudial qubits and two-qubit gates for entangling two qubits~\cite{mainzer_quantencomputer_2020}:\todo{more citations}
 
 \paragraph*{Single-Qubit Gates}
+Single-qubit gates in the FermiQP demonstrator are implemented with Raman transitions driven by an ultraviolet tweezer beam at \SI[]{323}{\nano\meter} allowing addressing single individual sites of the optical lattice. Due to its low mass, Raman transitions over the manifold between the two aforementioned qubit states are highly suppressed in  fermonic lithium~\cite{wei_magnetic-field_2013}. In the FermiQP demonstrator, transitions between the two qubit states are therefore implemented with a detour over the magnetic sublevel $\Ket{6}$ via global microwave and radio-frequency pulses, as explained in figure~\ref{fig:single_qubit_gates}.
+
+\begin{figure}
+    \centering
+    \includegraphics[]{\imagepath/single_qubit_gates/single_qubit_gates.pdf}
+    \caption{Single qubit gate scheme in the FermiQP demonstrator (figure by Robin Groth): The states $\Ket{1}$ and $\Ket{2}$ in the the $2\text{s} ^2\text{S}_{1/2}$ manifold constitute a qubit.
+    \SI[]{323}{\nano\meter} addressing beams couple $\Ket{1}$ with $\Ket{6}$ by a Raman transition via the $3\text{p} ^2\text{P}_{1/2}$ manifold. This Raman coupling can be driven selectively by focusing the \SI[]{323}{\nano\meter} beam onto individual sites of the optical lattice.
+    A combination of a microwave (MW) and a radio-frequency (RF) pulse applied on all lattice sites couples $\Ket{2}$ and $\Ket{6}$ via $\Ket{5}$.\\
+    A single qubit gate operation consists of an MW-RF pulse combination, then the Raman addressing, and another MW-RF pulse combination.
+    In the addressed qubit, $\Ket{1}$ is coupled with $\Ket{6}$ via the Raman transition, which then is coupled to $\Ket{2}$ by the MW-RF pulses; $\Ket{2}$, on the other hand, is coupled by the MW-RF pulses to $\Ket{6}$, and then to $\Ket{1}$ via the Raman transition.
+    All qubits that are not addressed by the Raman beam are preserved, as the two MW-RF pulse combinations bring the $\Ket{2}$ qubits back to their original state while the $\Ket{1}$ qubits are not stay unaffected.}
+    \label{fig:single_qubit_gates}
+\end{figure}
 
 \paragraph*{Two-Qubit Gates}
+Two-qubit operations in the FermiQP demonstrator will be implemented with collisional gates in double-wells of the superlattice. There two atoms are entangled by lowering the potential barrier and allowing interaction between them. The idea of two-qubit gates in optical lattices dates back more than two decades~\cite{jaksch_fast_2000, anderlini_controlled_2006,trotzky_time-resolved_2008,trotzky_controlling_2010}, collisional gates have recently gained even more interest with the maturing of quantum gas microscopy experiments~\cite{dai_generation_2016, yang_cooling_2020, zhang_functional_2022}.\todo{check and improve citations}
+
+Arbitrary pairs of atoms can be entangled by moving them into neighboring lattice sites in the double-wells in the superlattice with optical tweezers, and then lowering the double-well barriers such that the atoms interact and entanglement is created, as depicted in figure~\ref{fig:two_qubit_gates}. These two-qubit gate operations can be achieved for multiple pairs of atoms in parallel by using multiple tweezers. Lowering the potential barrier is a global operation, hence all pairs of atoms in double-wells are entangled at the same time.
+
+\begin{figure}
+    \centering
+    \includegraphics[]{\imagepath/two_qubit_gates/two_qubit_gates.pdf}
+    \caption{Schematic of the two-qubit collisional gates in the FermiQP demonstrator: a: Two atoms that are supposed to be entangled are moved into neighboring sites using optical tweezers. b: The atoms are entangled by lowering the potential barrier in the double well (b.2) and letting the atoms interact. When the potential barrier is ramped up again, the entanglement (purple ellipse) is preserved. c: Then the atoms are moved to their original positions with the entanglement preserved.}
+    \label{fig:two_qubit_gates}
+\end{figure}
 
 
 
