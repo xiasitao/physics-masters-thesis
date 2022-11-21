@@ -10,7 +10,7 @@ import re
 # filenames = sys.argv[1:]
 filenames = glob.glob(pathname=r'**/*.pgf', recursive=True)
 
-regex = r'^(?P<start>\\pgftext\[.*\]\{\\color{textcolor}\\rmfamily\\fontsize{9.000000}{10.800000}\\selectfont\s+)(?P<number>\d+(\.\d+)?)\}'
+regex = r'^(?P<start>\\pgftext\[.*\]\{\\color{textcolor}\\rmfamily\\fontsize{9.000000}{10.800000}\\selectfont\s+(\\ensuremath\{-\})?)(?P<number>\d+(\.\d+)?)\}'
 
 if __name__ == '__main__':
     for filename in filenames:
@@ -27,4 +27,4 @@ if __name__ == '__main__':
         with open(filename, 'w'):
             f.writelines(output_lines)
 
-sys.stderr.write(f'Fixed axis labels in {len(filenames)} files.')
+sys.stderr.write(f'Fixed axis labels in {len(filenames)} files.\n')
