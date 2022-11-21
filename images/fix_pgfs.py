@@ -4,9 +4,11 @@
 
 """
 import sys
+import glob
 import re
 
-filenames = sys.argv[1:]
+# filenames = sys.argv[1:]
+filenames = glob.glob(pathname=r'**/*.pgf', recursive=True)
 
 regex = r'^(?P<start>\\pgftext\[.*\]\{\\color{textcolor}\\rmfamily\\fontsize{9.000000}{10.800000}\\selectfont\s+)(?P<number>\d+(\.\d+)?)\}'
 
@@ -21,6 +23,8 @@ if __name__ == '__main__':
             if match:
                 line = re.sub(regex, r'\g<start>\\ensuremath{\g<number>}}', line)
             output_lines.append(line)
-            print(line, end='')
-            
-    
+        
+        with open(filename, 'w'):
+            f.writelines(output_lines)
+
+sys.stderr.write(f'Fixed axis labels in {len(filenames)} files.')
