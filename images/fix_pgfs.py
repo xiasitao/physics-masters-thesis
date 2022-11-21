@@ -24,7 +24,7 @@ if __name__ == '__main__':
                 line = re.sub(regex, r'\g<start>\\ensuremath{\g<number>}}', line)
             output_lines.append(line)
         
-        with open(filename, 'w'):
+        with open(filename, 'w') as f:
             f.writelines(output_lines)
 
 sys.stderr.write(f'Fixed axis labels in {len(filenames)} files.\n')
