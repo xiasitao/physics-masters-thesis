@@ -1,4 +1,6 @@
+% !TeX root = scaffold-90.tex
 \renewcommand{\imagepath}{../90-appendix/img}
+
 \appendix
 
 \chapter{Details of the Trap Laser Setup}
@@ -308,10 +310,10 @@ arrangement.display_in_3D(figsize=(9, 9), filename='3d.pgf')
 \begin{minipage}{\linewidth}
     \subsection*{Field Mapping}
     \begin{lstlisting}[language=Python]
-    field_map_xy = csl.FieldMap(arrangement, 'xy', steps=100)
-    field_map_xy.plot_map()  # color map
-    field_map_xy.plot_landscape()  # 3D visualization
-    field_map_xy.plot_slices()  # field along axes
+field_map_xy = csl.FieldMap(arrangement, 'xy', steps=100)
+field_map_xy.plot_map()  # color map
+field_map_xy.plot_landscape()  # 3D visualization
+field_map_xy.plot_slices()  # field along axes
     \end{lstlisting}    
 \end{minipage}
 
@@ -340,12 +342,65 @@ arrangement.get_total_outward_force_on_single_coil()  # outward force in N
 \end{lstlisting}
 
 
+\chapter{Geometrical Properties of the Feshbach coils}\label{ch:feshbach_coil_geometrical_properties}
+This chapter lists details of the geometrical specfication of the Feshbach coils, as outlined in chapter~\ref{ch:coil_properties}, in table~\ref{tab:coil_geometrical_properties} and figure~\ref{fig:coil_geometrical_properties}.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{rcccc}
+        \toprule
+        & \textbf{specified} & \textbf{\textit{Gauss}} (\si[]{\milli\meter}) & \textbf{\textit{Maxwell}} (\si[]{\milli\meter}) & \textbf{\textit{Tesla}} (\si[]{\milli\meter}) \\
+        \toprule
+        center-of-mass radius & \SI{83}{\milli\meter} &&& \\
+        diameter of layer 1 (inner) & \SI{116}{\milli\meter} & \SI{115.5(1)}{}& \SI{115.1(2)}{} & \SI{115.3}{3} \\
+        diameter of layer 2 (inner) & \SI{126}{\milli\meter} & && \\
+        diameter of layer 3 (middle) & \SI{136}{\milli\meter} &&& \\
+        diameter of layer 4 (middle) & \SI{146}{\milli\meter} &&& \\
+        diameter of layer 5 (outer) & \SI{156}{\milli\meter} & \SI{155(1)}{}& \SI{156(1)}{} & \SI{156(1)}{} \\
+        diameter of layer 6 (outer) & \SI{166}{\milli\meter} & \SI{166(1)}{} & \SI{165(1)}{} & \SI{165(1)}{} \\
+        \midrule
+        height of layer 1 (wire \& coating) & \SI{6.5}{\milli\meter} & \SI{6.7(1)}{} & \SI{6.7(2)}{} & \SI{6.8(1)}{} \\
+        height of layers 2 - 5 (wire) & \SI{5.5}{\milli\meter} & \SI{5.6(1)}{} & \SI{5.8(2)}{} & \SI{5.6(1)}{} \\
+        height of layers 6 (wire \& coating) & \SI{6.5}{\milli\meter} & \SI{6.7(1)}{} & \SI{6.8(1)}{} & \SI{6.9(1)}{}\\
+        total height & \SI{35}{\milli\meter} & \SI{35.8(3)}{} & \SI{35.3(3)}{} & \SI{35.5(3)}{}\\
+        \midrule
+        total wire side length &  \SI{5.3}{\milli\meter} & \SI{5.2(1)}{} & \SI{5.2(1)}{} & \SI{5.2(1)}{}\\
+        wire copper material side length & \SI{5.0}{\milli\meter} &&& \\
+        wire insulation thickness & \SI{0.15}{\milli\meter} &&& \\
+        wire hollow core diameter & \SI{3.0}{\milli\meter} &&& \\
+        \bottomrule
+    \end{tabular}
+    \caption{Geometrical properties of the Feshbach coils: The first column gives the specified value, for some quantities the measured values are given for the three coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} (epoxy coating included).}
+    \label{tab:coil_geometrical_properties}
+\end{table}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[]{\imagepath/single_coil_geometry_kraemer/single_coil_geometry_kraemer.pdf}
+        \caption{Specified geometrical properties of the Feshbach coils. Drawing supplied by the producer (Krämer Energietechnik)}
+        \label{fig:single_coil_geometry_kraemer}
+    \end{subfigure}
+    
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[]{\imagepath/wire_specification/wire_specification.pdf}
+        \caption{Wire specification: The square copper wire has a side length of \SI{5.0}{\milli\meter}, the hollow core has a diameter of \SI{3.0}{\milli\meter}. On each side, a Kapton insulation layer of \SI{0.15}{\milli\meter} }
+        \label{fig:wire_specification}
+    \end{subfigure}
+    \caption{Details of the geometrical specification of the Feshbach coils}
+    \label{fig:coil_geometrical_properties}
+\end{figure}
+
+
 
 \chapter{Rules of Thumb for Magnetic Fields and Gradients}\label{ch:rules_of_thumb}
 The following rules of thumb are useful for calculating the magnitude of homogeneous fields and gradients for coils in Helmholtz configuration, meaning that the distance of the coils equals their radius.
 
 \section*{Homogeneous Fields}
-The field in \href{https://www.youtube.com/watch?v=_3_JVVs2Kls}{Gauss} at the center of a Helmholtz configuration of coils of radius $r$, distance $r$, operated at current $I$ can be estimated as
+The field in
+Gauss  % \href{https://www.youtube.com/watch?v=_3_JVVs2Kls}{Gauss}
+at the center of a Helmholtz configuration of coils of radius $r$, distance $r$, operated at current $I$ can be estimated as
 \begin{align}\label{eq:rot_field}
     B(r, I) \approx \left. \frac{I}{\SI{1}{\ampere}} \middle/ \frac{r}{\SI{1}{\centi\meter}} ~ \cdot ~\SI{1}{\gauss}\right. .
 \end{align}
