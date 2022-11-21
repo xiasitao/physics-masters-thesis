@@ -130,13 +130,15 @@
 }{}
 
 % === Title ===
-\usepackage[
-	pdftitle={TODO MASTERS THESIS},
-	pdfauthor={Tobias Maximilian Philipp Schattauer},
-	pdfkeywords={magneto-optical trap, Feshbach coils, quantum gas microscope, master's thesis, FermiQP}
-	]{hyperref}
-
 \title{Designing a 3D Magneto-Optical Trap and Feshbach Fields for a Fermion Quantum Processor}
 \newcommand{\titleDE}{Entwicklung einer 3D-magneto-optischen Falle und von Feshbach-Feldern für einen Fermionen-Quantenprozessor}
 \author{Tobias Maximilian Philipp Schattauer}
 \date{December 2022}
+
+\makeatletter
+\usepackage[
+	pdftitle={\@title},
+	pdfauthor={Tobias Maximilian Philipp Schattauer},
+	pdfkeywords={magneto-optical trap, Feshbach coils, quantum gas microscope, master's thesis, FermiQP}
+	]{hyperref}
+\makeatother
