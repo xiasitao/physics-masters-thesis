@@ -57,6 +57,17 @@
 \addtokomafont{paragraph}{\small}
 \addtokomafont{subparagraph}{\tiny}
 
+\makeatletter
+\DeclareRobustCommand{\GaUsS}{%
+  G\kern-.35em
+  {
+    \sbox\z@ U\vbox to\ht\z@{
+      \hbox{\check@mathfonts\fontsize\sf@size\z@\math@fontsfalse\selectfont A}
+      \vss
+    }}\kern-.15emU\kern-.1667em\lower.5ex\hbox{S}\kern-.125emS
+}
+\makeatother
+
 
 % === Math stuff ===
 \usepackage{amsmath}

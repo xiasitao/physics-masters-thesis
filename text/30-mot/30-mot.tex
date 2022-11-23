@@ -674,7 +674,7 @@ To conclude this chapter, the properties of the geometry, the trapping light, an
 \paragraph{Trap Dimensions}
 As depicted in figure~\ref{fig:mot_extent}, the  $\frac{1}{e^2}$-diameter envelopes of the laser beams outline the trap as a rhomboid shaped region which is \SI[]{14}{\milli\meter} long in the recapturing direction (along $x$), \SI[]{8.1}{\milli\meter} long along the $z$ axis, and extends over the whole glass cell in $y$ direction.
 
-If the reflection losses on the glass cell surface are compensated for by focusing the beam as suggested in \eqref{eq:intensity_focusing}, the beam diameter and thus also the trap size would decrease to $\SI[]{11.7}{\milli\meter}$ in $x$ direction, and $\SI[]{6.8}{\milli\meter}$ in $z$ direction, assuming negligible losses from scattering ($p_\text{scatter} \approx 0$).
+If the reflection losses on the glass cell surface are compensated for by focusing the beam as suggested in \eqref{eq:intensity_focusing}, the beam diameter and thus also the trap size would decrease to $\SI[]{11.7}{\milli\meter}$ in $x$ direction, and $\SI[]{6.8}{\milli\meter}$ in $z$ direction, assuming negligible losses from scattering ($p_\text{scatter} \approx 1$).
 
 \begin{figure}
     \centering
@@ -695,7 +695,7 @@ Assuming optical powers of about \SI{60}{\milli\watt} for each beam of the three
 For the gray molasses, the average intensity of the D$_1$ light would be $\frac{\SI{90}{\milli\watt}}{\pi (\SI{0.35}{\centi\meter})^2} = \SI{247}{\milli\watt\per\centi\meter\squared}$ which would amount to $s_0 = 16$ for the cooler beam.
 
 \paragraph{Capture and Resonance Velocities}
-For a trap length of \SI[]{14}{\milli\meter} and saturation $s_0 \gg 1$, so assuming a maximum scattering rate of $\Gamma \over 2$, the maximum velocity for the small $^6$Li atoms recaptured from the atomic beam can be estimated with \eqref{eq:capture_velocity_high}:
+For a trap length of \SI[]{14}{\milli\meter} and saturation $s_0 \gg 1$, so assuming a maximum scattering rate of $\Gamma \over 2$, the maximum velocity for the lithium atoms recaptured from the atomic beam can be estimated with \eqref{eq:capture_velocity_high}:
 \begin{align}
     v_\text{max, capture} = \sqrt{\frac{\hbar k \Gamma \cdot \SI[]{14}{\milli\meter}}{m}} = \SI[]{90}{\meter\per\second}
 \end{align}
@@ -714,4 +714,4 @@ Note that this value is the maximum ideal value for atoms entering the trap exac
 The resonance velocity~\eqref{eq:resonance_velocity} tells which maximum velocity atoms can still have to be on resonance when entering the trap given a certain magnetic gradient and laser detuning $\delta_\text{laser} = \omega_\text{laser} - \omega_\text{transition}$. Atoms faster than that would require even further detuned light to be on resonance. The resonance velocity is mapped in figure~\ref{fig:resonance_velocity_map} outlining how  gradient and detuning can be traded for each other at fixed resonance velocities. E.g., for $\delta_\text{laser} = -5\Gamma$, a gradient of \SI[]{57}{\gauss\per\centi\meter} would be required to reach $v_\text{max, resonance} \approx v_\text{max, capture}$.
 
 \paragraph{Loading Rate and Atom Number}
-One can expect a loading rate in the range of \SIrange[]{e7}{e9}{} $\frac{\text{atoms}}{\si[]{\second}}$ and a number of about \SIrange{e8}{e9}{} atoms trappable in the trap, orienting on observations in other recent experiments~\cite{chen_lithium-cesium_2021, kerkmann_novel_2019}. The actual values of the fastest loading rate and the maximum atom number will need to be experimentally determined. Apart from the parameters of the three-dimensional magneto-optical trap, they will also depend on the parameters of the two-dimensional magneto-optical trap, the push beam intensity and detuning, as well as the oven temperature. So when the setup is completed, a quest for an optimum in a high-dimensional parameter space expects the experimenters of FermiQP.
+One can expect a loading rate in the range of \SIrange[]{e7}{e9}{} $\frac{\text{atoms}}{\si[]{\second}}$ and a number of about \SIrange{e8}{e9}{} atoms trappable in the trap, orienting on observations in other recent experiments~\cite{tiecke_high-flux_2009, chen_lithium-cesium_2021, kerkmann_novel_2019}. The actual values of the fastest loading rate and the maximum atom number will need to be experimentally determined. Apart from the parameters of the three-dimensional magneto-optical trap, they will also depend on the parameters of the two-dimensional magneto-optical trap, the push beam intensity and detuning, as well as the oven temperature. So when the setup is completed, a quest for an optimum in a high-dimensional parameter space expects the experimenters of FermiQP.

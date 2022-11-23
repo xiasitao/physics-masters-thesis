@@ -4,7 +4,7 @@
 \appendix
 
 \chapter{Details of the Trap Laser Setup}
-This appendix chapter gives some more detailed information about the optical elements used in the trap laser setup, as described in chapter~\ref{ch:light_preparation}, as well as important power ratios measured in the implemented setup for the light for two-dimensional magneto-optical trap.
+This appendix chapter gives some more detailed information about the optical elements used in the trap laser setup described in chapter~\ref{ch:light_preparation} as well as important power ratios measured in the implemented setup for the light for two-dimensional magneto-optical trap.
 
 \section{Important Optical Elements}\label{ch:optical_components}
 In the optics setup for the magneto-optical traps, the following optical components are used for generating the trap laser light:
@@ -124,7 +124,7 @@ The azimuth-ellipticity basis of the Poincaré sphere identifies polarizations b
         \pgftext{\input{\imagepath/azimuth_ellipticity_visualization/azimuth_ellipticity_visualization.pgf}}
     \end{pgfpicture}
     }
-    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{12}$, the angles were added to the drawing.}
+    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{8}$, the angles were added to the drawing.}
     \label{fig:azimuth_ellipticity_visualization}
 \end{figure}
 
@@ -153,7 +153,7 @@ In the azimuth-ellipticity basis of the Poincaré sphere, this state is expresse
     \end{pmatrix}
     ,
 \end{align}
-with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$ ensuring that $\alpha$ matches. Table~\ref{tab:jones_to_ae_special_cases} lists the special cases of these expressions.
+with $\Omega_{h > v} = 0$ and $\Omega_{h \leq v} = \frac{\pi}{2}$ ensuring that $\alpha$ is between $-\frac{\pi}{2}$ and $+\frac{\pi}{2}$. Table~\ref{tab:jones_to_ae_special_cases} lists the special cases of these expressions.
 \begin{table}
     \centering
     \begin{tabular}{ccccc}
@@ -366,7 +366,7 @@ This chapter lists details of the geometrical specfication of the Feshbach coils
         total wire side length &  \SI{5.3}{\milli\meter} & \SI{5.2(1)}{} & \SI{5.2(1)}{} & \SI{5.2(1)}{}\\
         wire copper material side length & \SI{5.0}{\milli\meter} &&& \\
         wire insulation thickness & \SI{0.15}{\milli\meter} &&& \\
-        wire hollow core diameter & \SI{3.0}{\milli\meter} &&& \\
+        wire hollow-core diameter & \SI{3.0}{\milli\meter} &&& \\
         \bottomrule
     \end{tabular}
     \caption{Geometrical properties of the Feshbach coils: The first column gives the specified value, for some quantities the measured values are given for the three coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} (epoxy coating included).}
@@ -398,9 +398,10 @@ This chapter lists details of the geometrical specfication of the Feshbach coils
 The following rules of thumb are useful for calculating the magnitude of homogeneous fields and gradients for coils in Helmholtz configuration, meaning that the distance of the coils equals their radius.
 
 \section*{Homogeneous Fields}
-The field in
-Gauss  % \href{https://www.youtube.com/watch?v=_3_JVVs2Kls}{Gauss}
-at the center of a Helmholtz configuration of coils of radius $r$, distance $r$, operated at current $I$ can be estimated as
+The field in 
+Gauss
+% \href{https://www.youtube.com/watch?v=_3_JVVs2Kls}{\GaUsS}
+at the center of a Helmholtz configuration of coils with radius $r$ operated at current $I$ can be estimated as
 \begin{align}\label{eq:rot_field}
     B(r, I) \approx \left. \frac{I}{\SI{1}{\ampere}} \middle/ \frac{r}{\SI{1}{\centi\meter}} ~ \cdot ~\SI{1}{\gauss}\right. .
 \end{align}
