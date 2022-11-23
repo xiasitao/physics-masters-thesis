@@ -119,12 +119,12 @@ The azimuth-ellipticity basis of the Poincaré sphere identifies polarizations b
 
 \begin{figure}
     \centering
-    \scalebox{0.8}{
+    \scalebox{1.0}{
     \begin{pgfpicture}
         \pgftext{\input{\imagepath/azimuth_ellipticity_visualization/azimuth_ellipticity_visualization.pgf}}
     \end{pgfpicture}
     }
-    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{8}$, the angles were added to the drawing.}
+    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: The as light with the respective polarization propagates, the polarization vector rotates along these ellipses. The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{8}$, the angles were added to the drawing.}
     \label{fig:azimuth_ellipticity_visualization}
 \end{figure}
 
@@ -202,7 +202,6 @@ Analogously, $I - Q$ yields $ 2 v^2 = 1 - \cos(2\alpha) \cos(2\epsilon)$, so:
     v = \sqrt{\frac{1 - \cos(2\alpha) \cos(2\epsilon)}{2}}
 \end{align}
 
-\pagebreak
 \section*{Using py-pol for Transforming from the Azimuth-Ellipticity Basis}
 Using the Python library py-pol~\cite{noauthor_python_nodate} polarization vectors can be transformed from the azimuth-ellipticity basis to the Jones basis with the following function.
 \begin{lstlisting}[language=Python]
