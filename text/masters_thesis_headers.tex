@@ -9,11 +9,23 @@
 \newif\ifprintversion
 \printversionfalse
 
+\newif\ifdraft
+\drafttrue
+
 % === Page  ===
 \ifprintversion
   \usepackage[paper=a4paper,bindingoffset=10mm,twoside]{geometry}
 \else 
   \usepackage[paper=a4paper]{geometry}
+\fi
+
+\ifdraft
+  \usepackage{draftwatermark}
+  \SetWatermarkLightness{0.8}
+  \SetWatermarkText{preliminary (\today)}
+  \SetWatermarkAngle{0}
+  \SetWatermarkVerCenter{0.93\pdfpageheight}
+  \SetWatermarkScale{0.17}
 \fi
 
 % === Fonts  ===
