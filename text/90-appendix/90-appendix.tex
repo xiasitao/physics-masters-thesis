@@ -33,7 +33,7 @@ The acousto-optic modulators used in the laser setup were produced by Gooch \& H
 In the trap laser setup, mirrors with a broadband anti-reflection coating for incidence angles from \SIrange[]{0}{45}{\degree} from the vendors Thorlabs (part numbers: BB1-E02-10 and BB1-E02-05 with a specified reflectivity of \SIrange[]{99}{100}{\percent} (depending on polarization) at \SI[]{45}{\degree} and \SI[]{99}{\percent} at \SI[]{8}{\degree} at \SI[]{671}{\nano\meter}) and Laser Components (part numbers: 3051012 and 3051014 with a specficied transmittivity of \SI[]{0.04}{\percent} at \SI[]{45}{\degree} and \SI[]{0.03}{\percent} at \SI[]{0}{\degree} at \SI[]{671}{\nano\meter}, back-polished) were used. For the Laser Components mirrors, it was experimentally verified that arbitrary incident polarization states were transformed in the same way by different mirrors from the same batch at \SI[]{45}{\degree} incidence angle.
 
 \paragraph{Optical Isolator}
-In order to prevent any inadvertent reflections travelling back into the Raman fiber amplifier supplying the board the D$_2$ light, an optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and over \SI{95}{\percent} transmission could be attested in agreement with the specifications.
+In order to prevent any inadvertent reflections travelling back into the Raman fiber amplifiers supplying the boards with the D$_2$ and the D$_1$ light, an optical isolator (Newport ISO-04-650-MP-WP) was placed immediately after the doubling stage. In a power measurement, \SI{30}{\deci\bel} damping (with the isolator inverted) and over \SI{95}{\percent} transmission could be attested in agreement with the specifications.
 
 \section{Power Dissipations, Recombination, and Splitting Ratios}\label{ch:power_losses}
 For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab:power_loss_table} lists the measured remaining power levels after each dissipating element. Table~\ref{tab:power_recombination} compares the cooler and repumper power on the recombination cube, and table~\ref{tab:power_splitting} gives the measured splitting ratios into the two optical fibers.
@@ -48,7 +48,7 @@ For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab
         \midrule
         telescope & & g & \SI{99}{\percent} \\
         \midrule
-        \multirow{3}{*}{switching AOM} & all orders & h & \SI{100}{\percent} \\ 
+        \multirow{2}{*}{switching AOM} & all orders & h & \SI{100}{\percent} \\ 
         & first order & h - o & \SI{83}{\percent} \\
         \midrule
         \multirow{2}{*}{cooler AOM} & all orders & q & \SI{97}{\percent} \\
@@ -80,7 +80,7 @@ For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab
         repumper & p - r & \SI{47}{\percent} \\
         \bottomrule
     \end{tabular}
-    \caption{Measured power ratios of the recombined cooler and repumper beams on the polarizing beam splitter cube r on the optics board for the two-dimensional magneto-optical trap}
+    \caption{Measured power ratios of the recombined cooler and repumper beams on the polarizing beam splitter cube r (fig.~\ref{fig:2d_mot_setup_photo}) on the optics board for the two-dimensional magneto-optical trap}
     \label{tab:power_recombination}
 \end{table}
 
@@ -100,19 +100,19 @@ For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab
         & B & p - u & \SI{49}{\percent} \\
         \bottomrule
     \end{tabular}
-    \caption{Measured power splitting ratios into branches A and B on the polarizing beam splitter cube s on the optics board for the two-dimensional magneto-optical trap}
+    \caption{Measured power splitting ratios into branches A and B on the polarizing beam splitter cube s (fig.~\ref{fig:2d_mot_setup_photo}) on the optics board for the two-dimensional magneto-optical trap}
     \label{tab:power_splitting}
 \end{table}
 
 
 
-\chapter{Jones and Azimuth-Ellipticity Polarization Bases}\label{ch:pypol_trafos}
-Polarization is commonly represented in the Jones basis, the Mueller basis, or in the azimuth-ellipticity basis of a Poincaré sphere. For reference, transformations between the Jones and the azimuth-ellipticity basis are outlined here, as they were used for polarization characterizations in chapter~\ref{ch:projected_implementation}. This appendix chapter follows~\cite{trager_springer_2012}, but with a different definition of right- and left-handedness.
+\chapter{The Jones and Azimuth-Ellipticity Polarization Bases}\label{ch:pypol_trafos}
+Polarization is commonly represented in the Jones basis, the Mueller basis, or in the azimuth-ellipticity basis of a Poincaré sphere. For reference, this appendix chapter outlines transformations between the Jones and the azimuth-ellipticity basis as they were used for polarization characterizations in chapter~\ref{ch:projected_implementation}. The following explanations follow~\cite{trager_springer_2012}, but with a different definition of right- and left-handedness.
 
 \section*{Transformations}
-In the Jones basis, polarization is denoted using two basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using the three real valued parameters $h > 0$, $v > 0$, $\phi$:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
+In the Jones basis, polarization is denoted using two orthogonal basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using the three real valued parameters $h > 0$, $v > 0$, $\phi$:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
 \begin{align}
-    \vec J = \begin{pmatrix}h \\ v \exp(-i \phi)\end{pmatrix}
+    \vec J = \begin{pmatrix}h \\ v \exp(-i \phi)\end{pmatrix} = h \KetText{H} + v \exp(-i\phi) \KetText{V}
 \end{align}
 
 The azimuth-ellipticity basis of the Poincaré sphere identifies polarizations by the azimuth $\alpha \in \left[-\frac{\pi}{2}, +\frac{\pi}{2}\right]$ and the ellipticity $\epsilon \in \left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$. In two dimensions, a polarization state can be visualized as an ellipse in an $h$-$v$ plane, collapsing into a line for linear and extending into a circle for circular polarization, as displayed in figure~\ref{fig:azimuth_ellipticity_visualization}.
@@ -124,11 +124,11 @@ The azimuth-ellipticity basis of the Poincaré sphere identifies polarizations b
         \pgftext{\input{\imagepath/azimuth_ellipticity_visualization/azimuth_ellipticity_visualization.pgf}}
     \end{pgfpicture}
     }
-    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: The as light with the respective polarization propagates, the polarization vector rotates along these ellipses. The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{8}$, the angles were added to the drawing.}
+    \caption{Two-dimensional visualization of polarization states as ellipses in the azimuth-ellipticity basis: As the light with the respective polarization propagates, the polarization vector rotates along these ellipses. The azimuth $\alpha$ denotes the inclination of the ellipse, whereas the ellipticity $\epsilon$ indicates the ratio of the short and the long axes of the ellipse. For the elliptical example with $\alpha = \frac{\pi}{6}$ and $\epsilon = \frac{\pi}{8}$, the azimuth and ellipticity angles were added to the drawing.}
     \label{fig:azimuth_ellipticity_visualization}
 \end{figure}
 
-In the following the Mueller-Stokes basis is going to be used as an intermediary for transforming between the Jones and the azimuth-ellipticity bases.
+In the following, the Mueller-Stokes basis is going to be used as an intermediary for transforming between the Jones and the azimuth-ellipticity bases.
 
 \paragraph*{Jones to Azimuth-Ellipticity}
 In the Mueller basis, a given Jones polarization vector with $h$, $v$, and $\phi$ is represented as a stokes vector:
@@ -184,7 +184,7 @@ For a given azimuth $\alpha$ and ellipticity $\epsilon$, the Stokes vector can b
     \end{pmatrix}.
 \end{align}
 
-For $I = 1$, one can conclude the Jones vector parameters $h$, $v$, and $\phi$ from this vector.
+For $I = 1$, one can conclude the Jones vector parameters $h$, $v$, and $\phi$ from this vector:
 
 $V / U$ gives $\tan \phi = \frac{\tan(2\epsilon)}{\sin(2\alpha)}$, so
 \begin{align}
@@ -203,7 +203,7 @@ Analogously, $I - Q$ yields $ 2 v^2 = 1 - \cos(2\alpha) \cos(2\epsilon)$, so:
 \end{align}
 
 \section*{Using py-pol for Transforming from the Azimuth-Ellipticity Basis}
-Using the Python library py-pol~\cite{noauthor_python_nodate} polarization vectors can be transformed from the azimuth-ellipticity basis to the Jones basis with the following function.
+Using the Python library py-pol~\cite{noauthor_python_nodate}, polarization vectors can be transformed from the azimuth-ellipticity basis to the Jones basis with the following function.
 \begin{lstlisting}[language=Python]
 def azimuth_ellipticity_to_jones(alpha, epsilon):
     polarisation = pypol.jones_vector.Jones_vector()
@@ -213,37 +213,37 @@ def azimuth_ellipticity_to_jones(alpha, epsilon):
     v = v.conjugate()
     return h, v
 \end{lstlisting}
-Note that py-pol, as also in~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$, which is why the $v$ component is conjugated.
+Note that py-pol, as also in~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$. The $v$ component is conjugated here in order to comply with the definition of left and right circular polarization stated above.
 
 
 
 \chapter{Coil Simulation Library}\label{ch:coil_simulation_library}
-This appendix chapter outlines the class structure of the \textit{coil simulation library} for simulating magnetic fields in arrangements of coil with arbitrary winding geometry aligned on a common axis. Usage examples are given in the second part of this chapter. For the way the library determines properties of the coils and coil arrangement, refer to chapter~\ref{ch:simulation}.
+This appendix chapter covers technical details of the \textit{coil simulation library} for simulating magnetic fields in arrangements of coils with arbitrary winding geometry aligned on a common axis. While the first part outlines the package structure,  the second explains how custom coil geometries are implemented. Usage examples are given in the last part of this chapter. For the way the library determines properties of the coils and coil arrangements, refer to chapter~\ref{ch:simulation}.
 
 
-\section*{Outline of the implementation}
-The \textit{coil simulation library} uses the Python library \textit{magpylib}~\cite{noauthor_magpylibmagpylib_nodate} which analytically determines magnetic fields around current-bearing straight wires and wire loops as well as permanent magnets. The \textit{coil simulation library} models coils as sets of wire loops, as explained in chapter~\ref{ch:simulation}.
+\section*{Outline of the Implementation}
+The \textit{coil simulation library} uses the Python library \textit{magpylib}~\cite{noauthor_magpylibmagpylib_nodate} which analytically determines magnetic fields around current-bearing straight wires and wire loops as well as permanent magnets. Acting as a wrapper, the \textit{coil simulation library} models coils as sets of wire loops, as explained in chapter~\ref{ch:simulation}.
 
 \paragraph*{Classes}
 The coil simulation library features three classes:
 \begin{itemize}
-    \item \texttt{CoilArrangement}, \textit{abstract}: This class models an arrangement of sets of coils with a common axis, symmetrical on the $xz$ plane. In order to model a coil arrangement, this class needs to be subclassed, with the subclass implementing the method \texttt{\_compile\_single\_stack}. A \texttt{CoilArrangement} is parameterized by
+    \item \texttt{CoilArrangement}, \textit{abstract}: This class models an arrangement of coils with a common axis, symmetrical on the $xz$ plane. In order to define a specific arrangement geometry, this class needs to be subclassed, with the subclass implementing the method \texttt{\_compile\_single\_stack}. A \texttt{CoilArrangement} is parameterized by
     \begin{itemize}
         \item the \texttt{name} of the arrangement,
         \item the \texttt{radius} of a coil (only for reference for the subclasses),
-        \item the \texttt{current}, which is either a constant value or a function \texttt{current(coil\_index, row, column)} assigning different currents to each coil and windings by their on- (\texttt{row}) and cross-axis (\texttt{column}) index,
+        \item the \texttt{current}, which is either a constant value or a function \texttt{current(coil\_index, row, column)} assigning different currents to each coil and its respective windings by their on- (\texttt{row}) and cross-axis (\texttt{column}) indices,
         \item the dimension \texttt{wire\_spacing} of the wire,
         \item the \texttt{on\_axis\_coil\_distance}, and
         \item whether the arrangement is operated in \texttt{gradient} mode.
     \end{itemize}
-    \item \texttt{FieldMap}: This class provides maps of the field generated by a \texttt{CoilArrangement} and can plot the field along slices through the field maps and 3D plots of them.
-    \item \texttt{CurvatureAnalyzer}: This class calculates trap frequencies and gradients of the field of an arrangement or pre-calculated fields.
+    \item \texttt{FieldMap}: This class provides maps of the field generated by a \texttt{CoilArrangement} and can plot the field along slices through the field maps and generates 3D plots of them.
+    \item \texttt{CurvatureAnalyzer}: This class calculates trap frequencies and gradients of the field of an arrangement or pre-calculated field values.
 \end{itemize}
 
 \paragraph*{Coil Geometries}
 The following coil geometries were implemented by subclassing \texttt{CoilArrangement}:
 \begin{itemize}
-    \item \texttt{ConeShapedCoilArrangement}: An cone shaped arrangement with increasing radius of the winding layers along the coil axis. Parameterized by \texttt{windings\_axis} along the arrangement axis ($y$), \texttt{windings\_cross\_axis}, and the opening angle \texttt{cone\_angle} of the cone (relating the on-axis position of a winding layer and its radius).
+    \item \texttt{ConeShapedCoilArrangement}: A cone-shaped arrangement with increasing radius of the winding layers along the coil axis. Parameterized by \texttt{windings\_axis} along the arrangement axis ($y$), \texttt{windings\_cross\_axis}, and the opening angle \texttt{cone\_angle} of the cone (relating the on-axis position of a winding layer and its radius).
     \item \texttt{StackShapedCoilArrangement}: A \texttt{ConeShapedCoilArrangement} with \texttt{cone\_angle} = \SI[]{0}{\degree}.
     \item \texttt{LithiumLayoutShapedCoilArrangement}: A coil arrangement as suggested in~\cite{gantner_magnetic_2012}.
     \item \texttt{FourPancakeArrangement}: A coil arrangement of two equally sized stack shaped coils with a center-of-mass distance \texttt{coil\_width} for each other on each side of the arrangement (written by the student research assistant Jan Wozniak).
@@ -256,10 +256,12 @@ In order to implement new coil geometries, a subclass of \texttt{CoilArrangement
 
 \texttt{\_compile\_single\_stack} layouts the geometry of the coil by configuring each winding of the coil as a \textit{magpylib}~\cite{noauthor_magpylibmagpylib_nodate} current loop and placing it in its position. It takes the \texttt{coil\_index} $\in \{-1, 1\}$ as an argument, indicating whether the left or the right coil should be laid out.
 
-Conceptually, the implementation should iterate over all on-axis and cross-axis windings, adding a \textit{magpylib} current loop to a collection for each winding, and return the collection. The geometry is implemented by setting the position and radius of each winding as desired.
+Conceptually, the implementation should iterate over all on-axis and cross-axis windings, adding a \textit{magpylib} current loop to a collection for each winding, and return the collection. The geometry is implemented by setting the position and radius of each winding as desired, as exemplarily shown in the following code snippet from the \texttt{ConeShapedCoilArrangement}:
 \begin{lstlisting}
 collection = mpl.Collection()
 current_factor = 1 if coil_index == 0 else -1  # opposite polarity on both sides
+
+# iterating over all windings
 for row in range(self.windings_axis):
     on_axis_offset = (row - self.windings_axis/2 + 0.5) * winding_spacing
     for column in range(self.windings_cross_axis):
@@ -268,6 +270,7 @@ for row in range(self.windings_axis):
             + (column-self.windings_cross_axis/2+0.5) * winding_spacing
         )
         current = self.get_current(coil_index=coil_index, row=row, column=column)*current_factor
+        # adding a magpylib current loop
         loop = mpl.current.Loop(
             current=current,
             diameter=2*radius+2*radial_offset,
@@ -276,10 +279,10 @@ for row in range(self.windings_axis):
         collection.add(loop)
 return collection
 \end{lstlisting}
-The \texttt{current\_factor} ensures that the fields actually have same polarity in homogeneous field mode. The \texttt{self.gradient} property doesn't need to be considered here. The call to \texttt{self.get\_current} retrieves the current, which can be set independently each coil and each winding.
+The \texttt{current\_factor} ensures that the fields actually have same polarity in homogeneous field mode. The \texttt{self.gradient} property doesn't need to be considered here. The call to \texttt{self.get\_current} retrieves the current, which can be set independently for each coil and each winding.
 
 \section*{Usage Examples}
-The usage of the \textit{coil simulation library} is exemplarily shown with the following examples of a \texttt{ConeShapedArrangement}.
+The usage of the \textit{coil simulation library} is exemplarily shown with the following examples of a \texttt{ConeShapedCoilArrangement}.
 
 \subsection*{Instantiation}
 \begin{lstlisting}[language=Python]
@@ -439,7 +442,7 @@ Figure~\ref{fig:rot_field} compares this rule of thumb to exact simulations with
         \caption{Field as a function of radius and current: Exact fields are displayed in red, the rule-of-thumb approximation in gray above.}
         \label{fig:rot_field_3d}
     \end{subfigure}
-    \caption{Fields in the center of a Helmholtz arrangement of coils for different radii and currents, comparing the rule of thumb \eqref{eq:rot_field} with simulated values. Parameters: $I = \SI{100}{\ampere}, r = \SI{10}{\centi\meter}, N_\text{windings} = 1$}
+    \caption{Fields in the center of a Helmholtz arrangement of coils for different radii and currents, comparing the rule of thumb \eqref{eq:rot_field} to simulated values. Parameters: $I = \SI{100}{\ampere}, r = \SI{10}{\centi\meter}, N_\text{windings} = 1$}
     \label{fig:rot_field}
 \end{figure}
 
@@ -480,6 +483,6 @@ Figure~\ref{fig:rot_gradient} compares the rule of thumb to simulations with the
         \caption{Gradient as a function of radius and current: Simulated gradients are displayed in red, the rule-of-thumb approximation in gray below.}
         \label{fig:rot_gradient_3d}
     \end{subfigure}
-    \caption{Gradients around the center of a Helmholtz arrangement of coils with mutually invert currents for different radii and currents, comparing the rule of thumb \eqref{eq:rot_gradient} with simulated values. Parameters: $I = \SI{100}{\ampere}, r = \SI{10}{\centi\meter}, N_\text{windings} = 1$}
+    \caption{Gradients around the center of a Helmholtz arrangement of coils with currents in opposite directions for different radii and currents, comparing the rule of thumb \eqref{eq:rot_gradient} to simulated values. Parameters: $I = \SI{100}{\ampere}, r = \SI{10}{\centi\meter}, N_\text{windings} = 1$}
     \label{fig:rot_gradient}
 \end{figure}
