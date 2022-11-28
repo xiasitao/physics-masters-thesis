@@ -1,19 +1,24 @@
+# Corrections
 
-# Quantum gas microscopy
+## Intro
+- compact design
+- fast cycle time
 
-- find sources and draw timeline
-- find current sources and find state of the art
+- necessity of cooling -> transition to my thesis
 
+## FermiQP
+### 
+- Paschen-Back regime
+    - electronic splitting 2GHz
+    - nuclear 80 MHz -> Lithium good as the small hyperfine splitting enables parallelity of the 1 and 2 states
+- Feshbach resonance at 832 G
 
-# MOT
+### Setup
+- 2D MOT for fast cycle time
+- 1 paragraph about setup of the lab from the beginning
+- pictures (empty lab, table moving, chamber, whole lab)
 
-- MOT calculations (capture velocities depending on fields etc.)
-
-
-# Experiment setup
-
-- polarisation
-    - find waveplate settings for reaching left/right light "at atoms" using the cube method, note down
-    - remove mirror and measure the polarizations
-- finish coupling
-- laser setup power measurements
+## Coils
+- Put measurements to the back
+    - 1 section for ideal coils
+    - 1 section for measurements
