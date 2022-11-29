@@ -2,22 +2,22 @@
 \renewcommand{\imagepath}{../40-coils/img}
 
 \chapter{Feshbach and Gradient Field Coils}\label{ch:coils}
-This chapter covers the coils used for generating homogeneous magnetic fields for tuning Feshbach resonances and for creating magnetic gradients for the three-dimensional magneto-optical trap: First it is elaborated which requirements and constraints these coils are subject to in the experiment. Then a Python library developed for simulating magnetic fields and operational properties of coil arrangements is presented. Afterwards, the coil specifications as well as their simulated properties and fields are outlined. Finally, measured fields are used to quantify imperfections of the coils and find optimal operation parameters for generating homogeneous fields. In this chapter, these coils are called \textit{Feshbach coils}.\todo{maybe reformulate?}
+This chapter covers the coils designed for tuning Feshbach resonances with homogeneous magnetic fields and for creating magnetic gradients for the three-dimensional magneto-optical trap. First, it is elaborated which requirements and constraints these coils are subject to in the experiment. Then a Python library developed for simulating magnetic fields and operational properties of coil arrangements is presented. This library is used to find optimal coil specifications as well as to simulate their properties and fields. Finally, fields of the actual coils are measured in order to quantify imperfections and to infer optimal operation parameters for generating homogeneous fields. In this chapter, these coils are called \textit{Feshbach coils}.
 
 \section{Requirements and Constraints}
-The FermiQP demonstrator setup and its planned experimental operations impose certain requirements and constraints on the fields as well as the design  and the geometry of the Feshbach coils:
+The FermiQP demonstrator setup and its planned experimental operations impose certain requirements and constraints on the fields as well as on the design and the geometry of the Feshbach coils:
 
 \subsection*{Magnetic Field Strength}
-The Feshbach coils serve two main purposes: On the one hand, they produce strong homogeneous magnetic fields, e.g. for scanning over the Feshbach resonance of lithium at \SI{832}{\gauss} and thereby tuning on-site interactions in the Fermi-Hubbard model, as described in chapter~\ref{ch:analog_mode}. On the other hand, they provide magnetic gradients up to the order of \SI[]{e2}{\gauss\per\centi\meter} for the three-dimensional magneto optical trap. A value of \SI{1300}{\gauss} was set as the target field magnitude in the homogeneous mode, created at a current of $I = \SI{400}{\ampere}$ provided by two high-current power supplies, one for each coil\footnote{Delta Elektronika SM 15-400 with a maximum output power of \SI[]{6}{\kilo\watt}, voltage up to \SI[]{15}{\volt}, and current up to \SI[]{400}{\ampere}}.
+The Feshbach coils serve two main purposes: On the one hand, they produce strong homogeneous magnetic fields, for example used for scanning over the Feshbach resonance of lithium at \SI{832}{\gauss} and thereby tuning on-site interactions in the Fermi-Hubbard model, as described in chapter~\ref{ch:analog_mode}. On the other hand, they provide magnetic gradients up to the order of \SI[]{100}{\gauss\per\centi\meter} for the three-dimensional magneto optical trap. A value of \SI{1300}{\gauss} was set as the target field magnitude in the homogeneous mode, created at a current of $I = \SI{400}{\ampere}$ provided by two high-current power supplies, one for each coil\footnote{Delta Elektronika SM 15-400 with a maximum output power of \SI[]{6}{\kilo\watt}, voltage up to \SI[]{15}{\volt}, and current up to \SI[]{400}{\ampere}}.
 
 In order to generate flat homogeneous fields, the coils are arranged in Helmholtz configuration, meaning that two equally-sized circular coils are placed on a common axis such that their distance is equal to their radius.\footnote{In the rest of this chapter, the term \textit{Helmholtz configuration} will refer to two coils of the same size sharing the same axis at a distance equal to their radii. All coil arrangements discussed in this chapter will be in Helmholtz configuration. If the current in both coils flows in the same direction, meaning that the coils generate a homogeneous field between them, the operation mode will be referred to as \textit{homogeneous field mode}. If, however, the current flows in opposite directions such that the coils generate a field gradient between them, the operation mode will be referred to as \textit{gradient mode}. Note that, similar to the $d = r$ condition of the Helmholtz configuration, there is a different optimal configuration for gradient fields, often called \textit{anti-Helmholtz configuration}, which however requires a different distance $d \neq r$ and does not occur in this chapter.} In this configuration, the field in the center is flat in the sense that its second derivative by position vanishes. The effective optimal ratio of distance and radius required, however, depends on the finite size and the actual geometry of the coils.
 
 \subsection*{Geometry}
 In order to produce these strong fields with reasonable currents, the radius of the coils should be kept as small as possible, and they should be placed as close to the glass cell as possible.
 
-The coils will enclose the two objectives above and below the glass cell between them. This introduces a minimum distance of around \SI{50}{\milli\meter} between the coils still allowing a few \si[]{\milli\meter} of leeway to fit the objectives between the coils. It was decided for a distance of \SI{55}{\milli\meter} between the innermost wires of the coils, not considering additional surface material on the coils. These geometrical constraints led to the estimation that 30 windings are needed to attain the required \SI{1300}{\gauss} of field\footnote{Estimated using simulations  as outlined in sections~\ref{ch:simulation} and~\ref{ch:coil_properties}}.
+The coils will enclose the two objectives above and below the glass cell between them. This introduces a minimum distance of around \SI{50}{\milli\meter} between the coils still allowing a few \si[]{\milli\meter} of leeway to fit the objectives between the coils. It was decided for a distance of \SI{55}{\milli\meter} between the innermost wires of the coils, not considering additional surface material on the coils. These geometrical constraints led to the estimation that 30 windings are needed to attain the required \SI{1300}{\gauss} of field strength\footnote{Estimated using simulations as outlined in sections~\ref{ch:simulation} and~\ref{ch:coil_properties}}.
 
-The orientation of the coil arrangement is constrained by the requirement that Raman transitions on the atoms in the optical lattice be driven with $\pi$-polarized light shone in through the objectives. As this light propagates along the $z$ axis, its polarization vector lies in the $xy$ plane. Since $\pi$ transitions can only be driven if the polarization vector and the quantization axis are parallel, the direction of the magnetic field and hence also the coil axis are constrained to the $xy$ plane. It was decided to align the coil arrangement with the $y$ axis, meaning that the two coils sit on the left and on the right of the glass cell with the coil axis passing through the trap region of the magneto-optical trap.
+The orientation of the coil arrangement is constrained by the requirement that Raman transitions on the atoms in the optical lattice are to be driven with $\pi$-polarized light shone in through the objectives. As this light propagates along the $z$ axis, its polarization vector lies in the $xy$ plane. Since $\pi$ transitions can only be driven if the polarization vector and the quantization axis are parallel, the direction of the magnetic field and hence also the coil axis are constrained to the $xy$ plane. It was decided to align the coil arrangement with the $y$ axis, meaning that the two coils sit on the left and on the right of the glass cell with the coil axis passing through the trap region of the magneto-optical trap.
 
 Figure~\ref{fig:feshbach_coil_geometry_constraints} shows the geometrical constraints on the positioning of the coils.
 
@@ -41,7 +41,7 @@ The FermiQP demonstrator aims for a relative field stability of \SI{e-7}{} calli
 
 Furthermore, it is important to ensure thermal stability of the coils. The electrical power $P(I) = RI^2$ dissipated in the coils with resistance $R$ shows quadratic scaling  with the driving current $I$. For an exemplary coil with \SI{10}{\milli\ohm} resistance driven with $I = \SI{400}{\ampere}$ this would amount to a dissipated power of \SI{1.6}{\kilo\watt} converted into heat. In order to transport this heat off efficiently, avoiding a critical increase of temperature, the coils need to feature hollow-core wires for water cooling. For a given maximal temperature increase $\Delta T$ of the cooling water, the cooling power of the water can be estimated as $Q_\text{cool} = c_\text{water} ~ \Delta T ~ m_\text{water} ~ v_\text{flow}$ with the heat capacity $ c_\text{water}$ of water, the specific mass $m_\text{water}$ of the water in the hollow-core wire, and the speed $v_\text{flow}$ of the cooling water flow, which depends on the applied pressure, the turbulence of the flow, and the wire geometry.
 
-To lower the required cooling water pressure and to avoid turbulences in the cooling water stream, it was decided to separate the six wire layers into three pancakes of two layers each, constituting three separately driven water cooling circuits, as shown in figure~\ref{fig:pancake_structure}. The two supply lines for each pancake are placed next to each other, forming pairs of wires with current flowing in opposite directions. This has the additional advantage that the fields of the supply lines cancel out in the far-field and do not influence the magnetic field in the center of the coil arrangement.
+To lower the required cooling water pressure and to avoid turbulences in the cooling water stream, it was decided to separate the six wire layers into three pancakes of two layers each, constituting three separately driven water cooling circuits, as shown in figure~\ref{fig:pancake_structure}. The two supply lines for each pancake are placed next to each other, forming pairs of wires with current flowing in opposite directions. This has the additional advantage that the fields of the supply lines cancel out in the far-field and do not influence the magnetic field landscape in the center of the coil arrangement.
 
 \begin{figure}
     \centering
@@ -57,7 +57,7 @@ When the atoms trapped in glass cell are exposed to the homogeneous magnetic fie
 \end{align}
 where the sign of the shift depends on whether the atoms are in high- or low-field seeking states. The magnitude of the magnetic moment is $\mu \approx \mu_\text{B}$ with the Bohr magneton $\mu_\text{B} = \SI{9.27e-24}{\joule\per\tesla}$.
 
-In case of optimally positioned coils, the field landscape around the center is very flat. Realistically, however, there is a non-negligible position dependence $B(\vec r)$ of the field, stemming from the finite size of the region of interest and imperfections in positioning, aligning, and manufacturing of the coils. This leads to a potential landscape that the atoms are exposed to such that their Hamiltonian reads:
+In case of optimally positioned coils, the field landscape around the center is very flat. Realistically, however, there is a non-negligible position dependence $B(\vec r)$ of the field, stemming from the finite size of the region of interest and imperfections in positioning, aligning, and manufacturing of the coils. This leads to a potential landscape which makes their Hamiltonian read:
 \begin{align}
     \hat H(\vec r) = \frac{\vec p^2}{2m} \mp \vec \mu_\text{B} \vec B(\vec r)
 \end{align}
@@ -183,7 +183,7 @@ The field curvature $a_q$ along an axis $q$ in an arrangement $\mathcal{A}$ as d
 
 The high-field seeker trap frequency is calculated as (cf. equation \ref{eq:trap_omega_definition})
 \begin{align}\label{eq:trap_frequency_simulation}
-    f_{\mathcal{A},~\vec q,~\text{high-field seeker}} = \frac{1}{2\pi}  \sqrt{\left| \frac{2 \hat c_2 \mu_\text{B}}{m_{^6\text{Li}}} \right|} (-\mathrm{sgn} \hat c_2)
+    f_{\mathcal{A},~\vec q,~\text{high-field seeker}} = \frac{1}{2\pi}  \sqrt{\left| \frac{2 \mu_\text{B} \hat c_2 }{m_{^6\text{Li}}} \right|} (-\mathrm{sgn} \hat c_2)
 \end{align}
 which is positive if the field is trapping and negative if anti-trapping for high-field seekers along $\vec q$.
 
@@ -239,7 +239,7 @@ The coils will be held in place using holders designed by the engineering adviso
 \subsection*{Operational Properties}
 The operational properties introduced in section \ref{ch:simulation} were simulated using the \textit{coil simulation library} and are listed in table~\ref{tab:operational_properties}.
 
-In a four-point measurement, the resistance of the middle pancake of the \textit{Gauss} coil (wire length roughly $\frac{\SI{15.7}{\meter}}{3}$) with estimated \SI{6}{\meter} of supply line wire was measured to be \SI{12.8}{\milli\ohm}. The expected value of $\rho_\text{copper} \cdot \frac{(\SI{5}{\milli\meter})^2 - \pi(\SI{1.5}{\milli\meter})^2}{\SI{15.7}{\meter}/3 + \SI{6}{\meter}} \approx \SI{11}{\milli\ohm}$ is on the same order of magnitude. The experimenters reckon that the resistance might be higher than expected due the bends in the wire.
+In a four-point measurement, the resistance of the middle pancake of the \textit{Gauss} coil (wire length roughly $\frac{\SI{15.7}{\meter}}{3}$) with estimated \SI{6}{\meter} of supply line wire was measured to be \SI{12.8}{\milli\ohm}. The expected value of $\rho_\text{copper} \cdot \frac{(\SI{5}{\milli\meter})^2 - \pi(\SI{1.5}{\milli\meter})^2}{\SI{15.7}{\meter}/3 + \SI{6}{\meter}} \approx \SI{11}{\milli\ohm}$ is on the same order of magnitude. The experimenters believe that the resistance might be higher than expected due to bends in the wire.
 
 Additionally, the coil was set up to form an $LC$ circuit together with an oscilloscope of $C = \SI{15}{\pico\farad}$ to verify the simulated inductance of \SI{0.15}{\milli\henry}. In this setup, the supply lines of the coil were wound up to coils of $9$ windings with a radius of about \SI{11}{\centi\meter}, leading to an estimated additional inductance of $L_\text{supply} = \frac{N\Phi}{I} = \frac{N^2\mu_0\pi r}{2} \approx \SI{0.02}{\milli\henry}$. The resonance frequency of the circuit was experimentally determined as $f = \SI{3.19}{\mega\hertz}$ which allows to estimate the inductance of the coil:
 \begin{align}
@@ -297,7 +297,7 @@ The expected trap frequency of the arrangement of the Feshbach coils was determi
     \label{tab:feshbach_properties}
 \end{table}
 
-The simulated field landscape in this optimal configuration is mapped in figure~\ref{fig:feshbach_field_map}, the fields along the coil axis and the cross-axis are displayed in figures~\ref{fig:feshbach_field_slices} and~\ref{fig:feshbach_field_slices_detail}. The expected maximum field at the center in this configuration is \SI{1309}{\gauss}.
+The simulated field landscape in this optimal configuration is shown in figure~\ref{fig:feshbach_field_map}, the fields along the coil axis and the cross-axis are displayed in figures~\ref{fig:feshbach_field_slices} and~\ref{fig:feshbach_field_slices_detail}. The expected maximum field at the center in this configuration is \SI{1309}{\gauss}.
 
 Table~\ref{tab:feshbach_properties} lists some properties of the arrangement and its field in the homogeneous field mode. The switching time constant of \SI[]{13}{\milli\second} could be critically high when fast scanning of the field magnitude is required, calling for additional measures to shorten it, e.g. by applying a strong voltage boost with the power supplies or adding additional resistance to the coil circuits.
 
@@ -335,7 +335,7 @@ Table~\ref{tab:feshbach_properties} lists some properties of the arrangement and
 \end{figure}
 
 \subsection*{Gradient Field Mode}
-The simulated field landscape in gradient mode is mapped in figure~\ref{fig:gradient_field_map}. The gradients along the coil axis and the cross axis are displayed in figures~\ref{fig:gradient_field_slices} and~\ref{fig:gradient_field_slices_detail}. At a full current of \SI{+-400}{\ampere}, gradients of \SI{197}{\gauss\per\centi\meter} on the coil axis ($y$ axis), and of up to \SI{99}{\gauss\per\centi\meter} in radial direction ($xz$ plane) in the trap region (\SI{+-3.5}{\milli\meter}) are in reach. Table~\ref{tab:gradient_properties} lists relevant properties of the gradient field.
+The simulated field landscape in gradient mode is shown in figure~\ref{fig:gradient_field_map}. The gradients along the coil axis and the cross axis are displayed in figures~\ref{fig:gradient_field_slices} and~\ref{fig:gradient_field_slices_detail}. At a full current of \SI{+-400}{\ampere}, gradients of \SI{197}{\gauss\per\centi\meter} on the coil axis ($y$ axis), and of up to \SI{99}{\gauss\per\centi\meter} in radial direction ($xz$ plane) in the trap region (\SI{+-3.5}{\milli\meter}) are in reach. Table~\ref{tab:gradient_properties} lists relevant properties of the gradient field.
 
 \begin{table}
     \centering
@@ -389,15 +389,12 @@ The simulated field landscape in gradient mode is mapped in figure~\ref{fig:grad
 \end{figure}
 
 
-
-\pagebreak
-
-\section{Coil Imperfections}
+\section{Coil Imperfections}\label{ch:imperfections}
 In this section, on-axis field measurements are used to determine deviations of the manufactured Fesh\-bach coils from the specification. Considering these imperfections, optimal operation currents and positions for the coils to achieve minimal trap frequencies and minimal gradients are inferred.
 
 
-\paragraph{Field Landscape Measurement}
-Using a Sensys FGM3D/1000 fluxgate magnetic field probe (dominant relative error of \SI{0.5}{\percent}), the on-axis magnetic field produced by the three coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} at $I = \SI{1.000}{\ampere}$ was mapped. The setup is shown in figure~\ref{fig:coil_measurement_setup}. The probe was mounted on an optical cage system aligned with the experiment table. The casing of the field probe was centered in the coil plane (\SI[]{+-1}{\milli\meter}). The zero position of the field probe's on-axis sensor was set to the projected center position of the coil arrangement (\SI[]{42.5}{\milli\meter} from the coil center, \SI[]{+-1}{\milli\meter}). Then the vector components of the coil magnetic field as well as the background field were recorded in steps of \SI[]{1.00(1)}{\milli\meter}, measured with a caliper between two reference points on the cage system and on its mount.
+\subsection*{Field Landscape Measurement}
+Using a Sensys FGM3D/1000 fluxgate magnetic field probe (dominant relative error of \SI{0.5}{\percent}), the on-axis magnetic field produced by the three coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} at $I = \SI{1.000}{\ampere}$ was mapped. The setup is shown in figure~\ref{fig:coil_measurement_setup}. The probe was mounted on an optical cage system aligned with the experiment table, its casing was centered in the coil plane (\SI[]{+-1}{\milli\meter}), and the zero position of its on-axis sensor was set to the projected center position of the coil arrangement (\SI[]{42.5}{\milli\meter} from the coil center, \SI[]{+-1}{\milli\meter}). Then the vector components of the coil magnetic field as well as the background field were recorded in steps of \SI[]{1.00(1)}{\milli\meter}, measured with a caliper between two reference points on the cage system and on its mount.
 
 These measured values $B$ were fit to the following model for the on-axis field of \SI{30}{} spatially separated wire loops with current $I$\footnote{Although the current was set on the power supply and verified using a multimeter, adding it as a fit parameter greatly improved the quality of the fit.}, radius $r$ and center position $y_0$ as free parameters~\cite{demtroder_statische_2013}:
 \begin{align}\label{eq:on_axis_field_model}
@@ -419,13 +416,12 @@ The measured values, the curve fits, and the simulated field landscapes are disp
     \begin{pgfpicture}
         \pgftext{\input{\imagepath/single_coil_fields/single_coil_fields.pgf}}
     \end{pgfpicture}
-    \caption{Measured and simulated on-axis field landscape of the coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} for $I = \SI{1.000}{\ampere}$. Position $\SI{0}{\milli\meter}$ is the projected center point between two coils. While \textit{Tesla}'s field matches the simulation best, \textit{Gauss}'s is a little weaker, and \textit{Maxwell}'s is substantially less than expected.
-    \todo[inline]{add inset with residuals}
+    \caption{Measured and simulated on-axis field landscape of the coils \textit{Gauss}, \textit{Maxwell}, and \textit{Tesla} for $I = \SI{1.000}{\ampere}$. Position $\SI{0}{\milli\meter}$ is the projected center point between two coils. While \textit{Tesla}'s field matches the simulation best, \textit{Gauss}'s is a little weaker, and \textit{Maxwell}'s is substantially less than expected. The inset plot shows the position-dependent residuals of the fit. Their absolute values of less than \SI[]{5}{\milli\gauss} attesting a good fit quality of all three fits.
     }
     \label{fig:single_coil_fields}
 \end{figure}
 
-\paragraph{Quantifying Imperfections}
+\subsection*{Quantifying Imperfections}
 From the resulting parameters $\hat I$, $\hat r$, and $\hat y_0$ it can be concluded that the coils cannot produce the same maximum field and that they act like they are operated at different currents and/or have slightly different dimensions.\footnote{In the fit, the estimated parameters $\hat I$ and $\hat r$ are nearly collinear (correlation of \SI{99.9976}{\percent}), which can be understood from $\hat B \propto \frac{I}{r}$ for $y^2 \ll r^2$. This means that the deviations from the estimated field values cannot distinctively be attributed to either the radius or the current.}
 Comparing the measured and the simulated fields via $RMSE[B, B_\text{simulated}]$ (see table~\ref{tab:single_coil_fields_fit_parameters}), one can also see that \textit{Tesla} matches the expected field landscape best, followed by \textit{Gauss}, and then \textit{Maxwell} very far off.
 
@@ -475,14 +471,14 @@ These differences between the coils could originate from geometrical irregularit
 
 The observed difference in the measured field landscapes of \textit{Gauss} and \textit{Tesla} (see figure~\ref{fig:single_coil_fields}) call for an optimization of their respective position and current such that the curvature of the homogeneous field is minimal and has as little gradient as possible.
 
-\paragraph*{Current Optimization}
+\subsection*{Current Optimization}
 To this end, the current of each coil was adjusted by the factor ${\hat r^2}/{(\hat r^2 + \hat y_0^2)^\frac{3}{2}}$ (cf. equation~\ref{eq:on_axis_field_model}) such that the fields in the center are nearly equivalent:
 \begin{align}
     \frac{I_{\text{optimal}, \textit{Gauss}}}{I_{\text{optimal}, \textit{Tesla}}} = \frac{\hat r_\textit{Tesla}^2 / (\hat r_\textit{Tesla}^2 + \hat y_{0, \textit{Tesla}}^2)^\frac{3}{2}}{\hat r_\textit{Gauss}^2 / (\hat r_\textit{Gauss}^2 + \hat y_{0, \textit{Gauss}}^2)^\frac{3}{2}} = \frac{\SI{400}{\ampere}}{\SI{396.5}{\ampere}}
 \end{align}
 
-\paragraph*{Position Optimization}
-The coil positions were then optimized in a grid-search way by varying them between \SI{39.0}{\milli\meter} and \SI{44}{\milli\meter} in steps of \SI{0.5}{\milli\meter}, as shown in figure~\ref{fig:position_optimization}. Using sampled data from the fit model~\eqref{eq:on_axis_field_model}, the trap frequency and the gradient were determined for each pair of positions using~\eqref{eq:trap_frequency_simulation} and~\eqref{eq:gradient_simulation}.
+\subsection*{Position Optimization}
+The coil positions were then optimized using a grid search-like method by varying them between \SI{39.0}{\milli\meter} and \SI{44}{\milli\meter} in steps of \SI{0.5}{\milli\meter}, as shown in figure~\ref{fig:position_optimization}. Using sampled data from the fit model~\eqref{eq:on_axis_field_model}, the trap frequency and the gradient were determined for each pair of positions using~\eqref{eq:trap_frequency_simulation} and~\eqref{eq:gradient_simulation}.
 The optimal values found are listed in table~\ref{tab:position_optimization_results}. The positions of $y_{0, \textit{Gauss}} = \SI{-41.0}{\milli\meter}$ and $y_{0, \textit{Gauss}} = \SI{41.5}{\milli\meter}$ are suggested to be used as for these the trap frequency is minimal (\SI{0.63}{\hertz}) and the gradient is almost negligible (\SI{-0.07}{\gauss\per\centi\meter}). Compared to the originally projected coil distance of about \SI{85.5}{\milli\meter}, the optimal distance of $\SI{41}{\milli\meter} + \SI{41.5}{\milli\meter} = \SI{82.5}{\milli\meter}$ for the actual coils is \SI{3}{\milli\meter} more narrow.
 
 The expected field landscape generated by \textit{Gauss} and \textit{Tesla} with optimized currents and positions is plotted in figure~\ref{fig:optimized_projected_landscape}. At the time of writing of this thesis, the holder for the coils (see figure \ref{fig:coil_holder}) has just been manufactured, but an experimental verification of the optimal configuration with the coils mounted could not be conducted anymore.
@@ -541,7 +537,6 @@ The expected field landscape generated by \textit{Gauss} and \textit{Tesla} with
 
 \null
 
-\pagebreak
-The \textit{coil simulation library} has simplified the specification and optimization process of the Feshbach coils a lot and might also be a useful tool for other coil implementations, also in future experiments. In order not to rely on it even for coarsely estimating fields and gradients in a Helmholtz coil arrangement, two handy rules of thumb have been formulated in the appendix chapter \ref{ch:rules_of_thumb} for estimating the field and gradient in the center of a coil arrangement in Helmholtz configuration.
+The \textit{coil simulation library} has simplified the specification and optimization process of the Feshbach coils a lot and might also be a useful tool for other coil implementations, also in future experiments. In order not to have to rely on it when only coarsely estimating fields and gradients in a Helmholtz coil arrangement, two handy rules of thumb have been formulated in the appendix chapter \ref{ch:rules_of_thumb} for estimating the field and gradient in the center of a coil arrangement in Helmholtz configuration.
 
 Despite all the thoughts that went into the planning and characterization of the Feshbach coils, the experimenters of the FermiQP demonstrator will still need to optimize their operation in the running experiment as soon as its progress allows to.
