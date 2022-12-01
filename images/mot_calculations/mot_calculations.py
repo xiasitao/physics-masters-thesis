@@ -124,7 +124,7 @@ plt.show()
 # Optical molasses forces
 plt.figure(figsize=(10*cm, 7*cm))
 plt.xlabel(r'speed in $\Gamma/k$')
-plt.ylabel(r'$F_\mathrm{MO}$ in $1/(\hbar k \Gamma)$')
+plt.ylabel(r'$F_\mathrm{OM}$ in $1/(\hbar k \Gamma)$')
 speeds_by_Gamma_by_k = np.linspace(-2, 2, 300)
 speeds = speeds_by_Gamma_by_k * (Gamma/k_D2)
 detunings_by_Gamma = np.linspace(-0.5, -1.5, 3)
