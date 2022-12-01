@@ -630,7 +630,7 @@ In the second pass, the first loss $T_{\text{out}}$ is due to reflections on the
 The second loss $T_{\text{in}}$ is due to entering the glass cell again with the same polarization as in the first pass. In addition, there are losses from scattering on the cloud of trapped atoms in the first pass which affect the available power in the second pass. Denoting the remaining relative laser power after scattering by $p_\text{scatter}$, the remaining power in the second pass compared to the first pass is
 \begin{align}
     p_{y, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{y, \text{out}} T_{y, \text{in}}   =  0.867 p_\text{scatter}\\
-    p_{xz, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}}   = 0.700 p_\text{scatter},
+    p_{xz, \text{first pass} \rightarrow \text{second pass}} &= p_\text{scatter} \cdot T_{xz, \text{out}} T_{xz, \text{in}}   = 0.701 p_\text{scatter},
 \end{align}
 and the remaining power in the first pass compared to the original input power is
 \begin{align}
@@ -651,7 +651,7 @@ Table~\ref{tab:intensity_losses} lists all of these relative intensity losses.
         $p_{xz, \text{first pass}}$ & \SI{82.5}{\percent} & \SI{84}{\percent} \\
         \midrule
         $p_{y, \text{first pass} \rightarrow \text{second pass}}$ & $\SI{86.7}{\percent} \cdot p_\text{scatter}$ & \\
-        $p_{xz, \text{first pass} \rightarrow \text{second pass}}$ & $\SI{70.0}{\percent} \cdot p_\text{scatter}$ & \\
+        $p_{xz, \text{first pass} \rightarrow \text{second pass}}$ & $\SI{70.1}{\percent} \cdot p_\text{scatter}$ & \\
         \midrule
         $p_{y, \text{input} \rightarrow \text{second pass}}$ & $\SI{81.0}{\percent} \cdot p_\text{scatter}$ & \\
         $p_{xz, \text{input} \rightarrow \text{second pass}}$ & $\SI{57.8}{\percent} \cdot p_\text{scatter}$ & \\
@@ -667,7 +667,6 @@ In order to achieve a similar cooling effect in both directions for each axis, m
 \end{align}
 
 This would amount to $\left(\frac{d_\text{second pass}}{d_\text{first pass}}\right)_y = \SI[]{0.931}{} \cdot \sqrt{p_\text{scatter}}$ and $\left(\frac{d_\text{second pass}}{d_\text{first pass}}\right)_{xz} = \SI[]{0.837}{} \cdot \sqrt{p_\text{scatter}}$.
-\todo{check all those numbers again}
 
 \subsection*{Magnetic Gradient}
 The magnetic gradients for the three-dimensional magneto-optical trap are produced by the Feshbach coils placed next to the glass cell (see chapter~\ref{ch:coils}). Thanks to the high currents that are planned for the Fesh\-bach operation, the coils can generate high gradients upon reversal of the current in one of the coils. As presented in more detail in chapter~\ref{ch:field_characterization}, the maximum achievable gradients in the trapping region at full operating current are ideally \SI{99}{\gauss\per\centi\meter} in the $xz$ axis, where the recapturing axis lies, and even \SI{197}{\gauss\per\centi\meter} along the $y$ axis. Realistically, however, gradients of up to \SI{50}{\gauss\per\centi\meter} should be sufficient, which means that the setup has a comforting excess of magnetic gradient.
