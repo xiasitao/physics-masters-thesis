@@ -4,7 +4,7 @@
 \appendix
 
 \chapter{Details of the Trap Laser Setup}
-This appendix chapter gives some more detailed information about the optical elements used in the trap laser setup described in chapter~\ref{ch:light_preparation} as well as important power ratios measured in the implemented setup for the light for two-dimensional magneto-optical trap.
+This appendix chapter gives more detailed information about the optical elements used in the trap laser setup described in chapter~\ref{ch:light_preparation} as well as important power ratios measured in the implemented setup for the light for two-dimensional magneto-optical trap.
 
 \section*{Important Optical Elements}\label{ch:optical_components}
 In the optics setup for the magneto-optical traps, the following optical components are used for generating the trap laser light:
@@ -19,15 +19,15 @@ Using a quarter- and a half-wave plate, linear polarization can be turned into a
 
 The wave plates used for building the laser setup were zero-order wave plates sold by Laser Components (part numbers:  WPZ-671-04-2-R05, WPZ-671-09-2-R10, WPZ-671-04-4-R05,  WPZ-671-09-4-R10) with a specified retardance threshold of $\frac{\lambda}{300}$ and reflectance of $<\SI{0.2}{\percent}$.
     
-\paragraph{Acousto-optic modulators} Acousto-optic modulators (AOM) allow changing the optical frequency of a laser beam by multiples of the operating frequency $f_\text{AOM}$, typically in the order of \SI[]{e2}{\mega\hertz}. The beam is sent through a crystal in which the index of refraction $n$ is spatially modulated perpendicular to the beam direction by an acoustic wave of frequency $f_\text{AOM}$. The incident laser light is diffracted on this spatial modulation of the index of refraction, leading to multiple light beams after of the modulator at angles $\eta_m$ with $\sin \eta_m = m\frac{\lambda_\text{light}}{\lambda_\text{acoustic}}$ where $m \in \{..., -2, -1, 0, 1, 2, ...\}$ is the order of each refracted beam and $\lambda_\text{light}, \lambda_\text{acoustic}$ are the optical and acoustic wavelengths. The beam of order $m$ is frequency-shifted by $\Delta f = mf_\text{AOM}$~\cite{hunsperger_acousto-optic_2002}.
+\paragraph{Acousto-optic modulators} Acousto-optic modulators (AOM) allow changing the optical frequency of a laser beam by multiples of the operating frequency $f_\text{AOM}$, typically in the order of \SI[]{e2}{\mega\hertz}. The beam is sent through a crystal in which the index of refraction $n$ is spatially modulated perpendicular to the beam direction by an acoustic wave of frequency $f_\text{AOM}$. The incident laser light is diffracted on this spatial modulation of the index of refraction, leading to multiple light beams leaving the modulator at angles $\eta_m$ with $\sin \eta_m = m\frac{\lambda_\text{light}}{\lambda_\text{acoustic}}$ where $m \in \{..., -2, -1, 0, 1, 2, ...\}$ is the order of each refracted beam and $\lambda_\text{light}$, $\lambda_\text{acoustic}$ are the optical and acoustic wavelengths. The beam of order $m$ is frequency-shifted by $\Delta f = mf_\text{AOM}$~\cite{hunsperger_acousto-optic_2002}.
 
 In the trap laser setup, acousto-optic modulators are used for increasing or decreasing the frequency of a laser beam and as fast optical shutters by switching the diffraction on and off. Sending light forwards and backwards through an acousto-optic modulator using a mirror, a so-called double-pass, doubles the frequency shift of the light and avoids the angular diffraction, which cancels out for both passes through the modulator. While propagating through the double-pass, the light is polarization-turned from $\KetText{H}$ to $\KetText{V}$ using a quarter-wave plate that the laser beam traverses in forward and backward direction, such that incoming and outgoing light can be separated on a polarizing beam splitter. Typical coupling efficiencies for the first order are \SIrange[]{80}{90}{\percent}.
 
 The acousto-optic modulators used in the laser setup were produced by Gooch \& Housego (part numbers: 3080-120, frequency range: \SI{80(10)}{\mega\hertz}, active aperture of \SI{1}{\milli\meter} and 3110-120, frequency range: \SI{110(12)}{\mega\hertz}, active aperture of \SI{0.6}{\milli\meter}).
 
-\paragraph{Telescope} A telescope reduces the diameter of a collimated laser beam. It consists of two lenses, the first being convex ($f > 0$) focusing down the laser beam, the second being concave ($f < 0$) re-collimating the beam.
+\paragraph{Telescope} A telescope reduces the diameter of a collimated laser beam. It consists of two lenses, the first being convex ($f > 0$) for focusing down the laser beam, the second being concave ($f < 0$) for re-collimating the beam.
     
-\paragraph{Fiber Incouplers} An incoupler arrangement feeds a free-space laser beam into an optical fiber. The beam is focused down onto the tip of the fiber using an aspheric lens with an appropriate focal length such that the waist of the focused beam matches with the fiber size. Typical coupling efficiens range between \SIrange[]{80}{90}{\percent}.
+\paragraph{Fiber Incouplers} An incoupler arrangement feeds a free-space laser beam into an optical fiber. The beam is focused down onto the tip of the fiber using an aspheric lens with an appropriate focal length such that the waist of the focused beam matches with the fiber size. Typical coupling efficiencies range between \SIrange[]{80}{90}{\percent}.
     
 \paragraph{Mirrors}
 In the trap laser setup, mirrors with a broadband anti-reflection coating for incidence angles from \SIrange[]{0}{45}{\degree} from the vendors Thorlabs (part numbers: BB1-E02-10 and BB1-E02-05 with a specified reflectivity of \SIrange[]{99}{100}{\percent} (depending on polarization) at \SI[]{45}{\degree} and \SI[]{99}{\percent} at \SI[]{8}{\degree} at \SI[]{671}{\nano\meter}) and Laser Components (part numbers: 3051012 and 3051014 with a specficied transmittivity of \SI[]{0.04}{\percent} at \SI[]{45}{\degree} and \SI[]{0.03}{\percent} at \SI[]{0}{\degree} at \SI[]{671}{\nano\meter}, back-polished) were used. For the Laser Components mirrors, it was experimentally verified that arbitrary incident polarization states were transformed in the same way by different mirrors from the same batch at \SI[]{45}{\degree} incidence angle.
@@ -110,7 +110,7 @@ For the laser setup for the two-dimensional magneto-optical trap, table~\ref{tab
 Polarization is commonly represented in the Jones basis, the Mueller basis, or in the azimuth-ellipticity basis of a Poincaré sphere. For reference, this appendix chapter outlines transformations between the Jones and the azimuth-ellipticity basis as they were used for polarization characterizations in chapter~\ref{ch:projected_implementation}. The following explanations follow~\cite{trager_springer_2012}, but with a different definition of right- and left-handedness.
 
 \section*{Transformations}
-In the Jones basis, polarization is denoted using two orthogonal basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using the three real valued parameters $h > 0$, $v > 0$, $\phi$:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
+In the Jones basis, polarization is denoted using two orthogonal basis vectors, say $\{\KetText{H}, \KetText{V}\}$ (horizontal and vertical). Up to a global phase, each polarization vector $\vec J$ can be represented using the three real valued parameters $h > 0$, $v > 0$, and $\phi$:\footnote[1]{The sign of $\phi$ was chosen such that right-handed circular polarization is represented as $\frac{1}{\sqrt{2}}\begin{pmatrix}1 \\ -i \end{pmatrix}$ in the Jones basis, as $V > 0$ in the Mueller basis, and as $\epsilon  = \SI{45}{\degree}$ in the azimuth-ellipticity basis.}
 \begin{align}
     \vec J = \begin{pmatrix}h \\ v \exp(-i \phi)\end{pmatrix} = h \KetText{H} + v \exp(-i\phi) \KetText{V}
 \end{align}
@@ -213,7 +213,7 @@ def azimuth_ellipticity_to_jones(alpha, epsilon):
     v = v.conjugate()
     return h, v
 \end{lstlisting}
-Note that py-pol, as also in~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$. The $v$ component is conjugated here in order to comply with the definition of left and right circular polarization stated above.
+Note that py-pol, as does~\cite{trager_springer_2012}, defines $\KetText{R} = \frac{1}{\sqrt{2}}(\KetText{H}+i\KetText{V})$ and $\KetText{L} = \frac{1}{\sqrt{2}}(\KetText{H}-i\KetText{V})$. The $v$ component is conjugated here in order to comply with the definition of left and right circular polarization stated above.
 
 
 
@@ -236,17 +236,17 @@ The coil simulation library features three classes:
         \item the \texttt{on\_axis\_coil\_distance}, and
         \item whether the arrangement is operated in \texttt{gradient} mode.
     \end{itemize}
-    \item \texttt{FieldMap}: This class provides maps of the field generated by a \texttt{CoilArrangement} and can plot the field along slices through the field maps and generates 3D plots of them.
-    \item \texttt{CurvatureAnalyzer}: This class calculates trap frequencies and gradients of the field of an arrangement or pre-calculated field values.
+    \item \texttt{FieldMap}: This class provides maps and 3D plots of the field generated by a \texttt{CoilArrangement}. It can also plot the field along slices through the field maps.
+    \item \texttt{CurvatureAnalyzer}: This class calculates trap frequencies and gradients of the field in a coil arrangement or pre-calculated field values.
 \end{itemize}
 
 \paragraph*{Coil Geometries}
 The following coil geometries were implemented by subclassing \texttt{CoilArrangement}:
 \begin{itemize}
-    \item \texttt{ConeShapedCoilArrangement}: A cone-shaped arrangement with increasing radius of the winding layers along the coil axis. Parameterized by \texttt{windings\_axis} along the arrangement axis ($y$), \texttt{windings\_cross\_axis}, and the opening angle \texttt{cone\_angle} of the cone (relating the on-axis position of a winding layer and its radius).
+    \item \texttt{ConeShapedCoilArrangement}: A cone-shaped arrangement with increasing radius of the winding layers along the coil axis. It is parameterized by \texttt{windings\_axis} along the arrangement axis ($y$), \texttt{windings\_cross\_axis}, and the opening angle \texttt{cone\_angle} of the cone (relating the on-axis position of a winding layer and its radius).
     \item \texttt{StackShapedCoilArrangement}: A \texttt{ConeShapedCoilArrangement} with \texttt{cone\_angle} = \SI[]{0}{\degree}.
     \item \texttt{LithiumLayoutShapedCoilArrangement}: A coil arrangement as suggested in~\cite{gantner_magnetic_2012}.
-    \item \texttt{FourPancakeArrangement}: A coil arrangement of two equally sized stack shaped coils with a center-of-mass distance \texttt{coil\_width} for each other on each side of the arrangement (written by the student research assistant Jan Wozniak).
+    \item \texttt{FourPancakeArrangement}: A coil arrangement of two equally sized stack shaped coils with a center-of-mass distance \texttt{coil\_width} from each other on each side of the arrangement (written by the student research assistant Jan Wozniak).
     \item \texttt{FourPancakeArrangementWithJumpingCoils}: Arrangement of four coils with additional jumping coils (written by the student research assistant Jan Wozniak).
 \end{itemize}
 The next section explains how new coil geometries are implemented.
@@ -281,7 +281,7 @@ for row in range(self.windings_axis):
         collection.add(loop)
 return collection
 \end{lstlisting}
-The \texttt{current\_factor} ensures that the fields actually have same polarity in homogeneous field mode. The \texttt{self.gradient} property doesn't need to be considered here. The call to \texttt{self.get\_current} retrieves the current, which can be set independently for each coil and each winding.
+The \texttt{current\_factor} ensures that the fields actually have same polarity in homogeneous field mode. The \texttt{self.gradient} property does not need to be considered here. The call to \texttt{self.get\_current} retrieves the current, which the user is able set independently for each coil and each winding as pointed out above.
 
 \section*{Usage Examples}
 The usage of the \textit{coil simulation library} is exemplarily shown with the following examples of a \texttt{ConeShapedCoilArrangement}.
@@ -389,7 +389,7 @@ This chapter lists details of the geometrical specfication of the Feshbach coils
     \begin{subfigure}[t]{\textwidth}
         \centering
         \includegraphics[]{\imagepath/wire_specification/wire_specification.pdf}
-        \caption{Wire specification: The square copper wire has a side length of \SI{5.0}{\milli\meter}, the hollow core has a diameter of \SI{3.0}{\milli\meter}. On each side, a Kapton insulation layer of \SI{0.15}{\milli\meter} }
+        \caption{Wire specification: The square copper wire has a side length of \SI{5.0}{\milli\meter}, the hollow core has a diameter of \SI{3.0}{\milli\meter}. On each side, a Kapton insulation layer takes up additional \SI{0.15}{\milli\meter}.}
         \label{fig:wire_specification}
     \end{subfigure}
     \caption{Details of the geometrical specification of the Feshbach coils}
@@ -450,9 +450,9 @@ Figure~\ref{fig:rot_field} compares this rule of thumb to exact simulations with
 
 
 \section*{Gradient Fields}
-A similar rule of thumb can be formulated for the gradient around the center between coils in the same configuration, meaning the distance of the coils equals their radius, along the coil axis:
+A similar rule of thumb can be formulated for the gradient around the center between coils in the same configuration:
 \begin{align}\label{eq:rot_gradient}
-    \pdv{B(r, I)}{x_\text{on-axis}} \approx \left. \frac{I}{\SI{1}{\ampere}} \middle/ \left(\frac{r}{\SI{1}{\centi\meter}}\right)^2 ~\cdot~ \SI{1}{\gauss\per\centi\meter} \right.
+    \pdv{B(r, I)}{q_\text{on-axis}} \approx \left. \frac{I}{\SI{1}{\ampere}} \middle/ \left(\frac{r}{\SI{1}{\centi\meter}}\right)^2 ~\cdot~ \SI{1}{\gauss\per\centi\meter} \right.
 \end{align}
 
 Figure~\ref{fig:rot_gradient} compares the rule of thumb to simulations with the \textit{coil simulation library} (see~\ref{ch:simulation} and~\ref{ch:coil_simulation_library}). The rule of thumb underestimates the gradient by about \SI{10}{\percent}.

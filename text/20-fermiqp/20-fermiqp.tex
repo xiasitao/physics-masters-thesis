@@ -172,14 +172,14 @@ Single-qubit gates in the FermiQP demonstrator will be implemented with Raman tr
 \end{figure}
 
 \paragraph*{Two-Qubit Gates}
-Two-qubit operations in the FermiQP demonstrator will be implemented with collisional gates in double-wells of the superlattice. There, two atoms are entangled by lowering the potential barrier and allowing interaction between them. While the idea of collisional two-qubit gates in optical lattices dates back more than two decades~\cite{jaksch_fast_2000, anderlini_controlled_2006,trotzky_time-resolved_2008}, they have just recently been implemented with quantum computing in optical lattices entering the realm of possibility~\cite{dai_generation_2016, yang_cooling_2020, zhang_functional_2022}. These implementations, however, don't allow for individual gate control yet.
+Two-qubit operations in the FermiQP demonstrator will be implemented with collisional gates in double-wells of the superlattice. There, two atoms are entangled by lowering the potential barrier and allowing interaction between them. While the idea of collisional two-qubit gates in optical lattices dates back more than two decades~\cite{jaksch_fast_2000, anderlini_controlled_2006,trotzky_time-resolved_2008}, they have just recently been implemented with quantum computing in optical lattices entering the realm of possibility~\cite{dai_generation_2016, yang_cooling_2020, zhang_functional_2022}. These implementations, however, do not allow for individual gate control yet.
 
 Gate operations on arbitrary pairs of atoms can be performed by moving them into neighboring lattice sites in the double-wells of the superlattice with an optical tweezer, and then lowering the double-well barriers such that the atoms interact, as depicted in figure~\ref{fig:two_qubit_gates}. These two-qubit gate operations can be conducted for multiple pairs of atoms in parallel as lowering the potential barrier is a global operation, hence all neighboring pairs of atoms in double-wells interact at the same time.
 
 \begin{figure}
     \centering
     \includegraphics[]{\imagepath/two_qubit_gates/two_qubit_gates.pdf}
-    \caption{Two-qubit collisional gate scheme in the FermiQP demonstrator: a: Two atoms that are supposed to be entangled are moved into neighboring sites using an optical tweezer. b: The atoms are entangled by lowering the potential barrier in the double well (b.2) and letting the atoms interact. When the potential barrier is ramped up again, the two atoms stay entangled (purple ellipse). c: Then the atoms are moved to their original positions with the entanglement preserved.}
+    \caption{Two-qubit collisional gate scheme in the FermiQP demonstrator: a: Two atoms that are supposed to be entangled are moved into neighboring sites using an optical tweezer. b: The atoms are entangled by lowering the potential barrier in the double well (b.2) and letting the atoms interact. When the potential barrier is ramped up again, the two atoms stay entangled (purple ellipse). c: Then, the atoms are moved to their original positions with the entanglement preserved.}
     \label{fig:two_qubit_gates}
 \end{figure}
 
@@ -222,7 +222,7 @@ At the glass cell, the atoms will be recaptured in a three-dimensional magneto-o
 The FermiQP demonstrator will use several laser frequencies, most notably the near-resonant \SI[]{671}{\nano\meter} light for cooling the atoms in the magneto-optical traps, the gray molasses, and during Raman sideband cooling inthe optical lattice, far off-resonant \SI[]{1064}{\nano\meter}, \SI[]{1070}{\nano\meter}, and \SI[]{532}{\nano\meter} light for trapping in the optical dipole trap and the optical lattices, as well as \SI[]{323}{\nano\meter} light for Raman addressing.
 
 \paragraph{Imaging}
-Imaging signals will be collected by two high-numerical aperture objectives, one for visible and one for ultraviolet light, sitting below and above the glass cell. During imaging, the atoms caught in the optical lattices can be pinned down by a deep and narrow-spaced pinning lattice such that incident imaging light doesn't push them out of their positions.
+Imaging signals will be collected by two high-numerical aperture objectives, one for visible and one for ultraviolet light, sitting below and above the glass cell. During imaging, the atoms caught in the optical lattices can be pinned down by a deep and narrow-spaced pinning lattice such that incident imaging light does not push them out of their positions.
 
 \paragraph{Magnetic Fields}
 The magnetic gradients for the three-dimensional magneto-optical trap and the Fesh\-bach fields will be created by coils sitting left and right of the glass cell. They were developed and characterized during this thesis (in chapter~\ref{ch:coils}). In addition to that, six compensation coils around the experiment table provide arbitrary offset fields of up to \SI[]{3}{\gauss} at the position of the trapped atoms.
