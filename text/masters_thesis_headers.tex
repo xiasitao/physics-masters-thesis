@@ -10,11 +10,15 @@
 \printversionfalse
 
 \newif\ifdraft
-\drafttrue
+\draftfalse
 
 % === Page  ===
 \ifprintversion
-  \usepackage[paper=a4paper,bindingoffset=10mm,twoside]{geometry}
+  \usepackage[
+    paper=a4paper,
+    % bindingoffset=10mm,
+    twoside]
+  {geometry}
 \else 
   \usepackage[paper=a4paper]{geometry}
 \fi
@@ -151,11 +155,13 @@
 \PassOptionsToPackage{hyphens}{url}
 \AtEveryBibitem{
   \clearfield{urlyear}
+  \clearfield{note}
+  \clearfield{extra}
 }{}
 
 % === Title ===
 \title{Developing a 3D Magneto-Optical Trap and Feshbach Fields for a Fermion Quantum Processor}
-\newcommand{\titleDE}{Entwicklung der 3D- magneto-optischen Falle und der Feshbach-Felder eines Fermionen-Quantenprozessors}
+\newcommand{\titleDE}{Entwicklung der dreidimensionalen magneto-optischen Falle und der Feshbach-Felder eines Fermionen-Quantenprozessors}
 \author{Tobias Maximilian Philipp Schattauer}
 \date{December 2022}
 
